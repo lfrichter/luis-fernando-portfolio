@@ -1,5 +1,5 @@
 import React from 'react'
-import { PersonalInfo } from '@/types/profile'
+import type { PersonalInfo } from '@/types/profile'
 import { Separator } from '@/components/ui/separator'
 import { Mail, Heart } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from '@/components/icons/SocialIcons'

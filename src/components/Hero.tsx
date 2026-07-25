@@ -1,5 +1,5 @@
 import React from 'react'
-import { PersonalInfo } from '@/types/profile'
+import type { PersonalInfo } from '@/types/profile'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Mail, ArrowUpRight, Sparkles } from 'lucide-react'

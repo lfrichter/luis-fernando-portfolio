@@ -1,5 +1,5 @@
 import React from 'react'
-import { ExperienceItem } from '@/types/profile'
+import type { ExperienceItem } from '@/types/profile'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Briefcase, Calendar, MapPin, CheckCircle2 } from 'lucide-react'

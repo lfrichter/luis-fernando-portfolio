@@ -1,5 +1,5 @@
 import React from 'react'
-import { SkillCategory } from '@/types/profile'
+import type { SkillCategory } from '@/types/profile'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Cpu, Layout, Server, ShieldCheck } from 'lucide-react'

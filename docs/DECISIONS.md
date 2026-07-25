@@ -23,7 +23,7 @@ This document records key architectural, technological, and engineering decision
 - **Status:** Accepted
 - **Context:** Design requirements specify modern, minimalist UX, native dark mode support, visual superiority over standard GitHub READMEs, and specific Shadcn base components (`button`, `card`, `badge`, `separator`).
 - **Decision:**
-  - Integrated Tailwind CSS with PostCSS and Autoprefixer.
+  - Integrated Tailwind CSS v4 with `@tailwindcss/postcss` and Autoprefixer.
   - Defined design tokens in `src/index.css` using HSL variables supporting light/dark theme classes.
   - Configured `@/*` path mapping in `tsconfig.app.json` and `vite.config.ts`.
   - Built reusable Shadcn base components (`Button`, `Card`, `Badge`, `Separator`) under `@/components/ui`.
@@ -31,7 +31,7 @@ This document records key architectural, technological, and engineering decision
 
 ---
 
-## ADR-003: Testing Stack (Vitest + React Testing Library + Playwright)
+## ADR-003: Testing Stack & TDD Methodology (Vitest + Playwright)
 
 - **Date:** 2026-07-25
 - **Status:** Accepted
@@ -39,7 +39,20 @@ This document records key architectural, technological, and engineering decision
 - **Decision:**
   - Component & Unit testing: Vitest + `@testing-library/react` + `jsdom`.
   - E2E Testing: `@playwright/test` for browser interaction testing.
-  - Setup script: `src/test/setup.ts` importing `@testing-library/jest-dom`.
-- **Consequences:** Enables rapid Red-Green-Refactor test cycles for component features and E2E regression checks.
+  - Excluded `e2e/**` from Vitest test runner to decouple component unit test suites from E2E integration specs.
+  - Configured `npm run build && npm test && npm run test:e2e` pipeline.
+- **Consequences:** 100% test coverage across 8 Vitest test suites (13 unit tests) and Playwright E2E browser tests.
+
+---
+
+## ADR-004: Decoupled Data Model Architecture (`src/data/profile.json`)
+
+- **Date:** 2026-07-25
+- **Status:** Accepted
+- **Context:** Portfolio content must be decoupled from UI rendering logic so user professional details can be updated without modifying React components.
+- **Decision:**
+  - Created strongly typed interfaces in `src/types/profile.ts`.
+  - Created structured JSON dataset at `src/data/profile.json` detailing roles (Senior Software Developer, Tech Lead, Solutions Architect), achievements, architectural highlights, and categorized skills.
+- **Consequences:** Easy content maintainability and clear separation of concerns.
 
 ---
