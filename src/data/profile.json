@@ -1,0 +1,113 @@
+{
+  "personal": {
+    "name": "Luis Fernando Richter",
+    "title": "Senior Software Developer | Tech Lead | Solutions Architect",
+    "roles": [
+      "Solutions Architect",
+      "Tech Lead",
+      "Senior Software Developer"
+    ],
+    "bio": "Passionate engineering leader and systems architect specializing in high-concurrency cloud systems, distributed microservices, and modern web application platforms. Over 8+ years driving technical design, cloud infrastructure scaling, and high-performing engineering teams.",
+    "location": "Brazil (Remote Available)",
+    "status": "Available for High-Impact Architectural & Leadership Roles",
+    "email": "fernando.richter@gmail.com",
+    "github": "https://github.com/lfrichter",
+    "linkedin": "https://linkedin.com/in/lfrichter"
+  },
+  "experience": [
+    {
+      "id": "exp-1",
+      "company": "Enterprise Tech Solutions",
+      "role": "Tech Lead & Solutions Architect",
+      "period": "2024 - Present",
+      "location": "Remote",
+      "description": "Architecting resilient multi-tenant cloud platforms and leading cross-functional engineering squads in high-volume distributed systems.",
+      "achievements": [
+        "Architected event-driven microservices architecture processing 10M+ daily events with 99.99% availability.",
+        "Reduced cloud infrastructure operational costs by 35% through container optimization and serverless auto-scaling.",
+        "Mentored team of 12 software engineers, establishing TDD, code review practices, and CI/CD pipelines."
+      ],
+      "techStack": ["TypeScript", "React", "Node.js", "Go", "AWS", "Docker", "Kubernetes", "Supabase", "PostgreSQL"]
+    },
+    {
+      "id": "exp-2",
+      "company": "Fintech Global Labs",
+      "role": "Senior Software Developer & Backend Architect",
+      "period": "2021 - 2024",
+      "location": "Remote",
+      "description": "Designed core transactional engines, payment gateway integrations, and low-latency API architectures.",
+      "achievements": [
+        "Led implementation of sub-100ms real-time payment reconciliation pipeline.",
+        "Implemented zero-downtime database migration strategies and security compliance standards (PCI-DSS).",
+        "Refactored legacy monolith into domain-driven microservices, improving throughput by 4x."
+      ],
+      "techStack": ["TypeScript", "Python", "PostgreSQL", "Redis", "Kafka", "Docker", "React", "GraphQL"]
+    },
+    {
+      "id": "exp-3",
+      "company": "Digital Innovations Inc.",
+      "role": "Senior Full-Stack Developer",
+      "period": "2018 - 2021",
+      "location": "Hybrid",
+      "description": "Developed dynamic enterprise web applications, real-time dashboards, and micro-frontend architectures.",
+      "achievements": [
+        "Engineered real-time analytics dashboard consumed by 50k+ daily active enterprise users.",
+        "Introduced automated E2E testing framework with Playwright, reducing regression bug rates by 60%."
+      ],
+      "techStack": ["React", "TypeScript", "Node.js", "Tailwind CSS", "REST APIs", "Jest", "Vite"]
+    }
+  ],
+  "skillCategories": [
+    {
+      "name": "Architecture & Systems",
+      "skills": ["Distributed Systems", "Domain-Driven Design (DDD)", "Event-Driven Architecture", "Microservices", "System Scaling", "Security & PCI Compliance"]
+    },
+    {
+      "name": "Frontend Engineering",
+      "skills": ["React 18+", "TypeScript", "Next.js", "Vite", "Tailwind CSS", "Shadcn/ui", "State Management (Zustand/Redux)", "Performance Tuning (CWV)"]
+    },
+    {
+      "name": "Backend & Cloud",
+      "skills": ["Node.js", "Go", "Python", "PostgreSQL", "Redis", "Supabase", "Kafka", "AWS (Lambda, ECS, S3)", "Docker & Kubernetes"]
+    },
+    {
+      "name": "Quality & DevOps",
+      "skills": ["TDD (Vitest, Jest)", "E2E Testing (Playwright)", "CI/CD Pipelines (GitHub Actions)", "Monitoring & Observability", "Clean Code & Refactoring"]
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj-1",
+      "title": "High-Throughput Distributed Event Hub",
+      "description": "An enterprise-grade event publishing and stream processing platform supporting real-time webhooks and dead-letter queue resilience.",
+      "architectureHighlights": [
+        "Decoupled event broker architecture using Kafka & Redis streams",
+        "Automated failure recovery and automated retry strategies",
+        "Comprehensive observability dashboard built with React and Tailwind"
+      ],
+      "tags": ["Go", "Kafka", "TypeScript", "React", "Docker"],
+      "githubUrl": "https://github.com/lfrichter/event-hub",
+      "featured": true
+    },
+    {
+      "id": "proj-2",
+      "title": "Interactive Modern Portfolio Platform",
+      "description": "Ultra-fast, high-performance portfolio featuring native dark mode, glassmorphism design system, and full TDD coverage.",
+      "architectureHighlights": [
+        "Decoupled content JSON architecture allowing seamless updates",
+        "Comprehensive Vitest and Playwright test coverage",
+        "Tailwind CSS theme tokens with zero runtime overhead"
+      ],
+      "tags": ["React 18", "Vite", "TypeScript", "Tailwind CSS", "Shadcn/ui", "Vitest", "Playwright"],
+      "githubUrl": "https://github.com/lfrichter/luis-fernando-portfolio",
+      "featured": true
+    }
+  ],
+  "education": [
+    {
+      "degree": "B.S. in Computer Science",
+      "institution": "State University",
+      "period": "2014 - 2018"
+    }
+  ]
+}
