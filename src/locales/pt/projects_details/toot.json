@@ -21,6 +21,7 @@
       "solution": "Implementação de busca incremental paginada com Superfetch e agregação de dados no cliente."
     }
   ],
+  "architectureDiagramMermaid": "+----------------------------------+      +----------------------------------+\n| Dashboard React (200k Coordenadas)| ---> | Busca Incremental Paginada       |\n| (Interface Geoespacial de Mapas) |      | (Estratégia Superfetch 30x Fast) |\n+----------------------------------+      +----------------------------------+\n                                                           |\n                                                           v\n+----------------------------------+      +----------------------------------+\n| Servidor API Laravel & Geocoding | ---> | Workers Redis / Laravel Horizon  |\n| (Google Geocoding & Overpass)    |      | (Gargalo de Viagens 500x Faster) |\n+----------------------------------+      +----------------------------------+\n                                                           |\n                                                           v\n                                          +----------------------------------+\n                                          | Dashboards Executivos Power BI   |\n                                          +----------------------------------+",
   "metrics": [
     "30x de melhoria no tempo de carregamento de mapas com 200k+ registros",
     "500x mais rápido no processamento assíncrono de corridas com Laravel Horizon"

@@ -21,6 +21,7 @@
       "solution": "Implemented incremental paginated fetching with Superfetch and client-side data clustering."
     }
   ],
+  "architectureDiagramMermaid": "+----------------------------------+      +----------------------------------+\n| React Map Dashboard (200k Points)| ---> | Superfetch Paginated Incremental |\n| (Geospatial Map UI)              |      | (Superfetch 30x Fast Strategy)   |\n+----------------------------------+      +----------------------------------+\n                                                           |\n                                                           v\n+----------------------------------+      +----------------------------------+\n| Laravel API Server & Geocoding   | ---> | Redis / Laravel Horizon Workers  |\n| (Google Geocoding & Overpass)    |      | (Trip Processing 500x Speedup)   |\n+----------------------------------+      +----------------------------------+\n                                                           |\n                                                           v\n                                          +----------------------------------+\n                                          | Power BI Executive Dashboards    |\n                                          +----------------------------------+",
   "metrics": [
     "30x improvement in map load performance with 200k+ coordinate records",
     "500x faster asynchronous trip processing via Laravel Horizon queues"

@@ -21,6 +21,7 @@
       "solution": "Local FAISS vector cache returning responses instantly when prompt distance satisfies similarity threshold."
     }
   ],
+  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| Incoming User Query / Prompt                                              |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| Local Ollama Embedding Generator (Dense Vector Array)                     |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------+      +----------------------------------+\n| FAISS In-Memory IndexFlatL2      | ---> | Cache Hit (<10ms Response)       |\n| (Cosine Distance Thresholding)   |      | OR Cache Miss -> LLM Inference   |\n+----------------------------------+      +----------------------------------+",
   "metrics": [
     "Cache hit retrieval latency under 10ms",
     "100% local execution with zero cloud dependency"

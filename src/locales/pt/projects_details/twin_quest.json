@@ -20,6 +20,7 @@
       "solution": "Uso de stores Pinia fortemente tipadas com getters e ações imutáveis."
     }
   ],
+  "architectureDiagramMermaid": "+----------------------------------+      +----------------------------------+\n| Motor de Regras do Jogo & Ações  | ---> | Stores de Estado Pinia Tipadas   |\n+----------------------------------+      +----------------------------------+\n                                                           |\n                                                           v\n+----------------------------------------------------------------------------+\n| Camada de Renderização Reativa Vue 3 / TypeScript                          |\n+----------------------------------------------------------------------------+",
   "metrics": [
     "Arquitetura de estado limpa e fácil de testar"
   ]

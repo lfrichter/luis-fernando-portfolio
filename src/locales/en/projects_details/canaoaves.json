@@ -23,6 +23,7 @@
       "solution": "Created SECURITY DEFINER database functions and PostgreSQL Views exposing aggregated data via isolated serverless calls."
     }
   ],
+  "architectureDiagramMermaid": "+----------------------------------+     +-----------------------------------+ \n| Public Birdwatcher SPA (React)   |     | Admin Analytics Dashboard (React) | \n+----------------------------------+     +-----------------------------------+ \n                  \\                                       / \n                   v                                     v \n+----------------------------------------------------------------------------+ \n| Supabase Serverless Gateway & PostgreSQL RLS Security Policies             | \n+----------------------------------------------------------------------------+ \n                                     | \n                                     v \n+----------------------------------------------------------------------------+ \n| Security Definer Database Views & Functions (RLS Bypass for Global Stats)  | \n+----------------------------------------------------------------------------+",
   "metrics": [
     "Serving thousands of birdwatchers across Brazil with zero server infrastructure maintenance costs",
     "100% serverless deployment with Vercel and Supabase"

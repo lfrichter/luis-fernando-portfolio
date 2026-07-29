@@ -1,28 +1,29 @@
 {
   "id": "semantic-cache",
-  "title": "Cache Semântico para LLMs",
-  "subtitle": "PoC de Cache Semântico Local de Altíssima Performance",
+  "title": "Cache Semântico FAISS para LLMs",
+  "subtitle": "PoC de Cache Semântico Vetorial Local de Altíssima Velocidade",
   "category": "PoC & Open Source",
-  "summary": "Sistema de cache semântico 100% local em Python. Gera embeddings com Ollama e faz busca por similaridade em memória com índice FAISS e NumPy, reduzindo latência e custo de LLMs.",
-  "techStack": ["Python", "FAISS", "Ollama", "NumPy", "Vector Search", "LLMs"],
+  "tier": 3,
+  "summary": "Sistema de cache semântico 100% local em Python. Gera embeddings com Ollama e faz busca por similaridade em memória com FAISS e NumPy.",
+  "techStack": ["Python", "FAISS", "Ollama", "NumPy", "Vector Search"],
   "featured": false,
   "detailKey": "semantic_cache",
-  "overview": "Prova de Conceito (PoC) criada para demonstrar como reduzir a latência de respostas e os custos com chamadas a LLMs através de um cache de busca vetorial semântica operando 100% localmente.",
-  "roleDescription": "Idealizador e Desenvolvedor Único.",
+  "overview": "Prova de Conceito (PoC) demonstrando um cache semântico vetorial local de alta velocidade projetado para interceptar requisições de usuários, buscar respostas semânticas no índice FAISS e eliminar chamadas repetitivas e custosas às APIs de LLMs.",
+  "roleDescription": "Engenheiro de IA & Arquiteto Técnico.",
   "responsibilities": [
-    "Desenvolvimento da lógica de decisão Cache Hit / Cache Miss baseada em limiar de confiança semântica.",
-    "Integração do Ollama para geração de vetores de embedding locais e gratuitos, preservando privacidade total de dados.",
-    "Uso do FAISS (Facebook AI Similarity Search) para consulta a índices vetoriais em memória em tempo de milissegundos.",
-    "Otimização computacional de arrays com NumPy."
+    "Integração do Ollama localmente para geração de embeddings vetoriais a partir de prompts.",
+    "Construção do mecanismo de busca vetorial FAISS IndexFlatL2 em memória.",
+    "Implementação de cálculo de distância cosseno com NumPy para limiar de decisão."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Evitar custos e latência de APIs externas de embeddings ao consultar o cache.",
-      "solution": "Execução local de modelos de embedding via Ollama integrada ao índice FAISS em memória."
+      "challenge": "Reduzir custos e latência em consultas de LLM com perguntas semelhantes.",
+      "solution": "Cache vetorial FAISS local que retorna a resposta instantaneamente quando a distância semântica é inferior ao limiar."
     }
   ],
+  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| Prompt / Consulta do Usuário                                               |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| Gerador de Embeddings Ollama Local (Array de Vetores Densos)               |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------+      +----------------------------------+\n| Índice FAISS IndexFlatL2 Memória | ---> | Cache Hit (Resposta <10ms)       |\n| (Cálculo de Distância Cosseno)   |      | OU Cache Miss -> Chamada LLM     |\n+----------------------------------+      +----------------------------------+",
   "metrics": [
-    "Respostas de 'Cache Hit' entregues em menos de 10ms",
-    "Economia potencial de até 90% em chamadas a APIs pagas de LLMs para perguntas recorrentes"
+    "Latência de recuperação em caso de cache hit abaixo de 10ms",
+    "Execução 100% local sem dependência de APIs externas na nuvem"
   ]
 }

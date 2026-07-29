@@ -22,6 +22,7 @@
       "solution": "Uso de Redis locks distribuídos, ordenação estrita de mensagens em filas assíncronas e sincronização atômica de estoque."
     }
   ],
+  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| Webhooks de Marketplaces (Mercado Livre, B2W, Via Varejo, ERP Bling)       |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| Gateway de Ingestão PHP/Laravel & Redis Queue Locks Distribuídos (Horizon) |\n+----------------------------------------------------------------------------+\n               /                                            \\\n              v                                              v\n+----------------------------------+      +----------------------------------+\n| Repositório MongoDB Document     |      | Motor de Sincronização Atômica   |\n| (Esquemas Flexíveis de Pedidos)  |      | (Locks de Estoque & Preços)      |\n+----------------------------------+      +----------------------------------+",
   "metrics": [
     "Processamento resiliente de milhares de pedidos diários",
     "Zero ocorrências de overselling com estoques sincronizados em tempo real"

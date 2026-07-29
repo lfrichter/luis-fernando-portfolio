@@ -21,6 +21,7 @@
       "solution": "Eager loading (with) in Laravel Eloquent, MySQL composite indexing, and multi-tier caching."
     }
   ],
+  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| Shosales Laravel / Vue.js Web Portal & Real Estate Directory               |\n+----------------------------------------------------------------------------+\n               /                                            \\\n              v                                              v\n+----------------------------------+      +----------------------------------+\n| MySQL Eager Loading (with)       |      | Parallel E2E Testing Pipelines   |\n| & Query Cache Layer (10x Speed)  |      | (Laravel Dusk + Headless Selenium)\n+----------------------------------+      +----------------------------------+",
   "metrics": [
     "10x speedup in web page response times",
     "Reduced continuous integration build duration via parallel Dusk execution"

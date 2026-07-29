@@ -21,6 +21,7 @@
       "solution": "Uso do PySpark DataFrames permitindo que a mesma lógica processe volumes de dados em larga escala no futuro."
     }
   ],
+  "architectureDiagramMermaid": "+----------------------------------+      +----------------------------------+\n| Tabelas SQLite Renderização      | ---> | Motor PySpark ETL Distribuído    |\n+----------------------------------+      +----------------------------------+\n                                                           |\n                                                           v\n+----------------------------------+      +----------------------------------+\n| DataFrames Joins (1:N Roteiros)  | ---> | Análise Jupyter Notebook &       |\n| & Consolidação de Dados          |      | Exportação para Data Lake        |\n+----------------------------------+      +----------------------------------+",
   "metrics": [
     "Pipeline ETL validado e pronto para escalabilidade em Data Lakes"
   ]

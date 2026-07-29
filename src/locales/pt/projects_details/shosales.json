@@ -21,6 +21,7 @@
       "solution": "Eager loading (with) no Laravel Eloquent, inclusão de índices compostos no MySQL e cache em camada."
     }
   ],
+  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| Portal Imobiliário Laravel / Vue.js & Diretório de Propriedades (Reino Unido)|\n+----------------------------------------------------------------------------+\n               /                                            \\\n              v                                              v\n+----------------------------------+      +----------------------------------+\n| MySQL Eager Loading (with)       |      | Pipelines de Testes Paralelos    |\n| & Camada de Cache (Otimização 10x|      | (Laravel Dusk + Headless Selenium)\n+----------------------------------+      +----------------------------------+",
   "metrics": [
     "Aumento de 10x na velocidade de resposta das páginas",
     "Redução no tempo de integração contínua com testes paralelos Dusk"

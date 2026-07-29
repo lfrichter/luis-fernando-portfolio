@@ -21,6 +21,7 @@
       "solution": "Uso de interfaces de repositório e injeção de dependências nativa."
     }
   ],
+  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| Clientes HTTP REST / Consumidores de API                                   |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| Core de Domínio Clean Architecture (Casos de Uso & Entidades de Negócio)   |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| Camada de Infraestrutura Desacoplada (Interfaces Repositório & Inversão DIP)|\n+----------------------------------------------------------------------------+",
   "metrics": [
     "100% de cobertura das regras de negócio com Jest",
     "Zero acoplamento com a camada de persistência"

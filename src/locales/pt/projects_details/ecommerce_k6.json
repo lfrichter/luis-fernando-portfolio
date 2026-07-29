@@ -20,7 +20,8 @@
       "solution": "Simulação em rampa com k6 e medição de tempos de resposta no P95 e P99."
     }
   ],
+  "architectureDiagramMermaid": "+----------------------------------+      +----------------------------------+\n| Gerador de Carga k6 / JMeter     | ---> | Endpoints REST Alvo do Benchmark |\n| (Simulação de 10k Usuários VUs)  |      | (Microsserviços de E-Commerce)   |\n+----------------------------------+      +----------------------------------+\n                                                           |\n                                                           v\n+----------------------------------------------------------------------------+\n| Profiling de Gargalos & Medição de Percentis de Latência P95 e P99         |\n+----------------------------------------------------------------------------+",
   "metrics": [
-    "Identificação de pontos críticos no P99 de latência"
+    "Identificação de pontos críticos no P99 de latência sob 10k VUs"
   ]
 }

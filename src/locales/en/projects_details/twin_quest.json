@@ -20,6 +20,7 @@
       "solution": "Utilized strongly typed Pinia stores with immutable getters and actions."
     }
   ],
+  "architectureDiagramMermaid": "+----------------------------------+      +----------------------------------+\n| Game Rule Engine & State Actions | ---> | Pinia Strongly-Typed State Stores|\n+----------------------------------+      +----------------------------------+\n                                                           |\n                                                           v\n+----------------------------------------------------------------------------+\n| Vue 3 / TypeScript Reactive Rendering Layer                                |\n+----------------------------------------------------------------------------+",
   "metrics": [
     "Clean, testable frontend state architecture"
   ]

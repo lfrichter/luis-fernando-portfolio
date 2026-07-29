@@ -3,36 +3,38 @@
   "title": "Ask Richter",
   "subtitle": "Meu CV Interativo com IA (Arquitetura RAG Full-Stack)",
   "category": "AI/LLM",
+  "tier": 1,
   "summary": "Chatbot interativo utilizando RAG (Retrieval-Augmented Generation), FAISS em memória, LangChain.js, Node.js/Express, Supabase, Next.js, Shadcn/ui e LLMs.",
   "techStack": ["Node.js", "TypeScript", "LangChain.js", "FAISS", "Supabase", "Next.js", "OpenAI", "Docker", "Render", "Vercel"],
   "featured": true,
   "githubUrl": "https://github.com/lfrichter/ask-richter",
   "detailKey": "ask_richter",
-  "overview": "O projeto 'Ask Richter' transforma o currículo profissional tradicional em uma experiência de diálogo interativa e inteligente. Permite que recrutadores e líderes técnicos explorem o histórico de carreira através de perguntas em linguagem natural com respostas precisas baseadas em um banco vetorial de conhecimento.",
-  "roleDescription": "Arquiteto e Desenvolvedor Full-Stack responsável pela concepção da solução RAG, engenharia de prompts, vetorização e desenvolvimento do frontend/backend.",
+  "overview": "O projeto 'Ask Richter' transforma um currículo tradicional em uma experiência conversacional inteligente e interativa. Permite que recrutadores e lideranças técnicas explorem minha trajetória profissional através de linguagem natural com respostas embasadas em dados estruturados.",
+  "roleDescription": "Arquiteto e Desenvolvedor Full-Stack responsável pelo design da solução RAG, engenharia de prompt, vetorização e implementação frontend/backend.",
   "responsibilities": [
-    "Construção do script de indexação em LangChain.js (DirectoryLoader, RecursiveCharacterTextSplitter) e vetorização com embeddings OpenAI text-embedding-3-small.",
-    "Persistência e recuperação do índice vetorial FAISS através do Supabase Storage.",
-    "Desenvolvimento de API RESTful em Node.js, Express e TypeScript com endpoints otimizados de busca semântica.",
-    "Frontend reativo em Next.js App Router com Shadcn/ui, Tailwind CSS e renderização de respostas em Markdown com destaques de sintaxe.",
-    "Automação de CI/CD via GitHub Actions e infraestrutura containerizada em Docker no Render.com."
+    "Construção do pipeline de indexação em LangChain.js (DirectoryLoader, RecursiveCharacterTextSplitter) e vetorização com OpenAI text-embedding-3-small.",
+    "Persistência e recuperação de índice vetorial FAISS via Supabase Storage.",
+    "Desenvolvimento de API RESTful em Node.js, Express e TypeScript com rotas otimizadas para busca por similaridade semântica.",
+    "Frontend reativo em Next.js App Router com Shadcn/ui e Tailwind CSS, incluindo suporte a Markdown com syntax highlighting.",
+    "CI/CD automatizado via GitHub Actions e deploy containerizado no Render.com com Docker."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Busca por similaridade semântica rápida e baixo custo de infraestrutura em nuvem.",
-      "solution": "Indexação prévia de documentos Markdown em FAISS armazenado no Supabase Storage, carregando o índice em memória na inicialização do container Node.js."
+      "challenge": "Busca rápida por similaridade semântica mantendo baixo custo de infraestrutura em nuvem.",
+      "solution": "Documentos Markdown pré-indexados em FAISS persistidos no Supabase Storage, carregando o índice em memória na inicialização do container Node.js."
     },
     {
-      "challenge": "Respostas concisas e contextualmente precisas sem alucinações da LLM.",
-      "solution": "Engenharia de prompt RAG com injeção rigorosa dos fragmentos extraídos da busca vetorial e limites de temperatura."
+      "challenge": "Garantir respostas concisas e contextualizadas sem alucinações da LLM.",
+      "solution": "Engenharia de prompt RAG com injeção estrita dos fragmentos recuperados da busca vetorial e controle de temperatura."
     }
   ],
+  "architectureDiagramMermaid": "+--------------------------------+       +--------------------------------+\n| Interface de Chat Next.js      | ----> | Gateway de API Node.js/Express |\n| (React 19 / Shadcn UI)         |       | (TypeScript / REST Routes)     |\n+--------------------------------+       +--------------------------------+\n                                                         |\n                                                         v\n+--------------------------------+       +--------------------------------+\n| Índice Vetorial FAISS Memória  | <---  | OpenAI text-embedding-3-small  |\n| (Recuperado do Supabase Storage)       | (Pipeline LangChain.js Splitter)|\n+--------------------------------+       +--------------------------------+\n                 |\n                 v\n+--------------------------------+\n| Gerador de Respostas OpenAI LLM|\n+--------------------------------+",
   "futureEvolution": [
-    "Suporte a áudio bidirecional (STT e TTS).",
-    "Integração com métricas de telemetria em tempo real via OpenTelemetry."
+    "Suporte a voz bidirecional (STT e TTS).",
+    "Integração com OpenTelemetry para telemetria em tempo real."
   ],
   "metrics": [
-    "Busca por similaridade semântica respondida em menos de 150ms",
-    "100% de cobertura dos dados profissionais em formato RAG"
+    "Busca por similaridade semântica respondendo em menos de 150ms",
+    "100% de cobertura dos dados profissionais no formato RAG"
   ]
 }

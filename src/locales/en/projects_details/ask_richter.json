@@ -28,6 +28,7 @@
       "solution": "RAG prompt engineering strictly injecting vector search fragments with temperature controls."
     }
   ],
+  "architectureDiagramMermaid": "+--------------------------------+       +--------------------------------+\n| Next.js / Shadcn UI Chat UI    | ----> | Node.js / Express REST Gateway |\n| (React 19 / Markdown Parser)   |       | (TypeScript / REST Endpoints)  |\n+--------------------------------+       +--------------------------------+\n                                                         |\n                                                         v\n+--------------------------------+       +--------------------------------+\n| In-Memory FAISS Vector Index   | <---  | OpenAI text-embedding-3-small  |\n| (Fetched from Supabase Storage)|       | (LangChain.js Document Splitter)|\n+--------------------------------+       +--------------------------------+\n                 |\n                 v\n+--------------------------------+\n| OpenAI LLM Response Generator  |\n+--------------------------------+",
   "futureEvolution": [
     "Bidirectional voice support (STT and TTS).",
     "Real-time telemetry integration with OpenTelemetry."

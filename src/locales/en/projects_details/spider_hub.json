@@ -22,6 +22,7 @@
       "solution": "Implemented distributed Redis locks, strict queue job ordering, and atomic inventory sync."
     }
   ],
+  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| Marketplace Webhooks (Mercado Livre, B2W, Via Varejo, Bling ERP)           |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| PHP / Laravel Ingestion Gateway & Distributed Redis Queue Locks (Horizon)  |\n+----------------------------------------------------------------------------+\n               /                                            \\\n              v                                              v\n+----------------------------------+      +----------------------------------+\n| MongoDB Document Store           |      | Atomic Stock & Pricing Sync      |\n| (Heterogeneous Order Schemas)    |      | (Zero Overselling Lock Engine)   |\n+----------------------------------+      +----------------------------------+",
   "metrics": [
     "Resilient processing of thousands of daily orders",
     "Zero overselling incidents with real-time synchronized stock levels"

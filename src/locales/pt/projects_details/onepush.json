@@ -21,6 +21,7 @@
       "solution": "Uso de Event Listeners acoplados a filas em background no Laravel."
     }
   ],
+  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| Gerador de Eventos dos Websites Clientes                                   |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| Listeners de Eventos Laravel & Filas Assíncronas de Processamento         |\n+----------------------------------------------------------------------------+\n               /                                            \\\n              v                                              v\n+----------------------------------+      +----------------------------------+\n| API RESTful OneSignal Web Push   |      | Gateway de Cobrança Pagar.me     |\n+----------------------------------+      +----------------------------------+",
   "metrics": [
     "Entrega instantânea de notificações Web Push sem impacto no tempo de resposta HTTP"
   ]

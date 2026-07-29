@@ -28,6 +28,7 @@
       "solution": "Migrated to server-side httpOnly cookies and Next.js Route Handlers acting as an API gateway proxy."
     }
   ],
+  "architectureDiagramMermaid": "+--------------------------------+       +--------------------------------+\n|  Next.js App Router Frontend   | ----> | Route Handlers API Gateway     |\n|  (React 19 / Tailwind CSS)     |       | (httpOnly JWT Cookies Proxy)   |\n+--------------------------------+       +--------------------------------+\n                                                         |\n                                                         v\n+--------------------------------+       +--------------------------------+\n| Java / Spring Boot Backend API | ----> | Async Video Rendering Engine   |\n| (Adapter Pattern & DTO Specs)  |       | (Payload Adapter & Job Queues) |\n+--------------------------------+       +--------------------------------+",
   "metrics": [
     "100% token security migrated to server-side httpOnly cookies",
     "Real-time video rendering status monitored via reactive polling"

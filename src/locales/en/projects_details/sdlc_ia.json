@@ -21,6 +21,7 @@
       "solution": "Established strict validation pipelines with automated linting, immediate TDD execution, and security-focused code reviews."
     }
   ],
+  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| Developer Workstation (Cursor IDE / Trae / VS Code + Copilot)              |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------+     +-----------------------------------+\n| Custom Prompt Repositories       | --> | Automated TDD Test Generation     |\n| & Architectural Personas         |     | (Vitest / Jest / Pytest / Dusk)   |\n+----------------------------------+     +-----------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| Automated Linting, OpenAPI Spec Validation & Security Review Pipeline      |\n+----------------------------------------------------------------------------+",
   "metrics": [
     "Up to 40% increase in feature delivery speed",
     "Immediate elevation of automated unit test coverage"

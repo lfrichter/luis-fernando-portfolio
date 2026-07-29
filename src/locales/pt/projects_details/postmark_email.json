@@ -1,29 +1,29 @@
 {
   "id": "postmark-email-task",
   "title": "Gerenciador Conversacional por E-mail",
-  "subtitle": "Challenge Postmark API + Event-Driven Laravel & Livewire",
-  "category": "Full Stack",
-  "summary": "Transforma e-mails recebidos via Postmark Inbound Webhook em tarefas interativas no Laravel usando comandos como #prioridade e #concluir. UI reativa em Livewire e testes em Pest.",
-  "techStack": ["Laravel", "Livewire", "Tailwind CSS", "Postmark API", "Pest", "Event-Driven"],
+  "subtitle": "Postmark Challenge + Event-Driven Laravel & Livewire",
+  "category": "PoC & Open Source",
+  "tier": 3,
+  "summary": "Transforma e-mails recebidos via Postmark Inbound Webhook em tarefas no Laravel usando hashtags (#prioridade, #concluir) com UI reativa em Livewire.",
+  "techStack": ["Laravel", "Livewire", "Postmark API", "Pest", "Tailwind CSS"],
   "featured": false,
   "githubUrl": "https://github.com/lfrichter/Interactive-email-management",
   "detailKey": "postmark_email",
-  "overview": "Aplicação criada para o Postmark Challenge que elimina a fricção entre a caixa de entrada de e-mails e gerenciadores de tarefas. O usuário cria, atualiza e conclui tarefas enviando ou respondendo e-mails com hashtags acionáveis.",
-  "roleDescription": "Idealizador e Desenvolvedor Full-Stack.",
+  "overview": "Sistema orientado a eventos que intercepta e-mails recebidos via Webhooks do Postmark, analisa o corpo da mensagem em busca de hashtags (#prioridade, #concluir, #deletar) e atualiza quadros de tarefas interativos em tempo real.",
+  "roleDescription": "Desenvolvedor Principal.",
   "responsibilities": [
-    "Implementação de recepção e parsing assíncrono de e-mails em tempo real via Postmark Inbound Webhooks.",
-    "Desenvolvimento de motor de comandos customizado em Laravel para detecção de hashtags (#prioridade, #concluir, #comentario).",
-    "Frontend reativo sem necessidade de SPA desacoplada, utilizando Laravel Livewire e Tailwind CSS.",
-    "Garantia de qualidade e testes automatizados de fluxo com Pest."
+    "Configuração do Postmark Inbound Webhooks e validação de payloads HTTP.",
+    "Engenharia do mecanismo de parsing de hashtags com expressões regulares para conversão do assunto/corpo do e-mail em tarefas estruturadas.",
+    "Construção de dashboard reativo em página única utilizando Laravel Livewire e testes automatizados em Pest."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Parsing seguro de texto não estruturado vindo de diferentes clientes de e-mail.",
-      "solution": "Motor de expressões regulares e comandos modularizados no Laravel com respostas reativas automatizadas via e-mail."
+      "challenge": "Processar o payload de webhooks recebidos com confiabilidade e sem perdas de requisições.",
+      "solution": "Processamento assíncrono em fila e verificação de assinatura de segurança do Postmark."
     }
   ],
+  "architectureDiagramMermaid": "+----------------------------------+      +----------------------------------+\n| E-mail Enviado para o Sistema    | ---> | Postmark Inbound Webhook         |\n+----------------------------------+      +----------------------------------+\n                                                           |\n                                                           v\n+----------------------------------+      +----------------------------------+\n| Parser Regex Hashtags no Laravel | ---> | Painel Reativo Livewire          |\n| (#prioridade, #concluir -> DB)   |      | (Atualização Instantânea na UI)  |\n+----------------------------------+      +----------------------------------+",
   "metrics": [
-    "100% de cobertura das regras de negócio com testes automatizados Pest",
-    "Atualização reativa instantânea no painel Livewire ao receber webhooks"
+    "Criação de tarefas a partir de e-mails em tempo sub-segundo"
   ]
 }

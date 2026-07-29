@@ -21,6 +21,7 @@
       "solution": "Utilized PySpark DataFrames allowing identical transformation logic to process large-scale data in production."
     }
   ],
+  "architectureDiagramMermaid": "+----------------------------------+      +----------------------------------+\n| Raw SQLite Video Render Tables   | ---> | PySpark Distributed ETL Engine   |\n+----------------------------------+      +----------------------------------+\n                                                           |\n                                                           v\n+----------------------------------+      +----------------------------------+\n| DataFrame Joins (1:N Scripts)    | ---> | Jupyter Notebook Analytics &     |\n| & Relational Data Consolidation  |      | Data Lake Export                 |\n+----------------------------------+      +----------------------------------+",
   "metrics": [
     "Validated ETL pipeline ready for Data Lake scaling"
   ]

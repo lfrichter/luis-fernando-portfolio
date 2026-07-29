@@ -27,6 +27,7 @@
       "solution": "Automated OCR pipeline (Pytesseract) analyzing menu images and dynamically generating multi-tenant agent prompts."
     }
   ],
+  "architectureDiagramMermaid": "+-------------------+      +--------------------+      +--------------------+\n| Telephony / SIP   | ---> | LiveKit Media      | ---> | Silero VAD         |\n| (SIP Trunks)      |      | Server (WebRTC)    |      | (Voice Detection)  |\n+-------------------+      +--------------------+      +--------------------+\n                                                                  |\n                                                                  v\n+-------------------+      +--------------------+      +--------------------+\n| ElevenLabs /      | <--- | GPT-4o-mini LLM    | <--- | Deepgram STT       |\n| OpenAI TTS        |      | (Function Calling) |      | (Audio Transcribe) |\n+-------------------+      +--------------------+      +--------------------+\n          |                                                       |\n          v                                                       v\n+---------------------------------------------------------------------------+\n| Supabase PostgreSQL (RLS Multi-Tenant) & Pytesseract OCR Engine (Menus)   |\n+---------------------------------------------------------------------------+",
   "metrics": [
     "End-to-end speech-to-speech latency maintained in milliseconds",
     "100% multi-tenant architecture designed for Docker Swarm scalability"

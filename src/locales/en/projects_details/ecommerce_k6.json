@@ -20,6 +20,7 @@
       "solution": "Ramp-up load testing using k6, measuring P95 and P99 latency percentiles."
     }
   ],
+  "architectureDiagramMermaid": "+----------------------------------+      +----------------------------------+\n| k6 / JMeter Load Generator       | ---> | Targeted REST API Endpoints      |\n| (Ramp-up to 10k Virtual Users)   |      | (E-Commerce Microservices)       |\n+----------------------------------+      +----------------------------------+\n                                                           |\n                                                           v\n+----------------------------------------------------------------------------+\n| Bottleneck Profiling & P95 / P99 Latency Percentiles Measurement          |\n+----------------------------------------------------------------------------+",
   "metrics": [
     "Pinpointed latency bottlenecks at P99 threshold under 10k VUs"
   ]

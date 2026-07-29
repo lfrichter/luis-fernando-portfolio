@@ -22,6 +22,7 @@
       "solution": "Queued inbound webhook processing and verified signatures for security."
     }
   ],
+  "architectureDiagramMermaid": "+----------------------------------+      +----------------------------------+\n| Incoming Email via Postmark      | ---> | Postmark Inbound Webhook         |\n+----------------------------------+      +----------------------------------+\n                                                           |\n                                                           v\n+----------------------------------+      +----------------------------------+\n| Laravel Regex Hashtag Parser     | ---> | Livewire Reactive Single-Page    |\n| (#priority, #done -> DB Task)    |      | Board (Instant UI Updates)       |\n+----------------------------------+      +----------------------------------+",
   "metrics": [
     "Sub-second task creation directly from email messages"
   ]

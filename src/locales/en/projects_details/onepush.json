@@ -21,6 +21,7 @@
       "solution": "Decoupled notification dispatch using background Laravel queue jobs."
     }
   ],
+  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| Client Website Event Dispatcher                                           |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| Laravel Event Listeners & Async Queue Workers                              |\n+----------------------------------------------------------------------------+\n               /                                            \\\n              v                                              v\n+----------------------------------+      +----------------------------------+\n| OneSignal Web Push REST API      |      | Pagar.me Gateway Billing Engine  |\n+----------------------------------+      +----------------------------------+",
   "metrics": [
     "Instant Web Push notification delivery without impacting HTTP request latency"
   ]

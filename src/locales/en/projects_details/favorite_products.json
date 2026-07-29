@@ -21,6 +21,7 @@
       "solution": "Utilized repository interfaces and native dependency injection."
     }
   ],
+  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| HTTP REST Clients / API Consumers                                          |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| Clean Architecture Core Domain (Use Cases & Entities)                      |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| Decoupled Infrastructure Layer (Repository Interfaces & Inversion of Control)|\n+----------------------------------------------------------------------------+",
   "metrics": [
     "100% test coverage of core business domain rules with Jest",
     "Zero tight coupling to database persistence layer"

@@ -1,38 +1,36 @@
 {
   "id": "smart-shorts",
-  "title": "SmartShorts",
+  "title": "SmartShorts & SmartShorts UI",
   "subtitle": "SaaS de Geração Automatizada de Vídeos (Next.js + Spring Boot)",
   "category": "SaaS",
-  "summary": "Plataforma de criação automatizada de vídeos curtos/longos com IA. Frontend em Next.js App Router com cookies httpOnly JWT e backend robusto em Java / Spring Boot.",
-  "techStack": ["Next.js", "React", "TypeScript", "Java", "Spring Boot", "Axios", "Tailwind CSS", "Vitest", "Docker"],
+  "tier": 1,
+  "summary": "Plataforma de criação automatizada de vídeos curtos/longos com IA. Frontend Next.js App Router com cookies httpOnly JWT e backend em Java / Spring Boot.",
+  "techStack": ["Next.js", "React", "TypeScript", "Java", "Spring Boot", "Axios", "Tailwind CSS", "Vitest"],
   "featured": true,
   "githubUrl": "https://github.com/lfrichter/smartshorts-ui",
   "detailKey": "smart_shorts",
-  "overview": "O SmartShorts é um SaaS inovador para criadores de conteúdo e agências de marketing que transforma um simples prompt de texto em vídeos com narração, imagens, legendas sincronizadas e trilha sonora automatizada.",
-  "roleDescription": "Arquiteto Frontend e Desenvolvedor Full-Stack na modernização e migração da UI do SmartShorts de uma SPA React/Vite para uma arquitetura SSR/CSR robusta com Next.js App Router.",
+  "overview": "O SmartShorts é um SaaS inovador para criadores de conteúdo e agências de marketing que transforma simples ideias de texto em vídeos completos com narração, imagens, legendas sincronizadas e trilha sonora.",
+  "roleDescription": "Arquiteto Frontend e Desenvolvedor Full-Stack na modernização da UI e migração de Vite/React para Next.js App Router.",
   "responsibilities": [
-    "Re-arquitetura completa da autenticação: substituição de localStorage por Route Handlers server-side proxy para a API Java, salvando tokens JWT em cookies httpOnly.",
+    "Re-arquitetura completa de autenticação: substituição do localStorage por Route Handlers server-side no Next.js como proxy para a API Spring Boot, armazenando JWTs em cookies httpOnly.",
     "Implementação de middleware de proteção de rotas (middleware.ts).",
-    "Desenvolvimento de camada de tradução de payloads (Adapter Pattern) para conversão de dados legados no frontend em DTOs exigidos pela API Spring Boot.",
+    "Desenvolvimento de camada de tradução de payloads (Adapter Pattern) para adequar estruturas JSON do frontend legado às especificações DTO do Java.",
     "Configuração de suíte de testes com Vitest, React Testing Library e jsdom.",
-    "Criação de hooks customizados como useJobPolling com genéricos TypeScript."
+    "Criação de custom hooks como useJobPolling com genéricos TypeScript."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Erro 403 Forbidden e inconsistência de payloads entre frontend e backend Java.",
-      "solution": "Criação de adapters fortemente tipados no TypeScript para normalização de JSONs em tempo de compilação e execução."
+      "challenge": "Erros 403 Forbidden e incompatibilidade de contrato de dados entre o frontend e o backend em Java.",
+      "solution": "Criação de adaptadores fortemente tipados em TypeScript garantindo normalização de dados em tempo de build e execução."
     },
     {
-      "challenge": "Vulnerabilidade XSS na retenção de tokens JWT no navegador.",
-      "solution": "Migração para cookies httpOnly e Route Handlers no Next.js como API gateway proxy."
+      "challenge": "Vulnerabilidade XSS na retenção de tokens JWT no localStorage do navegador.",
+      "solution": "Migração para cookies httpOnly gerenciados no servidor e Route Handlers no Next.js atuando como API Gateway Proxy."
     }
   ],
-  "futureEvolution": [
-    "Integração de renderização nativa de efeitos visuais via WebAssembly.",
-    "Edição em tempo real de linhas do tempo com áudio multifaixas."
-  ],
+  "architectureDiagramMermaid": "+--------------------------------+       +--------------------------------+\n|  Next.js App Router Frontend   | ----> | Route Handlers API Gateway     |\n|  (React 19 / Tailwind CSS)     |       | (httpOnly JWT Cookies Proxy)   |\n+--------------------------------+       +--------------------------------+\n                                                         |\n                                                         v\n+--------------------------------+       +--------------------------------+\n| Java / Spring Boot Backend API | ----> | Motor Assíncrono de Renderização|\n| (Adapter Pattern & Specs DTO)  |       | (Payload Adapter & Job Queues) |\n+--------------------------------+       +--------------------------------+",
   "metrics": [
-    "Segurança de tokens 100% migrada para cookies httpOnly server-side",
-    "Polimento e status de jobs monitorados em tempo real via Polling Reativo"
+    "100% de segurança de tokens migrada para cookies httpOnly no servidor",
+    "Monitoramento de status de renderização em tempo real via polling reativo"
   ]
 }

@@ -21,6 +21,7 @@
       "solution": "Estabelecimento de pipeline de validação rigorosa com linting automatizado, testes TDD imediatos e revisões focadas em segurança."
     }
   ],
+  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| Estação do Desenvolvedor (Cursor IDE / Trae / VS Code + Copilot)           |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------+     +-----------------------------------+\n| Repositórios de Prompts          | --> | Geração Automática de Testes TDD  |\n| & Personas de Arquitetura        |     | (Vitest / Jest / Pytest / Dusk)   |\n+----------------------------------+     +-----------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| Pipeline de Validação: Linting, OpenAPI Specs & Security Review            |\n+----------------------------------------------------------------------------+",
   "metrics": [
     "Aumento de até 40% na velocidade de entrega de novas features",
     "Elevação imediata da cobertura de testes unitários automatizados"
