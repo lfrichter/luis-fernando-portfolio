@@ -1,0 +1,45 @@
+{
+  "name": "Luis Fernando Richter",
+  "title": "Senior Software Developer | Tech Lead | Solutions Architect",
+  "location": "Sorocaba, São Paulo, Brazil",
+  "email": "fernando.richter@gmail.com",
+  "phone": "+55 15 981308235",
+  "bio": "Senior Software Engineer and Architect with over 15 years of experience building high-performance systems, microservice architectures, and AI-driven solutions. Proven expertise in accelerating engineering workflows using AI-assisted tools (Cursor, Copilot, Trae, Gemini Code Assist, LLMs, RAG). Strong track record of reducing technical debt, optimizing latency, and providing technical leadership.",
+  "summary": "Self-taught Senior Full-Stack Developer with extensive experience in modern ecosystems (Laravel, React, TypeScript, Python, Next.js, Docker, Kubernetes). Continuous focus on Clean Architecture, TDD, performance optimization, and integrating artificial intelligence into real-world products.",
+  "contacts": [
+    {
+      "label": "GitHub",
+      "url": "https://github.com/lfrichter",
+      "icon": "github"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://linkedin.com/in/lfrichter",
+      "icon": "linkedin"
+    },
+    {
+      "label": "E-mail",
+      "url": "mailto:fernando.richter@gmail.com",
+      "icon": "mail"
+    }
+  ],
+  "highlights": {
+    "yearsOfExperience": "15+",
+    "keyAchievements": [
+      "Technical Leadership at Turno (US): reduced API endpoint response times by 40% and increased user retention by 30%",
+      "Evoke Mobile (UK): accelerated 200k geospatial map points rendering by 30x and Laravel Horizon queue processing by 500x",
+      "Pioneering AI-Assisted Development: GitHub Copilot/Cursor integration, building RAG & Voice AI platforms",
+      "Postgraduate Degree in Software Engineering focusing on Distributed Systems & Component-Based Design (UNIBTA)"
+    ]
+  },
+  "featuredSkills": [
+    "AI-Assisted Development",
+    "Laravel & PHP",
+    "React & TypeScript",
+    "Docker & Kubernetes",
+    "Next.js & Node.js",
+    "Python & PySpark",
+    "PostgreSQL & Supabase",
+    "Microservices & RAG Architecture"
+  ]
+}

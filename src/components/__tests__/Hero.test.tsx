@@ -19,7 +19,7 @@ describe('Hero Component', () => {
   it('renders key metrics and AI highlighted badges', () => {
     render(<Hero />);
 
-    expect(screen.getByText(/AI-Assisted Development/i)).toBeInTheDocument();
-    expect(screen.getByText(/Laravel & PHP/i)).toBeInTheDocument();
+    expect(screen.getByText(/Engenheiro Assistido por IA|AI-Assisted Engineer/i)).toBeInTheDocument();
+    expect(screen.getByText(/Sorocaba/i)).toBeInTheDocument();
   });
 });

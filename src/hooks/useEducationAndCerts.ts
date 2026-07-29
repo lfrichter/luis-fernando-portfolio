@@ -1,32 +1,35 @@
 import { useState, useMemo } from 'react';
-import eduCertsData from '@/data/education_and_certs.json';
+import { useTranslation } from 'react-i18next';
+import educationDataPt from '@/locales/pt/education_and_certs.json';
+import educationDataEn from '@/locales/en/education_and_certs.json';
 import type { IEducation, ICertification } from '@/types';
 
 export function useEducationAndCerts() {
-  const [selectedCertCategory, setSelectedCertCategory] = useState<string>('All');
+  const { i18n } = useTranslation();
+  const lang = (i18n.language || 'en').startsWith('pt') ? 'pt' : 'en';
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
-  const education = eduCertsData.education as IEducation[];
-  const certifications = eduCertsData.certifications as ICertification[];
+  const data = (lang === 'pt' ? educationDataPt : educationDataEn) as {
+    education: IEducation[];
+    certifications: ICertification[];
+  };
 
-  const certCategories = useMemo(() => {
-    const set = new Set<string>();
-    certifications.forEach((cert) => set.add(cert.category));
-    return ['All', ...Array.from(set)];
-  }, [certifications]);
+  const categories = useMemo(() => {
+    const unique = Array.from(new Set(data.certifications.map((c) => c.category)));
+    return ['All', ...unique];
+  }, [data]);
 
   const filteredCertifications = useMemo(() => {
-    if (selectedCertCategory === 'All') return certifications;
-    return certifications.filter(
-      (cert) => cert.category === selectedCertCategory
-    );
-  }, [certifications, selectedCertCategory]);
+    if (selectedCategory === 'All') return data.certifications;
+    return data.certifications.filter((c) => c.category === selectedCategory);
+  }, [data, selectedCategory]);
 
   return {
-    education,
+    education: data.education,
     certifications: filteredCertifications,
-    allCertificationsCount: certifications.length,
-    selectedCertCategory,
-    setSelectedCertCategory,
-    certCategories,
+    totalCertsCount: data.certifications.length,
+    selectedCategory,
+    setSelectedCategory,
+    categories,
   };
 }

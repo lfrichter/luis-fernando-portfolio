@@ -1,0 +1,34 @@
+{
+  "id": "eupizza",
+  "title": "EuPizza / Voice AI Support Agent",
+  "subtitle": "Multi-Tenant Voice AI Customer Service SaaS Platform",
+  "category": "AI/LLM",
+  "tier": 1,
+  "summary": "Intelligent voice agent for restaurants. Real-time WebRTC/SIP communication via LiveKit, Deepgram STT, GPT-4o-mini LLM, ElevenLabs TTS, and menu OCR with Pytesseract.",
+  "techStack": ["Python", "FastAPI/Flask", "LiveKit", "WebRTC", "Deepgram STT", "OpenAI", "ElevenLabs", "Docker Swarm", "Supabase"],
+  "featured": true,
+  "detailKey": "eupizza",
+  "overview": "Multi-tenant SaaS platform deploying autonomous voice agents for phone customer service in restaurants and pizzerias, ensuring low-latency conversational audio and dynamic menu customization.",
+  "roleDescription": "Software Architect and Lead Backend / AI Engineer.",
+  "responsibilities": [
+    "Engineered microservices architecture on Docker Swarm integrated with SIP trunks and WebRTC media server (LiveKit).",
+    "Developed Python (FastAPI/Flask) voice agent and orchestrated the AI pipeline: Silero VAD -> Deepgram STT -> GPT-4o-mini LLM -> ElevenLabs / OpenAI TTS.",
+    "Implemented OCR engine using Pytesseract and Pillow to extract menu text from images and dynamically construct multi-tenant prompts.",
+    "Persisted multi-tenant data in PostgreSQL on Supabase using Row Level Security (RLS).",
+    "Built CI/CD pipelines with GitHub Actions, Makefile, Ruff, MyPy, and Pytest."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Conversational audio latency bottleneck during real-time phone calls.",
+      "solution": "Utilized LiveKit Voice Agents with Silero VAD for natural user interruption and optimized Deepgram nova-2-general + GPT-4o-mini models."
+    },
+    {
+      "challenge": "Complex and manual onboarding for new restaurant menus.",
+      "solution": "Automated OCR pipeline (Pytesseract) analyzing menu images and dynamically generating multi-tenant agent prompts."
+    }
+  ],
+  "metrics": [
+    "End-to-end speech-to-speech latency maintained in milliseconds",
+    "100% multi-tenant architecture designed for Docker Swarm scalability"
+  ]
+}

@@ -1,0 +1,171 @@
+[
+  {
+    "id": "eupizza",
+    "title": "EuPizza / Voice AI Support Agent",
+    "subtitle": "Multi-Tenant Voice AI Customer Service SaaS Platform",
+    "category": "AI/LLM",
+    "tier": 1,
+    "summary": "Intelligent voice agent for restaurants. Real-time WebRTC/SIP communication via LiveKit, Deepgram STT, GPT-4o-mini LLM, ElevenLabs TTS, and menu OCR with Pytesseract.",
+    "techStack": ["Python", "FastAPI/Flask", "LiveKit", "WebRTC", "Deepgram STT", "OpenAI", "ElevenLabs", "Docker Swarm", "Supabase"],
+    "featured": true,
+    "detailKey": "eupizza"
+  },
+  {
+    "id": "smart-shorts",
+    "title": "SmartShorts & SmartShorts UI",
+    "subtitle": "Automated Video Generation SaaS (Next.js + Spring Boot)",
+    "category": "SaaS",
+    "tier": 1,
+    "summary": "Automated short and long-form video creation platform powered by AI. Next.js App Router frontend with httpOnly JWT cookies and Java / Spring Boot backend API.",
+    "techStack": ["Next.js", "React", "TypeScript", "Java", "Spring Boot", "Axios", "Tailwind CSS", "Vitest"],
+    "featured": true,
+    "githubUrl": "https://github.com/lfrichter/smartshorts-ui",
+    "detailKey": "smart_shorts"
+  },
+  {
+    "id": "ask-richter",
+    "title": "Ask Richter",
+    "subtitle": "My Interactive AI CV (Full-Stack RAG Architecture)",
+    "category": "AI/LLM",
+    "tier": 1,
+    "summary": "Interactive chatbot using RAG (Retrieval-Augmented Generation), in-memory FAISS, LangChain.js, Node.js/Express, Supabase, Next.js, Shadcn/ui, and LLMs.",
+    "techStack": ["Node.js", "TypeScript", "LangChain.js", "FAISS", "Supabase", "Next.js", "OpenAI", "Docker"],
+    "featured": true,
+    "githubUrl": "https://github.com/lfrichter/ask-richter",
+    "detailKey": "ask_richter"
+  },
+  {
+    "id": "canaoaves",
+    "title": "Canaoaves & Admin Canaoaves",
+    "subtitle": "Collaborative Birdwatching Platform in Brazil",
+    "category": "Full Stack",
+    "tier": 1,
+    "summary": "National Registry of Birdwatchers. React/Vite SPA hosted on Vercel with Serverless Supabase PostgreSQL backend, RLS Bypass, and Views. (www.canaoaves.com.br)",
+    "techStack": ["React", "Vite", "TypeScript", "Supabase", "PostgreSQL", "RLS", "Vercel", "Tailwind CSS"],
+    "featured": true,
+    "liveUrl": "http://www.canaoaves.com.br",
+    "detailKey": "canaoaves"
+  },
+  {
+    "id": "sdlc-ia",
+    "title": "Framework SDLC-IA & Prompt Engineering",
+    "subtitle": "AI-Agent Accelerated Software Development Lifecycle",
+    "category": "AI/LLM",
+    "tier": 1,
+    "summary": "Framework integrating AI-assisted engineering tools (Copilot, Cursor, Trae, Gemini) into software development, automated testing, and architecture workflows.",
+    "techStack": ["Cursor IDE", "GitHub Copilot", "Trae", "Gemini Code Assist", "LLMs", "Prompt Engineering"],
+    "featured": true,
+    "detailKey": "sdlc_ia"
+  },
+  {
+    "id": "spider-hub",
+    "title": "Spider — E-Commerce Integration Hub",
+    "subtitle": "Multi-Marketplace Orchestrator & Bling ERP (High Volume)",
+    "category": "Architecture & Performance",
+    "tier": 2,
+    "summary": "Centralized PHP/Laravel hub to unify orders across Mercado Livre, B2W, Via Varejo, and Bling ERP. Redis asynchronous queue workers and MongoDB single source of truth.",
+    "techStack": ["PHP", "Laravel", "Redis", "Horizon", "MongoDB", "Bling ERP Webhooks", "AWS S3", "Docker"],
+    "featured": false,
+    "detailKey": "spider_hub"
+  },
+  {
+    "id": "toot",
+    "title": "Toot & Toot Intelligence Platform",
+    "subtitle": "Geospatial Analytics & Queue Optimization (500x Speedup)",
+    "category": "Architecture & Performance",
+    "tier": 2,
+    "summary": "React dashboards for 200k+ geospatial map points using Superfetch (30x faster) and Laravel Horizon queues (500x faster trip processing), integrated with Power BI.",
+    "techStack": ["Laravel", "React", "Laravel Horizon", "Redis", "Superfetch", "Google Geocoding", "Power BI"],
+    "featured": false,
+    "detailKey": "toot"
+  },
+  {
+    "id": "shosales",
+    "title": "Shosales Website Revamp & Testing",
+    "subtitle": "10x Page Load Speedup & Parallel E2E Test Automation",
+    "category": "Architecture & Performance",
+    "tier": 2,
+    "summary": "10x performance improvement in web page rendering, parallel test suite execution with Laravel Dusk and Selenium across UK real estate platform.",
+    "techStack": ["Laravel", "Vue.js", "Laravel Dusk", "Selenium", "SQL Tuning", "DeployHQ"],
+    "featured": false,
+    "detailKey": "shosales"
+  },
+  {
+    "id": "favorite-products-api",
+    "title": "Favorite Products API",
+    "subtitle": "RESTful Microservice with Clean Architecture & SOLID",
+    "category": "Full Stack",
+    "tier": 2,
+    "summary": "High-performance RESTful API designed with Clean Architecture, SOLID principles, and automated testing for managing favorite product lists.",
+    "techStack": ["TypeScript", "Node.js", "Clean Architecture", "SOLID", "Jest", "Docker"],
+    "featured": false,
+    "detailKey": "favorite_products"
+  },
+  {
+    "id": "onepush",
+    "title": "OnePush Notification Platform",
+    "subtitle": "Event-Driven Web Push Notification Platform",
+    "category": "Full Stack",
+    "tier": 2,
+    "summary": "Modular event-driven Laravel platform for website registration, automated Web Push notification delivery, integrated with OneSignal and Pagar.me.",
+    "techStack": ["Laravel", "Event-Driven", "OneSignal", "Pagar.me", "MySQL"],
+    "featured": false,
+    "detailKey": "onepush"
+  },
+  {
+    "id": "semantic-cache",
+    "title": "FAISS Semantic Cache for LLMs",
+    "subtitle": "High-Speed Local Vector Semantic Cache PoC",
+    "category": "PoC & Open Source",
+    "tier": 3,
+    "summary": "100% local semantic cache in Python. Generates embeddings using Ollama and performs in-memory similarity search with FAISS and NumPy.",
+    "techStack": ["Python", "FAISS", "Ollama", "NumPy", "Vector Search"],
+    "featured": false,
+    "detailKey": "semantic_cache"
+  },
+  {
+    "id": "pyspark-jobs",
+    "title": "Render Jobs Analytics with PySpark",
+    "subtitle": "Distributed Micro-ETL Pipeline & Jupyter Notebook",
+    "category": "PoC & Open Source",
+    "tier": 3,
+    "summary": "PySpark and SQLite ETL pipeline consolidating video rendering jobs, scripts, and segments, interactively analyzed in Jupyter Notebook.",
+    "techStack": ["Python", "PySpark", "SQLite", "Jupyter Notebook", "Pandas"],
+    "featured": false,
+    "detailKey": "pyspark"
+  },
+  {
+    "id": "postmark-email-task",
+    "title": "Conversational Email Task Manager",
+    "subtitle": "Postmark Challenge + Event-Driven Laravel & Livewire",
+    "category": "PoC & Open Source",
+    "tier": 3,
+    "summary": "Transforms incoming emails via Postmark Inbound Webhooks into actionable Laravel tasks using hashtags (#priority, #done) with reactive Livewire UI.",
+    "techStack": ["Laravel", "Livewire", "Postmark API", "Pest", "Tailwind CSS"],
+    "featured": false,
+    "githubUrl": "https://github.com/lfrichter/Interactive-email-management",
+    "detailKey": "postmark_email"
+  },
+  {
+    "id": "ecommerce-k6",
+    "title": "E-Commerce Performance Benchmark",
+    "subtitle": "High-Scale Load & Stress Testing (k6 / JMeter)",
+    "category": "PoC & Open Source",
+    "tier": 3,
+    "summary": "Performance benchmark suite simulating high-traffic e-commerce microservices and profiling latency bottlenecks using k6 and JMeter.",
+    "techStack": ["k6", "JMeter", "Performance Profiling", "Load Testing"],
+    "featured": false,
+    "detailKey": "ecommerce_k6"
+  },
+  {
+    "id": "twin-quest",
+    "title": "Twin Quest Engine",
+    "subtitle": "Game Engine & Reactive State Management",
+    "category": "PoC & Open Source",
+    "tier": 3,
+    "summary": "Frontend reactive state architecture experiment and game rule engine implemented in TypeScript.",
+    "techStack": ["TypeScript", "Vue.js", "Pinia", "State Management"],
+    "featured": false,
+    "detailKey": "twin_quest"
+  }
+]

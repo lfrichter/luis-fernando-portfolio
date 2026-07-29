@@ -1,12 +1,16 @@
 import { useState, useMemo } from 'react';
-import experienceData from '@/data/experience.json';
+import { useTranslation } from 'react-i18next';
+import experiencePt from '@/locales/pt/experience.json';
+import experienceEn from '@/locales/en/experience.json';
 import type { IExperience } from '@/types';
 
 export function useExperience() {
+  const { i18n } = useTranslation();
+  const lang = (i18n.language || 'en').startsWith('pt') ? 'pt' : 'en';
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedTech, setSelectedTech] = useState<string>('All');
 
-  const experiences = experienceData as IExperience[];
+  const experiences = (lang === 'pt' ? experiencePt : experienceEn) as IExperience[];
 
   const allTechs = useMemo(() => {
     const set = new Set<string>();

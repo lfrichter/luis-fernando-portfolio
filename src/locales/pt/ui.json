@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "projects": "Projetos & Destaques",
+    "experience": "Experiência (15+ Anos)",
+    "skills": "Skills & IA",
+    "education": "Formação & Certificados"
+  },
+  "hero": {
+    "aiBadge": "Engenheiro Assistido por IA",
+    "expBadge": "15+ Anos Exp",
+    "techLeadership": "Liderança Técnica & Escala",
+    "techLeadershipSub": "+30% de retenção e -40% na latência de APIs em sistemas distribuídos de alto impacto.",
+    "aiNative": "Engenharia Nativa em IA",
+    "aiNativeSub": "Desenvolvimento com RAG, FAISS, LiveKit Voice AI, Ollama e workflows assistidos por IA.",
+    "archClean": "Arquitetura & Clean Code",
+    "archCleanSub": "Pós-Graduação UNIBTA em Sistemas Distribuídos e certificações Full Cycle (SOLID, DDD)."
+  },
+  "projects": {
+    "title": "Portfólio de Engenharia & Projetos",
+    "subtitle": "Organizado em Tiers de impacto técnico para CTOs, líderes de engenharia e recrutadores.",
+    "curationBadge": "Curadoria Arquitetural",
+    "searchPlaceholder": "Buscar por nome ou tecnologia...",
+    "tier1Title": "Tier 1: AI, Cloud Architecture & SaaS",
+    "tier1Badge": "Destaque Máximo",
+    "tier2Title": "Tier 2: Engenharia de Performance & Integrações",
+    "tier2Badge": "Sistemas de Alta Vazão",
+    "tier3Title": "Tier 3: PoCs, Benchmarks & Desafios Técnicos",
+    "tier3Subtitle": "Provas de Conceito locais, scripts de profiling e desafios técnicos.",
+    "emptyTitle": "Nenhum projeto encontrado",
+    "emptySub": "Não encontramos resultados para os filtros selecionados. Tente buscar por outro termo ou selecione 'All'.",
+    "clearFilters": "Limpar Filtros",
+    "viewArchBtn": "Ver Especificações de Arquitetura",
+    "viewTechBtn": "Detalhes Técnicos",
+    "viewPocBtn": "Ver PoC"
+  },
+  "modal": {
+    "headerBadge": "CTO & Tech Leadership Briefing",
+    "loading": "Carregando especificações técnicas da arquitetura...",
+    "errorTitle": "Erro ao carregar detalhes do projeto",
+    "overviewTitle": "Visão Geral da Solução",
+    "stackTitle": "Stack Tecnológica & Ecossistema",
+    "challengesTitle": "Desafios Técnicos & Soluções de Engenharia",
+    "archTitle": "Topologia de Arquitetura & Fluxo de Dados",
+    "roleTitle": "Papel Técnico & Responsabilidades",
+    "metricsTitle": "Resultados Quantificados",
+    "viewGithub": "Ver Código no GitHub",
+    "viewLive": "Acessar Projeto em Produção",
+    "close": "Fechar modal"
+  },
+  "experience": {
+    "title": "Experiência Profissional (15+ Anos)",
+    "subtitle": "Exibindo {{count}} posições internacionais (EUA, Reino Unido, Portugal e Brasil).",
+    "badge": "Métricas & Trajetória",
+    "searchPlaceholder": "Buscar experiência, empresa ou tecnologia...",
+    "filterTech": "Filtrar Tech:",
+    "emptyTitle": "Nenhuma experiência encontrada",
+    "emptySub": "Não encontramos resultados para os termos buscados. Tente reiniciar a pesquisa."
+  },
+  "skills": {
+    "title": "Habilidades Técnicas & Competências",
+    "subtitle": "Visão consolidada de stacks, linguagens, ferramentas de IA assistida e práticas de engenharia."
+  },
+  "education": {
+    "title": "Formação Acadêmica & Pós-Graduação",
+    "subtitle": "Especialização em Engenharia de Software e Bacharelado em Gestão Digital.",
+    "courseworkTitle": "Disciplinas & Tópicos de Destaque",
+    "tccBadge": "Trabalho de Conclusão de Curso (TCC de Pós-Graduação)",
+    "certsTitle": "Certificações & Especializações",
+    "certsSub": "Exibindo {{count}} certificações ativas.",
+    "validateCert": "Validar Credencial"
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados.",
+    "builtWith": "Construído com React 19, Vite, TypeScript, Tailwind CSS & Shadcn UI"
+  }
+}

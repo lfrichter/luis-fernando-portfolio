@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "projects": "Projects & Highlights",
+    "experience": "Experience (15+ Yrs)",
+    "skills": "Skills & AI",
+    "education": "Education & Certs"
+  },
+  "hero": {
+    "aiBadge": "AI-Assisted Engineer",
+    "expBadge": "15+ Yrs Exp",
+    "techLeadership": "Technical Leadership & Scale",
+    "techLeadershipSub": "+30% retention and -40% API latency across high-impact distributed systems.",
+    "aiNative": "AI-Native Engineering",
+    "aiNativeSub": "RAG architecture, FAISS, LiveKit Voice AI, Ollama, and AI-assisted workflows.",
+    "archClean": "Architecture & Clean Code",
+    "archCleanSub": "Postgraduate in Distributed Systems (UNIBTA) and Full Cycle Certifications (SOLID, DDD)."
+  },
+  "projects": {
+    "title": "Engineering Portfolio & Projects",
+    "subtitle": "Organized into technical impact tiers for CTOs, engineering leads, and recruiters.",
+    "curationBadge": "Architectural Curation",
+    "searchPlaceholder": "Search by name or technology...",
+    "tier1Title": "Tier 1: AI, Cloud Architecture & SaaS",
+    "tier1Badge": "Featured Showcase",
+    "tier2Title": "Tier 2: Performance Engineering & Integrations",
+    "tier2Badge": "High-Throughput Systems",
+    "tier3Title": "Tier 3: PoCs, Benchmarks & Tech Challenges",
+    "tier3Subtitle": "Local Proofs of Concept, profiling scripts, and technical challenges.",
+    "emptyTitle": "No projects found",
+    "emptySub": "No results matched the selected filters. Try searching for another term or selecting 'All'.",
+    "clearFilters": "Clear Filters",
+    "viewArchBtn": "View Architecture Specs",
+    "viewTechBtn": "Technical Details",
+    "viewPocBtn": "View PoC"
+  },
+  "modal": {
+    "headerBadge": "CTO & Tech Leadership Briefing",
+    "loading": "Loading architectural specifications...",
+    "errorTitle": "Error loading project details",
+    "overviewTitle": "Solution Overview",
+    "stackTitle": "Tech Stack & Ecosystem",
+    "challengesTitle": "Technical Challenges & Engineering Solutions",
+    "archTitle": "Architecture Topology & Data Flow",
+    "roleTitle": "Technical Role & Responsibilities",
+    "metricsTitle": "Quantified Outcomes",
+    "viewGithub": "View Code on GitHub",
+    "viewLive": "Access Live Application",
+    "close": "Close modal"
+  },
+  "experience": {
+    "title": "Professional Experience (15+ Yrs)",
+    "subtitle": "Displaying {{count}} international roles (US, UK, Portugal, and Brazil).",
+    "badge": "Metrics & Career Track",
+    "searchPlaceholder": "Search experience, company or technology...",
+    "filterTech": "Filter Tech:",
+    "emptyTitle": "No experience found",
+    "emptySub": "No results matched your search terms. Try resetting your search."
+  },
+  "skills": {
+    "title": "Technical Skills & Competencies",
+    "subtitle": "Consolidated view of stacks, languages, AI-assisted tools, and engineering practices."
+  },
+  "education": {
+    "title": "Academic Education & Degrees",
+    "subtitle": "Postgraduate Specialization in Software Engineering & Bachelor in E-Commerce Management.",
+    "courseworkTitle": "Highlighted Coursework & Topics",
+    "tccBadge": "Postgraduate Thesis (BPMN Process Optimization)",
+    "certsTitle": "Certifications & Specializations",
+    "certsSub": "Displaying {{count}} active certifications.",
+    "validateCert": "Validate Credential"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "builtWith": "Built with React 19, Vite, TypeScript, Tailwind CSS & Shadcn UI"
+  }
+}

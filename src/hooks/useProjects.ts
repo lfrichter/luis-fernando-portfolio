@@ -1,12 +1,16 @@
 import { useState, useMemo } from 'react';
-import projectsSummaryData from '@/data/projects_summary.json';
+import { useTranslation } from 'react-i18next';
+import projectsSummaryPt from '@/locales/pt/projects_summary.json';
+import projectsSummaryEn from '@/locales/en/projects_summary.json';
 import type { IProjectSummary } from '@/types';
 
 export function useProjects() {
+  const { i18n } = useTranslation();
+  const lang = (i18n.language || 'en').startsWith('pt') ? 'pt' : 'en';
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
-  const projects = projectsSummaryData as IProjectSummary[];
+  const projects = (lang === 'pt' ? projectsSummaryPt : projectsSummaryEn) as IProjectSummary[];
 
   const categories = useMemo(() => {
     const unique = Array.from(new Set(projects.map((p) => p.category)));
@@ -30,7 +34,7 @@ export function useProjects() {
 
   return {
     projects: filteredProjects,
-    allProjectsCount: projects.length,
+    totalProjectsCount: projects.length,
     selectedCategory,
     setSelectedCategory,
     categories,

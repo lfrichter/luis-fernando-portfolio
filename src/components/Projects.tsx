@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useCategorizedProjects } from '@/hooks/useCategorizedProjects';
 import { ProjectModal } from '@/components/ProjectModal';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
@@ -8,6 +9,7 @@ import { GithubIcon } from '@/components/icons/SocialIcons';
 import { Search, ExternalLink, Layers, Sparkles, Cpu, Wrench, Terminal, ChevronDown, ChevronUp } from 'lucide-react';
 
 export const Projects: React.FC = () => {
+  const { t } = useTranslation();
   const {
     allProjects,
     tier1Projects,
@@ -30,14 +32,14 @@ export const Projects: React.FC = () => {
         <div>
           <div className="flex items-center gap-2">
             <Badge variant="default" className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5">
-              Curadoria Arquitetural
+              {t('projects.curationBadge')}
             </Badge>
           </div>
           <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mt-1 flex items-center gap-2">
-            <Sparkles className="w-6 h-6 text-primary" /> Portfólio de Engenharia & Projetos
+            <Sparkles className="w-6 h-6 text-primary" /> {t('projects.title')}
           </h2>
           <p className="text-sm text-muted-foreground mt-1">
-            Organizado em Tiers de impacto técnico para CTOs, líderes de engenharia e recrutadores.
+            {t('projects.subtitle')}
           </p>
         </div>
 
@@ -46,7 +48,7 @@ export const Projects: React.FC = () => {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <input
             type="text"
-            placeholder="Buscar por nome ou tecnologia..."
+            placeholder={t('projects.searchPlaceholder')}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-9 pr-4 py-2 text-sm bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 text-foreground"
@@ -73,9 +75,9 @@ export const Projects: React.FC = () => {
       {allProjects.length === 0 && (
         <div className="text-center py-16 bg-muted/20 rounded-xl border border-dashed border-border">
           <Layers className="w-10 h-10 mx-auto text-muted-foreground mb-3" />
-          <h3 className="text-lg font-semibold text-foreground">Nenhum projeto encontrado</h3>
+          <h3 className="text-lg font-semibold text-foreground">{t('projects.emptyTitle')}</h3>
           <p className="text-sm text-muted-foreground mt-1 max-w-md mx-auto">
-            Não encontramos resultados para os filtros selecionados. Tente buscar por outro termo ou selecione 'All'.
+            {t('projects.emptySub')}
           </p>
           <Button
             variant="outline"
@@ -86,7 +88,7 @@ export const Projects: React.FC = () => {
             }}
             className="mt-4"
           >
-            Limpar Filtros
+            {t('projects.clearFilters')}
           </Button>
         </div>
       )}
@@ -97,10 +99,10 @@ export const Projects: React.FC = () => {
           <div className="flex items-center gap-2.5 border-b border-border/60 pb-3">
             <Cpu className="w-5 h-5 text-amber-500" />
             <h3 className="text-xl font-bold text-foreground">
-              🏆 Tier 1: AI, Cloud Architecture & SaaS
+              🏆 {t('projects.tier1Title')}
             </h3>
             <Badge variant="secondary" className="text-[10px]">
-              Destaque Máximo ({tier1Projects.length})
+              {t('projects.tier1Badge')} ({tier1Projects.length})
             </Badge>
           </div>
 
@@ -149,19 +151,19 @@ export const Projects: React.FC = () => {
                     className="text-xs font-semibold gap-1.5 shadow-sm"
                   >
                     <Layers className="w-4 h-4" />
-                    <span>Ver Especificações de Arquitetura</span>
+                    <span>{t('projects.viewArchBtn')}</span>
                   </Button>
 
                   <div className="flex items-center gap-1">
                     {project.githubUrl && (
-                      <Button variant="ghost" size="icon" asChild title="Ver no GitHub" className="w-8 h-8">
+                      <Button variant="ghost" size="icon" asChild title="GitHub" className="w-8 h-8">
                         <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                           <GithubIcon className="w-4 h-4 text-muted-foreground hover:text-foreground" />
                         </a>
                       </Button>
                     )}
                     {project.liveUrl && (
-                      <Button variant="ghost" size="icon" asChild title="Acessar em Produção" className="w-8 h-8">
+                      <Button variant="ghost" size="icon" asChild title="Live" className="w-8 h-8">
                         <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                           <ExternalLink className="w-4 h-4 text-muted-foreground hover:text-foreground" />
                         </a>
@@ -175,16 +177,16 @@ export const Projects: React.FC = () => {
         </div>
       )}
 
-      {/* ⚙️ TIER 2: Engenharia de Performance & Integrações (Standard Grid) */}
+      {/* ⚙️ TIER 2: Performance Engineering & System Integrations (Standard Grid) */}
       {tier2Projects.length > 0 && (
         <div className="space-y-6 pt-4">
           <div className="flex items-center gap-2.5 border-b border-border/60 pb-3">
             <Wrench className="w-5 h-5 text-indigo-500" />
             <h3 className="text-xl font-bold text-foreground">
-              ⚙️ Tier 2: Engenharia de Performance & Integrações
+              ⚙️ {t('projects.tier2Title')}
             </h3>
             <Badge variant="secondary" className="text-[10px]">
-              Sistemas de Alta Vazão ({tier2Projects.length})
+              {t('projects.tier2Badge')} ({tier2Projects.length})
             </Badge>
           </div>
 
@@ -227,19 +229,19 @@ export const Projects: React.FC = () => {
                     className="text-xs gap-1.5"
                   >
                     <Layers className="w-3.5 h-3.5" />
-                    <span>Detalhes Técnicos</span>
+                    <span>{t('projects.viewTechBtn')}</span>
                   </Button>
 
                   <div className="flex items-center gap-1">
                     {project.githubUrl && (
-                      <Button variant="ghost" size="icon" asChild title="Ver no GitHub" className="w-8 h-8">
+                      <Button variant="ghost" size="icon" asChild title="GitHub" className="w-8 h-8">
                         <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                           <GithubIcon className="w-4 h-4 text-muted-foreground hover:text-foreground" />
                         </a>
                       </Button>
                     )}
                     {project.liveUrl && (
-                      <Button variant="ghost" size="icon" asChild title="Acessar em Produção" className="w-8 h-8">
+                      <Button variant="ghost" size="icon" asChild title="Live" className="w-8 h-8">
                         <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                           <ExternalLink className="w-4 h-4 text-muted-foreground hover:text-foreground" />
                         </a>
@@ -264,10 +266,10 @@ export const Projects: React.FC = () => {
               <Terminal className="w-5 h-5 text-emerald-500" />
               <div>
                 <h3 className="text-base font-bold text-foreground flex items-center gap-2">
-                  🧪 Tier 3: PoCs, Benchmarks & Desafios Técnicos ({tier3Projects.length})
+                  🧪 {t('projects.tier3Title')} ({tier3Projects.length})
                 </h3>
                 <p className="text-xs text-muted-foreground">
-                  Provas de Conceito locais, scripts de profiling e desafios técnicos.
+                  {t('projects.tier3Subtitle')}
                 </p>
               </div>
             </div>
@@ -309,7 +311,7 @@ export const Projects: React.FC = () => {
                     className="text-xs shrink-0 gap-1.5 self-start sm:self-center"
                   >
                     <Layers className="w-3.5 h-3.5" />
-                    <span>Ver PoC</span>
+                    <span>{t('projects.viewPocBtn')}</span>
                   </Button>
                 </div>
               ))}

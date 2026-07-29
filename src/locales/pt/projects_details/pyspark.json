@@ -1,0 +1,27 @@
+{
+  "id": "pyspark-jobs",
+  "title": "Análise de Jobs de Renderização com PySpark",
+  "subtitle": "Micro-Pipeline de ETL Distribuído & Jupyter Notebook",
+  "category": "PoC & Open Source",
+  "tier": 3,
+  "summary": "Pipeline de ETL com PySpark e SQLite para consolidação de jobs de vídeo, roteiros e segmentos, executado de forma interativa em Jupyter Notebook.",
+  "techStack": ["Python", "PySpark", "SQLite", "Jupyter Notebook", "Pandas"],
+  "featured": false,
+  "detailKey": "pyspark",
+  "overview": "Prova de Conceito (PoC) de engenharia de dados que valida o uso de PySpark para unificação e análise exploratória de tabelas relacionais de renderização de vídeos.",
+  "roleDescription": "Engenheiro de Dados Único.",
+  "responsibilities": [
+    "Desenvolvimento de script ETL em PySpark para extração, transformação e carga dos dados.",
+    "Otimização de consultas SQL com múltiplos LEFT JOINs mantendo integridade 1:N entre roteiros e segmentos.",
+    "Materialização de DataFrames no Jupyter Notebook para análise."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Consolidar dados de renderização fragmentados em SQLite garantindo escalabilidade futura.",
+      "solution": "Uso do PySpark DataFrames permitindo que a mesma lógica processe volumes de dados em larga escala no futuro."
+    }
+  ],
+  "metrics": [
+    "Pipeline ETL validado e pronto para escalabilidade em Data Lakes"
+  ]
+}

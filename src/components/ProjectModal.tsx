@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useProjectDetail } from '@/hooks/useProjectDetail';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -17,6 +18,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   isOpen,
   onClose,
 }) => {
+  const { t } = useTranslation();
   const { detail, isLoading, error } = useProjectDetail(isOpen ? detailKey : null);
 
   if (!isOpen || !detailKey) return null;
@@ -37,21 +39,21 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           <div>
             <div className="flex items-center gap-2">
               <Badge variant="default" className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 bg-primary">
-                CTO & Tech Leadership Briefing
+                {t('modal.headerBadge')}
               </Badge>
               <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                 Tier {detail?.tier || 1} Architecture
               </span>
             </div>
             <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mt-1">
-              {detail?.title || 'Carregando Projeto...'}
+              {detail?.title || '...'}
             </h2>
           </div>
           <Button
             variant="ghost"
             size="icon"
             onClick={onClose}
-            aria-label="Fechar modal"
+            aria-label={t('modal.close')}
             className="rounded-full hover:bg-muted"
           >
             <X className="w-5 h-5" />
@@ -63,7 +65,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           {isLoading && (
             <div className="flex flex-col items-center justify-center py-20 text-muted-foreground">
               <Loader2 className="w-10 h-10 animate-spin mb-4 text-primary" />
-              <p className="text-sm font-medium">Carregando especificações técnicas da arquitetura...</p>
+              <p className="text-sm font-medium">{t('modal.loading')}</p>
             </div>
           )}
 
@@ -72,7 +74,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               <div className="flex items-center space-x-3">
                 <AlertTriangle className="w-6 h-6 shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-lg">Erro ao carregar detalhes do projeto</h3>
+                  <h3 className="font-semibold text-lg">{t('modal.errorTitle')}</h3>
                   <p className="text-sm mt-1">{error}</p>
                 </div>
               </div>
@@ -94,7 +96,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               {/* 1. Visão Geral */}
               <div>
                 <h3 className="text-lg font-bold text-foreground mb-2 flex items-center gap-2">
-                  <Cpu className="w-5 h-5 text-primary" /> Visão Geral da Solução
+                  <Cpu className="w-5 h-5 text-primary" /> {t('modal.overviewTitle')}
                 </h3>
                 <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
                   {detail.overview}
@@ -104,7 +106,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               {/* 2. Tech Stack */}
               <div>
                 <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-                  <Wrench className="w-5 h-5 text-indigo-500" /> Stack Tecnológica & Ecossistema
+                  <Wrench className="w-5 h-5 text-indigo-500" /> {t('modal.stackTitle')}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {detail.techStack.map((tech) => (
@@ -118,7 +120,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               {/* 3. Desafios & Soluções (Destaque Principal) */}
               <div>
                 <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
-                  <ShieldAlert className="w-5 h-5 text-amber-500" /> Desafios Técnicos & Soluções de Engenharia
+                  <ShieldAlert className="w-5 h-5 text-amber-500" /> {t('modal.challengesTitle')}
                 </h3>
                 <div className="grid gap-4 md:grid-cols-2">
                   {detail.challengesAndSolutions.map((cs, idx) => (
@@ -126,7 +128,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                       <CardContent className="p-5 space-y-3">
                         <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-500">
                           <AlertTriangle className="w-4 h-4 shrink-0" />
-                          <span>Desafio Arquitetural #{idx + 1}</span>
+                          <span>Challenge #{idx + 1}</span>
                         </div>
                         <p className="text-sm font-semibold text-foreground leading-snug">
                           {cs.challenge}
@@ -134,7 +136,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                         <div className="pt-2 border-t border-border/50">
                           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-500 mb-1">
                             <CheckCircle2 className="w-4 h-4 shrink-0" />
-                            <span>Solução Aplicada</span>
+                            <span>Applied Solution</span>
                           </div>
                           <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
                             {cs.solution}
@@ -149,28 +151,28 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               {/* 4. Diagrama de Arquitetura */}
               <div>
                 <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-                  <Network className="w-5 h-5 text-emerald-500" /> Topologia de Arquitetura & Fluxo de Dados
+                  <Network className="w-5 h-5 text-emerald-500" /> {t('modal.archTitle')}
                 </h3>
                 <Card className="bg-zinc-950 border border-zinc-800 text-zinc-100 p-6 font-mono text-xs overflow-x-auto">
                   <div className="text-zinc-400 mb-3 text-[11px] font-sans flex items-center justify-between">
-                    <span>Estrutura de Microsserviços e Pipeline de Dados</span>
+                    <span>Microservices & Data Pipeline Topology</span>
                     <Badge variant="outline" className="text-[10px] border-zinc-700 text-zinc-300">
-                      Arquitetura Validada
+                      Validated Architecture
                     </Badge>
                   </div>
                   <pre className="text-emerald-400 leading-relaxed overflow-x-auto">
                     {detail.architectureDiagramMermaid || `+-------------------------------------------------------------+
-|               Entrada de Requisições / Frontend             |
+|              Client Requests / Frontend Layer               |
 +-------------------------------------------------------------+
                               |
                               v
 +-------------------------------------------------------------+
-|    Camada de API RESTful / Routing Proxy & Autenticação     |
+|     API Gateway / Routing Proxy & Auth Token Verification   |
 +-------------------------------------------------------------+
                /                              \\
               v                                v
 +---------------------------+    +----------------------------+
-|  Serviços de IA & Filas   |    | Persistência PostgreSQL    |
+|    AI Services & Queues   |    |  PostgreSQL Persistence    |
 | (FAISS, LiveKit, Horizon) |    |  (Supabase RLS & Caches)   |
 +---------------------------+    +----------------------------+`}
                   </pre>
@@ -180,7 +182,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               {/* 5. Papel & Responsabilidades */}
               <div>
                 <h3 className="text-lg font-bold text-foreground mb-3">
-                  👨‍💻 Papel Técnico & Responsabilidades
+                  👨‍💻 {t('modal.roleTitle')}
                 </h3>
                 <p className="text-sm text-muted-foreground italic mb-3">
                   {detail.roleDescription}
@@ -199,7 +201,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               {detail.metrics && detail.metrics.length > 0 && (
                 <div>
                   <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-                    <BarChart3 className="w-5 h-5 text-purple-500" /> Resultados Quantificados
+                    <BarChart3 className="w-5 h-5 text-purple-500" /> {t('modal.metricsTitle')}
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {detail.metrics.map((metric, idx) => (
@@ -222,7 +224,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                       className="flex items-center gap-2"
                     >
                       <GithubIcon className="w-4 h-4" />
-                      <span>Ver Código no GitHub</span>
+                      <span>{t('modal.viewGithub')}</span>
                     </a>
                   </Button>
                 )}
@@ -235,7 +237,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                       className="flex items-center gap-2"
                     >
                       <ExternalLink className="w-4 h-4" />
-                      <span>Acessar Projeto em Produção</span>
+                      <span>{t('modal.viewLive')}</span>
                     </a>
                   </Button>
                 )}

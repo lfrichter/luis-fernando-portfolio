@@ -98,3 +98,18 @@ This document records key architectural, technological, and engineering decision
   - Redesigned `ProjectModal.tsx` to render executive briefings, tech stacks, visual architecture topology diagrams, and highlighted "Desafios & Soluções" cards.
   - Enhanced `Experience.tsx` timeline to render quantified impact metrics (`-40% latência`, `30x mais rápido`, `+30% retenção`, `500x filas`) with bold emerald badges.
 - **Consequences:** Provides immediate executive readability for tech leadership while retaining full deep-dive architectural specifications, backed by 12 Vitest test files (26 unit tests) and Playwright E2E integration verification.
+
+---
+
+## ADR-008: i18n Internationalization Architecture (Bilingual PT-BR / EN-US)
+
+- **Date:** 2026-07-28
+- **Status:** Accepted
+- **Context:** The portfolio must support bilingual presentation (Portuguese and English) for global recruiters and tech leadership, adhering to industry standards without duplicating React UI components.
+- **Decision:**
+  - Integrated `i18next`, `react-i18next`, and `i18next-browser-languagedetector` with auto-detection and fallback.
+  - Reorganized all data JSONs into locale subdirectories (`src/locales/pt/` and `src/locales/en/`), translating all professional history, achievements, projects, education, and UI strings into English.
+  - Adapted custom hooks (`useProfile`, `useExperience`, `useCategorizedProjects`, `useProjectDetail`, `useEducationAndCerts`) to listen to `i18n.language` and dynamically serve the active locale data.
+  - Created `LanguageToggle.tsx` component in `Navbar.tsx` for seamless single-click language switching without page reloads.
+  - Extended Vitest unit test suite (`LanguageToggle.test.tsx`) and Playwright E2E spec (`portfolio.spec.ts`) verifying live language switching.
+- **Consequences:** Provides instant bilingual switching across all sections and modals, preserving 100% component reusability, modular locale datasets, and full test suite coverage (13 Vitest test files, 28 unit tests + E2E Playwright).

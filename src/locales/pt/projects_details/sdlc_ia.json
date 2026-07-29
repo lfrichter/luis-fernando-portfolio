@@ -1,0 +1,28 @@
+{
+  "id": "sdlc-ia",
+  "title": "Framework SDLC-IA & Engenharia de Prompt",
+  "subtitle": "Metodologia de Aceleração de Engenharia com Agentes de IA",
+  "category": "AI/LLM",
+  "tier": 1,
+  "summary": "Framework de integração de ferramentas de IA assistida (Copilot, Cursor, Trae, Gemini) no fluxo de desenvolvimento, testes automatizados e arquitetura de software.",
+  "techStack": ["Cursor IDE", "GitHub Copilot", "Trae", "Gemini Code Assist", "LLMs", "Prompt Engineering"],
+  "featured": true,
+  "detailKey": "sdlc_ia",
+  "overview": "Conjunto de práticas, prompts padronizados e fluxos de trabalho assistidos por Inteligência Artificial para aumentar drasticamente a produtividade, qualidade de código e cobertura de testes em equipes de desenvolvimento.",
+  "roleDescription": "Arquiteto de Processos & Tech Lead.",
+  "responsibilities": [
+    "Definição do fluxo SDLC assistido por IA combinando Cursor IDE, Copilot, Trae e Gemini Code Assist.",
+    "Criação de repositório de prompts e personas de arquitetura para geração automática de testes TDD, documentação OpenAPI e refatorações limpas.",
+    "Treinamento e disseminação de melhores práticas para times de engenharia, resultando em aceleração das entregas com alta confiabilidade."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Garantir a consistência e a precisão do código gerado por IA sem introduzir alucinações ou vulnerabilidades de segurança.",
+      "solution": "Estabelecimento de pipeline de validação rigorosa com linting automatizado, testes TDD imediatos e revisões focadas em segurança."
+    }
+  ],
+  "metrics": [
+    "Aumento de até 40% na velocidade de entrega de novas features",
+    "Elevação imediata da cobertura de testes unitários automatizados"
+  ]
+}

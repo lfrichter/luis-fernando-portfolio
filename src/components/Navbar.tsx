@@ -1,5 +1,6 @@
 import React from 'react';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { LanguageToggle } from '@/components/LanguageToggle';
 import { Terminal } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
@@ -22,6 +23,7 @@ export const Navbar: React.FC = () => {
 
         {/* Actions */}
         <div className="flex items-center gap-3">
+          <LanguageToggle />
           <ThemeToggle />
         </div>
       </div>

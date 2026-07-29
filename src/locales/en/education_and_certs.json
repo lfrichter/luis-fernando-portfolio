@@ -1,0 +1,161 @@
+{
+  "education": [
+    {
+      "id": "edu-unibta",
+      "degree": "Postgraduate Specialization Degree",
+      "field": "Software Engineering focusing on Component-Based Design & Distributed Systems",
+      "institution": "UNIBTA Centro Universitário",
+      "period": "2007 – 2008",
+      "location": "São Paulo, Brazil",
+      "description": "Specialization in Modern Software Architecture, Microservices, Component-Based Development (CBD), Design Patterns, DevOps, and Distributed Systems Governance.",
+      "coursework": [
+        "Modern Software Architecture (Microservices, RESTful APIs, Integration)",
+        "Software Design with UML and Component-Based Development (CBD)",
+        "Software Quality Assurance, TDD & Automated Testing",
+        "Design Patterns & Code Refactoring",
+        "Agile Methodologies (Scrum, XP), DevOps & CI/CD",
+        "Governance & Scalability in Distributed Systems"
+      ],
+      "tccDetails": {
+        "title": "A Business Process Approach Using BPMN",
+        "summary": "Business process modeling using BPMN, 'As-Is' analysis for identifying operational bottlenecks, and 'To-Be' optimization proposals integrated with SOA architecture and BPMS suites.",
+        "competencies": [
+          "Business Process Management (BPM & BPMN)",
+          "As-Is Analysis & To-Be Optimization Proposals",
+          "Service-Oriented Architecture (SOA)",
+          "Automation and Monitoring of Operational Processes"
+        ]
+      }
+    },
+    {
+      "id": "edu-anhembi",
+      "degree": "Bachelor / Foundation Degree",
+      "field": "E-Commerce Management & Digital Business",
+      "institution": "Universidade Anhembi Morumbi",
+      "period": "2000 – 2002",
+      "location": "São Paulo, Brazil",
+      "description": "Degree in online business management, network infrastructure, digital strategy, e-commerce supply chain logistics, and internet economy business models.",
+      "coursework": [
+        "E-commerce & Digital Business Models",
+        "Marketing & Digital Strategy",
+        "Data Warehouse & Business Intelligence",
+        "Logistics & Supply Chain Management",
+        "CRM & Customer Relationship Management",
+        "Web Technologies & Online Security"
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "id": "cert-outlier-hypno",
+      "title": "Hypno Methodology for Advanced Evaluation & Robustness Testing of AI Models",
+      "issuer": "Outlier",
+      "issuedDate": "Jun 2025",
+      "credentialId": "683dccd9382ba43d3970c9b9",
+      "category": "AI & Machine Learning",
+      "skills": ["Prompt Engineering", "LLM Evaluation", "Robustness Testing"]
+    },
+    {
+      "id": "cert-fullcycle-solid",
+      "title": "SOLID Express",
+      "issuer": "Full Cycle",
+      "issuedDate": "Sep 2023",
+      "credentialId": "d97e149e-e515-4dc4-9103-094163204584",
+      "credentialUrl": "https://fullcycle.com.br/certificado/d97e149e-e515-4dc4-9103-094163204584",
+      "category": "Software Development & Architecture",
+      "skills": ["SOLID Principles", "Object Oriented Design", "Clean Code"]
+    },
+    {
+      "id": "cert-fullcycle-opentelemetry",
+      "title": "Introduction to OpenTelemetry",
+      "issuer": "Full Cycle",
+      "issuedDate": "Dec 2022",
+      "credentialId": "741d2979-b4cd-4edd-8a94-142fac00627c",
+      "credentialUrl": "https://fullcycle.com.br/certificado/741d2979-b4cd-4edd-8a94-142fac00627c",
+      "category": "DevOps & Infrastructure",
+      "skills": ["Distributed Tracing", "Observability", "Metrics", "OpenTelemetry"]
+    },
+    {
+      "id": "cert-fullcycle-git",
+      "title": "Advanced Patterns and Techniques with Git and GitHub",
+      "issuer": "Full Cycle",
+      "issuedDate": "Feb 2022",
+      "credentialId": "e0ba885f-aa8c-46d9-a917-39016b31c557",
+      "credentialUrl": "https://fullcycle.com.br/certificado/e0ba885f-aa8c-46d9-a917-39016b31c557",
+      "category": "Software Development & Architecture",
+      "skills": ["Git Flow", "Rebase", "Monorepo", "GitHub Actions"]
+    },
+    {
+      "id": "cert-fullcycle-ddd",
+      "title": "Domain Driven Design (DDD)",
+      "issuer": "Full Cycle",
+      "issuedDate": "Nov 2021",
+      "credentialId": "6cee6606-7b1c-4977-9f04-d1b21f476d69",
+      "credentialUrl": "https://fullcycle.com.br/certificado/6cee6606-7b1c-4977-9f04-d1b21f476d69",
+      "category": "Software Development & Architecture",
+      "skills": ["Bounded Contexts", "Entities & Value Objects", "Domain Events", "Ubiquitous Language"]
+    },
+    {
+      "id": "cert-aws-s3-cloudfront",
+      "title": "AWS - S3 and CloudFront",
+      "issuer": "School of Net",
+      "issuedDate": "Nov 2022",
+      "credentialId": "b8755b58-b507-49b3-8a9c-42f8ad61b3ca",
+      "category": "Cloud Computing & AWS",
+      "skills": ["AWS S3", "CloudFront CDN", "Static Web Hosting"]
+    },
+    {
+      "id": "cert-aws-codedeploy",
+      "title": "AWS Code Deploy",
+      "issuer": "School of Net",
+      "issuedDate": "Nov 2022",
+      "credentialId": "1ad63afa-47ea-4994-ac9f-4b00b96f9343",
+      "category": "Cloud Computing & AWS",
+      "skills": ["AWS CodeDeploy", "CI/CD", "Automated Deployment"]
+    },
+    {
+      "id": "cert-aws-ec2",
+      "title": "AWS EC2",
+      "issuer": "School of Net",
+      "issuedDate": "Nov 2022",
+      "credentialId": "4f563d7d-88f3-4611-a7ca-f948e1e6581c",
+      "category": "Cloud Computing & AWS",
+      "skills": ["AWS EC2", "Virtual Machines", "Security Groups"]
+    },
+    {
+      "id": "cert-aws-lambda",
+      "title": "AWS Lambda",
+      "issuer": "School of Net",
+      "issuedDate": "Nov 2022",
+      "credentialId": "46c40172-69da-4ea8-9b84-04d50c53f2b1",
+      "category": "Cloud Computing & AWS",
+      "skills": ["Serverless", "AWS Lambda", "Node.js/Python Functions"]
+    },
+    {
+      "id": "cert-docker-alura",
+      "title": "Docker: Creating Containers Without Headache",
+      "issuer": "Alura",
+      "issuedDate": "Feb 2018",
+      "credentialId": "d88ca56676a27a263dc3e9123151f851",
+      "category": "DevOps & Infrastructure",
+      "skills": ["Docker", "Containers", "Dockerfile", "Docker Compose"]
+    },
+    {
+      "id": "cert-csm",
+      "title": "Certified ScrumMaster (CSM)",
+      "issuer": "Scrum Alliance",
+      "issuedDate": "Aug 2011",
+      "credentialId": "000150851",
+      "category": "Agile & Leadership",
+      "skills": ["Scrum", "Agile Project Management", "Sprint Planning", "Retrospectives"]
+    },
+    {
+      "id": "cert-leader-coach",
+      "title": "Leader Coach & Personal Professional Coach",
+      "issuer": "SBCoaching / Behavioral Coaching Institute",
+      "issuedDate": "Aug 2012",
+      "category": "Agile & Leadership",
+      "skills": ["Leadership", "Team Motivation", "Feedback Cultures", "Psychological Safety"]
+    }
+  ]
+}

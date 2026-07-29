@@ -1,0 +1,35 @@
+{
+  "id": "smart-shorts",
+  "title": "SmartShorts & SmartShorts UI",
+  "subtitle": "Automated Video Generation SaaS (Next.js + Spring Boot)",
+  "category": "SaaS",
+  "tier": 1,
+  "summary": "Automated short and long-form video creation platform powered by AI. Next.js App Router frontend with httpOnly JWT cookies and Java / Spring Boot backend API.",
+  "techStack": ["Next.js", "React", "TypeScript", "Java", "Spring Boot", "Axios", "Tailwind CSS", "Vitest"],
+  "featured": true,
+  "githubUrl": "https://github.com/lfrichter/smartshorts-ui",
+  "detailKey": "smart_shorts",
+  "overview": "SmartShorts is an innovative SaaS for content creators and marketing agencies that turns simple text prompts into complete videos with narration, images, synchronized subtitles, and soundtrack.",
+  "roleDescription": "Frontend Architect and Full-Stack Developer during UI modernization and migration from Vite/React to Next.js App Router.",
+  "responsibilities": [
+    "Complete authentication re-architecture: replaced localStorage with server-side Next.js Route Handlers proxying Spring Boot API, storing JWT tokens in httpOnly cookies.",
+    "Implemented route protection middleware (middleware.ts).",
+    "Developed payload translation layer (Adapter Pattern) to convert legacy frontend JSON structures into Java DTOs.",
+    "Configured Vitest, React Testing Library, and jsdom test suite.",
+    "Created custom hooks like useJobPolling with TypeScript generics."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "403 Forbidden errors and payload structure mismatch between frontend and Java backend.",
+      "solution": "Built strongly typed TypeScript adapters ensuring build-time and runtime payload normalization."
+    },
+    {
+      "challenge": "XSS security vulnerability storing JWT tokens in browser localStorage.",
+      "solution": "Migrated to server-side httpOnly cookies and Next.js Route Handlers acting as an API gateway proxy."
+    }
+  ],
+  "metrics": [
+    "100% token security migrated to server-side httpOnly cookies",
+    "Real-time video rendering status monitored via reactive polling"
+  ]
+}

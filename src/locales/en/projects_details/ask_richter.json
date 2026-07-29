@@ -1,0 +1,39 @@
+{
+  "id": "ask-richter",
+  "title": "Ask Richter",
+  "subtitle": "My Interactive AI CV (Full-Stack RAG Architecture)",
+  "category": "AI/LLM",
+  "tier": 1,
+  "summary": "Interactive chatbot using RAG (Retrieval-Augmented Generation), in-memory FAISS, LangChain.js, Node.js/Express, Supabase, Next.js, Shadcn/ui, and LLMs.",
+  "techStack": ["Node.js", "TypeScript", "LangChain.js", "FAISS", "Supabase", "Next.js", "OpenAI", "Docker", "Render", "Vercel"],
+  "featured": true,
+  "githubUrl": "https://github.com/lfrichter/ask-richter",
+  "detailKey": "ask_richter",
+  "overview": "The 'Ask Richter' project transforms a traditional resume into an interactive, intelligent conversational experience. It allows recruiters and tech leaders to explore my career trajectory in natural language with precise answers grounded in a vector knowledge base.",
+  "roleDescription": "Architect and Full-Stack Developer responsible for the RAG solution design, prompt engineering, vectorization, and frontend/backend implementation.",
+  "responsibilities": [
+    "Built LangChain.js indexing pipeline (DirectoryLoader, RecursiveCharacterTextSplitter) and vectorized content using OpenAI text-embedding-3-small.",
+    "Persisted and retrieved FAISS vector index via Supabase Storage.",
+    "Developed Node.js, Express, and TypeScript RESTful API with optimized semantic search endpoints.",
+    "Reactive Next.js App Router frontend styled with Shadcn/ui and Tailwind CSS, featuring Markdown response rendering with syntax highlighting.",
+    "CI/CD automation via GitHub Actions and containerized deployment using Docker on Render.com."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Fast semantic similarity search with minimal cloud infrastructure costs.",
+      "solution": "Pre-indexed Markdown documents in FAISS stored in Supabase Storage, loading the index into memory on Node.js container startup."
+    },
+    {
+      "challenge": "Concise and contextually accurate answers without LLM hallucination.",
+      "solution": "RAG prompt engineering strictly injecting vector search fragments with temperature controls."
+    }
+  ],
+  "futureEvolution": [
+    "Bidirectional voice support (STT and TTS).",
+    "Real-time telemetry integration with OpenTelemetry."
+  ],
+  "metrics": [
+    "Semantic similarity search responded in under 150ms",
+    "100% professional data coverage in RAG format"
+  ]
+}

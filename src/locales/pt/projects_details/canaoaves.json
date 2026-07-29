@@ -1,0 +1,34 @@
+{
+  "id": "canaoaves",
+  "title": "Canaoaves & Admin Canaoaves",
+  "subtitle": "Plataforma Colaborativa de Observação de Aves no Brasil",
+  "category": "Full Stack",
+  "summary": "Cadastro Nacional de Observadores de Aves. SPA em React/Vite hospedada na Vercel com backend Serverless em Supabase PostgreSQL, RLS, Views e Storage. (www.canaoaves.com.br)",
+  "techStack": ["React", "Vite", "TypeScript", "Supabase", "PostgreSQL", "RLS", "Vercel", "Tailwind CSS"],
+  "featured": true,
+  "liveUrl": "http://www.canaoaves.com.br",
+  "detailKey": "canaoaves",
+  "overview": "Plataforma web publicada e ativa (www.canaoaves.com.br) para a comunidade de observadores de aves no Brasil, unindo entusiastas, guias de observação, pousadas ecológicas e serviços validados.",
+  "roleDescription": "Arquiteto de Software e Desenvolvedor Principal (End-to-End).",
+  "responsibilities": [
+    "Definição da arquitetura Serverless (ADR 011) baseada em React/Vite no frontend e Supabase no backend.",
+    "Modelagem de dados no PostgreSQL e criação de políticas refinadas de Row Level Security (RLS) para controle granular de acessos.",
+    "Implementação de Views SQL complexas e Stored Procedures para otimização de consultas e relatórios.",
+    "Desenvolvimento do painel administrativo 'Admin Canaoaves' para moderação e auditoria interna com ultrapassagem segura de RLS via privilégios administrativos.",
+    "Hospedagem e entrega global rápida através de CDN na Vercel com integração contínua."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Garantir segurança total de dados sem necessidade de manter servidores backend dedicated Node/Express.",
+      "solution": "Uso intensivo de políticas de RLS e funções nativas no Supabase PostgreSQL."
+    },
+    {
+      "challenge": "Moderação segura de conteúdos por usuários administradores sem comprometer o isolamento público.",
+      "solution": "Criação de portal Admin isolado consumindo funções seguras com privilégios service_role e RLS customizado."
+    }
+  ],
+  "metrics": [
+    "Plataforma em produção servindo observadores de aves em todo o Brasil",
+    "Zero custo fixo de servidores através de arquitetura Serverless Vercel + Supabase"
+  ]
+}

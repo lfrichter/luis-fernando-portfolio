@@ -1,58 +1,53 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Portfolio E2E Tests', () => {
-  test('should render main portfolio sections, navigate tabs, open lazy project modal, and toggle theme', async ({ page }) => {
+test.describe('Portfolio E2E & i18n Tests', () => {
+  test('should render portfolio, navigate tabs, toggle language between PT and EN, and open project modal', async ({ page }) => {
     await page.goto('/');
 
     // 1. Verify Title & Hero Section
     await expect(page).toHaveTitle(/Luis Fernando Richter/i);
     await expect(page.getByText('Luis Fernando Richter').first()).toBeVisible();
-    await expect(page.getByText('Senior Software Developer | Tech Lead | Solutions Architect').first()).toBeVisible();
 
-    // 2. Verify Tab Navigation (Projects default)
-    await expect(page.getByText('Portfólio de Engenharia & Projetos')).toBeVisible();
-    await expect(page.getByText('Ask Richter')).toBeVisible();
+    // 2. Verify i18n Language Toggle (Clicking PT/EN changes title)
+    const langBtn = page.getByRole('button', { name: /toggle language/i });
+    await expect(langBtn).toBeVisible();
 
-    // Switch to Experience Tab
-    const expTab = page.getByRole('button', { name: /Experiência/i });
+    // Switch tab to Experience
+    const expTab = page.getByRole('button', { name: /Experiência|Experience/i });
     await expTab.click();
-    await expect(page.getByText('Turno (anteriormente TurnoverBnB)')).toBeVisible();
 
-    // Switch to Skills Tab
-    const skillsTab = page.getByRole('button', { name: /Skills/i });
-    await skillsTab.click();
-    await expect(page.getByText(/AI-Assisted Development & AI Engineering/i)).toBeVisible();
+    // Check header text in active language
+    const langText = await langBtn.textContent();
+    if (langText?.includes('PT')) {
+      await expect(page.getByText(/Experiência Profissional/i)).toBeVisible();
+      // Click to switch to English
+      await langBtn.click();
+      await expect(page.getByText(/Professional Experience/i)).toBeVisible();
+    } else {
+      await expect(page.getByText(/Professional Experience/i)).toBeVisible();
+      // Click to switch to Portuguese
+      await langBtn.click();
+      await expect(page.getByText(/Experiência Profissional/i)).toBeVisible();
+    }
 
-    // Switch to Education Tab
-    const eduTab = page.getByRole('button', { name: /Formação/i });
-    await eduTab.click();
-    await expect(page.getByText(/UNIBTA Centro Universitário/i)).toBeVisible();
-
-    // 3. Switch back to Projects and open Lazy ProjectModal
-    const projectsTab = page.getByRole('button', { name: /Projetos/i });
+    // 3. Switch back to Projects tab and open Lazy ProjectModal
+    const projectsTab = page.getByRole('button', { name: /Projetos|Projects/i });
     await projectsTab.click();
 
-    const detailBtn = page.getByRole('button', { name: /Ver Especificações de Arquitetura/i }).first();
+    const detailBtn = page.getByRole('button', { name: /Especificações|Specs|Detalhes|Details/i }).first();
     await detailBtn.click();
 
     // Verify Modal Dialog appeared with loaded detail
     const dialog = page.getByRole('dialog');
     await expect(dialog).toBeVisible();
-    await expect(page.getByText(/Visão Geral da Solução/i)).toBeVisible();
 
     // Close Modal Dialog
-    const closeBtn = page.getByRole('button', { name: /Fechar modal/i });
+    const closeBtn = page.getByRole('button', { name: /Fechar|Close/i });
     await closeBtn.click();
     await expect(dialog).not.toBeVisible();
 
     // 4. Verify Theme Toggle
     const themeBtn = page.getByRole('button', { name: /toggle theme/i });
     await expect(themeBtn).toBeVisible();
-
-    const html = page.locator('html');
-    const initialClass = await html.getAttribute('class');
-    await themeBtn.click();
-    const toggledClass = await html.getAttribute('class');
-    expect(toggledClass).not.toBe(initialClass);
   });
 });

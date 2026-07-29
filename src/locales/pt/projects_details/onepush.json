@@ -1,0 +1,27 @@
+{
+  "id": "onepush",
+  "title": "OnePush Notification Platform",
+  "subtitle": "Plataforma Orientada a Eventos para Web Push Notifications",
+  "category": "Full Stack",
+  "tier": 2,
+  "summary": "Plataforma modular em Laravel orientada a eventos para registro de websites, envio automatizado de notificações Web Push e integração com OneSignal e Pagar.me.",
+  "techStack": ["Laravel", "Event-Driven", "OneSignal", "Pagar.me", "MySQL"],
+  "featured": false,
+  "detailKey": "onepush",
+  "overview": "Sistema SaaS para registro de domínios e disparo de notificações Web Push segmentadas por eventos do sistema, com integração a gateway de pagamento.",
+  "roleDescription": "Desenvolvedor de Software na Pilha Digital.",
+  "responsibilities": [
+    "Desenvolvimento de arquitetura orientada a eventos (Event Listeners & Jobs) em Laravel.",
+    "Integração com API RESTful do OneSignal para entrega de push notifications em massa.",
+    "Integração com Pagar.me para cobrança recorrente."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Envio assíncrono de notificações sem bloquear as requisições HTTP dos clientes.",
+      "solution": "Uso de Event Listeners acoplados a filas em background no Laravel."
+    }
+  ],
+  "metrics": [
+    "Entrega instantânea de notificações Web Push sem impacto no tempo de resposta HTTP"
+  ]
+}

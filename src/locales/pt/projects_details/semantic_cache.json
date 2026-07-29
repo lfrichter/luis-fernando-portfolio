@@ -1,0 +1,28 @@
+{
+  "id": "semantic-cache",
+  "title": "Cache Semântico para LLMs",
+  "subtitle": "PoC de Cache Semântico Local de Altíssima Performance",
+  "category": "PoC & Open Source",
+  "summary": "Sistema de cache semântico 100% local em Python. Gera embeddings com Ollama e faz busca por similaridade em memória com índice FAISS e NumPy, reduzindo latência e custo de LLMs.",
+  "techStack": ["Python", "FAISS", "Ollama", "NumPy", "Vector Search", "LLMs"],
+  "featured": false,
+  "detailKey": "semantic_cache",
+  "overview": "Prova de Conceito (PoC) criada para demonstrar como reduzir a latência de respostas e os custos com chamadas a LLMs através de um cache de busca vetorial semântica operando 100% localmente.",
+  "roleDescription": "Idealizador e Desenvolvedor Único.",
+  "responsibilities": [
+    "Desenvolvimento da lógica de decisão Cache Hit / Cache Miss baseada em limiar de confiança semântica.",
+    "Integração do Ollama para geração de vetores de embedding locais e gratuitos, preservando privacidade total de dados.",
+    "Uso do FAISS (Facebook AI Similarity Search) para consulta a índices vetoriais em memória em tempo de milissegundos.",
+    "Otimização computacional de arrays com NumPy."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Evitar custos e latência de APIs externas de embeddings ao consultar o cache.",
+      "solution": "Execução local de modelos de embedding via Ollama integrada ao índice FAISS em memória."
+    }
+  ],
+  "metrics": [
+    "Respostas de 'Cache Hit' entregues em menos de 10ms",
+    "Economia potencial de até 90% em chamadas a APIs pagas de LLMs para perguntas recorrentes"
+  ]
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useExperience } from '@/hooks/useExperience';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardHeader, CardContent } from '@/components/ui/card';
@@ -6,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Briefcase, MapPin, Calendar, Search, Building2, TrendingUp } from 'lucide-react';
 
 export const Experience: React.FC = () => {
+  const { t } = useTranslation();
   const {
     experiences,
     totalCount,
@@ -18,10 +20,9 @@ export const Experience: React.FC = () => {
 
   // Helper to highlight impact metrics in bold / emerald badge
   const renderHighlightText = (text: string) => {
-    // Regex matching metric patterns like -40%, 30%, 30x, 500x, 10x, 100+
-    const parts = text.split(/(-?\d+%(?:\s+retenção|\s+tempo)?|\d+x|\d+\+)/g);
+    const parts = text.split(/(-?\d+%(?:\s+retenção|\s+tempo|\s+retention|\s+response)?|\d+x|\d+\+)/g);
     return parts.map((part, idx) => {
-      if (/(-?\d+%(?:\s+retenção|\s+tempo)?|\d+x|\d+\+)/.test(part)) {
+      if (/(-?\d+%(?:\s+retenção|\s+tempo|\s+retention|\s+response)?|\d+x|\d+\+)/.test(part)) {
         return (
           <span
             key={idx}
@@ -42,14 +43,14 @@ export const Experience: React.FC = () => {
         <div>
           <div className="flex items-center gap-2">
             <Badge variant="default" className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5">
-              Métricas & Trajetória
+              {t('experience.badge')}
             </Badge>
           </div>
           <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mt-1 flex items-center gap-2">
-            <Briefcase className="w-6 h-6 text-primary" /> Experiência Profissional (15+ Anos)
+            <Briefcase className="w-6 h-6 text-primary" /> {t('experience.title')}
           </h2>
           <p className="text-sm text-muted-foreground mt-1">
-            Exibindo {experiences.length} de {totalCount} posições internacionais (EUA, Reino Unido, Portugal e Brasil).
+            {t('experience.subtitle', { count: totalCount })}
           </p>
         </div>
 
@@ -58,7 +59,7 @@ export const Experience: React.FC = () => {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <input
             type="text"
-            placeholder="Buscar experiência, empresa ou tecnologia..."
+            placeholder={t('experience.searchPlaceholder')}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-9 pr-4 py-2 text-sm bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 text-foreground"
@@ -68,7 +69,7 @@ export const Experience: React.FC = () => {
 
       {/* Filter by Technology Pills */}
       <div className="flex flex-wrap items-center gap-1.5 mb-8">
-        <span className="text-xs font-semibold text-muted-foreground mr-2">Filtrar Tech:</span>
+        <span className="text-xs font-semibold text-muted-foreground mr-2">{t('experience.filterTech')}</span>
         {allTechs.slice(0, 10).map((tech) => (
           <Button
             key={tech}
@@ -86,9 +87,9 @@ export const Experience: React.FC = () => {
       {experiences.length === 0 && (
         <div className="text-center py-16 bg-muted/20 rounded-xl border border-dashed border-border">
           <Building2 className="w-10 h-10 mx-auto text-muted-foreground mb-3" />
-          <h3 className="text-lg font-semibold text-foreground">Nenhuma experiência encontrada</h3>
+          <h3 className="text-lg font-semibold text-foreground">{t('experience.emptyTitle')}</h3>
           <p className="text-sm text-muted-foreground mt-1 max-w-md mx-auto">
-            Não encontramos resultados para os termos buscados. Tente reiniciar a pesquisa.
+            {t('experience.emptySub')}
           </p>
           <Button
             variant="outline"
@@ -99,7 +100,7 @@ export const Experience: React.FC = () => {
             }}
             className="mt-4"
           >
-            Limpar Filtros
+            Clear Filters
           </Button>
         </div>
       )}

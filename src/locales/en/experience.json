@@ -1,0 +1,216 @@
+[
+  {
+    "id": "exp-turno",
+    "role": "Lead Software Engineer",
+    "company": "Turno (formerly TurnoverBnB)",
+    "location": "Honolulu, Hawaii, USA (Remote)",
+    "period": "Nov 2022 – Mar 2025",
+    "startDate": "2022-11",
+    "endDate": "2025-03",
+    "type": "Remote / Contract",
+    "skills": [
+      "Laravel",
+      "Vue.js",
+      "React Native",
+      "New Relic",
+      "Bugsnag",
+      "Jenkins",
+      "Docker",
+      "GitHub Copilot",
+      "MySQL"
+    ],
+    "highlights": [
+      "Led cross-functional team and served as technical lead across critical domains (Accounts, Properties, Checklists) to ensure system scalability and reliability.",
+      "Architected and implemented the strategic 'Mid-Stay Projects' initiative, increasing user retention by 30%.",
+      "Reduced endpoint response times by 40% through strategic code refactoring and database query optimization.",
+      "Resolved critical vulnerabilities identified in third-party penetration tests, strengthening authentication and session security.",
+      "Refactored over 100 failing automated tests in the CI/CD pipeline (Jenkins), significantly increasing delivery stability and test execution speed."
+    ],
+    "description": "Technical leadership for US-based short-term rental management SaaS, focusing on eliminating technical debt, optimizing performance, and adopting AI-assisted engineering workflows."
+  },
+  {
+    "id": "exp-fullcomms",
+    "role": "Head of Full-Stack Development (Technical Lead)",
+    "company": "Full Comms / Keaze",
+    "location": "Manchester, United Kingdom (Remote)",
+    "period": "Apr 2021 – Nov 2022",
+    "startDate": "2021-04",
+    "endDate": "2022-11",
+    "type": "Remote / Full-time",
+    "skills": [
+      "Laravel",
+      "Lumen",
+      "Vue.js",
+      "Vuetify",
+      "TypeScript",
+      "Laravel Dusk",
+      "Vercel",
+      "DeployHQ",
+      "Laravel Forge"
+    ],
+    "highlights": [
+      "Direct hands-on technical collaboration alongside engineering teams building Laravel CMS applications and scalable Lumen API systems.",
+      "Engineered the new AfterSales module for Kpro, optimizing real estate post-sales workflows across the UK.",
+      "Spearheaded automated E2E testing implementation using Laravel Dusk and headless Selenium browsers.",
+      "Boosted Shosales website performance by up to 10x through query optimization and test parallelization.",
+      "Managed ongoing PHP and Laravel framework upgrades ensuring system longevity, security, and high availability."
+    ],
+    "description": "Hands-on engineering and architectural leadership on high-impact web platforms for the UK real estate market."
+  },
+  {
+    "id": "exp-evokemobile",
+    "role": "Head of Software Development",
+    "company": "Evoke Mobile",
+    "location": "Liverpool, United Kingdom (Remote)",
+    "period": "Mar 2019 – Apr 2021",
+    "startDate": "2019-03",
+    "endDate": "2021-04",
+    "type": "Remote / Full-time",
+    "skills": [
+      "Laravel",
+      "React.js",
+      "Laravel Horizon",
+      "Redis",
+      "Google Geocoding",
+      "Firebase",
+      "GitHub Actions"
+    ],
+    "highlights": [
+      "Engineered internal React admin dashboards, resolving critical 200k+ geospatial map point rendering bottlenecks via Superfetch (up to 30x faster page loading).",
+      "Optimized backend ecosystem with asynchronous queue workers (Laravel Horizon), achieving up to 500x faster trip processing for ride-hailing services.",
+      "Designed and maintained scalable RESTful APIs consumed by mobile apps (iOS/Android) and web platforms.",
+      "Integrated third-party global services including Firebase, Google Geocoding, Overpass API, Mailgun, and OPTA football data feeds (Fanoty project)."
+    ],
+    "description": "Software architecture and full-stack development for mobile and geospatial solutions at international scale."
+  },
+  {
+    "id": "exp-alfasoft",
+    "role": "Software Development Engineer",
+    "company": "Alfasoft",
+    "location": "Lisbon, Portugal (Hybrid)",
+    "period": "Apr 2018 – Nov 2018",
+    "startDate": "2018-04",
+    "endDate": "2018-11",
+    "type": "Hybrid / Full-time",
+    "skills": [
+      "PHP",
+      "Laravel",
+      "Python",
+      "WordPress",
+      "C#",
+      "Bitbucket Pipelines",
+      "Targetprocess"
+    ],
+    "highlights": [
+      "Designed and implemented high-performance solution for daily large-volume data imports using queue systems to optimize server load.",
+      "Developed multiple web applications with Laravel and custom WordPress themes/plugins.",
+      "Implemented real-time chart updating in NinjaTrader platform using C#.",
+      "Integrated legacy systems using Python and Laravel for Sisporta project with CI/CD via Bitbucket Pipelines."
+    ],
+    "description": "Distributed software development and legacy system integration for European clients."
+  },
+  {
+    "id": "exp-plugae",
+    "role": "Senior Software Developer",
+    "company": "Plugae",
+    "location": "Barueri, São Paulo, Brazil",
+    "period": "Nov 2017 – Feb 2018",
+    "startDate": "2017-11",
+    "endDate": "2018-02",
+    "type": "On-site / Contract",
+    "skills": [
+      "Laravel",
+      "Redis",
+      "MongoDB",
+      "Bling ERP Webhooks",
+      "AWS S3",
+      "Docker"
+    ],
+    "highlights": [
+      "Architected Spider — E-Commerce Integration Hub in Laravel/PHP to orchestrate orders, stock, and pricing across major marketplaces (Mercado Livre, B2W, Via Varejo, Skyhub) and Bling ERP.",
+      "Developed order ingestion and normalization engine from Magento platforms storing data in MongoDB.",
+      "Mitigated overselling and data inconsistency issues using Redis/Laravel Horizon queue jobs and reactive webhooks."
+    ],
+    "description": "E-commerce integration architecture and high-volume distributed order processing."
+  },
+  {
+    "id": "exp-pilhadigital",
+    "role": "Software Developer",
+    "company": "Pilha Digital",
+    "location": "Sorocaba, Brazil",
+    "period": "Feb 2017 – Sep 2017",
+    "startDate": "2017-02",
+    "endDate": "2017-09",
+    "type": "On-site / Contract",
+    "skills": [
+      "Laravel",
+      "Event-Driven Architecture",
+      "OneSignal",
+      "Pagar.me"
+    ],
+    "highlights": [
+      "Built modular event-driven platform in Laravel for website registration and automated Web Push notifications.",
+      "Integrated Pagar.me payment system and OneSignal push notification service."
+    ]
+  },
+  {
+    "id": "exp-aso",
+    "role": "Full Stack Developer",
+    "company": "ASO",
+    "location": "Sorocaba, Brazil",
+    "period": "Jan 2016 – Jan 2017",
+    "startDate": "2016-01",
+    "endDate": "2017-01",
+    "type": "Full-time",
+    "skills": [
+      "PHP OOP",
+      "MySQL",
+      "JavaScript",
+      "Hospital Management Systems"
+    ],
+    "highlights": [
+      "Built comprehensive PHP OOP application for managing hospitals, healthcare professionals, clinics, and patient records."
+    ]
+  },
+  {
+    "id": "exp-promoedu",
+    "role": "Leadership & Executive Coach",
+    "company": "Promoedu.com",
+    "location": "Sorocaba, Brazil",
+    "period": "Sep 2015 – Mar 2016",
+    "startDate": "2015-09",
+    "endDate": "2016-03",
+    "type": "On-site",
+    "skills": [
+      "Leadership",
+      "Executive Coaching",
+      "Psychological Safety",
+      "People Management"
+    ],
+    "highlights": [
+      "Designed and delivered 14-hour Leadership and Coaching training programs, empowering managers in effective delegation, feedback culture, and performance evaluation."
+    ]
+  },
+  {
+    "id": "exp-ftd",
+    "role": "Web Designer & Web Developer",
+    "company": "EDITORA FTD S/A",
+    "location": "São Paulo, Brazil",
+    "period": "Jan 1998 – Nov 2011",
+    "startDate": "1998-01",
+    "endDate": "2011-11",
+    "type": "Full-time",
+    "skills": [
+      "Coldfusion",
+      "ASP",
+      "Java Servlets",
+      "SQL Server",
+      "Atlassian Jira",
+      "IIS"
+    ],
+    "highlights": [
+      "Developed and maintained FTD's main corporate web portal, e-commerce platform, and internal intranet system.",
+      "Worked with pioneering Brazilian web technologies (Coldfusion/Java, ASP, SQL Server) and incident management via Jira."
+    ]
+  }
+]
