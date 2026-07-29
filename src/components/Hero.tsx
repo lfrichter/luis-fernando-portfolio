@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { GithubIcon, LinkedinIcon } from '@/components/icons/SocialIcons';
 import { Mail, MapPin, Sparkles, Award, ShieldCheck, Cpu } from 'lucide-react';
+import avatarImg from '@/assets/AvatarCircle.png';
 
 export const Hero: React.FC = () => {
   const { t } = useTranslation();
@@ -14,15 +15,18 @@ export const Hero: React.FC = () => {
     <section className="relative overflow-hidden pt-12 pb-16 border-b border-border/40 bg-gradient-to-b from-background via-muted/20 to-background">
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-          {/* Avatar Badge / Logo Initial */}
+          {/* Avatar Picture with Gradient Glow Border */}
           <div className="shrink-0">
-            <div className="w-28 h-28 md:w-36 md:h-36 rounded-2xl bg-gradient-to-tr from-primary via-indigo-500 to-purple-600 p-1 shadow-xl flex items-center justify-center">
-              <div className="w-full h-full bg-background rounded-[14px] flex flex-col items-center justify-center text-foreground font-black text-3xl md:text-4xl tracking-tighter">
-                <span>LFR</span>
-                <span className="text-[10px] font-normal text-muted-foreground tracking-normal uppercase mt-1">
-                  {t('hero.expBadge')}
-                </span>
-              </div>
+            <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-tr from-primary via-indigo-500 to-purple-600 p-1 shadow-2xl transition-transform hover:scale-105 duration-300">
+              <img
+                src={avatarImg}
+                alt={profile.name}
+                className="w-full h-full object-cover rounded-full bg-background"
+              />
+              <span className="absolute bottom-1 right-1 flex h-4 w-4">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-4 w-4 bg-emerald-500 border-2 border-background"></span>
+              </span>
             </div>
           </div>
 
