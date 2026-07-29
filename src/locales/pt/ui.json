@@ -57,10 +57,13 @@
     "emptySub": "Não encontramos resultados para os termos buscados. Tente reiniciar a pesquisa."
   },
   "skills": {
+    "badge": "Stack & Ferramentas",
     "title": "Habilidades Técnicas & Competências",
     "subtitle": "Visão consolidada de stacks, linguagens, ferramentas de IA assistida e práticas de engenharia."
   },
   "education": {
+    "academicBadge": "Acadêmico",
+    "certsBadge": "Credenciais Aprovadas",
     "title": "Formação Acadêmica & Pós-Graduação",
     "subtitle": "Especialização em Engenharia de Software e Bacharelado em Gestão Digital.",
     "courseworkTitle": "Disciplinas & Tópicos de Destaque",

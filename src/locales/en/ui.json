@@ -57,10 +57,13 @@
     "emptySub": "No results matched your search terms. Try resetting your search."
   },
   "skills": {
+    "badge": "Stack & Tools",
     "title": "Technical Skills & Competencies",
     "subtitle": "Consolidated view of stacks, languages, AI-assisted tools, and engineering practices."
   },
   "education": {
+    "academicBadge": "Academic",
+    "certsBadge": "Verified Credentials",
     "title": "Academic Education & Degrees",
     "subtitle": "Postgraduate Specialization in Software Engineering & Bachelor in E-Commerce Management.",
     "courseworkTitle": "Highlighted Coursework & Topics",

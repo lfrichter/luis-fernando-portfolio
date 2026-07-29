@@ -24,7 +24,7 @@ export const EducationCerts: React.FC = () => {
         <div>
           <div className="flex items-center gap-2">
             <Badge variant="default" className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5">
-              Acadêmico
+              {t('education.academicBadge')}
             </Badge>
           </div>
           <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mt-1 flex items-center gap-2">
@@ -118,7 +118,7 @@ export const EducationCerts: React.FC = () => {
         <div>
           <div className="flex items-center gap-2">
             <Badge variant="default" className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5">
-              Credenciais Aprovadas
+              {t('education.certsBadge')}
             </Badge>
           </div>
           <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mt-1 flex items-center gap-2">
