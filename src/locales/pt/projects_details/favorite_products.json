@@ -8,6 +8,7 @@
   "techStack": ["TypeScript", "Node.js", "Clean Architecture", "SOLID", "Jest", "Docker"],
   "featured": false,
   "detailKey": "favorite_products",
+  "githubUrl": "https://github.com/lfrichter/favorite-products-api",
   "overview": "Microsserviço desacoplado desenvolvido em Node.js e TypeScript seguindo os princípios de Clean Architecture e SOLID para prover uma API resiliente de produtos favoritos.",
   "roleDescription": "Engenheiro de Software Backend.",
   "responsibilities": [

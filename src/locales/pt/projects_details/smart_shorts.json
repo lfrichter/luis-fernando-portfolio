@@ -7,7 +7,6 @@
   "summary": "Plataforma de criação automatizada de vídeos curtos/longos com IA. Frontend Next.js App Router com cookies httpOnly JWT e backend em Java / Spring Boot.",
   "techStack": ["Next.js", "React", "TypeScript", "Java", "Spring Boot", "Axios", "Tailwind CSS", "Vitest"],
   "featured": true,
-  "githubUrl": "https://github.com/lfrichter/smartshorts-ui",
   "detailKey": "smart_shorts",
   "overview": "O SmartShorts é um SaaS inovador para criadores de conteúdo e agências de marketing que transforma simples ideias de texto em vídeos completos com narração, imagens, legendas sincronizadas e trilha sonora.",
   "roleDescription": "Arquiteto Frontend e Desenvolvedor Full-Stack na modernização da UI e migração de Vite/React para Next.js App Router.",

@@ -1,11 +1,11 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { useProjectDetail } from '@/hooks/useProjectDetail';
+import { GithubIcon } from '@/components/icons/SocialIcons';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { GithubIcon } from '@/components/icons/SocialIcons';
-import { X, ExternalLink, AlertTriangle, Loader2, CheckCircle2, Cpu, Wrench, ShieldAlert, Network, BarChart3 } from 'lucide-react';
+import { useProjectDetail } from '@/hooks/useProjectDetail';
+import { AlertTriangle, BarChart3, CheckCircle2, Cpu, ExternalLink, Loader2, Network, ShieldAlert, Wrench, X } from 'lucide-react';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface ProjectModalProps {
   detailKey: string | null;
@@ -31,21 +31,21 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl max-h-[92vh] bg-background border border-border rounded-2xl shadow-2xl overflow-y-auto flex flex-col my-6"
+        className="relative w-full max-w-4xl max-h-[92vh] bg-white dark:bg-zinc-950 text-slate-900 dark:text-zinc-100 border border-slate-200 dark:border-zinc-800 rounded-2xl shadow-2xl overflow-y-auto flex flex-col my-6"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="sticky top-0 z-10 flex items-center justify-between p-6 bg-background/95 backdrop-blur border-b border-border/80">
+        <div className="sticky top-0 z-10 flex items-center justify-between p-6 bg-white/95 dark:bg-zinc-950/95 backdrop-blur border-b border-slate-200 dark:border-zinc-800">
           <div>
             <div className="flex items-center gap-2">
-              <Badge variant="default" className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 bg-primary">
+              <Badge variant="default" className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 bg-primary text-primary-foreground font-bold">
                 {t('modal.headerBadge')}
               </Badge>
-              <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+              <span className="text-xs font-bold text-slate-500 dark:text-zinc-400 uppercase tracking-wider">
                 Tier {detail?.tier || 1} Architecture
               </span>
             </div>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mt-1">
+            <h2 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white mt-1.5 tracking-tight">
               {detail?.title || '...'}
             </h2>
           </div>
@@ -54,7 +54,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             size="icon"
             onClick={onClose}
             aria-label={t('modal.close')}
-            className="rounded-full hover:bg-muted"
+            className="rounded-full text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800 hover:text-slate-900 dark:hover:text-white"
           >
             <X className="w-5 h-5" />
           </Button>
@@ -63,7 +63,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
         {/* Content Body */}
         <div className="p-6 md:p-8 space-y-8 flex-1">
           {isLoading && (
-            <div className="flex flex-col items-center justify-center py-20 text-muted-foreground">
+            <div className="flex flex-col items-center justify-center py-20 text-slate-500 dark:text-zinc-400">
               <Loader2 className="w-10 h-10 animate-spin mb-4 text-primary" />
               <p className="text-sm font-medium">{t('modal.loading')}</p>
             </div>
@@ -84,33 +84,33 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           {detail && !isLoading && !error && (
             <>
               {/* Subtitle & Category */}
-              <div className="flex flex-wrap items-center gap-3 pb-2 border-b border-border/40">
-                <Badge variant="secondary" className="text-xs px-3 py-1 font-semibold">
+              <div className="flex flex-wrap items-center gap-3 pb-2 border-b border-slate-200 dark:border-zinc-800">
+                <Badge variant="secondary" className="text-xs px-3 py-1 font-semibold bg-slate-100 dark:bg-zinc-800 text-slate-800 dark:text-zinc-200">
                   {detail.category}
                 </Badge>
-                <span className="text-sm text-primary font-medium">
+                <span className="text-sm text-primary font-bold">
                   {detail.subtitle}
                 </span>
               </div>
 
               {/* 1. Visão Geral */}
               <div>
-                <h3 className="text-lg font-bold text-foreground mb-2 flex items-center gap-2">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
                   <Cpu className="w-5 h-5 text-primary" /> {t('modal.overviewTitle')}
                 </h3>
-                <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                <p className="text-slate-600 dark:text-zinc-300 text-sm md:text-base leading-relaxed">
                   {detail.overview}
                 </p>
               </div>
 
               {/* 2. Tech Stack */}
               <div>
-                <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-                  <Wrench className="w-5 h-5 text-indigo-500" /> {t('modal.stackTitle')}
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+                  <Wrench className="w-5 h-5 text-indigo-600 dark:text-indigo-400" /> {t('modal.stackTitle')}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {detail.techStack.map((tech) => (
-                    <Badge key={tech} variant="outline" className="bg-muted/60 text-xs px-3 py-1 font-medium border-border">
+                    <Badge key={tech} variant="outline" className="bg-slate-50 dark:bg-zinc-900 text-slate-800 dark:text-zinc-200 text-xs px-3 py-1 font-medium border-slate-300 dark:border-zinc-700">
                       {tech}
                     </Badge>
                   ))}
@@ -119,26 +119,26 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
               {/* 3. Desafios & Soluções (Destaque Principal) */}
               <div>
-                <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
-                  <ShieldAlert className="w-5 h-5 text-amber-500" /> {t('modal.challengesTitle')}
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                  <ShieldAlert className="w-5 h-5 text-amber-600 dark:text-amber-400" /> {t('modal.challengesTitle')}
                 </h3>
                 <div className="grid gap-4 md:grid-cols-2">
                   {detail.challengesAndSolutions.map((cs, idx) => (
-                    <Card key={idx} className="bg-muted/30 border border-muted hover:border-amber-500/40 transition-colors">
+                    <Card key={idx} className="bg-slate-50/70 dark:bg-zinc-900/50 border border-slate-200 dark:border-zinc-800 hover:border-amber-500/50 transition-colors">
                       <CardContent className="p-5 space-y-3">
-                        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-500">
+                        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
                           <AlertTriangle className="w-4 h-4 shrink-0" />
                           <span>Challenge #{idx + 1}</span>
                         </div>
-                        <p className="text-sm font-semibold text-foreground leading-snug">
+                        <p className="text-sm font-bold text-slate-900 dark:text-zinc-100 leading-snug">
                           {cs.challenge}
                         </p>
-                        <div className="pt-2 border-t border-border/50">
-                          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-500 mb-1">
+                        <div className="pt-2 border-t border-slate-200 dark:border-zinc-800">
+                          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-1">
                             <CheckCircle2 className="w-4 h-4 shrink-0" />
                             <span>Applied Solution</span>
                           </div>
-                          <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
+                          <p className="text-xs md:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
                             {cs.solution}
                           </p>
                         </div>
@@ -150,17 +150,17 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
               {/* 4. Diagrama de Arquitetura */}
               <div>
-                <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-                  <Network className="w-5 h-5 text-emerald-500" /> {t('modal.archTitle')}
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+                  <Network className="w-5 h-5 text-emerald-600 dark:text-emerald-400" /> {t('modal.archTitle')}
                 </h3>
-                <Card className="bg-zinc-950 border border-zinc-800 text-zinc-100 p-6 font-mono text-xs overflow-x-auto">
-                  <div className="text-zinc-400 mb-3 text-[11px] font-sans flex items-center justify-between">
-                    <span>Microservices & Data Pipeline Topology</span>
-                    <Badge variant="outline" className="text-[10px] border-zinc-700 text-zinc-300">
+                <Card className="bg-slate-900 dark:bg-zinc-950 border border-slate-800 dark:border-zinc-800 text-slate-100 dark:text-zinc-100 p-6 font-mono text-xs overflow-x-auto shadow-md">
+                  <div className="text-slate-300 dark:text-zinc-300 mb-3 text-[11px] font-sans flex items-center justify-between font-medium">
+                    <span className="font-bold text-slate-100 dark:text-zinc-100">Microservices & Data Pipeline Topology</span>
+                    <Badge variant="outline" className="text-[10px] border-slate-700 dark:border-zinc-700 text-slate-200 dark:text-zinc-300 bg-slate-800/80 dark:bg-zinc-900">
                       Validated Architecture
                     </Badge>
                   </div>
-                  <pre className="text-emerald-400 leading-relaxed overflow-x-auto">
+                  <pre className="text-emerald-400 dark:text-emerald-400 leading-relaxed overflow-x-auto font-semibold">
                     {detail.architectureDiagramMermaid || `+-------------------------------------------------------------+
 |              Client Requests / Frontend Layer               |
 +-------------------------------------------------------------+
@@ -181,16 +181,16 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
               {/* 5. Papel & Responsabilidades */}
               <div>
-                <h3 className="text-lg font-bold text-foreground mb-3">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3">
                   👨‍💻 {t('modal.roleTitle')}
                 </h3>
-                <p className="text-sm text-muted-foreground italic mb-3">
+                <p className="text-sm text-slate-600 dark:text-zinc-400 italic mb-3">
                   {detail.roleDescription}
                 </p>
                 <ul className="space-y-2">
                   {detail.responsibilities.map((resp, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-sm text-foreground/90">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
+                    <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-800 dark:text-zinc-200">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mt-0.5 shrink-0" />
                       <span>{resp}</span>
                     </li>
                   ))}
@@ -200,12 +200,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               {/* 6. Impacto & Métricas */}
               {detail.metrics && detail.metrics.length > 0 && (
                 <div>
-                  <h3 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-                    <BarChart3 className="w-5 h-5 text-purple-500" /> {t('modal.metricsTitle')}
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+                    <BarChart3 className="w-5 h-5 text-purple-600 dark:text-purple-400" /> {t('modal.metricsTitle')}
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {detail.metrics.map((metric, idx) => (
-                      <Badge key={idx} variant="secondary" className="px-3.5 py-1.5 text-xs font-semibold bg-purple-500/10 text-purple-600 dark:text-purple-300 border border-purple-500/20">
+                      <Badge key={idx} variant="secondary" className="px-3.5 py-1.5 text-xs font-semibold bg-purple-100 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60">
                         {metric}
                       </Badge>
                     ))}
@@ -214,9 +214,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               )}
 
               {/* Links Footer */}
-              <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-border">
+              <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-slate-200 dark:border-zinc-800">
                 {detail.githubUrl && (
-                  <Button variant="outline" size="sm" asChild>
+                  <Button variant="outline" size="sm" asChild className="border-slate-300 dark:border-zinc-700 text-slate-700 dark:text-zinc-200 hover:bg-slate-100 dark:hover:bg-zinc-800">
                     <a
                       href={detail.githubUrl}
                       target="_blank"

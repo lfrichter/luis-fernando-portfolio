@@ -7,6 +7,7 @@
   "summary": "Sistema de cache semântico 100% local em Python. Gera embeddings com Ollama e faz busca por similaridade em memória com FAISS e NumPy.",
   "techStack": ["Python", "FAISS", "Ollama", "NumPy", "Vector Search"],
   "featured": false,
+  "githubUrl": "https://github.com/lfrichter/semantic-cache",
   "detailKey": "semantic_cache",
   "overview": "Prova de Conceito (PoC) demonstrando um cache semântico vetorial local de alta velocidade projetado para interceptar requisições de usuários, buscar respostas semânticas no índice FAISS e eliminar chamadas repetitivas e custosas às APIs de LLMs.",
   "roleDescription": "Engenheiro de IA & Arquiteto Técnico.",

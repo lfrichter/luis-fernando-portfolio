@@ -8,6 +8,7 @@
   "techStack": ["k6", "JMeter", "Performance Profiling", "Load Testing"],
   "featured": false,
   "detailKey": "ecommerce_k6",
+  "githubUrl": "https://github.com/lfrichter/demo-shop-performace-test",
   "overview": "Benchmark de performance projetado para identificar gargalos de vazão, latência de banco de dados e limites de concorrência em apis RESTful de e-commerce.",
   "roleDescription": "Engenheiro de Performance.",
   "responsibilities": [

@@ -8,6 +8,7 @@
   "techStack": ["TypeScript", "Vue.js", "Pinia", "State Management"],
   "featured": false,
   "detailKey": "twin_quest",
+  "githubUrl": "https://github.com/lfrichter/twin-quest",
   "overview": "Projeto experimental explorando padrões avançados de gerenciamento de estado e tipagem estrita com TypeScript e Pinia em uma interface interativa de jogo.",
   "roleDescription": "Desenvolvedor Frontend.",
   "responsibilities": [
