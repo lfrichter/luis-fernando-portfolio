@@ -1,28 +1,28 @@
 {
   "id": "sdlc-ia",
-  "title": "Framework SDLC-IA & Engenharia de Prompt",
-  "subtitle": "Metodologia de Aceleração de Engenharia com Agentes de IA",
+  "title": "Framework SDLC-IA & Prompt Engineering",
+  "subtitle": "AI-Agent Accelerated Software Development Lifecycle",
   "category": "AI/LLM",
   "tier": 1,
-  "summary": "Framework de integração de ferramentas de IA assistida (Copilot, Cursor, Trae, Gemini) no fluxo de desenvolvimento, testes automatizados e arquitetura de software.",
+  "summary": "Framework integrating AI-assisted engineering tools (Copilot, Cursor, Trae, Gemini) into software development, automated testing, and architecture workflows.",
   "techStack": ["Cursor IDE", "GitHub Copilot", "Trae", "Gemini Code Assist", "LLMs", "Prompt Engineering"],
   "featured": true,
   "detailKey": "sdlc_ia",
-  "overview": "Conjunto de práticas, prompts padronizados e fluxos de trabalho assistidos por Inteligência Artificial para aumentar drasticamente a produtividade, qualidade de código e cobertura de testes em equipes de desenvolvimento.",
-  "roleDescription": "Arquiteto de Processos & Tech Lead.",
+  "overview": "Comprehensive engineering methodology, standardized prompt library, and AI-assisted workflows designed to significantly increase software delivery velocity, code quality, and test coverage.",
+  "roleDescription": "Software Architect & Engineering Process Tech Lead.",
   "responsibilities": [
-    "Definição do fluxo SDLC assistido por IA combinando Cursor IDE, Copilot, Trae e Gemini Code Assist.",
-    "Criação de repositório de prompts e personas de arquitetura para geração automática de testes TDD, documentação OpenAPI e refatorações limpas.",
-    "Treinamento e disseminação de melhores práticas para times de engenharia, resultando em aceleração das entregas com alta confiabilidade."
+    "Defined AI-assisted SDLC workflow combining Cursor IDE, Copilot, Trae, and Gemini Code Assist.",
+    "Created prompt repositories and architecture personas for automated TDD test generation, OpenAPI documentation, and refactoring.",
+    "Trained engineering teams on best practices, accelerating delivery speed while maintaining high system reliability."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Garantir a consistência e a precisão do código gerado por IA sem introduzir alucinações ou vulnerabilidades de segurança.",
-      "solution": "Estabelecimento de pipeline de validação rigorosa com linting automatizado, testes TDD imediatos e revisões focadas em segurança."
+      "challenge": "Ensuring consistency and precision of AI-generated code without introducing hallucinations or security vulnerabilities.",
+      "solution": "Established strict validation pipelines with automated linting, immediate TDD execution, and security-focused code reviews."
     }
   ],
   "metrics": [
-    "Aumento de até 40% na velocidade de entrega de novas features",
-    "Elevação imediata da cobertura de testes unitários automatizados"
+    "Up to 40% increase in feature delivery speed",
+    "Immediate elevation of automated unit test coverage"
   ]
 }

@@ -1,34 +1,30 @@
 {
   "id": "canaoaves",
   "title": "Canaoaves & Admin Canaoaves",
-  "subtitle": "Plataforma Colaborativa de Observação de Aves no Brasil",
+  "subtitle": "Collaborative Birdwatching Platform in Brazil",
   "category": "Full Stack",
-  "summary": "Cadastro Nacional de Observadores de Aves. SPA em React/Vite hospedada na Vercel com backend Serverless em Supabase PostgreSQL, RLS, Views e Storage. (www.canaoaves.com.br)",
+  "tier": 1,
+  "summary": "National Registry of Birdwatchers. React/Vite SPA hosted on Vercel with Serverless Supabase PostgreSQL backend, RLS Bypass, and Views. (www.canaoaves.com.br)",
   "techStack": ["React", "Vite", "TypeScript", "Supabase", "PostgreSQL", "RLS", "Vercel", "Tailwind CSS"],
   "featured": true,
   "liveUrl": "http://www.canaoaves.com.br",
   "detailKey": "canaoaves",
-  "overview": "Plataforma web publicada e ativa (www.canaoaves.com.br) para a comunidade de observadores de aves no Brasil, unindo entusiastas, guias de observação, pousadas ecológicas e serviços validados.",
-  "roleDescription": "Arquiteto de Software e Desenvolvedor Principal (End-to-End).",
+  "overview": "Canaoaves is Brazil's central collaborative platform for registering birdwatchers, scientific expeditions, species sightings, and conservation events.",
+  "roleDescription": "Lead Architect and Full-Stack Developer for both public SPA and administrative portal.",
   "responsibilities": [
-    "Definição da arquitetura Serverless (ADR 011) baseada em React/Vite no frontend e Supabase no backend.",
-    "Modelagem de dados no PostgreSQL e criação de políticas refinadas de Row Level Security (RLS) para controle granular de acessos.",
-    "Implementação de Views SQL complexas e Stored Procedures para otimização de consultas e relatórios.",
-    "Desenvolvimento do painel administrativo 'Admin Canaoaves' para moderação e auditoria interna com ultrapassagem segura de RLS via privilégios administrativos.",
-    "Hospedagem e entrega global rápida através de CDN na Vercel com integração contínua."
+    "Designed single page application in React, TypeScript, Vite, and Tailwind CSS hosted on Vercel.",
+    "Modeled Supabase PostgreSQL relational database schema with Row Level Security (RLS) policies for user data isolation.",
+    "Engineered serverless admin bypass architecture using database Views and service role functions for global analytics.",
+    "Integrated dynamic species filter, interactive location maps, and media upload features."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Garantir segurança total de dados sem necessidade de manter servidores backend dedicated Node/Express.",
-      "solution": "Uso intensivo de políticas de RLS e funções nativas no Supabase PostgreSQL."
-    },
-    {
-      "challenge": "Moderação segura de conteúdos por usuários administradores sem comprometer o isolamento público.",
-      "solution": "Criação de portal Admin isolado consumindo funções seguras com privilégios service_role e RLS customizado."
+      "challenge": "Bypassing Row Level Security (RLS) policies safely in administrative dashboards without exposing private user data to client bundles.",
+      "solution": "Created SECURITY DEFINER database functions and PostgreSQL Views exposing aggregated data via isolated serverless calls."
     }
   ],
   "metrics": [
-    "Plataforma em produção servindo observadores de aves em todo o Brasil",
-    "Zero custo fixo de servidores através de arquitetura Serverless Vercel + Supabase"
+    "Serving thousands of birdwatchers across Brazil with zero server infrastructure maintenance costs",
+    "100% serverless deployment with Vercel and Supabase"
   ]
 }

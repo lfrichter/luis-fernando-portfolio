@@ -1,28 +1,28 @@
 {
   "id": "favorite-products-api",
   "title": "Favorite Products API",
-  "subtitle": "Microsserviço RESTful com Clean Architecture & SOLID",
+  "subtitle": "RESTful Microservice with Clean Architecture & SOLID",
   "category": "Full Stack",
   "tier": 2,
-  "summary": "API RESTful de alta performance projetada com Clean Architecture, princípios SOLID e testes automatizados para gerenciamento de listas de produtos favoritos.",
+  "summary": "High-performance RESTful API designed with Clean Architecture, SOLID principles, and automated testing for managing favorite product lists.",
   "techStack": ["TypeScript", "Node.js", "Clean Architecture", "SOLID", "Jest", "Docker"],
   "featured": false,
   "detailKey": "favorite_products",
-  "overview": "Microsserviço desacoplado desenvolvido em Node.js e TypeScript seguindo os princípios de Clean Architecture e SOLID para prover uma API resiliente de produtos favoritos.",
-  "roleDescription": "Engenheiro de Software Backend.",
+  "overview": "Decoupled microservice built with Node.js and TypeScript adhering to Clean Architecture and SOLID principles to provide a resilient API for managing favorite products.",
+  "roleDescription": "Backend Software Engineer.",
   "responsibilities": [
-    "Modelagem de domínio isolando regras de negócio da camada de infraestrutura.",
-    "Implementação de inversão de dependência (DIP) e repositórios desacoplados.",
-    "Suíte completa de testes unitários e de integração com Jest."
+    "Domain-driven design isolating business logic from infrastructure frameworks.",
+    "Dependency Inversion Principle (DIP) and repository pattern implementation.",
+    "Comprehensive suite of unit and integration tests with Jest."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Garantir extrema facilidade de manutenção e desacoplamento de banco de dados.",
-      "solution": "Uso de interfaces de repositório e injeção de dependências nativa."
+      "challenge": "Ensuring maximum maintainability and complete database decoupling.",
+      "solution": "Utilized repository interfaces and native dependency injection."
     }
   ],
   "metrics": [
-    "100% de cobertura das regras de negócio com Jest",
-    "Zero acoplamento com a camada de persistência"
+    "100% test coverage of core business domain rules with Jest",
+    "Zero tight coupling to database persistence layer"
   ]
 }

@@ -1,27 +1,27 @@
 {
   "id": "onepush",
   "title": "OnePush Notification Platform",
-  "subtitle": "Plataforma Orientada a Eventos para Web Push Notifications",
+  "subtitle": "Event-Driven Web Push Notification Platform",
   "category": "Full Stack",
   "tier": 2,
-  "summary": "Plataforma modular em Laravel orientada a eventos para registro de websites, envio automatizado de notificações Web Push e integração com OneSignal e Pagar.me.",
+  "summary": "Modular event-driven Laravel platform for website registration, automated Web Push notification delivery, integrated with OneSignal and Pagar.me.",
   "techStack": ["Laravel", "Event-Driven", "OneSignal", "Pagar.me", "MySQL"],
   "featured": false,
   "detailKey": "onepush",
-  "overview": "Sistema SaaS para registro de domínios e disparo de notificações Web Push segmentadas por eventos do sistema, com integração a gateway de pagamento.",
-  "roleDescription": "Desenvolvedor de Software na Pilha Digital.",
+  "overview": "SaaS system for domain registration and automated Web Push notification delivery triggered by system events, integrated with subscription payment gateway.",
+  "roleDescription": "Software Developer at Pilha Digital.",
   "responsibilities": [
-    "Desenvolvimento de arquitetura orientada a eventos (Event Listeners & Jobs) em Laravel.",
-    "Integração com API RESTful do OneSignal para entrega de push notifications em massa.",
-    "Integração com Pagar.me para cobrança recorrente."
+    "Developed event-driven architecture (Event Listeners & Jobs) in Laravel.",
+    "Integrated OneSignal RESTful API for mass push notification delivery.",
+    "Integrated Pagar.me gateway for recurring billing."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Envio assíncrono de notificações sem bloquear as requisições HTTP dos clientes.",
-      "solution": "Uso de Event Listeners acoplados a filas em background no Laravel."
+      "challenge": "Delivering mass push notifications asynchronously without blocking HTTP client requests.",
+      "solution": "Decoupled notification dispatch using background Laravel queue jobs."
     }
   ],
   "metrics": [
-    "Entrega instantânea de notificações Web Push sem impacto no tempo de resposta HTTP"
+    "Instant Web Push notification delivery without impacting HTTP request latency"
   ]
 }

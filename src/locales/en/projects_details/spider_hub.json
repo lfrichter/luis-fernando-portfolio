@@ -1,29 +1,29 @@
 {
   "id": "spider-hub",
-  "title": "Spider — Hub de Integração de E-commerce",
-  "subtitle": "Orquestrador Multi-Marketplace & Bling ERP (High Volume)",
+  "title": "Spider — E-Commerce Integration Hub",
+  "subtitle": "Multi-Marketplace Orchestrator & Bling ERP (High Volume)",
   "category": "Architecture & Performance",
   "tier": 2,
-  "summary": "Hub centralizado em PHP/Laravel para unificar pedidos entre Mercado Livre, B2W, Via Varejo e ERP Bling. Filas assíncronas em Redis e MongoDB como fonte da verdade.",
+  "summary": "Centralized PHP/Laravel hub to unify orders across Mercado Livre, B2W, Via Varejo, and Bling ERP. Redis asynchronous queue workers and MongoDB single source of truth.",
   "techStack": ["PHP", "Laravel", "Redis", "Horizon", "MongoDB", "Bling ERP Webhooks", "AWS S3", "Docker"],
   "featured": false,
   "detailKey": "spider_hub",
-  "overview": "O Spider é um hub de integração de alta capacidade arquitetado para centralizar o fluxo de pedidos, catálogo de produtos, estoque e preços entre grandes marketplaces nacionais (Mercado Livre, B2W, Via Varejo) e sistemas ERP (Bling).",
-  "roleDescription": "Arquiteto de Software e Desenvolvedor Principal.",
+  "overview": "Spider is a high-throughput integration hub engineered to centralize order flows, product catalogs, inventory, and pricing across major national marketplaces (Mercado Livre, B2W, Via Varejo) and Bling ERP systems.",
+  "roleDescription": "Lead Software Architect and Principal Backend Developer.",
   "responsibilities": [
-    "Arquitetura end-to-end do hub em PHP/Laravel com processamento distribuído em filas Redis/Laravel Horizon.",
-    "Modelagem do repositório NoSQL em MongoDB para armazenamento flexível de esquemas heterogêneos de pedidos de múltiplos marketplaces.",
-    "Implementação de webhooks reativos e rotinas de sync em tempo real para eliminação de overselling.",
-    "Estruturação de ambiente reprodutível em Docker e armazenamento de assets na AWS S3."
+    "End-to-end hub architecture in PHP/Laravel with distributed processing using Redis/Laravel Horizon queue workers.",
+    "Designed NoSQL MongoDB repository for flexible schema storage of heterogeneous orders from multiple marketplaces.",
+    "Implemented reactive webhooks and real-time synchronization routines to eliminate overselling.",
+    "Structured reproducible Docker environment and AWS S3 asset storage."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Overselling e inconsistência de dados durante picos de vendas simultâneas em múltiplos marketplaces.",
-      "solution": "Uso de Redis locks distribuídos, ordenação estrita de mensagens em filas assíncronas e sincronização atômica de estoque."
+      "challenge": "Overselling and data inconsistency during simultaneous flash-sale traffic spikes across multiple marketplaces.",
+      "solution": "Implemented distributed Redis locks, strict queue job ordering, and atomic inventory sync."
     }
   ],
   "metrics": [
-    "Processamento resiliente de milhares de pedidos diários",
-    "Zero ocorrências de overselling com estoques sincronizados em tempo real"
+    "Resilient processing of thousands of daily orders",
+    "Zero overselling incidents with real-time synchronized stock levels"
   ]
 }

@@ -1,28 +1,28 @@
 {
   "id": "shosales",
   "title": "Shosales Website Revamp & Testing",
-  "subtitle": "Otimização de 10x em Carregamento & Testes Paralelos",
+  "subtitle": "10x Page Load Speedup & Parallel E2E Test Automation",
   "category": "Architecture & Performance",
   "tier": 2,
-  "summary": "Aumento de 10x na velocidade de páginas web, paralelização de suítes de teste com Laravel Dusk e Selenium no ecossistema imobiliário do Reino Unido.",
+  "summary": "10x performance improvement in web page rendering, parallel test suite execution with Laravel Dusk and Selenium across UK real estate platform.",
   "techStack": ["Laravel", "Vue.js", "Laravel Dusk", "Selenium", "SQL Tuning", "DeployHQ"],
   "featured": false,
   "detailKey": "shosales",
-  "overview": "Projeto de renovação da plataforma imobiliária Shosales (Reino Unido), focado em otimização extrema de performance web, refatoração de consultas SQL e automação de testes E2E.",
-  "roleDescription": "Head de Desenvolvimento Full-Stack na Full Comms.",
+  "overview": "Revamp project for UK real estate platform Shosales, focused on web performance optimization, SQL query refactoring, and automated E2E testing.",
+  "roleDescription": "Head of Full-Stack Development at Full Comms.",
   "responsibilities": [
-    "Refatoração de queries N+1 e implementação de estratégias de cache para otimizar o tempo de renderização em 10x.",
-    "Implementação de testes E2E automatizados com Laravel Dusk e Selenium em navegadores headless.",
-    "Paralelização da execução de testes nos pipelines de entrega contínua (DeployHQ)."
+    "Refactored N+1 queries and implemented caching strategies to achieve a 10x rendering speedup.",
+    "Implemented automated E2E test suites with Laravel Dusk and headless Selenium browsers.",
+    "Parallelized test execution in continuous delivery pipelines (DeployHQ)."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Lentidão nas páginas de listagem de propriedades devido a dezenas de relacionamentos SQL não otimizados.",
-      "solution": "Eager loading (with) no Laravel Eloquent, inclusão de índices compostos no MySQL e cache em camada."
+      "challenge": "Sluggish property listing pages caused by unoptimized relational SQL queries.",
+      "solution": "Eager loading (with) in Laravel Eloquent, MySQL composite indexing, and multi-tier caching."
     }
   ],
   "metrics": [
-    "Aumento de 10x na velocidade de resposta das páginas",
-    "Redução no tempo de integração contínua com testes paralelos Dusk"
+    "10x speedup in web page response times",
+    "Reduced continuous integration build duration via parallel Dusk execution"
   ]
 }

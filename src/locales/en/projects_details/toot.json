@@ -1,28 +1,28 @@
 {
   "id": "toot",
   "title": "Toot & Toot Intelligence Platform",
-  "subtitle": "Análise Geoespacial & Otimização de Filas (500x Speedup)",
+  "subtitle": "Geospatial Analytics & Queue Optimization (500x Speedup)",
   "category": "Architecture & Performance",
   "tier": 2,
-  "summary": "Dashboards em React para 200k+ pontos geoespaciais com Superfetch (30x mais rápido) e filas Laravel Horizon (500x mais rápido em corridas), integrado a Power BI.",
+  "summary": "React dashboards for 200k+ geospatial map points using Superfetch (30x faster) and Laravel Horizon queues (500x faster trip processing), integrated with Power BI.",
   "techStack": ["Laravel", "React", "Laravel Horizon", "Redis", "Superfetch", "Google Geocoding", "Power BI"],
   "featured": false,
   "detailKey": "toot",
-  "overview": "Plataforma de análise de mobilidade urbana e inteligência de mercado para serviços de ride-sharing no Reino Unido, combinando APIs backend de alta vazão com dashboards geoespaciais em tempo real.",
-  "roleDescription": "Head de Desenvolvimento de Software na Evoke Mobile.",
+  "overview": "Urban mobility analytics and market intelligence platform for UK ride-hailing services, combining high-throughput backend APIs with real-time geospatial dashboards.",
+  "roleDescription": "Head of Software Development at Evoke Mobile.",
   "responsibilities": [
-    "Resolução de gargalo crítico de renderização no frontend React ao lidar com mais de 200 mil coordenadas no mapa utilizando a estratégia Superfetch (ganho de 30x na velocidade).",
-    "Re-arquitetura do sistema de backend utilizando filas assíncronas em Laravel Horizon para processamento de viagens (processamento 500x mais rápido).",
-    "Criação de integrações de dados para alimentação de painéis executivos no Power BI."
+    "Resolved critical rendering bottleneck on React frontend handling 200k+ map coordinates using Superfetch strategy (30x loading speedup).",
+    "Re-architected backend ecosystem with asynchronous Laravel Horizon queue workers for trip processing (500x speedup).",
+    "Built automated data pipelines feeding executive Power BI dashboards."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Congelamento da interface do usuário ao renderizar conjuntos massivos de dados geoespaciais em mapas interativos.",
-      "solution": "Implementação de busca incremental paginada com Superfetch e agregação de dados no cliente."
+      "challenge": "UI freezing when rendering massive geospatial datasets on interactive maps.",
+      "solution": "Implemented incremental paginated fetching with Superfetch and client-side data clustering."
     }
   ],
   "metrics": [
-    "30x de melhoria no tempo de carregamento de mapas com 200k+ registros",
-    "500x mais rápido no processamento assíncrono de corridas com Laravel Horizon"
+    "30x improvement in map load performance with 200k+ coordinate records",
+    "500x faster asynchronous trip processing via Laravel Horizon queues"
   ]
 }

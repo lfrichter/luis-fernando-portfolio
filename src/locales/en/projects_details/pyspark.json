@@ -1,27 +1,27 @@
 {
   "id": "pyspark-jobs",
-  "title": "Análise de Jobs de Renderização com PySpark",
-  "subtitle": "Micro-Pipeline de ETL Distribuído & Jupyter Notebook",
+  "title": "Render Jobs Analytics with PySpark",
+  "subtitle": "Distributed Micro-ETL Pipeline & Jupyter Notebook",
   "category": "PoC & Open Source",
   "tier": 3,
-  "summary": "Pipeline de ETL com PySpark e SQLite para consolidação de jobs de vídeo, roteiros e segmentos, executado de forma interativa em Jupyter Notebook.",
+  "summary": "PySpark and SQLite ETL pipeline consolidating video rendering jobs, scripts, and segments, interactively analyzed in Jupyter Notebook.",
   "techStack": ["Python", "PySpark", "SQLite", "Jupyter Notebook", "Pandas"],
   "featured": false,
   "detailKey": "pyspark",
-  "overview": "Prova de Conceito (PoC) de engenharia de dados que valida o uso de PySpark para unificação e análise exploratória de tabelas relacionais de renderização de vídeos.",
-  "roleDescription": "Engenheiro de Dados Único.",
+  "overview": "Data engineering Proof of Concept validating PySpark for unifying and performing exploratory analytics on relational tables containing video rendering job metrics.",
+  "roleDescription": "Data Engineer.",
   "responsibilities": [
-    "Desenvolvimento de script ETL em PySpark para extração, transformação e carga dos dados.",
-    "Otimização de consultas SQL com múltiplos LEFT JOINs mantendo integridade 1:N entre roteiros e segmentos.",
-    "Materialização de DataFrames no Jupyter Notebook para análise."
+    "Developed PySpark ETL script for data extraction, transformation, and loading.",
+    "Optimized SQL queries with multiple LEFT JOINs ensuring 1:N integrity between scripts and video segments.",
+    "Materialized DataFrames in Jupyter Notebook for interactive analytics."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Consolidar dados de renderização fragmentados em SQLite garantindo escalabilidade futura.",
-      "solution": "Uso do PySpark DataFrames permitindo que a mesma lógica processe volumes de dados em larga escala no futuro."
+      "challenge": "Consolidating fragmented rendering data from SQLite while ensuring future Data Lake scalability.",
+      "solution": "Utilized PySpark DataFrames allowing identical transformation logic to process large-scale data in production."
     }
   ],
   "metrics": [
-    "Pipeline ETL validado e pronto para escalabilidade em Data Lakes"
+    "Validated ETL pipeline ready for Data Lake scaling"
   ]
 }

@@ -1,26 +1,26 @@
 {
   "id": "ecommerce-k6",
   "title": "E-Commerce Performance Benchmark",
-  "subtitle": "Testes de Carga & Estresse de Alta Escala (k6 / JMeter)",
+  "subtitle": "High-Scale Load & Stress Testing (k6 / JMeter)",
   "category": "PoC & Open Source",
   "tier": 3,
-  "summary": "Suíte de testes de carga e profiling de gargalos em microsserviços de e-commerce simulação de alto tráfego com k6 e JMeter.",
+  "summary": "Performance benchmark suite simulating high-traffic e-commerce microservices and profiling latency bottlenecks using k6 and JMeter.",
   "techStack": ["k6", "JMeter", "Performance Profiling", "Load Testing"],
   "featured": false,
   "detailKey": "ecommerce_k6",
-  "overview": "Benchmark de performance projetado para identificar gargalos de vazão, latência de banco de dados e limites de concorrência em apis RESTful de e-commerce.",
-  "roleDescription": "Engenheiro de Performance.",
+  "overview": "Performance benchmark designed to detect throughput limits, database query latency, and concurrency bottlenecks across e-commerce RESTful microservices.",
+  "roleDescription": "Performance Engineer.",
   "responsibilities": [
-    "Criação de scripts de teste de carga em k6 simulando milhares de requisições simultâneas.",
-    "Identificação de memory leaks e gargalos em queries SQL."
+    "Created k6 load test scripts simulating thousands of virtual users (VUs).",
+    "Identified memory leaks and slow SQL queries under peak traffic load."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Detectar a quebra do sistema sob picos de concorrência em eventos tipo Black Friday.",
-      "solution": "Simulação em rampa com k6 e medição de tempos de resposta no P95 e P99."
+      "challenge": "Detecting system failure points under extreme concurrent flash-sale traffic.",
+      "solution": "Ramp-up load testing using k6, measuring P95 and P99 latency percentiles."
     }
   ],
   "metrics": [
-    "Identificação de pontos críticos no P99 de latência"
+    "Pinpointed latency bottlenecks at P99 threshold under 10k VUs"
   ]
 }

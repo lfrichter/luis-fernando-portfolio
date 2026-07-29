@@ -1,26 +1,26 @@
 {
   "id": "twin-quest",
   "title": "Twin Quest Engine",
-  "subtitle": "Game Engine & Gerenciamento de Estado Reativo",
+  "subtitle": "Game Engine & Reactive State Management",
   "category": "PoC & Open Source",
   "tier": 3,
-  "summary": "Experimento de arquitetura de estado reativo frontend e engenharia de regras de jogo com TypeScript.",
+  "summary": "Frontend reactive state architecture experiment and game rule engine implemented in TypeScript.",
   "techStack": ["TypeScript", "Vue.js", "Pinia", "State Management"],
   "featured": false,
   "detailKey": "twin_quest",
-  "overview": "Projeto experimental explorando padrões avançados de gerenciamento de estado e tipagem estrita com TypeScript e Pinia em uma interface interativa de jogo.",
-  "roleDescription": "Desenvolvedor Frontend.",
+  "overview": "Experimental project exploring advanced reactive state management patterns and strict TypeScript typing using Pinia in an interactive game engine interface.",
+  "roleDescription": "Frontend Developer.",
   "responsibilities": [
-    "Modelagem de gerenciamento de estado complexo com Pinia.",
-    "Implementação de desacoplamento entre regras de negócio e camada visual."
+    "Modeled complex state management using Pinia stores.",
+    "Decoupled core game rule domain logic from UI rendering components."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Sincronização reativa de múltiplos componentes sem acoplamento direto.",
-      "solution": "Uso de stores Pinia fortemente tipadas com getters e ações imutáveis."
+      "challenge": "Reactive synchronization of multiple UI components without direct prop coupling.",
+      "solution": "Utilized strongly typed Pinia stores with immutable getters and actions."
     }
   ],
   "metrics": [
-    "Arquitetura de estado limpa e fácil de testar"
+    "Clean, testable frontend state architecture"
   ]
 }
