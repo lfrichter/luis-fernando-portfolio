@@ -1,0 +1,41 @@
+{
+  "id": "video-factory-automated",
+  "title": "Fábrica de Vídeos Automatizada para YouTube",
+  "subtitle": "Pipeline End-to-End de Geração de Mídia & Microserviço RESTful (Python/Flask)",
+  "category": "AI/LLM",
+  "tier": 2,
+  "summary": "Orquestrador automatizado em Python para criação e publicação de vídeos no YouTube em lote. Integra OpenAI, ElevenLabs, Coqui TTS, Replicate (SDXL), Pixabay, Whisper, FFmpeg e API REST em Flask.",
+  "techStack": ["Python", "Flask", "OpenAI API", "ElevenLabs", "Coqui TTS", "Replicate (SDXL)", "Whisper", "FFmpeg", "YouTube API"],
+  "featured": false,
+  "detailKey": "video_factory",
+  "overview": "Solução de automação end-to-end desenvolvida em Python para geração completa de vídeos curtos e longos para o YouTube com intervenção humana mínima. O sistema utiliza uma arquitetura modular baseada em pipeline com gerenciamento centralizado em 'content.json', integrando síntese de voz (ElevenLabs ou Coqui TTS local), geração visual (SDXL via Replicate ou Pixabay API), trilhas sonoras (Jamendo API), transcrição e sincronização precisa de legendas com OpenAI Whisper local, renderização avançada com FFmpeg e publicação automática via YouTube Data API v3. Além disso, expõe um microserviço RESTful com Flask para desacoplar as capacidades de geração de mídia para reutilização por outras aplicações.",
+  "roleDescription": "Arquiteto de Soluções e Desenvolvedor Principal.",
+  "responsibilities": [
+    "Design e implementação do fluxo de automação completo, desde a concepção do roteiro até o upload final no YouTube.",
+    "Arquitetura modular plug-and-play para alternância dinâmica entre provedores de IA em nuvem (ElevenLabs, Replicate) e motores locais/gratuitos (Coqui TTS, Pixabay, Whisper).",
+    "Desenvolvimento de microserviço RESTful em Flask para expor endpoints desacoplados de geração de narração, legendas e montagem de vídeo.",
+    "Otimização de baixo nível no processamento de mídia com FFmpeg, corrigindo artefatos visuais de tremor (judder) e falhas de centralização de animações (MovementFilterGenerator).",
+    "Estabilização do motor Coqui TTS com travamento de dependências (transformers 4.36.2) e processamento de áudio em memória com NumPy e Pydub.",
+    "Criação de suítes de testes automatizados com Pytest e agendamento de tarefas em lote no macOS com launchd."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Tremor visual (judder) e falha de centralização em animações de vídeo geradas via filtro zoompan do FFmpeg.",
+      "solution": "Refatoração do pipeline para renderização em duas etapas (separando o clipe mudo estabilizado com scale/crop da multiplexação de áudio/legendas) e criação da classe MovementFilterGenerator com fórmulas dinâmicas de coordenadas (x='(iw-out_w)/2')."
+    },
+    {
+      "challenge": "Instabilidade e travamentos por deadlocks de I/O no motor local de síntese de voz (Coqui TTS).",
+      "solution": "Fixação de versão compatível da biblioteca transformers (4.36.2) e otimização para geração de áudio em memória via NumPy diretamente para o pydub, eliminando gargalos no disco."
+    },
+    {
+      "challenge": "Desacoplamento e reutilização da lógica de IA por outros sistemas sem duplicar código.",
+      "solution": "Construção de uma API RESTful em Flask exposta em microsserviço com endpoints dedicados (/generate-audio, /generate-subtitles, /assemble-video)."
+    }
+  ],
+  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n|  Ingestão de Conteúdo (content.json / ContentManager)                      |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n|  Provedores de IA (OpenAI GPT -> Roteiro | ElevenLabs/Coqui TTS -> Voz)    |\n+----------------------------------------------------------------------------+\n                      /                                  \\\n                     v                                    v\n+------------------------------------------+  +------------------------------+\n| Mídia (Replicate SDXL / Pixabay / Whisper|  | Microserviço Flask API REST  |\n|  Renderização 2 Etapas FFmpeg scale/crop)|  | (/generate-audio, /video)    |\n+------------------------------------------+  +------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n|  Upload Automatizado & Agendamento (YouTube Data API v3 + launchd)          |\n+----------------------------------------------------------------------------+",
+  "metrics": [
+    "Redução de 2-3h para <5 min de processamento autônomo por vídeo",
+    "Produção e agendamento automático em lote via launchd",
+    "Arquitetura Plug-and-Play com motores locais (custo $0 em TTS/Imagens)"
+  ]
+}

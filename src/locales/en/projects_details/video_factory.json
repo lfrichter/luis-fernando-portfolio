@@ -1,0 +1,41 @@
+{
+  "id": "video-factory-automated",
+  "title": "Automated Video Factory for YouTube",
+  "subtitle": "End-to-End Media Generation Pipeline & RESTful Microservice (Python/Flask)",
+  "category": "AI/LLM",
+  "tier": 2,
+  "summary": "Automated Python orchestrator for batch creation and publishing of YouTube videos. Integrates OpenAI, ElevenLabs, Coqui TTS, Replicate (SDXL), Pixabay, Whisper, FFmpeg, and Flask REST API.",
+  "techStack": ["Python", "Flask", "OpenAI API", "ElevenLabs", "Coqui TTS", "Replicate (SDXL)", "Whisper", "FFmpeg", "YouTube API"],
+  "featured": false,
+  "detailKey": "video_factory",
+  "overview": "An end-to-end automation solution built in Python for batch generation of short and long-form YouTube videos with minimal human intervention. The system utilizes a modular pipeline architecture with centralized management in 'content.json', integrating voice synthesis (ElevenLabs cloud or local Coqui TTS), visual generation (SDXL via Replicate or Pixabay API), background soundtracks (Jamendo API), precise subtitle transcription/synchronization with local OpenAI Whisper, advanced video rendering with FFmpeg, and automated publishing via YouTube Data API v3. Additionally, it exposes a RESTful microservice with Flask to decouple media generation capabilities for reuse across other applications.",
+  "roleDescription": "Solutions Architect & Principal Developer.",
+  "responsibilities": [
+    "Designed and implemented the complete automation workflow, from script generation to final YouTube upload.",
+    "Built a plug-and-play modular architecture for dynamic switching between cloud AI providers (ElevenLabs, Replicate) and local/free engines (Coqui TTS, Pixabay, Whisper).",
+    "Developed a Flask RESTful microservice to expose decoupled endpoints for narration audio, subtitles, and video assembly.",
+    "Solved low-level media processing challenges with FFmpeg, eliminating visual judder artifacts and animation centering issues (MovementFilterGenerator).",
+    "Stabilized local Coqui TTS engine by pinning dependency versions (transformers 4.36.2) and processing audio in-memory with NumPy and Pydub to avoid I/O deadlocks.",
+    "Created automated test suites using Pytest and configured batch scheduling on macOS using launchd."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Visual judder artifacts and animation centering failures in videos generated via FFmpeg's zoompan filter.",
+      "solution": "Refactored pipeline to render in two stages (separating stabilized silent clip with scale/crop from audio/subtitle muxing) and built MovementFilterGenerator with explicit coordinate formulas (x='(iw-out_w)/2')."
+    },
+    {
+      "challenge": "Instability and disk I/O deadlocks in local voice synthesis (Coqui TTS).",
+      "solution": "Pinned compatible transformers library version (4.36.2) and optimized audio generation to stream in-memory via NumPy into Pydub."
+    },
+    {
+      "challenge": "Decoupling and reusing AI generation logic across other projects without code duplication.",
+      "solution": "Exposed core capabilities as a Flask RESTful microservice with dedicated endpoints (/generate-audio, /generate-subtitles, /assemble-video)."
+    }
+  ],
+  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n|  Content Ingestion (content.json / ContentManager)                         |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n|  AI Providers (OpenAI GPT -> Script | ElevenLabs/Coqui TTS -> Voice)       |\n+----------------------------------------------------------------------------+\n                      /                                  \\\n                     v                                    v\n+------------------------------------------+  +------------------------------+\n| Media (Replicate SDXL / Pixabay / Whisper|  | Flask Microservice REST API  |\n| 2-Stage FFmpeg scale/crop rendering)     |  | (/generate-audio, /video)    |\n+------------------------------------------+  +------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n|  Automated Upload & Scheduling (YouTube Data API v3 + launchd)             |\n+----------------------------------------------------------------------------+",
+  "metrics": [
+    "Reduced production time from 2-3h to <5 min autonomous processing per video",
+    "Automated batch production & scheduling via launchd",
+    "Plug-and-Play architecture with zero-cost local engines (Coqui TTS / Pixabay)"
+  ]
+}

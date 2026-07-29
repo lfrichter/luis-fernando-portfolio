@@ -113,6 +113,17 @@
     "detailKey": "onepush"
   },
   {
+    "id": "video-factory-automated",
+    "title": "Automated Video Factory for YouTube",
+    "subtitle": "End-to-End Media Generation Pipeline & RESTful Microservice (Python/Flask)",
+    "category": "AI/LLM",
+    "tier": 2,
+    "summary": "Automated Python orchestrator for batch creation and publishing of YouTube videos. Integrates OpenAI, ElevenLabs, Coqui TTS, Replicate (SDXL), Pixabay, Whisper, FFmpeg, and Flask REST API.",
+    "techStack": ["Python", "Flask", "OpenAI API", "ElevenLabs", "Coqui TTS", "Replicate (SDXL)", "Whisper", "FFmpeg", "YouTube API"],
+    "featured": false,
+    "detailKey": "video_factory"
+  },
+  {
     "id": "semantic-cache",
     "title": "FAISS Semantic Cache for LLMs",
     "subtitle": "High-Speed Local Vector Semantic Cache PoC",
