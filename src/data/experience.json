@@ -1,0 +1,216 @@
+[
+  {
+    "id": "exp-turno",
+    "role": "Engenheiro de Software Líder (Lead Software Engineer)",
+    "company": "Turno (anteriormente TurnoverBnB)",
+    "location": "Honolulu, Havaí, EUA (Remoto)",
+    "period": "Nov 2022 – Mar 2025",
+    "startDate": "2022-11",
+    "endDate": "2025-03",
+    "type": "Remoto / Contract",
+    "skills": [
+      "Laravel",
+      "Vue.js",
+      "React Native",
+      "New Relic",
+      "Bugsnag",
+      "Jenkins",
+      "Docker",
+      "GitHub Copilot",
+      "MySQL"
+    ],
+    "highlights": [
+      "Assumiu liderança técnica nos domínios estratégicos de Contas, Propriedades e Checklists para garantir escalabilidade e confiabilidade do sistema.",
+      "Arquitetou e implementou a iniciativa estratégica 'Mid-Stay Projects', aumentando a retenção de usuários em 30%.",
+      "Reduziu em 40% o tempo de resposta de endpoints críticos via refatoração estratégica e otimização de consultas SQL.",
+      "Corrigiu vulnerabilidades graves de segurança identificadas em testes de penetração terceirizados, reforçando autenticação e sessões.",
+      "Refatorou mais de 100 testes automatizados falhos no pipeline de CI/CD (Jenkins), aumentando drasticamente a estabilidade e velocidade das entregas."
+    ],
+    "description": "Liderança técnica em plataforma SaaS de gerenciamento de locações de curto prazo sediada nos EUA, focando na eliminação de dívida técnica, otimização de performance e adoção de IA assistida no fluxo de trabalho."
+  },
+  {
+    "id": "exp-fullcomms",
+    "role": "Head de Desenvolvimento Full-Stack (Technical Lead)",
+    "company": "Full Comms / Keaze",
+    "location": "Manchester, Reino Unido (Remoto)",
+    "period": "Abr 2021 – Nov 2022",
+    "startDate": "2021-04",
+    "endDate": "2022-11",
+    "type": "Remoto / Full-time",
+    "skills": [
+      "Laravel",
+      "Lumen",
+      "Vue.js",
+      "Vuetify",
+      "TypeScript",
+      "Laravel Dusk",
+      "Vercel",
+      "DeployHQ",
+      "Laravel Forge"
+    ],
+    "highlights": [
+      "Colaboração técnica direta junto às equipes de engenharia para o desenvolvimento de aplicações CMS e sistemas de API escaláveis com Lumen.",
+      "Desenvolveu o novo módulo de Pós-Venda para o Kpro AfterSales, otimizando processos imobiliários no Reino Unido.",
+      "Liderou a implementação de testes automatizados E2E utilizando Laravel Dusk e navegadores headless via Selenium.",
+      "Aumentou a performance das páginas do projeto Shosales Website Revamp em até 10x através de otimização de consultas e paralelização de testes.",
+      "Gerenciou a migração contínua de versões do PHP e Laravel garantindo longevidade, segurança e alta disponibilidade."
+    ],
+    "description": "Atuação técnica mão-na-massa e liderança de arquitetura em projetos web de alto impacto para o mercado imobiliário britânico."
+  },
+  {
+    "id": "exp-evokemobile",
+    "role": "Head de Desenvolvimento de Software",
+    "company": "Evoke Mobile",
+    "location": "Liverpool, Reino Unido (Remoto)",
+    "period": "Mar 2019 – Abr 2021",
+    "startDate": "2019-03",
+    "endDate": "2021-04",
+    "type": "Remoto / Full-time",
+    "skills": [
+      "Laravel",
+      "React.js",
+      "Laravel Horizon",
+      "Redis",
+      "Google Geocoding",
+      "Firebase",
+      "GitHub Actions"
+    ],
+    "highlights": [
+      "Engenharia de dashboards administrativos com React, solucionando gargalo de renderização de mais de 200 mil registros geoespaciais em mapas (ganho de até 30x na velocidade com Superfetch).",
+      "Otimizou o ecossistema de backend com filas assíncronas em Laravel Horizon, resultando em processamento de corridas até 500x mais rápido.",
+      "Desenvolveu APIs RESTful escaláveis consumidas por aplicativos móveis (iOS/Android) e plataformas web.",
+      "Integrou serviços globais como Firebase, Google Geocoding, Overpass API, Mailgun e feeds esportivos OPTA (projeto Fanoty)."
+    ],
+    "description": "Engenharia e arquitetura de software para soluções mobile e geoespaciais em escala internacional."
+  },
+  {
+    "id": "exp-alfasoft",
+    "role": "Engenheiro de Desenvolvimento de Software",
+    "company": "Alfasoft",
+    "location": "Lisboa, Portugal (Híbrido)",
+    "period": "Abr 2018 – Nov 2018",
+    "startDate": "2018-04",
+    "endDate": "2018-11",
+    "type": "Híbrido / Full-time",
+    "skills": [
+      "PHP",
+      "Laravel",
+      "Python",
+      "WordPress",
+      "C#",
+      "Bitbucket Pipelines",
+      "Targetprocess"
+    ],
+    "highlights": [
+      "Idealizou e desenvolveu arquitetura para importação diária de grandes volumes de dados utilizando sistemas de filas assíncronas.",
+      "Desenvolveu aplicações web personalizadas em Laravel e temas/plugins sob medida para WordPress.",
+      "Implementou integração de atualização de gráficos para a plataforma financeira NinjaTrader utilizando C#.",
+      "Integrou sistemas legados usando Python e Laravel no projeto Sisporta com CI/CD via Bitbucket Pipelines."
+    ],
+    "description": "Desenvolvimento de software distribuído e integração de sistemas legados para clientes europeus."
+  },
+  {
+    "id": "exp-plugae",
+    "role": "Desenvolvedor Sênior de Software",
+    "company": "Plugae",
+    "location": "Barueri, São Paulo, Brasil",
+    "period": "Nov 2017 – Fev 2018",
+    "startDate": "2017-11",
+    "endDate": "2018-02",
+    "type": "On-site / Contract",
+    "skills": [
+      "Laravel",
+      "Redis",
+      "MongoDB",
+      "Bling ERP Webhooks",
+      "AWS S3",
+      "Docker"
+    ],
+    "highlights": [
+      "Arquitetou o Spider — Hub de Integração de E-commerce centralizado em Laravel/PHP para orquestrar pedidos entre múltiplos marketplaces (Mercado Livre, B2W, Via Varejo, Skyhub) e ERP Bling.",
+      "Desenvolveu sistema de captura e normalização de pedidos Magento armazenando dados em MongoDB.",
+      "Mitigou problemas críticos de overselling e inconsistência de dados com filas Redis/Laravel Horizon e webhooks reativos."
+    ],
+    "description": "Arquitetura de integração de e-commerce e processamento distribuído de alto volume de pedidos."
+  },
+  {
+    "id": "exp-pilhadigital",
+    "role": "Desenvolvedor de Software",
+    "company": "Pilha Digital",
+    "location": "Sorocaba, Brasil",
+    "period": "Fev 2017 – Set 2017",
+    "startDate": "2017-02",
+    "endDate": "2017-09",
+    "type": "On-site / Contract",
+    "skills": [
+      "Laravel",
+      "Event-Driven Architecture",
+      "OneSignal",
+      "Pagar.me"
+    ],
+    "highlights": [
+      "Construiu plataforma modular em Laravel orientada a eventos para registro de domínios e envio automatizado de notificações Web Push.",
+      "Integrou gateway de pagamentos Pagar.me e serviço de notificações OneSignal."
+    ]
+  },
+  {
+    "id": "exp-aso",
+    "role": "Desenvolvedor Full Stack",
+    "company": "ASO",
+    "location": "Sorocaba, Brasil",
+    "period": "Jan 2016 – Jan 2017",
+    "startDate": "2016-01",
+    "endDate": "2017-01",
+    "type": "Full-time",
+    "skills": [
+      "PHP OOP",
+      "MySQL",
+      "JavaScript",
+      "Hospital Management Systems"
+    ],
+    "highlights": [
+      "Construiu plataforma completa em PHP Orientado a Objetos para gestão de hospitais, clínicas, profissionais de saúde e prontuários de pacientes."
+    ]
+  },
+  {
+    "id": "exp-promoedu",
+    "role": "Coach de Liderança e Desenvolvimento",
+    "company": "Promoedu.com",
+    "location": "Sorocaba, Brasil",
+    "period": "Set 2015 – Mar 2016",
+    "startDate": "2015-09",
+    "endDate": "2016-03",
+    "type": "On-site",
+    "skills": [
+      "Liderança",
+      "Executive Coaching",
+      "Segurança Psicológica",
+      "Gestão de Pessoas"
+    ],
+    "highlights": [
+      "Desenvolveu e ministrou treinamentos de 14 horas em Liderança e Coaching, capacitando gestores em delegação eficaz, cultura de feedback e avaliação de desempenho."
+    ]
+  },
+  {
+    "id": "exp-ftd",
+    "role": "Web Designer & Desenvolvedor Web",
+    "company": "Editora FTD S/A",
+    "location": "São Paulo, Brasil",
+    "period": "Jan 1998 – Nov 2011",
+    "startDate": "1998-01",
+    "endDate": "2011-11",
+    "type": "Full-time",
+    "skills": [
+      "Coldfusion",
+      "ASP",
+      "Java Servlets",
+      "SQL Server",
+      "Atlassian Jira",
+      "IIS"
+    ],
+    "highlights": [
+      "Desenvolveu e manteve o portal corporativo principal da FTD, plataforma de e-commerce e sistema de intranet corporativa.",
+      "Atuou com tecnologias pioneiras da web brasileira (Coldfusion/Java, ASP, SQL Server) e gestão de incidentes no Jira."
+    ]
+  }
+]

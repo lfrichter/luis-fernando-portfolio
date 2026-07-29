@@ -1,0 +1,38 @@
+{
+  "id": "ask-richter",
+  "title": "Ask Richter",
+  "subtitle": "Meu CV Interativo com IA (Arquitetura RAG Full-Stack)",
+  "category": "AI/LLM",
+  "summary": "Chatbot interativo utilizando RAG (Retrieval-Augmented Generation), FAISS em memória, LangChain.js, Node.js/Express, Supabase, Next.js, Shadcn/ui e LLMs.",
+  "techStack": ["Node.js", "TypeScript", "LangChain.js", "FAISS", "Supabase", "Next.js", "OpenAI", "Docker", "Render", "Vercel"],
+  "featured": true,
+  "githubUrl": "https://github.com/lfrichter/ask-richter",
+  "detailKey": "ask_richter",
+  "overview": "O projeto 'Ask Richter' transforma o currículo profissional tradicional em uma experiência de diálogo interativa e inteligente. Permite que recrutadores e líderes técnicos explorem o histórico de carreira através de perguntas em linguagem natural com respostas precisas baseadas em um banco vetorial de conhecimento.",
+  "roleDescription": "Arquiteto e Desenvolvedor Full-Stack responsável pela concepção da solução RAG, engenharia de prompts, vetorização e desenvolvimento do frontend/backend.",
+  "responsibilities": [
+    "Construção do script de indexação em LangChain.js (DirectoryLoader, RecursiveCharacterTextSplitter) e vetorização com embeddings OpenAI text-embedding-3-small.",
+    "Persistência e recuperação do índice vetorial FAISS através do Supabase Storage.",
+    "Desenvolvimento de API RESTful em Node.js, Express e TypeScript com endpoints otimizados de busca semântica.",
+    "Frontend reativo em Next.js App Router com Shadcn/ui, Tailwind CSS e renderização de respostas em Markdown com destaques de sintaxe.",
+    "Automação de CI/CD via GitHub Actions e infraestrutura containerizada em Docker no Render.com."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Busca por similaridade semântica rápida e baixo custo de infraestrutura em nuvem.",
+      "solution": "Indexação prévia de documentos Markdown em FAISS armazenado no Supabase Storage, carregando o índice em memória na inicialização do container Node.js."
+    },
+    {
+      "challenge": "Respostas concisas e contextualmente precisas sem alucinações da LLM.",
+      "solution": "Engenharia de prompt RAG com injeção rigorosa dos fragmentos extraídos da busca vetorial e limites de temperatura."
+    }
+  ],
+  "futureEvolution": [
+    "Suporte a áudio bidirecional (STT e TTS).",
+    "Integração com métricas de telemetria em tempo real via OpenTelemetry."
+  ],
+  "metrics": [
+    "Busca por similaridade semântica respondida em menos de 150ms",
+    "100% de cobertura dos dados profissionais em formato RAG"
+  ]
+}

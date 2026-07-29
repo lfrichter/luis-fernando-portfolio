@@ -1,0 +1,38 @@
+{
+  "id": "smart-shorts",
+  "title": "SmartShorts",
+  "subtitle": "SaaS de Geração Automatizada de Vídeos (Next.js + Spring Boot)",
+  "category": "SaaS",
+  "summary": "Plataforma de criação automatizada de vídeos curtos/longos com IA. Frontend em Next.js App Router com cookies httpOnly JWT e backend robusto em Java / Spring Boot.",
+  "techStack": ["Next.js", "React", "TypeScript", "Java", "Spring Boot", "Axios", "Tailwind CSS", "Vitest", "Docker"],
+  "featured": true,
+  "githubUrl": "https://github.com/lfrichter/smartshorts-ui",
+  "detailKey": "smart_shorts",
+  "overview": "O SmartShorts é um SaaS inovador para criadores de conteúdo e agências de marketing que transforma um simples prompt de texto em vídeos com narração, imagens, legendas sincronizadas e trilha sonora automatizada.",
+  "roleDescription": "Arquiteto Frontend e Desenvolvedor Full-Stack na modernização e migração da UI do SmartShorts de uma SPA React/Vite para uma arquitetura SSR/CSR robusta com Next.js App Router.",
+  "responsibilities": [
+    "Re-arquitetura completa da autenticação: substituição de localStorage por Route Handlers server-side proxy para a API Java, salvando tokens JWT em cookies httpOnly.",
+    "Implementação de middleware de proteção de rotas (middleware.ts).",
+    "Desenvolvimento de camada de tradução de payloads (Adapter Pattern) para conversão de dados legados no frontend em DTOs exigidos pela API Spring Boot.",
+    "Configuração de suíte de testes com Vitest, React Testing Library e jsdom.",
+    "Criação de hooks customizados como useJobPolling com genéricos TypeScript."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Erro 403 Forbidden e inconsistência de payloads entre frontend e backend Java.",
+      "solution": "Criação de adapters fortemente tipados no TypeScript para normalização de JSONs em tempo de compilação e execução."
+    },
+    {
+      "challenge": "Vulnerabilidade XSS na retenção de tokens JWT no navegador.",
+      "solution": "Migração para cookies httpOnly e Route Handlers no Next.js como API gateway proxy."
+    }
+  ],
+  "futureEvolution": [
+    "Integração de renderização nativa de efeitos visuais via WebAssembly.",
+    "Edição em tempo real de linhas do tempo com áudio multifaixas."
+  ],
+  "metrics": [
+    "Segurança de tokens 100% migrada para cookies httpOnly server-side",
+    "Polimento e status de jobs monitorados em tempo real via Polling Reativo"
+  ]
+}

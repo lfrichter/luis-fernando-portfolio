@@ -1,30 +1,42 @@
-import React from 'react'
-import { ThemeProvider } from '@/context/ThemeContext'
-import { Navbar } from '@/components/Navbar'
-import { Hero } from '@/components/Hero'
-import { Experience } from '@/components/Experience'
-import { Skills } from '@/components/Skills'
-import { Projects } from '@/components/Projects'
-import { Footer } from '@/components/Footer'
-import profileData from '@/data/profile.json'
+import React, { useState } from 'react';
+import { ThemeProvider } from '@/context/ThemeContext';
+import { Navbar } from '@/components/Navbar';
+import { Hero } from '@/components/Hero';
+import { TabsNav, type TabType } from '@/components/TabsNav';
+import { Projects } from '@/components/Projects';
+import { Experience } from '@/components/Experience';
+import { Skills } from '@/components/Skills';
+import { EducationCerts } from '@/components/EducationCerts';
+import { Footer } from '@/components/Footer';
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<TabType>('projects');
+
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-background text-foreground flex flex-col font-sans antialiased selection:bg-blue-500/20">
+      <div className="min-h-screen bg-background text-foreground flex flex-col font-sans selection:bg-primary/20 selection:text-primary">
+        {/* Header */}
         <Navbar />
 
-        <main className="flex-grow space-y-8">
-          <Hero data={profileData.personal} />
-          <Experience items={profileData.experience} />
-          <Skills categories={profileData.skillCategories} />
-          <Projects items={profileData.projects} />
+        {/* Hero Section */}
+        <Hero />
+
+        {/* Main Tab Navigation Bar */}
+        <TabsNav activeTab={activeTab} onTabChange={setActiveTab} />
+
+        {/* Tab Content Panels */}
+        <main className="flex-1">
+          {activeTab === 'projects' && <Projects />}
+          {activeTab === 'experience' && <Experience />}
+          {activeTab === 'skills' && <Skills />}
+          {activeTab === 'education' && <EducationCerts />}
         </main>
 
-        <Footer data={profileData.personal} />
+        {/* Footer */}
+        <Footer />
       </div>
     </ThemeProvider>
-  )
-}
+  );
+};
 
-export default App
+export default App;

@@ -1,22 +1,25 @@
-import { render, screen } from '@testing-library/react'
-import { describe, it, expect } from 'vitest'
-import { Hero } from '@/components/Hero'
-import profileData from '@/data/profile.json'
+import { render, screen } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
+import { Hero } from '../Hero';
 
 describe('Hero Component', () => {
-  it('renders personal name, title, and bio', () => {
-    render(<Hero data={profileData.personal} />)
+  it('renders name, title, bio, and contact links correctly from profile data', () => {
+    render(<Hero />);
 
-    expect(screen.getByText(profileData.personal.name)).toBeInTheDocument()
-    expect(screen.getByText(profileData.personal.title)).toBeInTheDocument()
-    expect(screen.getByText(profileData.personal.bio)).toBeInTheDocument()
-  })
+    expect(screen.getByText('Luis Fernando Richter')).toBeInTheDocument();
+    expect(
+      screen.getByText(/Senior Software Developer \| Tech Lead \| Solutions Architect/i)
+    ).toBeInTheDocument();
+    expect(screen.getByText(/15\+/i)).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /github/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /linkedin/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /e-mail/i })).toBeInTheDocument();
+  });
 
-  it('renders status badge and social/contact buttons', () => {
-    render(<Hero data={profileData.personal} />)
+  it('renders key metrics and AI highlighted badges', () => {
+    render(<Hero />);
 
-    expect(screen.getByText(profileData.personal.status)).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /github/i })).toHaveAttribute('href', profileData.personal.github)
-    expect(screen.getByRole('link', { name: /linkedin/i })).toHaveAttribute('href', profileData.personal.linkedin)
-  })
-})
+    expect(screen.getByText(/AI-Assisted Development/i)).toBeInTheDocument();
+    expect(screen.getByText(/Laravel & PHP/i)).toBeInTheDocument();
+  });
+});

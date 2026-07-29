@@ -1,25 +1,40 @@
-import { render, screen } from '@testing-library/react'
-import { describe, it, expect } from 'vitest'
-import { Experience } from '@/components/Experience'
-import profileData from '@/data/profile.json'
+import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
+import { Experience } from '../Experience';
 
 describe('Experience Component', () => {
-  it('renders section title and work experiences', () => {
-    render(<Experience items={profileData.experience} />)
+  it('renders experience items from JSON data', () => {
+    render(<Experience />);
 
-    expect(screen.getByText(/professional experience/i)).toBeInTheDocument()
-    
-    profileData.experience.forEach((item) => {
-      expect(screen.getByText(item.company)).toBeInTheDocument()
-      expect(screen.getByText(item.role)).toBeInTheDocument()
-    })
-  })
+    expect(
+      screen.getByText('Turno (anteriormente TurnoverBnB)')
+    ).toBeInTheDocument();
+    expect(screen.getByText('Full Comms / Keaze')).toBeInTheDocument();
+    expect(screen.getByText('Evoke Mobile')).toBeInTheDocument();
+    expect(screen.getByText('Alfasoft')).toBeInTheDocument();
+    expect(screen.getByText('Plugae')).toBeInTheDocument();
+  });
 
-  it('renders achievements and tech stack tags', () => {
-    render(<Experience items={profileData.experience} />)
+  it('filters experiences by search query', () => {
+    render(<Experience />);
 
-    const firstExp = profileData.experience[0]
-    expect(screen.getByText(firstExp.achievements[0])).toBeInTheDocument()
-    expect(screen.getAllByText(firstExp.techStack[0])[0]).toBeInTheDocument()
-  })
-})
+    const searchInput = screen.getByPlaceholderText(/buscar experiência, empresa ou tecnologia/i);
+    fireEvent.change(searchInput, { target: { value: 'Turno' } });
+
+    expect(
+      screen.getByText('Turno (anteriormente TurnoverBnB)')
+    ).toBeInTheDocument();
+    expect(screen.queryByText('Evoke Mobile')).not.toBeInTheDocument();
+  });
+
+  it('displays empty state fallback when search query yields no matches', () => {
+    render(<Experience />);
+
+    const searchInput = screen.getByPlaceholderText(/buscar experiência, empresa ou tecnologia/i);
+    fireEvent.change(searchInput, { target: { value: 'XYZNonExistentCompany' } });
+
+    expect(
+      screen.getByText(/nenhuma experiência encontrada/i)
+    ).toBeInTheDocument();
+  });
+});

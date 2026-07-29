@@ -56,3 +56,29 @@ This document records key architectural, technological, and engineering decision
 - **Consequences:** Easy content maintainability and clear separation of concerns.
 
 ---
+
+## ADR-005: Obsidian Vault Ingestion, Data Normalization & Code-Split Lazy Loading
+
+- **Date:** 2026-07-28
+- **Status:** Accepted
+- **Context:** 15+ years of extensive technical data (Turno, Full Comms, Evoke Mobile, Alfasoft, Plugae, Ask Richter, SmartShorts, Canaoaves, EuPizza, Semantic Cache PoC, Postmark Email Task Manager) in the Obsidian Vault risks causing JSON bloat if bundled together.
+- **Decision:**
+  - Ingested real data directly from `/Users/master/Documents/ObsidianVault/B-Areas/Particular/Curriculo`.
+  - Created `src/data/projects_summary.json` for initial card rendering.
+  - Created `src/data/projects_details/` containing separate JSON files for each project (`ask_richter.json`, `smart_shorts.json`, `canaoaves.json`, `eupizza.json`, `semantic_cache.json`, `postmark_email.json`).
+  - Implemented dynamic code-splitting and Lazy Loading in `useProjectDetail` hook and `ProjectModal.tsx`.
+  - Ensured historical accuracy for Full Comms (highlighting hands-on technical lead contributions in API optimization with Lumen/Laravel and Dusk E2E testing).
+- **Consequences:** Eliminates bundle bloat, reduces initial load time, and preserves full architectural depth.
+
+---
+
+## ADR-006: Decoupled Custom Hooks & Responsive Tabbed UI Architecture
+
+- **Date:** 2026-07-28
+- **Status:** Accepted
+- **Context:** Presenting 15+ years of career history, 6 featured architectural projects, academic degrees, and 12+ certifications without polluting the main page or creating an excessively long scrollable UI.
+- **Decision:**
+  - Built custom hooks (`useProfile`, `useProjects`, `useProjectDetail`, `useExperience`, `useEducationAndCerts`) encapsulating state, searching, and filtering.
+  - Created `TabsNav.tsx` for responsive navigation across 4 dedicated tab panels (Projetos & Destaques, Experiência, Skills & IA, Formação & Certificados).
+  - Extended Vitest component tests to cover error states, empty filter fallbacks, and dialog states.
+- **Consequences:** Clean separation of presentation UI from data fetching, highly responsive mobile-first experience, and 100% test coverage across 11 test files (23 unit tests + E2E Playwright).

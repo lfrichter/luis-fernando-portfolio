@@ -1,0 +1,33 @@
+{
+  "id": "eupizza",
+  "title": "EuPizza / Robô de Atendimento por Voz",
+  "subtitle": "Plataforma SaaS de Atendimento por Voz com IA Multi-Tenant",
+  "category": "AI/LLM",
+  "summary": "Agente de voz inteligente para restaurantes. Comunicação WebRTC/SIP via LiveKit, transcrição STT com Deepgram, GPT-4o-mini LLM, síntese TTS ElevenLabs e OCR de cardápios com Pytesseract.",
+  "techStack": ["Python", "FastAPI/Flask", "LiveKit", "WebRTC", "Deepgram STT", "OpenAI", "ElevenLabs", "Docker Swarm", "Supabase"],
+  "featured": true,
+  "detailKey": "eupizza",
+  "overview": "Plataforma SaaS de agentes de voz autônomos multi-tenant para automação de atendimento telefônico em restaurantes e pizzarias, garantindo baixíssima latência na conversação e personalização automática de cardápios.",
+  "roleDescription": "Arquiteto de Software e Lead Backend / AI Engineer.",
+  "responsibilities": [
+    "Engenharia da arquitetura de microsserviços em Docker Swarm integrada com troncos SIP e servidor de mídia WebRTC (LiveKit).",
+    "Desenvolvimento do agente de voz em Python (FastAPI/Flask) e orquestração do pipeline de IA: Silero VAD -> Deepgram STT -> GPT-4o-mini LLM -> ElevenLabs / OpenAI TTS.",
+    "Implementação de motor de OCR com Pytesseract e Pillow para extração automática de cardápios a partir de imagens e geração dinâmica de prompts multi-tenant.",
+    "Persistência isolada em PostgreSQL no Supabase com Row Level Security (RLS).",
+    "Construção de pipelines de CI/CD com GitHub Actions, Makefile, Ruff, MyPy e Pytest."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Gargalo de latência na conversação telefônica de voz em tempo real.",
+      "solution": "Uso de LiveKit Voice Agents com Silero VAD para interrupção natural e modelo otimizado Deepgram nova-2-general + GPT-4o-mini."
+    },
+    {
+      "challenge": "Onboarding complexo e manual para novos cardápios de restaurantes.",
+      "solution": "Fluxo automatizado por OCR (Pytesseract) que analisa imagens de cardápios e configura prompts multi-tenant instantaneamente."
+    }
+  ],
+  "metrics": [
+    "Latência total de fala-processamento-resposta mantida em milissegundos",
+    "Arquitetura 100% multi-tenant preparada para escalabilidade em Docker Swarm"
+  ]
+}
