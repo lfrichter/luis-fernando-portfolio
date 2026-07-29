@@ -10,7 +10,7 @@ test.describe('Portfolio E2E Tests', () => {
     await expect(page.getByText('Senior Software Developer | Tech Lead | Solutions Architect').first()).toBeVisible();
 
     // 2. Verify Tab Navigation (Projects default)
-    await expect(page.getByText('Projetos de Destaque')).toBeVisible();
+    await expect(page.getByText('Portfólio de Engenharia & Projetos')).toBeVisible();
     await expect(page.getByText('Ask Richter')).toBeVisible();
 
     // Switch to Experience Tab
@@ -32,13 +32,13 @@ test.describe('Portfolio E2E Tests', () => {
     const projectsTab = page.getByRole('button', { name: /Projetos/i });
     await projectsTab.click();
 
-    const detailBtn = page.getByRole('button', { name: /Ver Detalhes Arquiteturais/i }).first();
+    const detailBtn = page.getByRole('button', { name: /Ver Especificações de Arquitetura/i }).first();
     await detailBtn.click();
 
     // Verify Modal Dialog appeared with loaded detail
     const dialog = page.getByRole('dialog');
     await expect(dialog).toBeVisible();
-    await expect(page.getByText(/Visão Geral & Arquitetura/i)).toBeVisible();
+    await expect(page.getByText(/Visão Geral da Solução/i)).toBeVisible();
 
     // Close Modal Dialog
     const closeBtn = page.getByRole('button', { name: /Fechar modal/i });

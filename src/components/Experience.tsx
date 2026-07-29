@@ -3,7 +3,7 @@ import { useExperience } from '@/hooks/useExperience';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardHeader, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Briefcase, MapPin, Calendar, Search, CheckCircle2, Building2 } from 'lucide-react';
+import { Briefcase, MapPin, Calendar, Search, Building2, TrendingUp } from 'lucide-react';
 
 export const Experience: React.FC = () => {
   const {
@@ -16,16 +16,40 @@ export const Experience: React.FC = () => {
     allTechs,
   } = useExperience();
 
+  // Helper to highlight impact metrics in bold / emerald badge
+  const renderHighlightText = (text: string) => {
+    // Regex matching metric patterns like -40%, 30%, 30x, 500x, 10x, 100+
+    const parts = text.split(/(-?\d+%(?:\s+retenção|\s+tempo)?|\d+x|\d+\+)/g);
+    return parts.map((part, idx) => {
+      if (/(-?\d+%(?:\s+retenção|\s+tempo)?|\d+x|\d+\+)/.test(part)) {
+        return (
+          <span
+            key={idx}
+            className="font-extrabold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20"
+          >
+            {part}
+          </span>
+        );
+      }
+      return part;
+    });
+  };
+
   return (
     <section className="py-12 px-4 max-w-5xl mx-auto">
       {/* Title & Filter Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
         <div>
-          <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
-            <Briefcase className="w-6 h-6 text-primary" /> Trajetória Profissional (15+ Anos)
+          <div className="flex items-center gap-2">
+            <Badge variant="default" className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5">
+              Métricas & Trajetória
+            </Badge>
+          </div>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mt-1 flex items-center gap-2">
+            <Briefcase className="w-6 h-6 text-primary" /> Experiência Profissional (15+ Anos)
           </h2>
           <p className="text-sm text-muted-foreground mt-1">
-            Exibindo {experiences.length} de {totalCount} experiências (EUA, Reino Unido, Portugal e Brasil).
+            Exibindo {experiences.length} de {totalCount} posições internacionais (EUA, Reino Unido, Portugal e Brasil).
           </p>
         </div>
 
@@ -87,21 +111,21 @@ export const Experience: React.FC = () => {
             {/* Timeline Dot */}
             <div className="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-primary ring-4 ring-background group-hover:scale-125 transition-transform" />
 
-            <Card className="border-border/70 bg-card hover:border-primary/50 transition-colors">
+            <Card className="border-border/70 bg-card hover:border-primary/50 transition-colors shadow-sm">
               <CardHeader className="pb-3">
                 <div className="flex flex-wrap items-start justify-between gap-2">
                   <div>
-                    <h3 className="text-lg font-bold text-foreground">
+                    <h3 className="text-xl font-bold text-foreground">
                       {exp.role}
                     </h3>
-                    <div className="text-base font-medium text-primary flex items-center gap-1.5 mt-0.5">
+                    <div className="text-base font-semibold text-primary flex items-center gap-1.5 mt-0.5">
                       <Building2 className="w-4 h-4 shrink-0" />
                       <span>{exp.company}</span>
                     </div>
                   </div>
 
                   <div className="flex flex-col items-end gap-1">
-                    <Badge variant="secondary" className="gap-1 text-xs">
+                    <Badge variant="secondary" className="gap-1 text-xs font-semibold">
                       <Calendar className="w-3 h-3" /> {exp.period}
                     </Badge>
                     <span className="text-xs text-muted-foreground flex items-center gap-1">
@@ -113,23 +137,23 @@ export const Experience: React.FC = () => {
 
               <CardContent className="space-y-4">
                 {exp.description && (
-                  <p className="text-sm text-muted-foreground leading-relaxed italic">
+                  <p className="text-sm text-muted-foreground leading-relaxed italic border-l-2 border-primary/40 pl-3">
                     {exp.description}
                   </p>
                 )}
 
-                {/* Key Achievements Bullet points */}
-                <ul className="space-y-2">
+                {/* Key Achievements Bullet points with highlighted impact metrics */}
+                <ul className="space-y-2.5">
                   {exp.highlights.map((highlight, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-sm text-foreground/90">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
-                      <span>{highlight}</span>
+                    <li key={idx} className="flex items-start gap-2.5 text-sm text-foreground/90 leading-relaxed">
+                      <TrendingUp className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
+                      <span>{renderHighlightText(highlight)}</span>
                     </li>
                   ))}
                 </ul>
 
                 {/* Tech Badges */}
-                <div className="flex flex-wrap gap-1.5 pt-2 border-t border-border/40">
+                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-border/40">
                   {exp.skills.map((skill) => (
                     <Badge key={skill} variant="outline" className="text-[11px] bg-muted/40 font-normal">
                       {skill}

@@ -1,0 +1,29 @@
+{
+  "id": "spider-hub",
+  "title": "Spider — Hub de Integração de E-commerce",
+  "subtitle": "Orquestrador Multi-Marketplace & Bling ERP (High Volume)",
+  "category": "Architecture & Performance",
+  "tier": 2,
+  "summary": "Hub centralizado em PHP/Laravel para unificar pedidos entre Mercado Livre, B2W, Via Varejo e ERP Bling. Filas assíncronas em Redis e MongoDB como fonte da verdade.",
+  "techStack": ["PHP", "Laravel", "Redis", "Horizon", "MongoDB", "Bling ERP Webhooks", "AWS S3", "Docker"],
+  "featured": false,
+  "detailKey": "spider_hub",
+  "overview": "O Spider é um hub de integração de alta capacidade arquitetado para centralizar o fluxo de pedidos, catálogo de produtos, estoque e preços entre grandes marketplaces nacionais (Mercado Livre, B2W, Via Varejo) e sistemas ERP (Bling).",
+  "roleDescription": "Arquiteto de Software e Desenvolvedor Principal.",
+  "responsibilities": [
+    "Arquitetura end-to-end do hub em PHP/Laravel com processamento distribuído em filas Redis/Laravel Horizon.",
+    "Modelagem do repositório NoSQL em MongoDB para armazenamento flexível de esquemas heterogêneos de pedidos de múltiplos marketplaces.",
+    "Implementação de webhooks reativos e rotinas de sync em tempo real para eliminação de overselling.",
+    "Estruturação de ambiente reprodutível em Docker e armazenamento de assets na AWS S3."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Overselling e inconsistência de dados durante picos de vendas simultâneas em múltiplos marketplaces.",
+      "solution": "Uso de Redis locks distribuídos, ordenação estrita de mensagens em filas assíncronas e sincronização atômica de estoque."
+    }
+  ],
+  "metrics": [
+    "Processamento resiliente de milhares de pedidos diários",
+    "Zero ocorrências de overselling com estoques sincronizados em tempo real"
+  ]
+}

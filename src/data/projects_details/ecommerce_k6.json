@@ -1,0 +1,26 @@
+{
+  "id": "ecommerce-k6",
+  "title": "E-Commerce Performance Benchmark",
+  "subtitle": "Testes de Carga & Estresse de Alta Escala (k6 / JMeter)",
+  "category": "PoC & Open Source",
+  "tier": 3,
+  "summary": "Suíte de testes de carga e profiling de gargalos em microsserviços de e-commerce simulação de alto tráfego com k6 e JMeter.",
+  "techStack": ["k6", "JMeter", "Performance Profiling", "Load Testing"],
+  "featured": false,
+  "detailKey": "ecommerce_k6",
+  "overview": "Benchmark de performance projetado para identificar gargalos de vazão, latência de banco de dados e limites de concorrência em apis RESTful de e-commerce.",
+  "roleDescription": "Engenheiro de Performance.",
+  "responsibilities": [
+    "Criação de scripts de teste de carga em k6 simulando milhares de requisições simultâneas.",
+    "Identificação de memory leaks e gargalos em queries SQL."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Detectar a quebra do sistema sob picos de concorrência em eventos tipo Black Friday.",
+      "solution": "Simulação em rampa com k6 e medição de tempos de resposta no P95 e P99."
+    }
+  ],
+  "metrics": [
+    "Identificação de pontos críticos no P99 de latência"
+  ]
+}

@@ -39,7 +39,8 @@ export interface IProjectSummary {
   id: string;
   title: string;
   subtitle: string;
-  category: 'AI/LLM' | 'SaaS' | 'Full Stack' | 'DevOps & Cloud' | 'PoC & Open Source';
+  category: 'AI/LLM' | 'SaaS' | 'Full Stack' | 'DevOps & Cloud' | 'PoC & Open Source' | 'Architecture & Performance';
+  tier: 1 | 2 | 3;
   summary: string;
   techStack: string[];
   featured: boolean;

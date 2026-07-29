@@ -39,8 +39,8 @@ describe('ProjectModal Component', () => {
       expect(screen.getByText('Ask Richter')).toBeInTheDocument();
     });
 
-    expect(screen.getByText(/Visão Geral & Arquitetura/i)).toBeInTheDocument();
-    expect(screen.getByText(/Desafios & Soluções/i)).toBeInTheDocument();
+    expect(screen.getByText(/Visão Geral da Solução/i)).toBeInTheDocument();
+    expect(screen.getByText(/Desafios Técnicos & Soluções/i)).toBeInTheDocument();
   });
 
   it('renders error state cleanly when project detail fails or key is invalid', async () => {

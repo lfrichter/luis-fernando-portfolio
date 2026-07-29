@@ -82,3 +82,19 @@ This document records key architectural, technological, and engineering decision
   - Created `TabsNav.tsx` for responsive navigation across 4 dedicated tab panels (Projetos & Destaques, Experiência, Skills & IA, Formação & Certificados).
   - Extended Vitest component tests to cover error states, empty filter fallbacks, and dialog states.
 - **Consequences:** Clean separation of presentation UI from data fetching, highly responsive mobile-first experience, and 100% test coverage across 11 test files (23 unit tests + E2E Playwright).
+
+---
+
+## ADR-007: Project Tier Strategy & CTO-Focused Architectural Curation
+
+- **Date:** 2026-07-28
+- **Status:** Accepted
+- **Context:** High-level tech leadership (CTOs, VP of Engineering, Tech Recruiters) requires immediate clarity on senior architectural impact, distinguishing major production SaaS applications from performance optimizations and local PoCs.
+- **Decision:**
+  - Built `useCategorizedProjects` hook partitioning projects into 3 visual Tiers:
+    - **Tier 1 (AI, Cloud & SaaS — Hero Showcase Cards)**: EuPizza (Voice AI), SmartShorts (Video SaaS), Ask Richter (RAG Chatbot), Canaoaves (Supabase RLS), Framework SDLC-IA.
+    - **Tier 2 (Performance & System Integrations — Standard Grid)**: Spider Hub (Marketplace Integration), Toot (Geospatial Superfetch), Shosales (10x Speedup), Favorite Products API (Clean Arch), OnePush (Event-Driven).
+    - **Tier 3 (PoCs & Benchmarks — Compact Accordion)**: FAISS Semantic Cache, PySpark ETL, Postmark Email Task Manager, k6 Benchmarks, Twin Quest Engine.
+  - Redesigned `ProjectModal.tsx` to render executive briefings, tech stacks, visual architecture topology diagrams, and highlighted "Desafios & Soluções" cards.
+  - Enhanced `Experience.tsx` timeline to render quantified impact metrics (`-40% latência`, `30x mais rápido`, `+30% retenção`, `500x filas`) with bold emerald badges.
+- **Consequences:** Provides immediate executive readability for tech leadership while retaining full deep-dive architectural specifications, backed by 12 Vitest test files (26 unit tests) and Playwright E2E integration verification.
