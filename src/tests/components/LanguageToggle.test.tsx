@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import { LanguageToggle } from '../LanguageToggle';
+import { LanguageToggle } from '@/components/LanguageToggle';
 import '@/i18n/config';
 
 describe('LanguageToggle Component', () => {

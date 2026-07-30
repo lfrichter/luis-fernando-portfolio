@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import { EducationCerts } from '../EducationCerts';
+import { EducationCerts } from '@/components/EducationCerts';
 
 describe('EducationCerts Component', () => {
   it('renders academic education degrees and TCC details', () => {

@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
-import { TabsNav } from '../TabsNav';
+import { TabsNav } from '@/components/TabsNav';
 
 describe('TabsNav Component', () => {
   it('renders all main navigation tabs', () => {

@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
-import { ProjectModal } from '../ProjectModal';
+import { ProjectModal } from '@/components/ProjectModal';
 
 describe('ProjectModal Component', () => {
   it('does not render dialog when isOpen is false or detailKey is null', () => {

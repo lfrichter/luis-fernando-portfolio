@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import { Hero } from '../Hero';
+import { Hero } from '@/components/Hero';
 
 describe('Hero Component', () => {
   it('renders name, title, bio, avatar image, and contact links correctly from profile data', () => {

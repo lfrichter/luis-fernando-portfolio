@@ -1,6 +1,6 @@
 import { renderHook, act } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import { useCategorizedProjects } from '../useCategorizedProjects';
+import { useCategorizedProjects } from '@/hooks/useCategorizedProjects';
 
 describe('useCategorizedProjects Custom Hook', () => {
   it('correctly partitions projects into Tier 1, Tier 2, and Tier 3', () => {

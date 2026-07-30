@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import { Projects } from '../Projects';
+import { Projects } from '@/components/Projects';
 
 describe('Projects Component', () => {
   it('renders project summary cards divided into Tiers', () => {

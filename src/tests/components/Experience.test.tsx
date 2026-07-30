@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import { Experience } from '../Experience';
+import { Experience } from '@/components/Experience';
 
 describe('Experience Component', () => {
   it('renders experience items from JSON data', () => {
