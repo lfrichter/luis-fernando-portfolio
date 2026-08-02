@@ -4,28 +4,38 @@
   "subtitle": "Plataforma Colaborativa de Observação de Aves no Brasil",
   "category": "Full Stack",
   "tier": 1,
-  "summary": "Cadastro Nacional de Observadores de Aves. SPA em React/Vite hospedada na Vercel com backend Serverless em Supabase PostgreSQL, RLS Bypass e Views.",
-  "techStack": ["React", "Vite", "TypeScript", "Supabase", "PostgreSQL", "RLS", "Vercel", "Tailwind CSS"],
+  "summary": "Cadastro Nacional de Observadores de Aves. Monolito Modular (Vertical Slice) em React/Vite/TS com backend Serverless em Supabase PostgreSQL, Edge Functions e RLS.",
+  "techStack": ["React", "Vite", "TypeScript", "Supabase", "PostgreSQL", "RLS", "Vertical Slice", "Vercel", "Tailwind CSS", "Cypress"],
   "featured": true,
   "liveUrl": "http://www.canaoaves.com.br",
   "detailKey": "canaoaves",
-  "overview": "O Canaoaves é a plataforma central colaborativa no Brasil para registro de observadores de aves, expedições científicas, avistamento de espécies e eventos de conservação.",
-  "roleDescription": "Arquiteto Principal e Desenvolvedor Full-Stack da SPA pública e do portal administrativo.",
+  "overview": "O Canaoaves é a plataforma central colaborativa no Brasil para registro de observadores de aves, expedições científicas, avistamento de espécies e eventos de conservação. O sistema evoluiu para uma arquitetura em Monolito Modular (Vertical Slice Architecture) de alta coesão e baixo acoplamento.",
+  "roleDescription": "Arquiteto de Soluções e Desenvolvedor Principal (Tech Lead), responsável pela concepção técnica, modelagem relacional e pela reestruturação arquitetural completa para Monolito Modular.",
   "responsibilities": [
-    "Design da SPA em React, TypeScript, Vite e Tailwind CSS hospedada na Vercel.",
-    "Modelagem do banco de dados relacional em Supabase PostgreSQL com políticas de Row Level Security (RLS) para isolamento de dados.",
-    "Engenharia da arquitetura serverless de RLS Bypass através de Views e funções com service role no banco de dados para relatórios globais.",
-    "Integração de busca dinâmica de espécies, mapas interativos de localização e upload de mídias."
+    "Evolução arquitetural para Monolito Modular (Vertical Slice Architecture), organizando a aplicação em 11 módulos funcionais independentes sob `src/modules/`.",
+    "Implementação do padrão em camadas `Page ➔ Hook ➔ Service ➔ Supabase` para desacoplar regras de negócio e chamadas de API da camada de apresentação UI.",
+    "Modelagem relacional e polimórfica no PostgreSQL (Supabase) para interações sociais (curtidas, comentários) e regras de Row Level Security (RLS).",
+    "Desenvolvimento de procedimentos PL/pgSQL (RPCs) para gamificação e estatísticas, além de Supabase Edge Functions (Deno) com Webhooks para geocoding assíncrono e e-mails via Resend.",
+    "Engenharia de resiliência client-side com ErrorBoundary global e captura na tabela `client_errors`, além de suíte automatizada de testes E2E com Cypress (com teardown automático)."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Bypass seguro de Row Level Security (RLS) em dashboards administrativos sem expor dados privados a clientes web.",
-      "solution": "Criação de funções PostgreSQL com SECURITY DEFINER e Views dedicadas que expõem dados agregados via chamadas serverless isoladas."
+      "challenge": "Migração de uma SPA com chamadas diretas ao banco espalhadas na UI para uma arquitetura sustentável sem causar regressões ou downtime.",
+      "solution": "Refatoração incremental para Monolito Modular sob `src/modules/`, criando camadas de serviço (`*Service.ts`) isoladas para cada módulo e validando 100% da aplicação com checadores estritos de tipos TypeScript e testes Cypress E2E."
+    },
+    {
+      "challenge": "Modelagem de interações sociais (curtidas, comentários, fotos) em múltiplas entidades (perfis, guia, hospedagens, cidades) sem duplicar schemas e rotinas.",
+      "solution": "Implementação de estrutura polimórfica no PostgreSQL via tabelas genéricas `likes` e `comments` utilizando chaves compostas `target_id` e `target_type`."
+    },
+    {
+      "challenge": "Geocoding de novas cidades de observação sem travar a interface do usuário em requisições HTTP síncronas.",
+      "solution": "Fluxo assíncrono orientado a eventos usando Database Webhooks (`AFTER INSERT`) para disparar Supabase Edge Functions (Deno) que resolvem coordenadas Lat/Lng em background."
     }
   ],
-  "architectureDiagramMermaid": "+----------------------------------+     +-----------------------------------+\n| SPA Pública Observadores (React) |     | Portal Admin Analytics (React)    |\n+----------------------------------+     +-----------------------------------+\n                  \\                                       /\n                   v                                     v\n+----------------------------------------------------------------------------+\n| Supabase Gateway Serverless & Políticas de Segurança PostgreSQL RLS        |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| Database Views & Funções SECURITY DEFINER (RLS Bypass para Stats Globais)  |\n+----------------------------------------------------------------------------+",
+  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| 👤 Observador / Guia / Serviço (Browser)                                    |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| 🌐 React + Vite + TypeScript SPA (Vercel CDN)                              |\n| 📦 Monolito Modular (src/modules/ - 11 Domínios Autônomos)                 |\n| 📐 Pattern: Page ➔ Hook ➔ Service (*Service.ts)                            |\n| 🛡️ ErrorBoundary + client_errors Listener                                 |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| ⚙️ Supabase BaaS (Auth + PostgREST API + RLS + Storage)                   |\n| 🐘 PostgreSQL: Tabelas Polimórficas, PL/pgSQL RPCs & Gamificação Rules     |\n| ⚡ Database Webhooks ➔ Deno Edge Functions (Resend Email & Lat/Lng Geocode) |\n+----------------------------------------------------------------------------+",
   "metrics": [
-    "Atendimento a milhares de observadores no Brasil com custo zero de infraestrutura",
-    "Deploy 100% serverless com Vercel e Supabase"
+    "Refatoração completa para Monolito Modular com 0% downtime e 0% regressão",
+    "11 módulos autônomos e limpos com desacoplamento total via Service Layer",
+    "Execução assíncrona de geocoding e e-mails com latência zero na UI"
   ]
 }

@@ -40,8 +40,8 @@
     "subtitle": "Plataforma Colaborativa de Observação de Aves no Brasil",
     "category": "Full Stack",
     "tier": 1,
-    "summary": "Cadastro Nacional de Observadores de Aves. SPA em React/Vite hospedada na Vercel com backend Serverless em Supabase PostgreSQL, RLS Bypass e Views.",
-    "techStack": ["React", "Vite", "TypeScript", "Supabase", "PostgreSQL", "RLS", "Vercel", "Tailwind CSS"],
+    "summary": "Cadastro Nacional de Observadores de Aves. Monolito Modular (Vertical Slice) em React/Vite/TS com backend Serverless em Supabase PostgreSQL, Edge Functions e RLS.",
+    "techStack": ["React", "Vite", "TypeScript", "Supabase", "PostgreSQL", "RLS", "Vertical Slice", "Vercel", "Tailwind CSS", "Cypress"],
     "featured": true,
     "liveUrl": "http://www.canaoaves.com.br",
     "detailKey": "canaoaves"

@@ -40,8 +40,8 @@
     "subtitle": "Collaborative Birdwatching Platform in Brazil",
     "category": "Full Stack",
     "tier": 1,
-    "summary": "National Registry of Birdwatchers. React/Vite SPA hosted on Vercel with Serverless Supabase PostgreSQL backend, RLS Bypass, and Views. (www.canaoaves.com.br)",
-    "techStack": ["React", "Vite", "TypeScript", "Supabase", "PostgreSQL", "RLS", "Vercel", "Tailwind CSS"],
+    "summary": "National Registry of Birdwatchers. Modular Monolith (Vertical Slice) in React/Vite/TS with Serverless Supabase PostgreSQL backend, Edge Functions, and RLS.",
+    "techStack": ["React", "Vite", "TypeScript", "Supabase", "PostgreSQL", "RLS", "Vertical Slice", "Vercel", "Tailwind CSS", "Cypress"],
     "featured": true,
     "liveUrl": "http://www.canaoaves.com.br",
     "detailKey": "canaoaves"
