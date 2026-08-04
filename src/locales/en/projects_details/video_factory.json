@@ -1,41 +1,53 @@
 {
   "id": "video-factory-automated",
-  "title": "Automated Video Factory for YouTube",
-  "subtitle": "End-to-End Media Generation Pipeline & RESTful Microservice (Python/Flask)",
+  "title": "Automated Video Factory for YouTube (Video Factory)",
+  "subtitle": "End-to-End Media Generation Pipeline, Modular Monolith & RESTful Microservice (Python/Flask)",
   "category": "AI/LLM",
   "tier": 2,
-  "summary": "Automated Python orchestrator for batch creation and publishing of YouTube videos. Integrates OpenAI, ElevenLabs, Coqui TTS, Replicate (SDXL), Pixabay, Whisper, FFmpeg, and Flask REST API.",
-  "techStack": ["Python", "Flask", "OpenAI API", "ElevenLabs", "Coqui TTS", "Replicate (SDXL)", "Whisper", "FFmpeg", "YouTube API"],
+  "summary": "Autonomous Python 3.11 orchestrator with Modular Monolith architecture and Flask Microservice. SQLite 3.45 DB (content.db), ElevenLabs, local Coqui TTS (cloning), Replicate (SDXL), Pixabay, local Whisper, 2-stage FFmpeg, and launchd.",
+  "techStack": ["Python", "Flask", "SQLite", "OpenAI API", "ElevenLabs", "Coqui TTS", "Replicate (SDXL)", "Whisper", "FFmpeg", "YouTube API"],
   "featured": false,
   "detailKey": "video_factory",
-  "overview": "An end-to-end automation solution built in Python for batch generation of short and long-form YouTube videos with minimal human intervention. The system utilizes a modular pipeline architecture with centralized management in 'content.json', integrating voice synthesis (ElevenLabs cloud or local Coqui TTS), visual generation (SDXL via Replicate or Pixabay API), background soundtracks (Jamendo API), precise subtitle transcription/synchronization with local OpenAI Whisper, advanced video rendering with FFmpeg, and automated publishing via YouTube Data API v3. Additionally, it exposes a RESTful microservice with Flask to decouple media generation capabilities for reuse across other applications.",
-  "roleDescription": "Solutions Architect & Principal Developer.",
+  "overview": "An autonomous end-to-end automation solution built in Python 3.11 for batch generation and publishing of YouTube Shorts and long-form videos with minimal human intervention. The system evolved from flat scripts into a robust Modular Monolith architecture organized into clean decoupled layers (api/, services/, steps/, models/, utils/), operating seamlessly both as a high-performance CLI tool and as a Flask 3.0 REST API Microservice. The pipeline integrates relational data management in SQLite 3.45 (content.db) with batch directory storage (content/000xx/), neural voice synthesis via ElevenLabs (cloud) and Coqui TTS (100% offline local engine with voice cloning), visual selection via Replicate SDXL and Pixabay API, background music via Jamendo API, SRT subtitle transcription with word-level timestamps using local OpenAI Whisper, stabilized two-stage FFmpeg rendering (with dynamic vertical_offset framing and camera movement controls), and scheduled publishing via YouTube Data API v3 integrated with macOS launchd.",
+  "roleDescription": "Solutions Architect & Principal Developer, responsible for Modular Monolith architectural design, media engineering decisions, database migration (JSON to SQLite), and end-to-end implementation.",
   "responsibilities": [
-    "Designed and implemented the complete automation workflow, from script generation to final YouTube upload.",
-    "Built a plug-and-play modular architecture for dynamic switching between cloud AI providers (ElevenLabs, Replicate) and local/free engines (Coqui TTS, Pixabay, Whisper).",
-    "Developed a Flask RESTful microservice to expose decoupled endpoints for narration audio, subtitles, and video assembly.",
-    "Solved low-level media processing challenges with FFmpeg, eliminating visual judder artifacts and animation centering issues (MovementFilterGenerator).",
-    "Stabilized local Coqui TTS engine by pinning dependency versions (transformers 4.36.2) and processing audio in-memory with NumPy and Pydub to avoid I/O deadlocks.",
-    "Created automated test suites using Pytest and configured batch scheduling on macOS using launchd."
+    "Designed Modular Monolith architecture and decoupled layer structure (api/, services/, steps/, models/, utils/), separating core business logic from API connectors and media utilities.",
+    "Engineered evolutionary database migration from flat JSON files to relational SQLite 3.45 (content.db) with ORMs, ContentManager state handler, and batch directory file helpers (content/000xx/).",
+    "Engineered media processing and two-stage FFmpeg rendering optimization, eliminating 100% of visual judder/jitter artifacts and building MovementFilterGenerator for dynamic framing (centering formula and vertical focus per scene).",
+    "Built plug-and-play multi-provider architecture allowing instant switching between cloud AI APIs (ElevenLabs, Replicate SDXL) and local/free engines (Coqui TTS with voice cloning, local OpenAI Whisper, Pixabay, Jamendo).",
+    "Developed Flask RESTful microservice using Application Factory pattern (create_app), exposing decoupled endpoints (/generate-audio, /generate-subtitles, /assemble-video).",
+    "Implemented DevOps automation and resilience: automated testing suite with Pytest, environment diagnostic suite health_check.py, and hands-free video scheduling on macOS via launchd."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Visual judder artifacts and animation centering failures in videos generated via FFmpeg's zoompan filter.",
-      "solution": "Refactored pipeline to render in two stages (separating stabilized silent clip with scale/crop from audio/subtitle muxing) and built MovementFilterGenerator with explicit coordinate formulas (x='(iw-out_w)/2')."
+      "challenge": "Visual judder/jitter artifacts and audio desynchronization caused by direct zoompan animation filter usage in FFmpeg.",
+      "solution": "Refactored rendering pipeline into a two-stage process: Stage 1 renders a stabilized silent animated video using scale and crop filters; Stage 2 performs muxing by combining pre-animated video with mixed narration, background soundtrack, and SRT subtitles."
     },
     {
-      "challenge": "Instability and disk I/O deadlocks in local voice synthesis (Coqui TTS).",
-      "solution": "Pinned compatible transformers library version (4.36.2) and optimized audio generation to stream in-memory via NumPy into Pydub."
+      "challenge": "Animation centering drift in zoom effects and requirement for dynamic per-segment control from database.",
+      "solution": "Created MovementFilterGenerator class with centering formula (x='(iw-out_w)/2') and dynamic reading of movement (e.g., zoom_in_center, pan_vertical) and vertical_offset (0.0 to 1.0 focus) columns from SQLite segments table."
     },
     {
-      "challenge": "Decoupling and reusing AI generation logic across other projects without code duplication.",
-      "solution": "Exposed core capabilities as a Flask RESTful microservice with dedicated endpoints (/generate-audio, /generate-subtitles, /assemble-video)."
+      "challenge": "Application instability and disk I/O deadlocks in local voice synthesis engine (Coqui TTS).",
+      "solution": "Stabilized application by pinning dependencies (transformers==4.36.2) and optimizing audio generation to process directly in RAM using NumPy and Pydub, eliminating disk bottlenecks."
+    },
+    {
+      "challenge": "Concurrency bottlenecks and high code coupling caused by flat JSON file storage (content.json).",
+      "solution": "Executed JsonToSqLiteMigrationPlan to migrate storage to SQLite 3.45 (content.db), abstracting persistence through ContentManager and organizing media into batch subdirectories (content/000xx/)."
+    },
+    {
+      "challenge": "Risk of exclusive vendor lock-in on paid cloud APIs during high-volume production runs.",
+      "solution": "Structured decoupled service contracts under services/ (Provider Pattern), enabling instant runtime switching for narration (ElevenLabs vs Coqui TTS), visuals (Replicate SDXL vs Pixabay), and music (Jamendo vs local) via .env or CLI flags."
+    },
+    {
+      "challenge": "Requirement to reuse audio, subtitle, and video generation capabilities across external applications without duplicating codebase.",
+      "solution": "Exposed core functionality as a Flask RESTful microservice (api/) with Application Factory pattern, offering HTTP endpoints (/generate-audio, /generate-subtitles, /assemble-video)."
     }
   ],
-  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n|  Content Ingestion (content.json / ContentManager)                         |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n|  AI Providers (OpenAI GPT -> Script | ElevenLabs/Coqui TTS -> Voice)       |\n+----------------------------------------------------------------------------+\n                      /                                  \\\n                     v                                    v\n+------------------------------------------+  +------------------------------+\n| Media (Replicate SDXL / Pixabay / Whisper|  | Flask Microservice REST API  |\n| 2-Stage FFmpeg scale/crop rendering)     |  | (/generate-audio, /video)    |\n+------------------------------------------+  +------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n|  Automated Upload & Scheduling (YouTube Data API v3 + launchd)             |\n+----------------------------------------------------------------------------+",
+  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| 📄 Ingestion & Relational SQLite 3.45 DB (content.db / ContentManager)     |\n| 📂 Transparent Batch Storage Strategy (content/000xx/)                    |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| 🤖 Scripts (OpenAI GPT-4) | 🎙️ Narration (ElevenLabs / Local Coqui TTS)   |\n+----------------------------------------------------------------------------+\n                      /                                  \\\n                     v                                    v\n+------------------------------------------+  +------------------------------+\n| 🖼️ Visuals: SDXL / Pixabay / Playwright  |  | 🌐 Flask REST Microservice   |\n| ✍️ Subtitles: Local OpenAI Whisper (SRT) |  | (/generate-audio, /subtitles,|\n| 🎵 Audio: Jamendo API (Licensed Tracks)  |  |  /assemble-video)            |\n| 🎬 2-Stage FFmpeg Render (scale/crop +   |  +------------------------------+\n|    MovementFilterGenerator)              |\n+------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| 🚀 Automated Upload & Scheduling (YouTube Data API v3 + macOS launchd)     |\n+----------------------------------------------------------------------------+",
   "metrics": [
-    "Reduced production time from 2-3h to <5 min autonomous processing per video",
-    "Automated batch production & scheduling via launchd",
-    "Plug-and-Play architecture with zero-cost local engines (Coqui TTS / Pixabay)"
+    "Reduced manual video production time from 2-3h to <5 min of autonomous processing per video",
+    "Hands-free batch production & scheduled publishing via CLI (vid_schedule_all) and macOS launchd",
+    "Up to 85% API cost reduction by combining local engines (Coqui TTS, Whisper) and free services (Pixabay, Jamendo)"
   ]
 }

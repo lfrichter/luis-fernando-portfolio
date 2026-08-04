@@ -1,41 +1,53 @@
 {
   "id": "video-factory-automated",
-  "title": "Fábrica de Vídeos Automatizada para YouTube",
-  "subtitle": "Pipeline End-to-End de Geração de Mídia & Microserviço RESTful (Python/Flask)",
+  "title": "Fábrica de Vídeos Automatizada para YouTube (Video Factory)",
+  "subtitle": "Pipeline End-to-End de Geração de Mídia, Monolito Modular & Microserviço RESTful (Python/Flask)",
   "category": "AI/LLM",
   "tier": 2,
-  "summary": "Orquestrador automatizado em Python para criação e publicação de vídeos no YouTube em lote. Integra OpenAI, ElevenLabs, Coqui TTS, Replicate (SDXL), Pixabay, Whisper, FFmpeg e API REST em Flask.",
-  "techStack": ["Python", "Flask", "OpenAI API", "ElevenLabs", "Coqui TTS", "Replicate (SDXL)", "Whisper", "FFmpeg", "YouTube API"],
+  "summary": "Orquestrador autônomo em Python 3.11 com Monolito Modular e Microserviço Flask. Banco SQLite 3.45 (content.db), ElevenLabs, Coqui TTS local (clonagem), Replicate (SDXL), Pixabay, Whisper local, FFmpeg 2 etapas e launchd.",
+  "techStack": ["Python", "Flask", "SQLite", "OpenAI API", "ElevenLabs", "Coqui TTS", "Replicate (SDXL)", "Whisper", "FFmpeg", "YouTube API"],
   "featured": false,
   "detailKey": "video_factory",
-  "overview": "Solução de automação end-to-end desenvolvida em Python para geração completa de vídeos curtos e longos para o YouTube com intervenção humana mínima. O sistema utiliza uma arquitetura modular baseada em pipeline com gerenciamento centralizado em 'content.json', integrando síntese de voz (ElevenLabs ou Coqui TTS local), geração visual (SDXL via Replicate ou Pixabay API), trilhas sonoras (Jamendo API), transcrição e sincronização precisa de legendas com OpenAI Whisper local, renderização avançada com FFmpeg e publicação automática via YouTube Data API v3. Além disso, expõe um microserviço RESTful com Flask para desacoplar as capacidades de geração de mídia para reutilização por outras aplicações.",
-  "roleDescription": "Arquiteto de Soluções e Desenvolvedor Principal.",
+  "overview": "Solução de automação autônoma end-to-end desenvolvida em Python 3.11 para geração e publicação de vídeos curtos (Shorts) e vídeos longos para o YouTube com intervenção humana mínima. A aplicação evoluiu de um script simples com arquivos planos para uma arquitetura robusta de Monolito Modular organizada em módulos independentes sob estrita separação de responsabilidades (api/, services/, steps/, models/, utils/), operando tanto como ferramenta CLI em lote quanto como Microserviço REST API em Flask 3.0. O pipeline integra gestão relacional em SQLite 3.45 (content.db) com armazenamento por lote em pastas (content/000xx/), síntese de voz (ElevenLabs na nuvem ou motor local Coqui TTS com clonagem de voz 100% offline), seleção visual (Replicate SDXL, Pixabay API, Playwright), trilhas sonoras comerciais (Jamendo API), transcrição com timestamps precisos por palavra (OpenAI Whisper local), montagem estabilizada com FFmpeg em duas etapas (com gerador de filtros dinâmicos de enquadramento vertical_offset e movimentos zoom/pan) e publicação agendada via YouTube Data API v3 integrada ao macOS launchd.",
+  "roleDescription": "Arquiteto de Soluções e Desenvolvedor Principal, responsável pela arquitetura do Monolito Modular, decisões de engenharia de mídia, refatoração de dados (JSON para SQLite) e implementação end-to-end do ecossistema.",
   "responsibilities": [
-    "Design e implementação do fluxo de automação completo, desde a concepção do roteiro até o upload final no YouTube.",
-    "Arquitetura modular plug-and-play para alternância dinâmica entre provedores de IA em nuvem (ElevenLabs, Replicate) e motores locais/gratuitos (Coqui TTS, Pixabay, Whisper).",
-    "Desenvolvimento de microserviço RESTful em Flask para expor endpoints desacoplados de geração de narração, legendas e montagem de vídeo.",
-    "Otimização de baixo nível no processamento de mídia com FFmpeg, corrigindo artefatos visuais de tremor (judder) e falhas de centralização de animações (MovementFilterGenerator).",
-    "Estabilização do motor Coqui TTS com travamento de dependências (transformers 4.36.2) e processamento de áudio em memória com NumPy e Pydub.",
-    "Criação de suítes de testes automatizados com Pytest e agendamento de tarefas em lote no macOS com launchd."
+    "Design e estruturação do Monolito Modular em camadas desacopladas (api/, services/, steps/, models/, utils/), separando a lógica de negócio dos conectores de APIs e utilitários de mídia.",
+    "Refatoração e migração evolutiva de dados de arquivos planos JSON (content.json) para o banco relacional SQLite 3.45 (content.db) com ORMs, ContentManager e navegadores de arquivos por lote (content/000xx/).",
+    "Engenharia de mídia e otimização do pipeline de renderização FFmpeg em duas etapas, eliminando 100% dos artefatos de tremor visual (judder/jitter) e desenvolvendo a classe MovementFilterGenerator para centralização e enquadramento vertical dinâmico.",
+    "Arquitetura plug-and-play multi-provider permitindo alternar instantaneamente entre APIs em nuvem (ElevenLabs, Replicate SDXL) e motores locais ou gratuitos (Coqui TTS com clonagem de voz, OpenAI Whisper local, Pixabay, Jamendo API).",
+    "Desenvolvimento do microserviço RESTful desacoplado em Flask utilizando o padrão Application Factory (create_app), disponibilizando endpoints HTTP (/generate-audio, /generate-subtitles, /assemble-video).",
+    "Automação DevOps e resiliência: implementação de testes automatizados com Pytest, suíte de diagnóstico health_check.py e agendamento autônomo de postagens em lote no macOS via launchd."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Tremor visual (judder) e falha de centralização em animações de vídeo geradas via filtro zoompan do FFmpeg.",
-      "solution": "Refatoração do pipeline para renderização em duas etapas (separando o clipe mudo estabilizado com scale/crop da multiplexação de áudio/legendas) e criação da classe MovementFilterGenerator com fórmulas dinâmicas de coordenadas (x='(iw-out_w)/2')."
+      "challenge": "Tremor visual (judder/jitter) e dessincronização com o áudio gerados pelo uso direto de filtros de animação (zoompan) no FFmpeg.",
+      "solution": "Refatoração da renderização para um processo em duas etapas: a primeira etapa renderiza um vídeo mudo aplicando a combinação dos filtros scale e crop de forma estável; a segunda etapa realiza o muxing unindo o vídeo pré-animado, narração, trilha sonora e legendas SRT."
     },
     {
-      "challenge": "Instabilidade e travamentos por deadlocks de I/O no motor local de síntese de voz (Coqui TTS).",
-      "solution": "Fixação de versão compatível da biblioteca transformers (4.36.2) e otimização para geração de áudio em memória via NumPy diretamente para o pydub, eliminando gargalos no disco."
+      "challenge": "Falha na centralização das animações de zoom (deslocamento para o canto superior) e necessidade de controle dinâmico por cena.",
+      "solution": "Criação da classe MovementFilterGenerator com fórmula de centralização robusta (x='(iw-out_w)/2') e integração direta com as colunas movement (zoom/pan) e vertical_offset (foco vertical 0.0 a 1.0) da tabela segments do SQLite."
     },
     {
-      "challenge": "Desacoplamento e reutilização da lógica de IA por outros sistemas sem duplicar código.",
-      "solution": "Construção de uma API RESTful em Flask exposta em microsserviço com endpoints dedicados (/generate-audio, /generate-subtitles, /assemble-video)."
+      "challenge": "Instabilidade e travamentos por deadlocks de I/O de disco no motor local de síntese de voz (Coqui TTS).",
+      "solution": "Estabilização da aplicação através da fixação da versão da biblioteca (transformers==4.36.2) e otimização do fluxo de áudio para ser processado diretamente em memória RAM via NumPy e Pydub."
+    },
+    {
+      "challenge": "Limitações de concorrência, buscas relacionais e alto acoplamento causados pelo armazenamento em arquivos planos content.json.",
+      "solution": "Execução do plano de migração evolutivo JsonToSqLiteMigrationPlan para SQLite 3.45 (content.db), abstraindo o acesso via ContentManager e organizando o armazenamento físico em pastas por lote (content/000xx/)."
+    },
+    {
+      "challenge": "Risco de dependência exclusiva de APIs proprietárias pagas inviabilizar o projeto durante altos volumes de produção.",
+      "solution": "Estruturação de contratos de serviço desacoplados na camada services/ (Provider Pattern), permitindo alternar narração (ElevenLabs vs Coqui TTS), imagens (Replicate SDXL vs Pixabay) e trilhas (Jamendo vs local) via .env ou linha de comando."
+    },
+    {
+      "challenge": "Necessidade de reutilizar os serviços de geração de áudio, transcrição de legendas e montagem de vídeo por outras aplicações sem duplicar código.",
+      "solution": "Exposição das capacidades da aplicação como um Microserviço RESTful em Flask (api/) estruturado com Application Factory pattern, fornecendo endpoints HTTP reutilizáveis."
     }
   ],
-  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n|  Ingestão de Conteúdo (content.json / ContentManager)                      |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n|  Provedores de IA (OpenAI GPT -> Roteiro | ElevenLabs/Coqui TTS -> Voz)    |\n+----------------------------------------------------------------------------+\n                      /                                  \\\n                     v                                    v\n+------------------------------------------+  +------------------------------+\n| Mídia (Replicate SDXL / Pixabay / Whisper|  | Microserviço Flask API REST  |\n|  Renderização 2 Etapas FFmpeg scale/crop)|  | (/generate-audio, /video)    |\n+------------------------------------------+  +------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n|  Upload Automatizado & Agendamento (YouTube Data API v3 + launchd)          |\n+----------------------------------------------------------------------------+",
+  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| 📄 Ingestão e Banco Relacional SQLite 3.45 (content.db / ContentManager)   |\n| 📂 Armazenamento Transparente em Lotes (content/000xx/)                    |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| 🤖 Roteiros (OpenAI GPT-4) | 🎙️ Narração (ElevenLabs / Coqui TTS Local)   |\n+----------------------------------------------------------------------------+\n                      /                                  \\\n                     v                                    v\n+------------------------------------------+  +------------------------------+\n| 🖼️ Mídia: SDXL / Pixabay / Playwright    |  | 🌐 Microserviço Flask API    |\n| ✍️ Legendas: OpenAI Whisper Local (SRT)  |  | (/generate-audio, /subtitles,|\n| 🎵 Música: Jamendo API (Trilhas Lib.)    |  |  /assemble-video)            |\n| 🎬 Renderização 2 Etapas FFmpeg (scale/  |  +------------------------------+\n|    crop + MovementFilterGenerator)       |\n+------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| 🚀 Publicação & Agendamento Autônomo (YouTube Data API v3 + macOS launchd) |\n+----------------------------------------------------------------------------+",
   "metrics": [
-    "Redução de 2-3h para <5 min de processamento autônomo por vídeo",
-    "Produção e agendamento automático em lote via launchd",
-    "Arquitetura Plug-and-Play com motores locais (custo $0 em TTS/Imagens)"
+    "Redução de 2-3h de edição manual para <5 min de processamento autônomo por vídeo",
+    "Operação hands-free com agendamento autônomo em lote via CLI (vid_schedule_all) e launchd no macOS",
+    "Economia de até 85% nos custos de API combinando motores locais (Coqui TTS, Whisper) e serviços gratuitos (Pixabay, Jamendo)"
   ]
 }

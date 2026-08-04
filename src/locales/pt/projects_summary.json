@@ -114,12 +114,12 @@
   },
   {
     "id": "video-factory-automated",
-    "title": "Fábrica de Vídeos Automatizada para YouTube",
-    "subtitle": "Pipeline End-to-End de Geração de Mídia & Microserviço RESTful (Python/Flask)",
+    "title": "Fábrica de Vídeos Automatizada para YouTube (Video Factory)",
+    "subtitle": "Pipeline End-to-End de Geração de Mídia, Monolito Modular & Microserviço RESTful (Python/Flask)",
     "category": "AI/LLM",
     "tier": 2,
-    "summary": "Orquestrador automatizado em Python para criação e publicação de vídeos no YouTube em lote. Integra OpenAI, ElevenLabs, Coqui TTS, Replicate (SDXL), Pixabay, Whisper, FFmpeg e API REST em Flask.",
-    "techStack": ["Python", "Flask", "OpenAI API", "ElevenLabs", "Coqui TTS", "Replicate (SDXL)", "Whisper", "FFmpeg", "YouTube API"],
+    "summary": "Orquestrador autônomo em Python 3.11 com Monolito Modular e Microserviço Flask. Banco SQLite 3.45 (content.db), ElevenLabs, Coqui TTS local (clonagem), Replicate (SDXL), Pixabay, Whisper local, FFmpeg 2 etapas e launchd.",
+    "techStack": ["Python", "Flask", "SQLite", "OpenAI API", "ElevenLabs", "Coqui TTS", "Replicate (SDXL)", "Whisper", "FFmpeg", "YouTube API"],
     "featured": false,
     "detailKey": "video_factory"
   },
