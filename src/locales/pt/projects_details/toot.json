@@ -25,5 +25,17 @@
   "metrics": [
     "30x de melhoria no tempo de carregamento de mapas com 200k+ registros",
     "500x mais rápido no processamento assíncrono de corridas com Laravel Horizon"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021 / A07:2021",
+      "title": "Broken Access Control & Auth Failures",
+      "description": "Fortalecimento de autenticação, gerenciamento estrito de sessões simultâneas e remediação de falhas identificadas em pentests."
+    },
+    {
+      "code": "A09:2021",
+      "title": "Security Logging & Monitoring",
+      "description": "Observabilidade contínua e rastreamento proativo de erros em tempo real via Bugsnag."
+    }
   ]
 }

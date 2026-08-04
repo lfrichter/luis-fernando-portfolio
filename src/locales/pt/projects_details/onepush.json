@@ -24,5 +24,22 @@
   "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| Gerador de Eventos dos Websites Clientes                                   |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| Listeners de Eventos Laravel & Filas Assíncronas de Processamento         |\n+----------------------------------------------------------------------------+\n               /                                            \\\n              v                                              v\n+----------------------------------+      +----------------------------------+\n| API RESTful OneSignal Web Push   |      | Gateway de Cobrança Pagar.me     |\n+----------------------------------+      +----------------------------------+",
   "metrics": [
     "Entrega instantânea de notificações Web Push sem impacto no tempo de resposta HTTP"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Controle estrito de privilégios na funcionalidade de impersonation (acesso administrativo à conta do cliente)."
+    },
+    {
+      "code": "A07:2021",
+      "title": "Identification & Auth Failures",
+      "description": "Autenticação robusta para transações e rotas de API utilizando JWT (tymondesigns/jwt-auth)."
+    },
+    {
+      "code": "A09:2021",
+      "title": "Security Logging & Monitoring",
+      "description": "Trilha de auditoria imutável rastreando todas as ações administrativas com a biblioteca spatie/activitylog."
+    }
   ]
 }

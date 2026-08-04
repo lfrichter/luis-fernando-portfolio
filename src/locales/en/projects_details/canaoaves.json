@@ -37,5 +37,22 @@
     "Full refactoring to Modular Monolith with 0% downtime and 0% regression",
     "11 clean, autonomous domain modules decoupled via Service Layer",
     "Async geocoding and email delivery with zero latency impact on UI"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Strict isolation of SERVICE_ROLE_KEY via Next.js Server Actions for safe Supabase RLS bypass in the admin panel."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Client & server-side typed input validation and sanitization using Zod and React Hook Form."
+    },
+    {
+      "code": "A09:2021",
+      "title": "Security Logging & Monitoring",
+      "description": "Global ErrorBoundary capturing runtime exceptions and persisting full stack traces to the client_errors database table."
+    }
   ]
 }

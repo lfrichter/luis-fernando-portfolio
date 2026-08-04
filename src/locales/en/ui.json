@@ -43,6 +43,7 @@
     "archTitle": "Architecture Topology & Data Flow",
     "roleTitle": "Technical Role & Responsibilities",
     "metricsTitle": "Quantified Outcomes",
+    "owaspTitle": "Security & OWASP Top 10 Mitigations",
     "viewGithub": "View Code on GitHub",
     "viewLive": "Access Live Application",
     "close": "Close modal"
@@ -59,7 +60,16 @@
   "skills": {
     "badge": "Stack & Tools",
     "title": "Technical Skills & Competencies",
-    "subtitle": "Consolidated view of stacks, languages, AI-assisted tools, and engineering practices."
+    "subtitle": "Consolidated view of stacks, languages, AI-assisted tools, and engineering practices.",
+    "viewOwaspMatrix": "View OWASP Top 10 Coverage Matrix"
+  },
+  "owaspModal": {
+    "badge": "Security by Design",
+    "title": "OWASP Top 10 Coverage Matrix & Mitigations",
+    "subtitle": "Analytical mapping of security compliance and vulnerability remediations across portfolio projects.",
+    "categoryCol": "OWASP Category (2021)",
+    "mitigationsCol": "Strategic Implementations by Project",
+    "close": "Close matrix"
   },
   "education": {
     "academicBadge": "Academic",

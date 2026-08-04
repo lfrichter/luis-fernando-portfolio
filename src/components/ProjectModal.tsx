@@ -3,7 +3,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useProjectDetail } from '@/hooks/useProjectDetail';
-import { AlertTriangle, BarChart3, CheckCircle2, Cpu, ExternalLink, Loader2, Network, ShieldAlert, Wrench, X } from 'lucide-react';
+import { AlertTriangle, BarChart3, CheckCircle2, Cpu, ExternalLink, Loader2, Network, ShieldAlert, ShieldCheck, Wrench, X } from 'lucide-react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -210,6 +210,34 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                       </Badge>
                     ))}
                   </div>
+                </div>
+              )}
+
+              {/* 7. Segurança & OWASP Top 10 */}
+              {detail.owaspMitigations && detail.owaspMitigations.length > 0 && (
+                <div className="pt-2">
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+                    <ShieldCheck className="w-5 h-5 text-blue-600 dark:text-blue-400" /> {t('modal.owaspTitle')}
+                  </h3>
+                  <Card className="bg-blue-50/50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-900/50 p-4 rounded-xl">
+                    <div className="space-y-3">
+                      {detail.owaspMitigations.map((item, idx) => (
+                        <div key={idx} className="flex flex-col sm:flex-row sm:items-start gap-2.5 pb-2.5 border-b border-blue-100 dark:border-blue-900/40 last:border-0 last:pb-0">
+                          <Badge variant="default" className="w-fit text-[10px] uppercase font-mono font-bold bg-blue-600 dark:bg-blue-500 text-white shrink-0 px-2 py-0.5">
+                            {item.code}
+                          </Badge>
+                          <div>
+                            <p className="text-xs md:text-sm font-bold text-slate-900 dark:text-blue-100">
+                              {item.title}
+                            </p>
+                            <p className="text-xs text-slate-600 dark:text-zinc-300 mt-0.5 leading-relaxed">
+                              {item.description}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </Card>
                 </div>
               )}
 

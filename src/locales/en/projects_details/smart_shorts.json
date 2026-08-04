@@ -32,5 +32,17 @@
   "metrics": [
     "100% token security migrated to server-side httpOnly cookies",
     "Real-time video rendering status monitored via reactive polling"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A03:2021 / A07:2021",
+      "title": "Injection (XSS Mitigation) & Auth Failures",
+      "description": "Eliminated XSS exposure of JWT tokens in browser localStorage by migrating to server-managed httpOnly cookies and Next.js Route Handlers alongside Spring Security RBAC."
+    },
+    {
+      "code": "A06:2021",
+      "title": "Vulnerable & Outdated Components",
+      "description": "Centralized Java backend dependencies using Spring Cloud BOM (Bill of Materials) to resolve transitive package vulnerabilities."
+    }
   ]
 }

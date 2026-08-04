@@ -23,5 +23,12 @@
   "architectureDiagramMermaid": "+----------------------------------+      +----------------------------------+\n| k6 / JMeter Load Generator       | ---> | Targeted REST API Endpoints      |\n| (Ramp-up to 10k Virtual Users)   |      | (E-Commerce Microservices)       |\n+----------------------------------+      +----------------------------------+\n                                                           |\n                                                           v\n+----------------------------------------------------------------------------+\n| Bottleneck Profiling & P95 / P99 Latency Percentiles Measurement          |\n+----------------------------------------------------------------------------+",
   "metrics": [
     "Pinpointed latency bottlenecks at P99 threshold under 10k VUs"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control (Session & CSRF Management)",
+      "description": "Load scripts dynamically managing Anti-CSRF tokens and session cookies via regex/HTML parsers to validate authenticated flows under heavy traffic."
+    }
   ]
 }

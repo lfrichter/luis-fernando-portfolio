@@ -24,5 +24,12 @@
   "architectureDiagramMermaid": "+----------------------------------+      +----------------------------------+\n| Gerador de Carga k6 / JMeter     | ---> | Endpoints REST Alvo do Benchmark |\n| (Simulação de 10k Usuários VUs)  |      | (Microsserviços de E-Commerce)   |\n+----------------------------------+      +----------------------------------+\n                                                           |\n                                                           v\n+----------------------------------------------------------------------------+\n| Profiling de Gargalos & Medição de Percentis de Latência P95 e P99         |\n+----------------------------------------------------------------------------+",
   "metrics": [
     "Identificação de pontos críticos no P99 de latência sob 10k VUs"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control (Session & CSRF Management)",
+      "description": "Scripts de carga que gerenciam dinamicamente tokens Anti-CSRF e Cookies de Sessão via regex e parsers HTML para validar acessos autenticados em alta escala."
+    }
   ]
 }

@@ -37,5 +37,22 @@
     "Refatoração completa para Monolito Modular com 0% downtime e 0% regressão",
     "11 módulos autônomos e limpos com desacoplamento total via Service Layer",
     "Execução assíncrona de geocoding e e-mails com latência zero na UI"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Isolamento da chave SERVICE_ROLE_KEY via Next.js Server Actions para bypass seguro do Supabase RLS no painel administrativo."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Sanitização rigorosa e validação de dados tipados no client e server usando Zod e React Hook Form."
+    },
+    {
+      "code": "A09:2021",
+      "title": "Security Logging & Monitoring",
+      "description": "ErrorBoundary global para captura de exceções em tempo de execução e persistência com stack trace na tabela client_errors."
+    }
   ]
 }

@@ -26,5 +26,22 @@
   "metrics": [
     "100% de cobertura das regras de negócio com Jest",
     "Zero acoplamento com a camada de persistência"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control (IDOR)",
+      "description": "Mitigação de IDOR (Insecure Direct Object Reference) via validações estritas de propriedade no Form Request e testes cobrindo status HTTP 403."
+    },
+    {
+      "code": "A05:2021",
+      "title": "Security Misconfiguration",
+      "description": "Tratamento de exceções customizadas via handler global que devolve o status semântico correto (503 Service Unavailable), sem vazar contexto interno."
+    },
+    {
+      "code": "A07:2021",
+      "title": "Identification & Auth Failures",
+      "description": "Proteção de endpoints da API RESTful com autenticação baseada em tokens via Laravel Sanctum."
+    }
   ]
 }

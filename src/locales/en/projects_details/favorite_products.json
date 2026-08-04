@@ -25,5 +25,22 @@
   "metrics": [
     "100% test coverage of core business domain rules with Jest",
     "Zero tight coupling to database persistence layer"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control (IDOR)",
+      "description": "IDOR (Insecure Direct Object Reference) mitigation via strict resource ownership validation and tests asserting HTTP 403 Forbidden."
+    },
+    {
+      "code": "A05:2021",
+      "title": "Security Misconfiguration",
+      "description": "Custom global exception handler wrapping third-party failures in semantic HTTP 503 responses, preventing internal stack trace leaks."
+    },
+    {
+      "code": "A07:2021",
+      "title": "Identification & Auth Failures",
+      "description": "RESTful API endpoints secured via lightweight token-based authentication (Laravel Sanctum)."
+    }
   ]
 }

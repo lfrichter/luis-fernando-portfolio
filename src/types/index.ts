@@ -49,6 +49,12 @@ export interface IProjectSummary {
   detailKey: string;
 }
 
+export interface IOwaspMitigation {
+  code: string;
+  title: string;
+  description: string;
+}
+
 export interface IProjectDetail extends IProjectSummary {
   overview: string;
   roleDescription: string;
@@ -60,6 +66,17 @@ export interface IProjectDetail extends IProjectSummary {
   futureEvolution?: string[];
   architectureDiagramMermaid?: string;
   metrics?: string[];
+  owaspMitigations?: IOwaspMitigation[];
+}
+
+export interface IOwaspCategory {
+  code: string;
+  title: string;
+  projects: {
+    name: string;
+    detailKey?: string;
+    mitigation: string;
+  }[];
 }
 
 export interface IEducation {

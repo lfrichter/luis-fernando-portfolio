@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { Wrench, Sparkles, Cpu, Server, Code2, Database, Cloud } from 'lucide-react';
+import { Wrench, Sparkles, Cpu, Server, Code2, Database, Cloud, ShieldCheck } from 'lucide-react';
+import { OwaspMatrixModal } from '@/components/OwaspMatrixModal';
+import { ProjectModal } from '@/components/ProjectModal';
 
 export const Skills: React.FC = () => {
   const { t } = useTranslation();
+  const [isOwaspModalOpen, setIsOwaspModalOpen] = useState<boolean>(false);
+  const [selectedProjectKey, setSelectedProjectKey] = useState<string | null>(null);
 
   const skillCategories = [
     {
@@ -70,6 +75,7 @@ export const Skills: React.FC = () => {
       category: 'Engineering Practices & Quality Assurance',
       icon: <Cpu className="w-5 h-5 text-rose-500" />,
       skills: [
+        { name: 'OWASP Top 10 & AppSec Hardening', highlight: true },
         { name: 'Clean Architecture & SOLID Principles', highlight: true },
         { name: 'Domain-Driven Design (DDD)', highlight: true },
         { name: 'TDD & Vitest / React Testing Library', highlight: true },
@@ -81,19 +87,31 @@ export const Skills: React.FC = () => {
 
   return (
     <section className="py-12 px-4 max-w-5xl mx-auto">
-      {/* Title */}
-      <div className="mb-8">
-        <div className="flex items-center gap-2">
-          <Badge variant="default" className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5">
-            {t('skills.badge')}
-          </Badge>
+      {/* Title & OWASP Trigger Action */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div>
+          <div className="flex items-center gap-2">
+            <Badge variant="default" className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5">
+              {t('skills.badge')}
+            </Badge>
+          </div>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mt-1 flex items-center gap-2">
+            <Wrench className="w-6 h-6 text-primary" /> {t('skills.title')}
+          </h2>
+          <p className="text-sm text-muted-foreground mt-1">
+            {t('skills.subtitle')}
+          </p>
         </div>
-        <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mt-1 flex items-center gap-2">
-          <Wrench className="w-6 h-6 text-primary" /> {t('skills.title')}
-        </h2>
-        <p className="text-sm text-muted-foreground mt-1">
-          {t('skills.subtitle')}
-        </p>
+
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => setIsOwaspModalOpen(true)}
+          className="self-start sm:self-auto gap-2 text-xs font-bold border-blue-500/40 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/40 shadow-xs cursor-pointer"
+        >
+          <ShieldCheck className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+          <span>{t('skills.viewOwaspMatrix')}</span>
+        </Button>
       </div>
 
       {/* Grid of Skill Categories */}
@@ -127,6 +145,19 @@ export const Skills: React.FC = () => {
           </Card>
         ))}
       </div>
+
+      {/* Modals */}
+      <OwaspMatrixModal
+        isOpen={isOwaspModalOpen}
+        onClose={() => setIsOwaspModalOpen(false)}
+        onSelectProject={(detailKey) => setSelectedProjectKey(detailKey)}
+      />
+
+      <ProjectModal
+        detailKey={selectedProjectKey}
+        isOpen={Boolean(selectedProjectKey)}
+        onClose={() => setSelectedProjectKey(null)}
+      />
     </section>
   );
 };

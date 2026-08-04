@@ -31,5 +31,22 @@
   "metrics": [
     "Latência speech-to-speech mantida em milissegundos",
     "Arquitetura 100% multi-tenant preparada para alta escala no Docker Swarm"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Isolamento de dados SaaS multi-tenant garantido via Row Level Security (RLS) diretamente no Supabase PostgreSQL."
+    },
+    {
+      "code": "A02:2021 / A08:2021",
+      "title": "Cryptographic & Data Integrity Failures",
+      "description": "Geração rigorosa de tokens JWT e verificação de assinatura HMAC (X-Signature) nas integrações com LiveKit e webhooks."
+    },
+    {
+      "code": "A04:2021",
+      "title": "Insecure Design",
+      "description": "Tratamento proativo de flood protection e rate limiting na infraestrutura SIP para prevenir negação de serviço (DoS) em voz."
+    }
   ]
 }

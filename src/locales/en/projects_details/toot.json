@@ -25,5 +25,17 @@
   "metrics": [
     "30x improvement in map load performance with 200k+ coordinate records",
     "500x faster asynchronous trip processing via Laravel Horizon queues"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021 / A07:2021",
+      "title": "Broken Access Control & Auth Failures",
+      "description": "Strengthened authentication mechanisms, strict concurrent session handling, and post-pentest vulnerability remediation."
+    },
+    {
+      "code": "A09:2021",
+      "title": "Security Logging & Monitoring",
+      "description": "Real-time error tracking and centralized exception observability via Bugsnag."
+    }
   ]
 }

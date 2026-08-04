@@ -26,5 +26,17 @@
   "metrics": [
     "Latência de recuperação em caso de cache hit abaixo de 10ms",
     "Execução 100% local sem dependência de APIs externas na nuvem"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A02:2021",
+      "title": "Cryptographic Failures & Data Privacy",
+      "description": "Embeddings (Ollama) e buscas vetoriais (FAISS) processados 100% em memória local, eliminando vazamentos de dados para APIs terceiras."
+    },
+    {
+      "code": "A04:2021",
+      "title": "Insecure Design (Zero-Trust AI)",
+      "description": "Execução sob o princípio Zero-Trust em ambientes isolados com validação rigorosa de limiares semânticos."
+    }
   ]
 }

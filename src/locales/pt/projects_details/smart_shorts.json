@@ -31,5 +31,17 @@
   "metrics": [
     "100% de segurança de tokens migrada para cookies httpOnly no servidor",
     "Monitoramento de status de renderização em tempo real via polling reativo"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A03:2021 / A07:2021",
+      "title": "Injection (XSS Mitigation) & Auth Failures",
+      "description": "Eliminação de exposição de tokens JWT no localStorage via migração para cookies httpOnly e Route Handlers no Next.js, com RBAC no Spring Security."
+    },
+    {
+      "code": "A06:2021",
+      "title": "Vulnerable & Outdated Components",
+      "description": "Gerenciamento de dependências no backend Java centralizado via BOM (Bill of Materials) do Spring Cloud para prevenção de pacotes desatualizados."
+    }
   ]
 }

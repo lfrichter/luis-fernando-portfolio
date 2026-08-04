@@ -24,5 +24,22 @@
   "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| Client Website Event Dispatcher                                           |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| Laravel Event Listeners & Async Queue Workers                              |\n+----------------------------------------------------------------------------+\n               /                                            \\\n              v                                              v\n+----------------------------------+      +----------------------------------+\n| OneSignal Web Push REST API      |      | Pagar.me Gateway Billing Engine  |\n+----------------------------------+      +----------------------------------+",
   "metrics": [
     "Instant Web Push notification delivery without impacting HTTP request latency"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Strict access control and privilege auditing for sensitive user impersonation (admin login as client)."
+    },
+    {
+      "code": "A07:2021",
+      "title": "Identification & Auth Failures",
+      "description": "Robust API route and transaction authentication using JWT tokens via tymondesigns/jwt-auth."
+    },
+    {
+      "code": "A09:2021",
+      "title": "Security Logging & Monitoring",
+      "description": "Immutability audit logging tracking all administrative actions via spatie/activitylog."
+    }
   ]
 }

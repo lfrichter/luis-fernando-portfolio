@@ -43,6 +43,7 @@
     "archTitle": "Topologia de Arquitetura & Fluxo de Dados",
     "roleTitle": "Papel Técnico & Responsabilidades",
     "metricsTitle": "Resultados Quantificados",
+    "owaspTitle": "Segurança & Mitigações OWASP Top 10",
     "viewGithub": "Ver Código no GitHub",
     "viewLive": "Acessar Projeto em Produção",
     "close": "Fechar modal"
@@ -59,7 +60,16 @@
   "skills": {
     "badge": "Stack & Ferramentas",
     "title": "Habilidades Técnicas & Competências",
-    "subtitle": "Visão consolidada de stacks, linguagens, ferramentas de IA assistida e práticas de engenharia."
+    "subtitle": "Visão consolidada de stacks, linguagens, ferramentas de IA assistida e práticas de engenharia.",
+    "viewOwaspMatrix": "Ver Matriz de Cobertura OWASP Top 10"
+  },
+  "owaspModal": {
+    "badge": "Security by Design",
+    "title": "Matriz de Cobertura & Mitigações OWASP Top 10",
+    "subtitle": "Mapeamento analítico de conformidade de segurança e tratamento de vulnerabilidades nos projetos do portfólio.",
+    "categoryCol": "Categoria OWASP (2021)",
+    "mitigationsCol": "Implementações Estratégicas por Projeto",
+    "close": "Fechar matriz"
   },
   "education": {
     "academicBadge": "Acadêmico",
