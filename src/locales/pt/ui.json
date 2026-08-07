@@ -13,7 +13,39 @@
     "aiNative": "Engenharia Nativa em IA",
     "aiNativeSub": "Desenvolvimento com RAG, FAISS, LiveKit Voice AI, Ollama e workflows assistidos por IA.",
     "archClean": "Arquitetura & Clean Code",
-    "archCleanSub": "Pós-Graduação UNIBTA em Sistemas Distribuídos e certificações Full Cycle (SOLID, DDD)."
+    "archCleanSub": "Pós-Graduação UNIBTA em Sistemas Distribuídos e certificações Full Cycle (SOLID, DDD).",
+    "metrics": {
+      "projects": {
+        "value": "+25",
+        "label": "Projetos Entregues",
+        "sub": "SaaS, Nuvem & PoCs"
+      },
+      "experience": {
+        "value": "15+",
+        "label": "Anos de Experiência",
+        "sub": "Engenharia & Arquitetura"
+      },
+      "leadership": {
+        "value": "Liderança",
+        "label": "Times Liderados",
+        "sub": "Mentoria & Squads Globais"
+      },
+      "latency": {
+        "value": "-40%",
+        "label": "Redução de Latência",
+        "sub": "APIs & Sistemas Distribuídos"
+      },
+      "scale": {
+        "value": "Milhões",
+        "label": "Reqs Processadas",
+        "sub": "Alta Vazão & Resiliência"
+      },
+      "ai": {
+        "value": "20+",
+        "label": "Projetos com IA",
+        "sub": "RAG, LLMs & Voice AI"
+      }
+    }
   },
   "projects": {
     "title": "Portfólio de Engenharia & Projetos",

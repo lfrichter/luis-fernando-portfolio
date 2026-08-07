@@ -4,8 +4,72 @@ import { useProfile } from '@/hooks/useProfile';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { GithubIcon, LinkedinIcon } from '@/components/icons/SocialIcons';
-import { Mail, MapPin, Sparkles, Award, ShieldCheck, Cpu } from 'lucide-react';
+import {
+  Mail,
+  MapPin,
+  Sparkles,
+  Award,
+  ShieldCheck,
+  Cpu,
+  FolderGit2,
+  Zap,
+  Users,
+  Rocket,
+  Activity,
+  Bot,
+} from 'lucide-react';
 import avatarImg from '@/assets/AvatarCircle.png';
+
+const METRICS_ITEMS = [
+  {
+    key: 'projects',
+    emoji: '📦',
+    icon: FolderGit2,
+    color: 'text-blue-600 dark:text-blue-400',
+    bg: 'bg-blue-500/10 dark:bg-blue-500/15',
+    borderHover: 'hover:border-blue-500/40',
+  },
+  {
+    key: 'experience',
+    emoji: '⚡',
+    icon: Zap,
+    color: 'text-amber-600 dark:text-amber-400',
+    bg: 'bg-amber-500/10 dark:bg-amber-500/15',
+    borderHover: 'hover:border-amber-500/40',
+  },
+  {
+    key: 'leadership',
+    emoji: '👥',
+    icon: Users,
+    color: 'text-emerald-600 dark:text-emerald-400',
+    bg: 'bg-emerald-500/10 dark:bg-emerald-500/15',
+    borderHover: 'hover:border-emerald-500/40',
+  },
+  {
+    key: 'latency',
+    emoji: '🚀',
+    icon: Rocket,
+    color: 'text-rose-600 dark:text-rose-400',
+    bg: 'bg-rose-500/10 dark:bg-rose-500/15',
+    borderHover: 'hover:border-rose-500/40',
+  },
+  {
+    key: 'scale',
+    emoji: '💰',
+    icon: Activity,
+    color: 'text-purple-600 dark:text-purple-400',
+    bg: 'bg-purple-500/10 dark:bg-purple-500/15',
+    borderHover: 'hover:border-purple-500/40',
+  },
+  {
+    key: 'ai',
+    emoji: '🤖',
+    icon: Bot,
+    color: 'text-indigo-600 dark:text-indigo-400',
+    bg: 'bg-indigo-500/10 dark:bg-indigo-500/15',
+    borderHover: 'hover:border-indigo-500/40',
+  },
+];
 
 export const Hero: React.FC = () => {
   const { t } = useTranslation();
@@ -76,9 +140,42 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Highlight Metrics Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12 pt-8 border-t border-border/50">
-          <div className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border/60 shadow-sm">
+        {/* Executive Impact Metrics Block */}
+        <div className="mt-10 pt-8 border-t border-border/50">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            {METRICS_ITEMS.map((item) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={item.key}
+                  className={`relative p-3.5 rounded-xl bg-card border border-border/60 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${item.borderHover}`}
+                >
+                  <div className="flex items-center justify-between gap-1 mb-2">
+                    <span className="text-lg" role="img" aria-label={item.key}>
+                      {item.emoji}
+                    </span>
+                    <span className={`p-1.5 rounded-lg ${item.bg}`}>
+                      <Icon className={`w-3.5 h-3.5 ${item.color}`} />
+                    </span>
+                  </div>
+                  <div className="font-extrabold text-foreground text-base tracking-tight">
+                    {t(`hero.metrics.${item.key}.value`)}
+                  </div>
+                  <div className="font-semibold text-xs text-foreground/90 mt-0.5 leading-tight">
+                    {t(`hero.metrics.${item.key}.label`)}
+                  </div>
+                  <div className="text-[10px] text-muted-foreground mt-1 leading-snug">
+                    {t(`hero.metrics.${item.key}.sub`)}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Highlight Architecture Pillars Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+          <div className="flex items-start gap-3 p-4 rounded-xl bg-card/60 border border-border/60 shadow-sm">
             <Award className="w-6 h-6 text-primary shrink-0 mt-0.5" />
             <div>
               <h3 className="font-bold text-foreground text-sm">{t('hero.techLeadership')}</h3>
@@ -88,7 +185,7 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border/60 shadow-sm">
+          <div className="flex items-start gap-3 p-4 rounded-xl bg-card/60 border border-border/60 shadow-sm">
             <Cpu className="w-6 h-6 text-indigo-500 shrink-0 mt-0.5" />
             <div>
               <h3 className="font-bold text-foreground text-sm">{t('hero.aiNative')}</h3>
@@ -98,7 +195,7 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border/60 shadow-sm">
+          <div className="flex items-start gap-3 p-4 rounded-xl bg-card/60 border border-border/60 shadow-sm">
             <ShieldCheck className="w-6 h-6 text-emerald-500 shrink-0 mt-0.5" />
             <div>
               <h3 className="font-bold text-foreground text-sm">{t('hero.archClean')}</h3>

@@ -13,7 +13,39 @@
     "aiNative": "AI-Native Engineering",
     "aiNativeSub": "RAG architecture, FAISS, LiveKit Voice AI, Ollama, and AI-assisted workflows.",
     "archClean": "Architecture & Clean Code",
-    "archCleanSub": "Postgraduate in Distributed Systems (UNIBTA) and Full Cycle Certifications (SOLID, DDD)."
+    "archCleanSub": "Postgraduate in Distributed Systems (UNIBTA) and Full Cycle Certifications (SOLID, DDD).",
+    "metrics": {
+      "projects": {
+        "value": "+25",
+        "label": "Projects Delivered",
+        "sub": "SaaS, Cloud & PoCs"
+      },
+      "experience": {
+        "value": "15+",
+        "label": "Years Experience",
+        "sub": "Engineering & Architecture"
+      },
+      "leadership": {
+        "value": "Leadership",
+        "label": "Teams Led",
+        "sub": "Mentorship & Global Squads"
+      },
+      "latency": {
+        "value": "-40%",
+        "label": "Latency Reduction",
+        "sub": "APIs & Distributed Systems"
+      },
+      "scale": {
+        "value": "Millions",
+        "label": "Requests Processed",
+        "sub": "High-Throughput & Resilience"
+      },
+      "ai": {
+        "value": "20+",
+        "label": "AI-Driven Projects",
+        "sub": "RAG, LLMs & Voice AI"
+      }
+    }
   },
   "projects": {
     "title": "Engineering Portfolio & Projects",

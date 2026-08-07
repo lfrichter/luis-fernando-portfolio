@@ -21,5 +21,9 @@ describe('Hero Component', () => {
 
     expect(screen.getByText(/AI Engineering Architect/i)).toBeInTheDocument();
     expect(screen.getByText(/Sorocaba/i)).toBeInTheDocument();
+    expect(screen.getByText('+25')).toBeInTheDocument();
+    expect(screen.getByText('15+')).toBeInTheDocument();
+    expect(screen.getByText('-40%')).toBeInTheDocument();
   });
 });
+
