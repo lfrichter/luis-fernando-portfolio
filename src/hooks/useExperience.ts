@@ -1,8 +1,8 @@
-import { useState, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
-import experiencePt from '@/locales/pt/experience.json';
 import experienceEn from '@/locales/en/experience.json';
+import experiencePt from '@/locales/pt/experience.json';
 import type { IExperience } from '@/types';
+import { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export function useExperience() {
   const { i18n } = useTranslation();

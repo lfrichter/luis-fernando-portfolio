@@ -1,10 +1,10 @@
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { useExperience } from '@/hooks/useExperience';
+import { Briefcase, Building2, Calendar, MapPin, Search, TrendingUp } from 'lucide-react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useExperience } from '@/hooks/useExperience';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardHeader, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Briefcase, MapPin, Calendar, Search, Building2, TrendingUp } from 'lucide-react';
 
 export const Experience: React.FC = () => {
   const { t } = useTranslation();
