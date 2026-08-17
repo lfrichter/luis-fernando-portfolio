@@ -5,29 +5,30 @@
   "category": "AI/LLM",
   "tier": 1,
   "summary": "Agente de voz inteligente para restaurantes. Comunicação WebRTC/SIP via LiveKit, STT com Deepgram, GPT-4o-mini LLM, TTS ElevenLabs e OCR de cardápios com Pytesseract.",
-  "techStack": ["Python", "FastAPI/Flask", "LiveKit", "WebRTC", "Deepgram STT", "OpenAI", "ElevenLabs", "Docker Swarm", "Supabase"],
+  "techStack": ["Python 3.12", "FastAPI", "LiveKit & SIP Gateway", "coturn (TURN/STUN)", "WebRTC", "Deepgram STT", "OpenAI", "ElevenLabs", "Docker Swarm", "Supabase (PostgreSQL)"],
   "featured": true,
   "detailKey": "eupizza",
   "overview": "Plataforma SaaS multi-tenant para implantação de agentes de voz autônomos no atendimento telefônico de restaurantes e pizzarias, garantindo baixíssima latência na conversação e personalização dinâmica de cardápios.",
   "roleDescription": "Arquiteto de Software e Engenheiro Backend / IA Principal.",
   "responsibilities": [
-    "Arquitetura de microsserviços em Docker Swarm integrada a troncos SIP e servidor de mídia WebRTC (LiveKit).",
-    "Desenvolvimento do agente de voz em Python (FastAPI/Flask) orquestrando o pipeline de IA: Silero VAD -> Deepgram STT -> GPT-4o-mini LLM -> ElevenLabs / OpenAI TTS.",
-    "Implementação de motor OCR com Pytesseract e Pillow para extração de texto de cardápios via imagem e construção dinâmica de prompts multi-tenant.",
-    "Persistência de dados multi-tenant em PostgreSQL no Supabase com Row Level Security (RLS).",
-    "CI/CD automatizado com GitHub Actions, Makefile, Linters (Ruff, MyPy) e Pytest."
+    "Arquitetura de microsserviços em Docker Swarm integrada a troncos SIP e servidor de mídia WebRTC (LiveKit + LiveKit SIP Gateway).",
+    "Desenvolvimento do agente de voz em Python 3.12 (FastAPI) orquestrando o pipeline de IA: Silero VAD -> Deepgram STT -> GPT-4o-mini LLM -> ElevenLabs / OpenAI TTS.",
+    "Configuração do Coturn (TURN/STUN) para garantia de NAT Traversal e conectividade de áudio em redes restritivas.",
+    "Implementação de motor OCR com Pytesseract para extração de texto de cardápios via imagem e construção dinâmica de prompts multi-tenant.",
+    "Persistência de dados multi-tenant em PostgreSQL no Supabase com Row Level Security (RLS) e billing de sessões.",
+    "CI/CD automatizado com GitHub Actions, linters estritos (Ruff, Black, Mypy) e Pytest."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Gargalo de latência no áudio conversacional durante chamadas telefônicas em tempo real.",
-      "solution": "Uso do LiveKit Voice Agents com Silero VAD para interrupção natural do usuário e modelos otimizados Deepgram nova-2-general + GPT-4o-mini."
+      "challenge": "Gargalo de latência no áudio conversacional e tratamento de flood protection no gateway SIP durante chamadas em tempo real.",
+      "solution": "Uso do LiveKit Voice Agents com Silero VAD para interrupção natural do usuário, modelos otimizados Deepgram nova-2-general + GPT-4o-mini e tratamento proativo de rate limiting."
     },
     {
-      "challenge": "Onboarding complexo e manual de novos cardápios de restaurantes.",
-      "solution": "Pipeline automatizado de OCR (Pytesseract) analisando fotos do cardápio e gerando prompts dinâmicos multi-tenant."
+      "challenge": "Falhas de autenticação JWT e grants de permissão no LiveKit e onboarding manual de cardápios de restaurantes.",
+      "solution": "Ajuste na geração de tokens JWT com validação de grants no LiveKit e pipeline automatizado de OCR (Pytesseract) gerando prompts dinâmicos multi-tenant."
     }
   ],
-  "architectureDiagramMermaid": "+-------------------+      +--------------------+      +--------------------+\n| Telefonia / SIP   | ---> | LiveKit Media      | ---> | Silero VAD         |\n| (Troncos SIP)     |      | Server (WebRTC)    |      | (Detecção de Voz)  |\n+-------------------+      +--------------------+      +--------------------+\n                                                                  |\n                                                                  v\n+-------------------+      +--------------------+      +--------------------+\n| ElevenLabs /      | <--- | GPT-4o-mini LLM    | <--- | Deepgram STT       |\n| OpenAI TTS        |      | (Function Calling) |      | (Transcrição Audio)|\n+-------------------+      +--------------------+      +--------------------+\n          |                                                       |\n          v                                                       v\n+---------------------------------------------------------------------------+\n| Supabase PostgreSQL (RLS Multi-Tenant) & Motor OCR Pytesseract (Cardápios)|\n+---------------------------------------------------------------------------+",
+  "architectureDiagramMermaid": "flowchart TB\n    subgraph U[\"🎧 Cliente Final\"]\n        User[\"👤 Usuário<br>(Cliente de Pizzaria)\"]\n    end\n    subgraph C[\"🛰️ Infraestrutura de Comunicação\"]\n        SIP[\"📞 Provedor SIP\"]\n        LKSIP[\"🌐 LiveKit SIP Gateway\"]\n        LK[\"🎥 LiveKit Media Server\"]\n        TURN[\"🌀 Coturn (TURN/STUN)\"]\n    end\n    subgraph IA[\"🧠 Pipeline de IA\"]\n        STT[\"🗣️ Speech-to-Text<br>(Deepgram)\"]\n        LLM[\"💬 LLM<br>(OpenAI)\"]\n        TTS[\"🎤 Text-to-Speech<br>(ElevenLabs / OpenAI)\"]\n    end\n    subgraph P[\"☁️ Plataforma SaaS EuPizza\"]\n        Agent[\"🤖 Agente de Voz<br>(FastAPI)\"]\n        Supabase[\"🗃️ Supabase<br>(Postgres + RLS)\"]\n        IA\n    end\n    User -->|📞 Chamada Telefônica| SIP\n    SIP -->|SIP / TLS| LKSIP\n    LKSIP -->|WebRTC| LK\n    LK --- TURN\n    LK -->|🔔 Webhook: Nova Chamada| Agent\n    Agent -->|🔗 Junta-se à Sala| LK\n    Agent -->|🎧 Áudio| STT\n    STT -->|📝 Texto| Agent\n    Agent -->|🧠 Texto + Contexto| LLM\n    LLM -->|💬 Resposta| Agent\n    Agent -->|🔊 Texto| TTS\n    TTS -->|🎶 Áudio| Agent\n    Agent -->|📢 Reproduz Áudio| LK\n    Agent -->|🗄️ Persiste Sessão| Supabase\n\n    style IA fill:#FFF3E0,stroke:#FF9800,stroke-width:2px\n    style U fill:#FFCDD2,stroke:#D50000,stroke-width:2px\n    style C fill:#DCEBFF,stroke:#3366CC,stroke-width:2px\n    style P fill:#E9FBE9,stroke:#339933,stroke-width:2px",
   "metrics": [
     "Latência speech-to-speech mantida em milissegundos",
     "Arquitetura 100% multi-tenant preparada para alta escala no Docker Swarm"

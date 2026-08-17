@@ -5,29 +5,30 @@
   "category": "AI/LLM",
   "tier": 1,
   "summary": "Intelligent voice agent for restaurants. Real-time WebRTC/SIP communication via LiveKit, Deepgram STT, GPT-4o-mini LLM, ElevenLabs TTS, and menu OCR with Pytesseract.",
-  "techStack": ["Python", "FastAPI/Flask", "LiveKit", "WebRTC", "Deepgram STT", "OpenAI", "ElevenLabs", "Docker Swarm", "Supabase"],
+  "techStack": ["Python 3.12", "FastAPI", "LiveKit & SIP Gateway", "coturn (TURN/STUN)", "WebRTC", "Deepgram STT", "OpenAI", "ElevenLabs", "Docker Swarm", "Supabase (PostgreSQL)"],
   "featured": true,
   "detailKey": "eupizza",
   "overview": "Multi-tenant SaaS platform deploying autonomous voice agents for phone customer service in restaurants and pizzerias, ensuring low-latency conversational audio and dynamic menu customization.",
   "roleDescription": "Software Architect and Lead Backend / AI Engineer.",
   "responsibilities": [
-    "Engineered microservices architecture on Docker Swarm integrated with SIP trunks and WebRTC media server (LiveKit).",
-    "Developed Python (FastAPI/Flask) voice agent and orchestrated the AI pipeline: Silero VAD -> Deepgram STT -> GPT-4o-mini LLM -> ElevenLabs / OpenAI TTS.",
+    "Engineered microservices architecture on Docker Swarm integrated with SIP trunks and WebRTC media server (LiveKit + LiveKit SIP Gateway).",
+    "Developed Python 3.12 (FastAPI) voice agent and orchestrated the AI pipeline: Silero VAD -> Deepgram STT -> GPT-4o-mini LLM -> ElevenLabs / OpenAI TTS.",
+    "Configured Coturn (TURN/STUN) server for NAT traversal and audio connectivity in restrictive networks.",
     "Implemented OCR engine using Pytesseract and Pillow to extract menu text from images and dynamically construct multi-tenant prompts.",
-    "Persisted multi-tenant data in PostgreSQL on Supabase using Row Level Security (RLS).",
-    "Built CI/CD pipelines with GitHub Actions, Makefile, Ruff, MyPy, and Pytest."
+    "Persisted multi-tenant data in PostgreSQL on Supabase using Row Level Security (RLS) and session billing.",
+    "Built CI/CD pipelines with GitHub Actions, Makefile, strict linters (Ruff, Black, Mypy), and Pytest."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Conversational audio latency bottleneck during real-time phone calls.",
-      "solution": "Utilized LiveKit Voice Agents with Silero VAD for natural user interruption and optimized Deepgram nova-2-general + GPT-4o-mini models."
+      "challenge": "Conversational audio latency bottleneck and SIP gateway flood protection handling during real-time calls.",
+      "solution": "Utilized LiveKit Voice Agents with Silero VAD for natural user interruption, optimized Deepgram nova-2-general + GPT-4o-mini models, and proactive rate-limiting."
     },
     {
-      "challenge": "Complex and manual onboarding for new restaurant menus.",
-      "solution": "Automated OCR pipeline (Pytesseract) analyzing menu images and dynamically generating multi-tenant agent prompts."
+      "challenge": "JWT token authentication failures and grant permission tuning in LiveKit along with manual menu onboarding.",
+      "solution": "Fixed JWT token generation with proper LiveKit grant permissions and automated OCR pipeline (Pytesseract) generating dynamic multi-tenant agent prompts."
     }
   ],
-  "architectureDiagramMermaid": "+-------------------+      +--------------------+      +--------------------+\n| Telephony / SIP   | ---> | LiveKit Media      | ---> | Silero VAD         |\n| (SIP Trunks)      |      | Server (WebRTC)    |      | (Voice Detection)  |\n+-------------------+      +--------------------+      +--------------------+\n                                                                  |\n                                                                  v\n+-------------------+      +--------------------+      +--------------------+\n| ElevenLabs /      | <--- | GPT-4o-mini LLM    | <--- | Deepgram STT       |\n| OpenAI TTS        |      | (Function Calling) |      | (Audio Transcribe) |\n+-------------------+      +--------------------+      +--------------------+\n          |                                                       |\n          v                                                       v\n+---------------------------------------------------------------------------+\n| Supabase PostgreSQL (RLS Multi-Tenant) & Pytesseract OCR Engine (Menus)   |\n+---------------------------------------------------------------------------+",
+  "architectureDiagramMermaid": "flowchart TB\n    subgraph U[\"🎧 End User\"]\n        User[\"👤 User<br>(Pizzeria Customer)\"]\n    end\n    subgraph C[\"🛰️ Communication Infrastructure\"]\n        SIP[\"📞 SIP Provider\"]\n        LKSIP[\"🌐 LiveKit SIP Gateway\"]\n        LK[\"🎥 LiveKit Media Server\"]\n        TURN[\"🌀 Coturn (TURN/STUN)\"]\n    end\n    subgraph IA[\"🧠 AI Pipeline\"]\n        STT[\"🗣️ Speech-to-Text<br>(Deepgram)\"]\n        LLM[\"💬 LLM<br>(OpenAI)\"]\n        TTS[\"🎤 Text-to-Speech<br>(ElevenLabs / OpenAI)\"]\n    end\n    subgraph P[\"☁️ EuPizza SaaS Platform\"]\n        Agent[\"🤖 Voice Agent<br>(FastAPI)\"]\n        Supabase[\"🗃️ Supabase<br>(Postgres + RLS)\"]\n        IA\n    end\n    User -->|📞 Phone Call| SIP\n    SIP -->|SIP / TLS| LKSIP\n    LKSIP -->|WebRTC| LK\n    LK --- TURN\n    LK -->|🔔 Webhook: New Call| Agent\n    Agent -->|🔗 Joins Room| LK\n    Agent -->|🎧 Audio| STT\n    STT -->|📝 Text| Agent\n    Agent -->|🧠 Text + Context| LLM\n    LLM -->|💬 Response| Agent\n    Agent -->|🔊 Text| TTS\n    TTS -->|🎶 Audio| Agent\n    Agent -->|📢 Plays Audio| LK\n    Agent -->|🗄️ Persists Session| Supabase\n\n    style IA fill:#FFF3E0,stroke:#FF9800,stroke-width:2px\n    style U fill:#FFCDD2,stroke:#D50000,stroke-width:2px\n    style C fill:#DCEBFF,stroke:#3366CC,stroke-width:2px\n    style P fill:#E9FBE9,stroke:#339933,stroke-width:2px",
   "metrics": [
     "End-to-end speech-to-speech latency maintained in milliseconds",
     "100% multi-tenant architecture designed for Docker Swarm scalability"
