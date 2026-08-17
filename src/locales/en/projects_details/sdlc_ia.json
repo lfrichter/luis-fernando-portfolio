@@ -1,29 +1,35 @@
 {
   "id": "sdlc-ia",
-  "title": "Framework SDLC-IA & Prompt Engineering",
-  "subtitle": "AI-Agent Accelerated Software Development Lifecycle",
+  "title": "AI-Driven SDLC Framework v2.0 Master",
+  "subtitle": "Spec-as-Code Ecosystem, Ruflo Swarm Orchestration, WSCI Context Engineering & Jidoka",
   "category": "AI/LLM",
   "tier": 1,
-  "summary": "Framework integrating AI-assisted engineering tools (Copilot, Cursor, Trae, Gemini) into software development, automated testing, and architecture workflows.",
-  "techStack": ["Cursor IDE", "GitHub Copilot", "Trae", "Gemini Code Assist", "LLMs", "Prompt Engineering"],
+  "summary": "AI-driven software engineering ecosystem integrating the Spec-as-Code paradigm (META SPEC), swarm topology (Ruflo), WSCI context engineering, and Jidoka quality gates (Andon Cord).",
+  "techStack": ["Spec-as-Code (META SPEC)", "WSCI Framework", "Ruflo (Swarm Topology)", "Open Design (MCP)", "Jidoka & Superpowers", "Git Worktrees", "Gemini 2.5 Pro", "Cursor IDE"],
   "featured": true,
   "detailKey": "sdlc_ia",
-  "overview": "Comprehensive engineering methodology, standardized prompt library, and AI-assisted workflows designed to significantly increase software delivery velocity, code quality, and test coverage.",
-  "roleDescription": "Software Architect & Engineering Process Tech Lead.",
+  "overview": "The Framework v2.0 Master is a software engineering ecosystem that transforms stochastic AI models into structured operational team members. It abandons raw source code as the single source of truth in favor of the Spec-as-Code paradigm via META SPEC (Project Constitution). The architecture orchestrates a specialist agent swarm (Ruflo) led by a central Chief of Staff orchestrator, leveraging WSCI context engineering (Write, Select, Compress, Isolate), Git Worktree isolation, and continuous Jidoka quality control (Andon Cord).",
+  "roleDescription": "AI Solutions Architect, Tech Lead & Engineering Process Architect.",
   "responsibilities": [
-    "Defined AI-assisted SDLC workflow combining Cursor IDE, Copilot, Trae, and Gemini Code Assist.",
-    "Created prompt repositories and architecture personas for automated TDD test generation, OpenAPI documentation, and refactoring.",
-    "Trained engineering teams on best practices, accelerating delivery speed while maintaining high system reliability."
+    "Conceived and designed the hierarchical swarm topology (Ruflo) with central Chief of Staff orchestration and isolated working memory.",
+    "Structured technical governance guidelines and Jidoka quality gates (Andon Cord) for immediate clean resets upon anomaly detection.",
+    "Engineered the WSCI context methodology (Write, Select, Compress, Isolate) to eliminate AI context window degradation and distraction.",
+    "Created the SPARC+DD lifecycle and integrated the Spec-as-Code paradigm via META SPEC (Project Constitution)."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Ensuring consistency and precision of AI-generated code without introducing hallucinations or security vulnerabilities.",
-      "solution": "Established strict validation pipelines with automated linting, immediate TDD execution, and security-focused code reviews."
+      "challenge": "Context window degradation (poisoning and distraction) when AI agents operate across large repositories or long execution runs.",
+      "solution": "Implemented WSCI Context Engineering (Write, Select, Compress, Isolate) paired with AST selection tools and specialist agent isolation via Git Worktrees (Superpowers)."
     }
   ],
-  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| Developer Workstation (Cursor IDE / Trae / VS Code + Copilot)              |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------+     +-----------------------------------+\n| Custom Prompt Repositories       | --> | Automated TDD Test Generation     |\n| & Architectural Personas         |     | (Vitest / Jest / Pytest / Dusk)   |\n+----------------------------------+     +-----------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| Automated Linting, OpenAPI Spec Validation & Security Review Pipeline      |\n+----------------------------------------------------------------------------+",
+  "futureEvolution": [
+    "Decentralized telemetry implementation for measuring sub-agent efficiency (time/tokens) under Zero-Trust policies.",
+    "Automated Architecture Decision Records (ADRs) generation from synchronous multi-agent debates during the SPARC+DD Architecture phase."
+  ],
+  "architectureDiagramMermaid": "graph TD\n    A[\"Human Developer\"] -->|Defines Vision via| B[\"META SPEC (Spec-as-Code)\"]\n    B --> C[\"Chief of Staff Orchestrator\"]\n    C -->|Applies WSCI| D[\"Context Window Manager\"]\n    C -->|Ruflo Swarm Topology| E[\"Sub-Agent Swarm\"]\n    \n    E --> F[\"Developer Agent\"]\n    E --> G[\"Code Reviewer Agent\"]\n    \n    F -->|SPARC+DD Lifecycle| H[\"Git Worktree (Isolation)\"]\n    G -->|Zero-Trust/AIDefence| H\n    \n    H --> I{\"Jidoka Validation / Andon Cord\"}\n    I -- \"Anomaly Detected\" --> J[\"Wipe & Restart (Clean Reset)\"]\n    J --> C\n    I -- \"Tests Passed\" --> K[\"Integration & Updated Docs\"]",
   "metrics": [
-    "Up to 40% increase in feature delivery speed",
-    "Immediate elevation of automated unit test coverage"
+    "Complete elimination of file collisions via Git Worktree isolation",
+    "Surgical execution with zero context window degradation (WSCI)",
+    "Automatic hallucination interruption via Andon Cord (Jidoka)"
   ]
 }

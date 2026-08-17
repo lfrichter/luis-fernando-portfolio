@@ -1,29 +1,35 @@
 {
   "id": "sdlc-ia",
-  "title": "Framework SDLC-IA & Engenharia de Prompt",
-  "subtitle": "Metodologia de Aceleração de Engenharia com Agentes de IA",
+  "title": "Framework SDLC-IA v2.0 Master",
+  "subtitle": "Ecossistema Spec-as-Code, Orquestração Ruflo, Engenharia de Contexto WSCI & Jidoka",
   "category": "AI/LLM",
   "tier": 1,
-  "summary": "Framework de integração de ferramentas de IA assistida (Copilot, Cursor, Trae, Gemini) no fluxo de desenvolvimento, testes automatizados e arquitetura de software.",
-  "techStack": ["Cursor IDE", "GitHub Copilot", "Trae", "Gemini Code Assist", "LLMs", "Prompt Engineering"],
+  "summary": "Ecossistema de engenharia guiado por IA integrando o paradigma Spec-as-Code (META SPEC), arquitetura de enxames (Ruflo), engenharia de contexto (WSCI) e interrupção Jidoka (Andon Cord).",
+  "techStack": ["Spec-as-Code (META SPEC)", "Framework WSCI", "Ruflo (Swarm Topology)", "Open Design (MCP)", "Jidoka & Superpowers", "Git Worktrees", "Gemini 2.5 Pro", "Cursor IDE"],
   "featured": true,
   "detailKey": "sdlc_ia",
-  "overview": "Conjunto de práticas, prompts padronizados e fluxos de trabalho assistidos por Inteligência Artificial para aumentar drasticamente a produtividade, qualidade de código e cobertura de testes em equipes de desenvolvimento.",
-  "roleDescription": "Arquiteto de Processos & Tech Lead.",
+  "overview": "O Framework v2.0 Master é um ecossistema de engenharia de software que transforma IAs estocásticas em membros operacionais estruturados da equipe. Abandona o código-fonte como fonte primária da verdade e adota o paradigma Spec-as-Code através da META SPEC (Constituição do Projeto). A arquitetura orquestra um enxame de agentes especialistas (Ruflo) coordenados por um orquestrador central (Chief of Staff), utilizando engenharia de contexto WSCI (Write, Select, Compress, Isolate), isolamento via Git Worktrees e controle de qualidade contínuo com o princípio Jidoka (Andon Cord).",
+  "roleDescription": "Arquiteto de Soluções de IA, Tech Lead & Engenheiro de Processos.",
   "responsibilities": [
-    "Definição do fluxo SDLC assistido por IA combinando Cursor IDE, Copilot, Trae e Gemini Code Assist.",
-    "Criação de repositório de prompts e personas de arquitetura para geração automática de testes TDD, documentação OpenAPI e refatorações limpas.",
-    "Treinamento e disseminação de melhores práticas para times de engenharia, resultando em aceleração das entregas com alta confiabilidade."
+    "Idealização e desenho da topologia de enxames hierárquicos (Ruflo) com orquestração centralizada via Chief of Staff e memória isolada.",
+    "Estruturação das diretrizes de governança técnica e pontos de validação com o princípio Jidoka (Andon Cord) para interrupção e reset limpo em caso de anomalia.",
+    "Engenharia da metodologia de contexto WSCI (Write, Select, Compress, Isolate) para combate à degradação e envenenamento da janela de contexto da IA.",
+    "Criação do ciclo de vida SPARC+DD e integração do paradigma Spec-as-Code via META SPEC (Constituição do Projeto)."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Garantir a consistência e a precisão do código gerado por IA sem introduzir alucinações ou vulnerabilidades de segurança.",
-      "solution": "Estabelecimento de pipeline de validação rigorosa com linting automatizado, testes TDD imediatos e revisões focadas em segurança."
+      "challenge": "Degradação da janela de contexto (envenenamento e distração da IA) ao lidar com bases de código complexas e execuções longas.",
+      "solution": "Implementação da Engenharia de Contexto WSCI (Write, Select, Compress, Isolate) aliada a ferramentas de curadoria de AST e isolamento de sub-agentes especialistas via Git Worktrees (Superpowers)."
     }
   ],
-  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| Estação do Desenvolvedor (Cursor IDE / Trae / VS Code + Copilot)           |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------+     +-----------------------------------+\n| Repositórios de Prompts          | --> | Geração Automática de Testes TDD  |\n| & Personas de Arquitetura        |     | (Vitest / Jest / Pytest / Dusk)   |\n+----------------------------------+     +-----------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| Pipeline de Validação: Linting, OpenAPI Specs & Security Review            |\n+----------------------------------------------------------------------------+",
+  "futureEvolution": [
+    "Implementação de telemetria descentralizada para mensuração de eficiência (tempo/tokens) por sub-agente sob política Zero-Trust.",
+    "Automação da geração de registros de decisão (ADRs) a partir de debates síncronos entre agentes na fase de Arquitetura do SPARC+DD."
+  ],
+  "architectureDiagramMermaid": "graph TD\n    A[\"Desenvolvedor Humano\"] -->|Define Visão via| B[\"META SPEC (Spec-as-Code)\"]\n    B --> C[\"Agente Orquestrador (Chief of Staff)\"]\n    C -->|Aplica WSCI| D[\"Gestor de Janela de Contexto\"]\n    C -->|Topologia Ruflo| E[\"Enxame de Sub-agentes\"]\n    \n    E --> F[\"Agente Desenvolvedor\"]\n    E --> G[\"Agente Code Reviewer\"]\n    \n    F -->|Ciclo SPARC+DD| H[\"Git Worktree (Isolamento)\"]\n    G -->|Zero-Trust/AIDefence| H\n    \n    H --> I{\"Validação Jidoka / Andon Cord\"}\n    I -- \"Anomalia Detectada\" --> J[\"Apagar para Recomeçar (Reset Limpo)\"]\n    J --> C\n    I -- \"Testes Aprovados\" --> K[\"Integração e Documentação Atualizada\"]",
   "metrics": [
-    "Aumento de até 40% na velocidade de entrega de novas features",
-    "Elevação imediata da cobertura de testes unitários automatizados"
+    "Eliminação de colisões de arquivos via isolamento Git Worktree",
+    "Execução cirúrgica com zero degradação de janela de contexto (WSCI)",
+    "Interrupção automática de alucinações via Andon Cord (Jidoka)"
   ]
 }

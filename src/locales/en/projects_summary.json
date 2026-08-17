@@ -48,12 +48,12 @@
   },
   {
     "id": "sdlc-ia",
-    "title": "Framework SDLC-IA & Prompt Engineering",
-    "subtitle": "AI-Agent Accelerated Software Development Lifecycle",
+    "title": "AI-Driven SDLC Framework v2.0 Master",
+    "subtitle": "Spec-as-Code Ecosystem, Ruflo Swarm Orchestration, WSCI Context Engineering & Jidoka",
     "category": "AI/LLM",
     "tier": 1,
-    "summary": "Framework integrating AI-assisted engineering tools (Copilot, Cursor, Trae, Gemini) into software development, automated testing, and architecture workflows.",
-    "techStack": ["Cursor IDE", "GitHub Copilot", "Trae", "Gemini Code Assist", "LLMs", "Prompt Engineering"],
+    "summary": "AI-driven software engineering ecosystem integrating the Spec-as-Code paradigm (META SPEC), swarm topology (Ruflo), WSCI context engineering, and Jidoka quality gates (Andon Cord).",
+    "techStack": ["Spec-as-Code (META SPEC)", "WSCI Framework", "Ruflo (Swarm Topology)", "Open Design (MCP)", "Jidoka & Superpowers", "Git Worktrees", "Gemini 2.5 Pro", "Cursor IDE"],
     "featured": true,
     "detailKey": "sdlc_ia"
   },
