@@ -1,0 +1,36 @@
+{
+  "id": "cat-guardian",
+  "title": "Cat Guardian — Passaporte de Segurança Felino",
+  "subtitle": "Passaporte Digital de Segurança Felino, QR Code & Blind Contact Relay",
+  "category": "PoC & Open Source",
+  "tier": 3,
+  "summary": "Plataforma Open Source com gerador de perfil IA (Gemini 2.0 Flash), QR Code para coleiras e Blind Contact Relay (Resend API) com privacidade garantida.",
+  "techStack": ["React 19", "Vite 6", "TypeScript 5.7", "Supabase", "PostgreSQL", "RLS", "Gemini 2.0 Flash", "Resend API", "Vitest"],
+  "featured": false,
+  "githubUrl": "https://github.com/lfrichter/cat-guardian",
+  "liveUrl": "https://cat-guardian-two.vercel.app/",
+  "detailKey": "cat_guardian",
+  "overview": "O Cat Guardian é um passaporte digital de segurança felino que une inteligência artificial, QR Code dinâmico para coleiras e o sistema Blind Contact Relay. Quando um gato é marcado no 'Lost Mode', a coleira escaneada exibe um passaporte público seguro. A comunicação entre quem encontra o pet e o dono ocorre através de relay seguro de e-mails via Resend API e Supabase, sem expor dados pessoais ou telefones no front-end.",
+  "roleDescription": "Engenheiro de Software Full-Stack, Arquiteto de Soluções & Integrador de IA.",
+  "responsibilities": [
+    "Liderança no desenvolvimento de ponta a ponta utilizando React 19, Vite e TypeScript com UI baseada em Glassmorphism.",
+    "Modelagem do banco de dados PostgreSQL no Supabase com suporte a esquemas multilingues JSONB e políticas estritas de Row Level Security (RLS).",
+    "Integração da API do Gemini 2.0 Flash com prompts estruturados para geração automática de perfis e guias de saúde.",
+    "Implementação do sistema Blind Contact Relay com a API do Resend para notificação anônima do dono via e-mail."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Permitir que a pessoa que encontra o gato contate o dono no 'Lost Mode' sem expor dados sensíveis (telefone/e-mail) no front-end ou inspeção de código.",
+      "solution": "Desenvolvimento do Blind Contact Relay integrando o Supabase com a API do Resend. A gravação do avistamento dispara notificações seguras no servidor sem expor o e-mail do proprietário."
+    }
+  ],
+  "futureEvolution": [
+    "Integração com coleiras IoT para rastreamento GPS ativo e cercas virtuais (Geofencing).",
+    "Extração de dados via OCR de exames e carteiras de vacinação físicas."
+  ],
+  "architectureDiagramMermaid": "flowchart TD\n    Owner[\"👤 Dono do Gato\"] -->|Cadastra gato e gerencia passaporte| App[\"📱 Frontend React 19\"]\n    App -->|Solicita descrição estruturada| AI[\"🧠 API do Gemini 2.0\"]\n    Finder[\"🔍 Pessoa que encontrou o pet\"] -->|Escaneia QR Code público| App\n    App -->|Valida sessão ✅| Auth[\"✅ Supabase Auth\"]\n    App -->|Persiste dados JSONB via RLS| DB[\"🗄️ Supabase PostgreSQL\"]\n    Finder -->|Preenche relato de avistamento| App\n    App -->|Aciona relay de comunicação| Relay[\"✉️ Resend API Relay\"]\n    Relay -->|Notifica anonimamente ✅| Owner",
+  "metrics": [
+    "Preservação de 100% da privacidade do dono via Blind Contact Relay",
+    "Geração de perfil inteligente com Gemini 2.0 Flash em tempo sub-segundo"
+  ]
+}

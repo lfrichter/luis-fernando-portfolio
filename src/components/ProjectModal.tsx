@@ -2,6 +2,7 @@ import { GithubIcon } from '@/components/icons/SocialIcons';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { MermaidViewer } from '@/components/MermaidViewer';
 import { useProjectDetail } from '@/hooks/useProjectDetail';
 import { AlertTriangle, BarChart3, CheckCircle2, Cpu, ExternalLink, Loader2, Network, ShieldAlert, ShieldCheck, Wrench, X } from 'lucide-react';
 import React from 'react';
@@ -153,30 +154,15 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
                   <Network className="w-5 h-5 text-emerald-600 dark:text-emerald-400" /> {t('modal.archTitle')}
                 </h3>
-                <Card className="bg-slate-900 dark:bg-zinc-950 border border-slate-800 dark:border-zinc-800 text-slate-100 dark:text-zinc-100 p-6 font-mono text-xs overflow-x-auto shadow-md">
-                  <div className="text-slate-300 dark:text-zinc-300 mb-3 text-[11px] font-sans flex items-center justify-between font-medium">
-                    <span className="font-bold text-slate-100 dark:text-zinc-100">Microservices & Data Pipeline Topology</span>
-                    <Badge variant="outline" className="text-[10px] border-slate-700 dark:border-zinc-700 text-slate-200 dark:text-zinc-300 bg-slate-800/80 dark:bg-zinc-900">
-                      Validated Architecture
-                    </Badge>
-                  </div>
-                  <pre className="text-emerald-400 dark:text-emerald-400 leading-relaxed overflow-x-auto font-semibold">
-                    {detail.architectureDiagramMermaid || `+-------------------------------------------------------------+
-|              Client Requests / Frontend Layer               |
-+-------------------------------------------------------------+
-                              |
-                              v
-+-------------------------------------------------------------+
-|     API Gateway / Routing Proxy & Auth Token Verification   |
-+-------------------------------------------------------------+
-               /                              \\
-              v                                v
-+---------------------------+    +----------------------------+
-|    AI Services & Queues   |    |  PostgreSQL Persistence    |
-| (FAISS, LiveKit, Horizon) |    |  (Supabase RLS & Caches)   |
-+---------------------------+    +----------------------------+`}
-                  </pre>
-                </Card>
+                <MermaidViewer
+                  chart={
+                    detail.architectureDiagramMermaid ||
+                    `flowchart TD
+  Client["Client Requests / Frontend Layer"] --> Gateway["API Gateway / Routing Proxy"]
+  Gateway --> AI["AI Services & Queues (FAISS, LiveKit, Horizon)"]
+  Gateway --> DB["PostgreSQL Persistence (Supabase RLS & Caches)"]`
+                  }
+                />
               </div>
 
               {/* 5. Papel & Responsabilidades */}

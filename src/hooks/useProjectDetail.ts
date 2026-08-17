@@ -21,6 +21,7 @@ const detailModules: Record<string, Record<string, () => Promise<{ default: unkn
     postmark_email: () => import('@/locales/pt/projects_details/postmark_email.json'),
     ecommerce_k6: () => import('@/locales/pt/projects_details/ecommerce_k6.json'),
     twin_quest: () => import('@/locales/pt/projects_details/twin_quest.json'),
+    cat_guardian: () => import('@/locales/pt/projects_details/cat_guardian.json'),
   },
   en: {
     ask_richter: () => import('@/locales/en/projects_details/ask_richter.json'),
@@ -39,6 +40,7 @@ const detailModules: Record<string, Record<string, () => Promise<{ default: unkn
     postmark_email: () => import('@/locales/en/projects_details/postmark_email.json'),
     ecommerce_k6: () => import('@/locales/en/projects_details/ecommerce_k6.json'),
     twin_quest: () => import('@/locales/en/projects_details/twin_quest.json'),
+    cat_guardian: () => import('@/locales/en/projects_details/cat_guardian.json'),
   },
 };
 

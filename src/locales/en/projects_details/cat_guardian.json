@@ -1,0 +1,36 @@
+{
+  "id": "cat-guardian",
+  "title": "Cat Guardian — Feline Safety Passport",
+  "subtitle": "Digital Feline Safety Passport, QR Code & Blind Contact Relay",
+  "category": "PoC & Open Source",
+  "tier": 3,
+  "summary": "Open Source platform featuring AI profile generator (Gemini 2.0 Flash), collar QR Codes, and privacy-first Blind Contact Relay (Resend API).",
+  "techStack": ["React 19", "Vite 6", "TypeScript 5.7", "Supabase", "PostgreSQL", "RLS", "Gemini 2.0 Flash", "Resend API", "Vitest"],
+  "featured": false,
+  "githubUrl": "https://github.com/lfrichter/cat-guardian",
+  "liveUrl": "https://cat-guardian-two.vercel.app/",
+  "detailKey": "cat_guardian",
+  "overview": "Cat Guardian is a digital feline safety passport combining artificial intelligence, dynamic collar QR codes, and a Blind Contact Relay system. When a cat is marked in 'Lost Mode', scanning the collar displays a public rescue passport while keeping owner contact information private. Communication is routed anonymously through Resend API and Supabase without exposing phone numbers or emails to the client.",
+  "roleDescription": "Full-Stack Software Engineer, Solutions Architect & AI Integrator.",
+  "responsibilities": [
+    "End-to-end development leadership using React 19, Vite, and TypeScript with Glassmorphism UI.",
+    "PostgreSQL schema modeling on Supabase supporting JSONB multilingual profiles and strict Row Level Security (RLS) policies.",
+    "Gemini 2.0 Flash API integration with structured prompt engineering for automatic physical descriptions.",
+    "Blind Contact Relay implementation using Resend API for anonymous email notifications to pet owners."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Enable anyone who finds a lost pet to contact the owner without exposing sensitive contact details (phone/email) in the frontend or network payload.",
+      "solution": "Built the Blind Contact Relay integrating Supabase with Resend API. Sightings trigger secure server-side email notifications without sending owner credentials to the browser."
+    }
+  ],
+  "futureEvolution": [
+    "IoT collar integration for active GPS tracking and virtual geofencing.",
+    "OCR data extraction from physical vaccination records."
+  ],
+  "architectureDiagramMermaid": "flowchart TD\n    Owner[\"👤 Cat Owner\"] -->|Registers pet & manages passport| App[\"📱 React 19 Frontend\"]\n    App -->|Requests structured description| AI[\"🧠 Gemini 2.0 API\"]\n    Finder[\"🔍 Person who found the pet\"] -->|Scans public QR Code| App\n    App -->|Validates session ✅| Auth[\"✅ Supabase Auth\"]\n    App -->|Persists JSONB data via RLS| DB[\"🗄️ Supabase PostgreSQL\"]\n    Finder -->|Fills sighting report| App\n    App -->|Triggers communication relay| Relay[\"✉️ Resend API Relay\"]\n    Relay -->|Notifies anonymously ✅| Owner",
+  "metrics": [
+    "100% owner privacy preservation via Blind Contact Relay",
+    "Sub-second AI profile generation using Gemini 2.0 Flash"
+  ]
+}

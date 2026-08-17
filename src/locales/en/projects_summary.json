@@ -178,5 +178,18 @@
     "techStack": ["TypeScript", "Vue.js", "Pinia", "State Management"],
     "featured": false,
     "detailKey": "twin_quest"
+  },
+  {
+    "id": "cat-guardian",
+    "title": "Cat Guardian — Feline Safety Passport",
+    "subtitle": "Digital Feline Safety Passport, QR Code & Blind Contact Relay",
+    "category": "PoC & Open Source",
+    "tier": 3,
+    "summary": "Open Source platform featuring AI profile generator (Gemini 2.0 Flash), collar QR Codes, and privacy-first Blind Contact Relay (Resend API).",
+    "techStack": ["React 19", "Vite 6", "TypeScript", "Supabase", "PostgreSQL", "RLS", "Gemini 2.0", "Resend API"],
+    "featured": false,
+    "githubUrl": "https://github.com/lfrichter/cat-guardian",
+    "liveUrl": "https://cat-guardian-two.vercel.app/",
+    "detailKey": "cat_guardian"
   }
 ]
