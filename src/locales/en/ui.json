@@ -3,7 +3,8 @@
     "projects": "Projects & Highlights",
     "experience": "Experience (15+ Yrs)",
     "skills": "Skills & AI",
-    "education": "Education & Certs"
+    "education": "Education & Certs",
+    "posts": "Posts & Articles"
   },
   "hero": {
     "aiBadge": "AI Engineering Architect",
@@ -113,6 +114,18 @@
     "certsTitle": "Certifications & Specializations",
     "certsSub": "Displaying {{count}} active certifications.",
     "validateCert": "Validate Credential"
+  },
+  "posts": {
+    "badge": "Publications & Articles",
+    "title": "Technical Posts & Articles",
+    "subtitle": "Articles on Software Engineering, Native AI, Architecture, and Best Practices published across tech platforms.",
+    "searchPlaceholder": "Search posts by title, tech, or summary...",
+    "allPlatforms": "All Platforms",
+    "filterPlatform": "Platform:",
+    "emptyTitle": "No posts found",
+    "emptySub": "We couldn't find any articles matching your search criteria. Try adjusting your query.",
+    "readOn": "Read on {{platform}}",
+    "availableOn": "Available on:"
   },
   "footer": {
     "rights": "All rights reserved.",

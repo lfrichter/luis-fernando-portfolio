@@ -7,6 +7,7 @@ import { Projects } from '@/components/Projects';
 import { Experience } from '@/components/Experience';
 import { Skills } from '@/components/Skills';
 import { EducationCerts } from '@/components/EducationCerts';
+import { Posts } from '@/components/Posts';
 import { Footer } from '@/components/Footer';
 
 export const App: React.FC = () => {
@@ -30,6 +31,7 @@ export const App: React.FC = () => {
           {activeTab === 'experience' && <Experience />}
           {activeTab === 'skills' && <Skills />}
           {activeTab === 'education' && <EducationCerts />}
+          {activeTab === 'posts' && <Posts />}
         </main>
 
         {/* Footer */}

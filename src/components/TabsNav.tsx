@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
-import { Briefcase, Layers, Wrench, GraduationCap } from 'lucide-react';
+import { Briefcase, Layers, Wrench, GraduationCap, BookOpen } from 'lucide-react';
 
-export type TabType = 'projects' | 'experience' | 'skills' | 'education';
+export type TabType = 'projects' | 'experience' | 'skills' | 'education' | 'posts';
 
 interface TabsNavProps {
   activeTab: TabType;
@@ -33,6 +33,11 @@ export const TabsNav: React.FC<TabsNavProps> = ({ activeTab, onTabChange }) => {
       id: 'education',
       label: t('nav.education'),
       icon: <GraduationCap className="w-4 h-4 text-purple-500 shrink-0" />,
+    },
+    {
+      id: 'posts',
+      label: t('nav.posts'),
+      icon: <BookOpen className="w-4 h-4 text-rose-500 shrink-0" />,
     },
   ];
 

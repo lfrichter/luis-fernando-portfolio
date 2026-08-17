@@ -46,7 +46,13 @@ test.describe('Portfolio E2E & i18n Tests', () => {
     await closeBtn.click();
     await expect(dialog).not.toBeVisible();
 
-    // 4. Verify Theme Toggle
+    // 4. Verify Posts tab navigation
+    const postsTab = page.getByRole('button', { name: /Posts & Artigos|Posts & Articles/i });
+    await postsTab.click();
+    await expect(page.getByText(/Posts & Artigos Técnicos|Technical Posts & Articles/i)).toBeVisible();
+    await expect(page.getByText(/Project Cat Guardian/i)).toBeVisible();
+
+    // 5. Verify Theme Toggle
     const themeBtn = page.getByRole('button', { name: /toggle theme/i });
     await expect(themeBtn).toBeVisible();
   });

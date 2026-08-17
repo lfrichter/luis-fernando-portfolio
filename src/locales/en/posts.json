@@ -1,0 +1,145 @@
+[
+  {
+    "id": "cat-guardian",
+    "date": "2026-08-16",
+    "title": "Project Cat Guardian: AI Pet Monitor for 7 Cats",
+    "summary": "Smart computer vision and AI system to monitor, identify, and protect my 7 cats.",
+    "tags": ["AI", "React", "Supabase", "Computer Vision"],
+    "platforms": {
+      "devto": "https://dev.to/lfrichter/i-built-cat-guardian-for-my-seven-cats-287",
+      "codelegion": "https://coderlegion.com/24788/cat-guardian-protect-identify-find",
+      "linkedin": "https://www.linkedin.com/posts/lfrichter_react-supabase-ai-share-7495131080833007616-66KL"
+    }
+  },
+  {
+    "id": "laravel-clean-architecture",
+    "date": "2025-10-17",
+    "title": "Building a Robust API with Laravel, Clean Architecture, and SOLID Principles",
+    "summary": "Practical guide to decoupled architecture, design patterns, and Clean Code in Laravel.",
+    "tags": ["Laravel", "PHP", "Clean Architecture", "SOLID"],
+    "platforms": {
+      "devto": "https://dev.to/lfrichter/building-a-robust-api-with-laravel-clean-architecture-and-solid-principles-3jb5",
+      "codelegion": "https://coderlegion.com/6596/building-a-robust-api-with-laravel-clean-architecture-and-solid-principles",
+      "linkedin": "https://www.linkedin.com/posts/lfrichter_laravel-php-backend-activity-7384978126931492864-pMSI"
+    }
+  },
+  {
+    "id": "bun-hono-speed",
+    "date": "2025-08-01",
+    "title": "Lightning-Speed Development with Bun and Hono",
+    "summary": "How to leverage Bun runtime speed and Hono framework lightness for ultra-fast APIs.",
+    "tags": ["Bun", "Hono", "TypeScript", "Performance"],
+    "platforms": {
+      "devto": "https://dev.to/lfrichter/lightning-speed-development-with-bun-and-hono-ace",
+      "linkedin": "https://www.linkedin.com/posts/lfrichter_bunjs-honojs-typescript-activity-7358481982697173016-wQ_M"
+    }
+  },
+  {
+    "id": "web3-react-dapp",
+    "date": "2025-08-17",
+    "title": "Web3 React dApp Boilerplate",
+    "summary": "Production-ready boilerplate for decentralized dApps integrated with React and Web3.",
+    "tags": ["Web3", "React", "dApp", "Blockchain"],
+    "platforms": {
+      "linkedin": "https://www.linkedin.com/posts/lfrichter_web3-reactjs-dapp-activity-7362083157719891968-9aoU"
+    }
+  },
+  {
+    "id": "youtube-video-factory",
+    "date": "2025-07-12",
+    "title": "My end-to-end automated YouTube video factory",
+    "summary": "Automated Python pipeline for content generation, editing, and YouTube video upload.",
+    "tags": ["Python", "Automation", "Software Engineering", "AI"],
+    "platforms": {
+      "devto": "https://dev.to/lfrichter/my-end-to-end-automated-youtube-video-factory-29fn",
+      "codelegion": "https://coderlegion.com/3933/my-end-to-end-automated-youtube-video-factory",
+      "linkedin": "https://www.linkedin.com/posts/lfrichter_softwareengineering-python-automation-activity-7349888441427415040-rsWW"
+    }
+  },
+  {
+    "id": "essence-of-development",
+    "date": "2025-07-17",
+    "title": "The Essence of Development: Unraveling Complexities to Build High-End Applications",
+    "summary": "Insights into software architecture, technical clarity, and solving complex engineering problems.",
+    "tags": ["Architecture", "Software Development", "Best Practices"],
+    "platforms": {
+      "devto": "https://dev.to/lfrichter/the-essence-of-development-unravelling-the-complexities-to-build-high-end-applications-19pn",
+      "codelegion": "https://coderlegion.com/4102/the-essence-of-development-unravelling-the-complexities-to-build-high-end-applications",
+      "linkedin": "https://www.linkedin.com/posts/lfrichter_softwaredevelopment-softwarearchitecture-activity-7351706575553593345-CUIG"
+    }
+  },
+  {
+    "id": "ideas-and-tasks-priority",
+    "date": "2025-07-24",
+    "title": "How many great ideas or urgent tasks die due to poor prioritization?",
+    "summary": "Reflections on focus, task priority management in software development, and execution.",
+    "tags": ["Productivity", "Management", "Software Engineering"],
+    "platforms": {
+      "linkedin": "https://www.linkedin.com/posts/lfrichter_postmarkchallenge-comment-priority-activity-7337821715458134017-uoaR"
+    }
+  },
+  {
+    "id": "ai-agent-testing-tool",
+    "date": "2025-07-24",
+    "title": "I Built a Tool for AI Agent Testing",
+    "summary": "Framework and utility built to test responses, reasoning, and determinism in AI agents.",
+    "tags": ["AI", "Software Testing", "LLM", "Agents"],
+    "platforms": {
+      "devto": "https://dev.to/lfrichter/i-built-an-tool-to-ai-agent-testing-3co8",
+      "codelegion": "https://coderlegion.com/4262/i-built-an-tool-to-ai-agent-testing",
+      "linkedin": "https://www.linkedin.com/posts/lfrichter_artificialintelligence-ai-softwaretest-activity-7354297262371409920-6lkm"
+    }
+  },
+  {
+    "id": "never-leave-your-inbox",
+    "date": "2025-07-24",
+    "title": "Never Leave Your Inbox 📥 A Task Manager Powered by Simple Email Replies",
+    "summary": "Postmark Challenge submission turning the email inbox into a fast task manager.",
+    "tags": ["Postmark", "Email", "Task Manager", "Node.js"],
+    "platforms": {
+      "devto": "https://dev.to/lfrichter/my-submission-for-the-postmark-challenge-i-turned-my-inbox-into-a-powerful-task-manager-2odd",
+      "linkedin": "https://www.linkedin.com/posts/lfrichter_postmarkchallenge-comment-priority-activity-7337821715458134017-uoaR"
+    }
+  },
+  {
+    "id": "itau-ai-high-impact",
+    "date": "2025-06-06",
+    "title": "Itaú Unibanco highlights high impact of AI",
+    "summary": "Analysis on enterprise AI adoption in banking and intelligent automation.",
+    "tags": ["AI", "Automation", "Enterprise"],
+    "platforms": {
+      "linkedin": "https://www.linkedin.com/posts/lfrichter_artificialintelligence-ai-automation-activity-7333223148219162625-WasE"
+    }
+  },
+  {
+    "id": "ai-truly-reasoning",
+    "date": "2025-06-18",
+    "title": "Can we ensure that an AI is truly reasoning?",
+    "summary": "Discussion on LLM evaluation methods, reasoning benchmarks, and hallucinations.",
+    "tags": ["AI", "LLM Evaluation", "Machine Learning"],
+    "platforms": {
+      "linkedin": "https://www.linkedin.com/posts/lfrichter_artificialintelligence-ai-aievaluation-activity-7336044388608806913-diYE"
+    }
+  },
+  {
+    "id": "save-on-llm-bills",
+    "date": "2025-06-24",
+    "title": "Save on your LLM bills with this solution",
+    "summary": "Semantic caching strategies, prompt optimization, and cost reduction for language models.",
+    "tags": ["LLM", "FinOps", "Cost Reduction"],
+    "platforms": {
+      "linkedin": "https://www.linkedin.com/posts/lfrichter_llm-costreduction-finops-activity-7340561830571925504-naDx"
+    }
+  },
+  {
+    "id": "twin-quest-lvtpp",
+    "date": "2025-05-24",
+    "title": "Twin Quest for LVTPP Stack Challenge",
+    "summary": "Application built with Laravel, Vue.js, and Inertia.js stack for the technical challenge.",
+    "tags": ["Laravel", "Vue.js", "Inertia.js"],
+    "platforms": {
+      "linkedin": "https://www.linkedin.com/posts/lfrichter_laravel-vuejs-inertiajs-activity-7330305138147934208-7o2b",
+      "github": "https://github.com/lfrichter/twin-quest"
+    }
+  }
+]
