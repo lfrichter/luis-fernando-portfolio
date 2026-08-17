@@ -5,7 +5,16 @@
   "category": "SaaS",
   "tier": 1,
   "summary": "Automated short and long-form video creation platform powered by AI. Next.js App Router frontend with httpOnly JWT cookies and Java / Spring Boot backend API.",
-  "techStack": ["Next.js", "React", "TypeScript", "Java", "Spring Boot", "Axios", "Tailwind CSS", "Vitest"],
+  "techStack": [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Java",
+    "Spring Boot",
+    "Axios",
+    "Tailwind CSS",
+    "Vitest"
+  ],
   "featured": true,
   "githubUrl": "https://github.com/lfrichter/smartshorts-ui",
   "detailKey": "smart_shorts",
@@ -28,7 +37,7 @@
       "solution": "Migrated to server-side httpOnly cookies and Next.js Route Handlers acting as an API gateway proxy."
     }
   ],
-  "architectureDiagramMermaid": "+--------------------------------+       +--------------------------------+\n|  Next.js App Router Frontend   | ----> | Route Handlers API Gateway     |\n|  (React 19 / Tailwind CSS)     |       | (httpOnly JWT Cookies Proxy)   |\n+--------------------------------+       +--------------------------------+\n                                                         |\n                                                         v\n+--------------------------------+       +--------------------------------+\n| Java / Spring Boot Backend API | ----> | Async Video Rendering Engine   |\n| (Adapter Pattern & DTO Specs)  |       | (Payload Adapter & Job Queues) |\n+--------------------------------+       +--------------------------------+",
+  "architectureDiagramMermaid": "flowchart TD\n    subgraph FD[\"Frameworks & Drivers\"]\n        SpringBoot[\"🌐 SpringBoot\"]\n        PostgreSQL[(\"🗄️ PostgreSQL\")]\n        MessageQueue[\"🐇 RabbitMQ\"]\n        ObjectStorage[\"☁️ MinIO / S3\"]\n    end\n    subgraph IA[\"Interface Adapters\"]\n        APIController[\"🕹️ API REST Controller\"]\n        JPARepositoryAdapter[\"🗄️ JPA Repository Adapter\"]\n        QueueAdapter[\"📨 Message Queue Adapter\"]\n        ExternalAPIGateway[\"🌐 External API Gateway\"]\n    end\n    subgraph AL[\"Application Layer\"]\n        CreateJobUseCase[\"🎯 CreateJobUseCase\"]\n        CheckStatusUseCase[\"🔍 CheckStatusUseCase\"]\n        Ports[\"🧩 Ports (Interfaces)\"]\n    end\n    subgraph DL[\"Domain Layer\"]\n        Aggregates[\"🧠 Aggregates (RenderJob, Script)\"]\n        Entities[\"📝 Entities (Segment, VisualMedia)\"]\n        ValueObjects[\"📦 Value Objects (Animation)\"]\n    end\n    SpringBoot -.-> APIController & JPARepositoryAdapter & QueueAdapter & ExternalAPIGateway\n    APIController & JPARepositoryAdapter & QueueAdapter & ExternalAPIGateway --> Ports\n    Ports --> CreateJobUseCase & CheckStatusUseCase\n    CreateJobUseCase & CheckStatusUseCase --> Aggregates & Entities & ValueObjects",
   "metrics": [
     "100% token security migrated to server-side httpOnly cookies",
     "Real-time video rendering status monitored via reactive polling"

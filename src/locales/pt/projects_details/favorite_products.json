@@ -5,7 +5,14 @@
   "category": "Full Stack",
   "tier": 2,
   "summary": "API RESTful de alta performance projetada com Clean Architecture, princípios SOLID e testes automatizados para gerenciamento de listas de produtos favoritos.",
-  "techStack": ["TypeScript", "Node.js", "Clean Architecture", "SOLID", "Jest", "Docker"],
+  "techStack": [
+    "TypeScript",
+    "Node.js",
+    "Clean Architecture",
+    "SOLID",
+    "Jest",
+    "Docker"
+  ],
   "featured": false,
   "detailKey": "favorite_products",
   "githubUrl": "https://github.com/lfrichter/favorite-products-api",
@@ -22,7 +29,7 @@
       "solution": "Uso de interfaces de repositório e injeção de dependências nativa."
     }
   ],
-  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| Clientes HTTP REST / Consumidores de API                                   |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| Core de Domínio Clean Architecture (Casos de Uso & Entidades de Negócio)   |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| Camada de Infraestrutura Desacoplada (Interfaces Repositório & Inversão DIP)|\n+----------------------------------------------------------------------------+",
+  "architectureDiagramMermaid": "flowchart TD\n    subgraph C[\"👤 Cliente\"]\n        Client[\"Frontend (SPA / Mobile App)\"]\n    end\n    subgraph A[\"🧩 Favorite Products API (Laravel + Docker)\"]\n        Router[\"1. Roteador API (api.php)\"]\n        Middleware[\"2. Middleware Sanctum\"]\n        FormRequest[\"3. Form Request Validation\"]\n        Controller[\"4. FavoriteProductController\"]\n        Service[\"5. FavoriteProductService\"]\n        Contract[\"6. ProductServiceContract\"]\n        ApiResource[\"7. API Resource (JSON)\"]\n        DB[(\"🗄️ PostgreSQL\")]\n        FakeStoreService[\"FakeStoreApiService\"]\n        Handler[\"Handler Global\"]\n        CustomException{\"Exceção Customizada\"}\n    end\n    subgraph E[\"🌐 Serviço Externo\"]\n        FakeStoreAPI[\"Fake Store API\"]\n    end\n    Client -->|HTTP + Token| Router\n    Router --> Middleware --> FormRequest --> Controller\n    Controller --> Service\n    Service --> DB & Contract\n    Contract --> FakeStoreService --> FakeStoreAPI\n    FakeStoreAPI --> FakeStoreService --> Service --> Controller --> ApiResource --> Client\n    FakeStoreService -- Falha --> CustomException --> Handler -->|HTTP 503| Client",
   "metrics": [
     "100% de cobertura das regras de negócio com Jest",
     "Zero acoplamento com a camada de persistência"

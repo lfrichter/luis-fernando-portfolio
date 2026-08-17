@@ -5,7 +5,13 @@
   "category": "Full Stack",
   "tier": 2,
   "summary": "Modular event-driven Laravel platform for website registration, automated Web Push notification delivery, integrated with OneSignal and Pagar.me.",
-  "techStack": ["Laravel", "Event-Driven", "OneSignal", "Pagar.me", "MySQL"],
+  "techStack": [
+    "Laravel",
+    "Event-Driven",
+    "OneSignal",
+    "Pagar.me",
+    "MySQL"
+  ],
   "featured": false,
   "detailKey": "onepush",
   "overview": "SaaS system for domain registration and automated Web Push notification delivery triggered by system events, integrated with subscription payment gateway.",
@@ -21,7 +27,7 @@
       "solution": "Decoupled notification dispatch using background Laravel queue jobs."
     }
   ],
-  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| Client Website Event Dispatcher                                           |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| Laravel Event Listeners & Async Queue Workers                              |\n+----------------------------------------------------------------------------+\n               /                                            \\\n              v                                              v\n+----------------------------------+      +----------------------------------+\n| OneSignal Web Push REST API      |      | Pagar.me Gateway Billing Engine  |\n+----------------------------------+      +----------------------------------+",
+  "architectureDiagramMermaid": "flowchart TD\n    subgraph AdminLayer[\"Cliente Dono do Website\"]\n        Admin[\"Cliente SaaS - Admin\"]\n    end\n    subgraph SaaS[\"Plataforma OnePush - SaaS\"]\n        Painel[\"💻 Painel Admin - Laravel + Homer UI\"]\n        Core[\"⚙️ Core da Aplicação\"]\n        Fila[\"🔄 Fila Laravel Queues\"]\n        DB[(\"🗄️ MySQL Database\")]\n    end\n    subgraph External[\"Serviços Externos\"]\n        OneSignal[\"📡 OneSignal API\"]\n        PagarMe[\"💳 Pagar-me API\"]\n    end\n    subgraph FinalUser[\"Usuário Final\"]\n        WebsiteCliente[\"🌐 Website do Cliente\"]\n        Navegador[\"🖥️ Navegador do Usuário\"]\n    end\n    Admin -->|Cria Notificação| Painel\n    Painel -->|1. Salva| DB\n    Painel -->|2. Dispara| Core -->|3. Enfileira| Fila -->|4. API Call| OneSignal\n    Admin -->|Assinatura| Painel --> Core -->|Pagamento| PagarMe --> Core --> DB\n    Navegador --> WebsiteCliente -->|Registra Push| OneSignal -->|5. Notificação| Navegador",
   "metrics": [
     "Instant Web Push notification delivery without impacting HTTP request latency"
   ],

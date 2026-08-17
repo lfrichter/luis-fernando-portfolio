@@ -5,7 +5,13 @@
   "category": "PoC & Open Source",
   "tier": 3,
   "summary": "Transforms incoming emails via Postmark Inbound Webhooks into actionable Laravel tasks using hashtags (#priority, #done) with reactive Livewire UI.",
-  "techStack": ["Laravel", "Livewire", "Postmark API", "Pest", "Tailwind CSS"],
+  "techStack": [
+    "Laravel",
+    "Livewire",
+    "Postmark API",
+    "Pest",
+    "Tailwind CSS"
+  ],
   "featured": false,
   "githubUrl": "https://github.com/lfrichter/Interactive-email-management",
   "detailKey": "postmark_email",
@@ -22,7 +28,7 @@
       "solution": "Queued inbound webhook processing and verified signatures for security."
     }
   ],
-  "architectureDiagramMermaid": "+----------------------------------+      +----------------------------------+\n| Incoming Email via Postmark      | ---> | Postmark Inbound Webhook         |\n+----------------------------------+      +----------------------------------+\n                                                           |\n                                                           v\n+----------------------------------+      +----------------------------------+\n| Laravel Regex Hashtag Parser     | ---> | Livewire Reactive Single-Page    |\n| (#priority, #done -> DB Task)    |      | Board (Instant UI Updates)       |\n+----------------------------------+      +----------------------------------+",
+  "architectureDiagramMermaid": "flowchart TD\n    Email[\"📧 E-mail Enviado (#prioridade, #concluir)\"] --> Webhook[\"📡 Postmark Inbound Webhook\"]\n    Webhook --> Parser[\"⚡ Parser Regex Hashtags (Laravel)\"]\n    Parser --> DB[(\"🗄️ PostgreSQL Database\")]\n    Parser --> UI[\"💻 Painel Reativo Livewire (Atualização Instantânea)\"]",
   "metrics": [
     "Sub-second task creation directly from email messages"
   ]

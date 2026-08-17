@@ -5,7 +5,18 @@
   "category": "AI/LLM",
   "tier": 1,
   "summary": "Interactive chatbot using RAG (Retrieval-Augmented Generation), in-memory FAISS, LangChain.js, Node.js/Express, Supabase, Next.js, Shadcn/ui, and LLMs.",
-  "techStack": ["Node.js", "TypeScript", "LangChain.js", "FAISS", "Supabase", "Next.js", "OpenAI", "Docker", "Render", "Vercel"],
+  "techStack": [
+    "Node.js",
+    "TypeScript",
+    "LangChain.js",
+    "FAISS",
+    "Supabase",
+    "Next.js",
+    "OpenAI",
+    "Docker",
+    "Render",
+    "Vercel"
+  ],
   "featured": true,
   "githubUrl": "https://github.com/lfrichter/ask-richter",
   "detailKey": "ask_richter",
@@ -28,7 +39,7 @@
       "solution": "RAG prompt engineering strictly injecting vector search fragments with temperature controls."
     }
   ],
-  "architectureDiagramMermaid": "+--------------------------------+       +--------------------------------+\n| Next.js / Shadcn UI Chat UI    | ----> | Node.js / Express REST Gateway |\n| (React 19 / Markdown Parser)   |       | (TypeScript / REST Endpoints)  |\n+--------------------------------+       +--------------------------------+\n                                                         |\n                                                         v\n+--------------------------------+       +--------------------------------+\n| In-Memory FAISS Vector Index   | <---  | OpenAI text-embedding-3-small  |\n| (Fetched from Supabase Storage)|       | (LangChain.js Document Splitter)|\n+--------------------------------+       +--------------------------------+\n                 |\n                 v\n+--------------------------------+\n| OpenAI LLM Response Generator  |\n+--------------------------------+",
+  "architectureDiagramMermaid": "graph TD\n    subgraph Usuário\n        User[👨‍💻 Usuário no Navegador]\n    end\n    subgraph Nuvem Vercel\n        Frontend[\"⚛️ Frontend (Next.js)<br>ask-richter.vercel.app\"]\n    end\n    subgraph Nuvem Render.com\n        Backend[\"⚙️ Backend (Node.js/Express)<br>ask-richter.onrender.com\"]\n    end\n    subgraph Nuvem Supabase\n        SupabaseDB[\"📦 Supabase Storage<br>(Índice FAISS)\"]\n    end\n    subgraph Serviços de IA\n        OpenAI_API[\"🛰️ OpenAI API<br>(Embeddings)\"]\n        HF_API[\"🤗 Hugging Face API<br>(LLM em Produção)\"]\n    end\n    User -->|1. Pergunta em linguagem natural| Frontend\n    Frontend -->|2. Requisição para /api/chat| Backend\n    Backend -->|3. Download do Índice| SupabaseDB\n    Backend -->|4a. Gera Embedding| OpenAI_API\n    Backend -->|4b. Busca por Similaridade| faiss((FAISS em Memória))\n    faiss -->|5. Retorna Contexto| Backend\n    Backend -->|6. Envia Prompt| HF_API\n    HF_API -->|7. Retorna Resposta| Backend\n    Backend -->|8. Resposta para Frontend| Frontend\n    Frontend -->|9. Exibe ao Usuário| User",
   "futureEvolution": [
     "Bidirectional voice support (STT and TTS).",
     "Real-time telemetry integration with OpenTelemetry."

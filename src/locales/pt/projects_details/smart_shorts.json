@@ -5,7 +5,16 @@
   "category": "SaaS",
   "tier": 1,
   "summary": "Plataforma de criação automatizada de vídeos curtos/longos com IA. Frontend Next.js App Router com cookies httpOnly JWT e backend em Java / Spring Boot.",
-  "techStack": ["Next.js", "React", "TypeScript", "Java", "Spring Boot", "Axios", "Tailwind CSS", "Vitest"],
+  "techStack": [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Java",
+    "Spring Boot",
+    "Axios",
+    "Tailwind CSS",
+    "Vitest"
+  ],
   "featured": true,
   "detailKey": "smart_shorts",
   "overview": "O SmartShorts é um SaaS inovador para criadores de conteúdo e agências de marketing que transforma simples ideias de texto em vídeos completos com narração, imagens, legendas sincronizadas e trilha sonora.",
@@ -27,7 +36,7 @@
       "solution": "Migração para cookies httpOnly gerenciados no servidor e Route Handlers no Next.js atuando como API Gateway Proxy."
     }
   ],
-  "architectureDiagramMermaid": "+--------------------------------+       +--------------------------------+\n|  Next.js App Router Frontend   | ----> | Route Handlers API Gateway     |\n|  (React 19 / Tailwind CSS)     |       | (httpOnly JWT Cookies Proxy)   |\n+--------------------------------+       +--------------------------------+\n                                                         |\n                                                         v\n+--------------------------------+       +--------------------------------+\n| Java / Spring Boot Backend API | ----> | Motor Assíncrono de Renderização|\n| (Adapter Pattern & Specs DTO)  |       | (Payload Adapter & Job Queues) |\n+--------------------------------+       +--------------------------------+",
+  "architectureDiagramMermaid": "flowchart TD\n    subgraph FD[\"Frameworks & Drivers\"]\n        SpringBoot[\"🌐 SpringBoot\"]\n        PostgreSQL[(\"🗄️ PostgreSQL\")]\n        MessageQueue[\"🐇 RabbitMQ\"]\n        ObjectStorage[\"☁️ MinIO / S3\"]\n    end\n    subgraph IA[\"Interface Adapters\"]\n        APIController[\"🕹️ API REST Controller\"]\n        JPARepositoryAdapter[\"🗄️ JPA Repository Adapter\"]\n        QueueAdapter[\"📨 Message Queue Adapter\"]\n        ExternalAPIGateway[\"🌐 External API Gateway\"]\n    end\n    subgraph AL[\"Application Layer\"]\n        CreateJobUseCase[\"🎯 CreateJobUseCase\"]\n        CheckStatusUseCase[\"🔍 CheckStatusUseCase\"]\n        Ports[\"🧩 Ports (Interfaces)\"]\n    end\n    subgraph DL[\"Domain Layer\"]\n        Aggregates[\"🧠 Aggregates (RenderJob, Script)\"]\n        Entities[\"📝 Entities (Segment, VisualMedia)\"]\n        ValueObjects[\"📦 Value Objects (Animation)\"]\n    end\n    SpringBoot -.-> APIController & JPARepositoryAdapter & QueueAdapter & ExternalAPIGateway\n    APIController & JPARepositoryAdapter & QueueAdapter & ExternalAPIGateway --> Ports\n    Ports --> CreateJobUseCase & CheckStatusUseCase\n    CreateJobUseCase & CheckStatusUseCase --> Aggregates & Entities & ValueObjects",
   "metrics": [
     "100% de segurança de tokens migrada para cookies httpOnly no servidor",
     "Monitoramento de status de renderização em tempo real via polling reativo"

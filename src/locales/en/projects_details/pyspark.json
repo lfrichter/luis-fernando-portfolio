@@ -5,7 +5,13 @@
   "category": "PoC & Open Source",
   "tier": 3,
   "summary": "PySpark and SQLite ETL pipeline consolidating video rendering jobs, scripts, and segments, interactively analyzed in Jupyter Notebook.",
-  "techStack": ["Python", "PySpark", "SQLite", "Jupyter Notebook", "Pandas"],
+  "techStack": [
+    "Python",
+    "PySpark",
+    "SQLite",
+    "Jupyter Notebook",
+    "Pandas"
+  ],
   "featured": false,
   "detailKey": "pyspark",
   "overview": "Data engineering Proof of Concept validating PySpark for unifying and performing exploratory analytics on relational tables containing video rendering job metrics.",
@@ -21,7 +27,7 @@
       "solution": "Utilized PySpark DataFrames allowing identical transformation logic to process large-scale data in production."
     }
   ],
-  "architectureDiagramMermaid": "+----------------------------------+      +----------------------------------+\n| Raw SQLite Video Render Tables   | ---> | PySpark Distributed ETL Engine   |\n+----------------------------------+      +----------------------------------+\n                                                           |\n                                                           v\n+----------------------------------+      +----------------------------------+\n| DataFrame Joins (1:N Scripts)    | ---> | Jupyter Notebook Analytics &     |\n| & Relational Data Consolidation  |      | Data Lake Export                 |\n+----------------------------------+      +----------------------------------+",
+  "architectureDiagramMermaid": "graph TD\n    subgraph Data[\"Fonte de Dados\"]\n        A[💾 Banco de Dados SQLite]\n    end\n    subgraph Analytics[\"Ambiente de Processamento\"]\n        B[Jupyter Notebook]\n        C{PySpark & SQL Engine}\n    end\n    subgraph Result[\"Resultado\"]\n       D[📊 DataFrame Unificado]\n       E[🔍 Análise e Insights]\n    end\n    A -->|1. Extração de dados brutos| B\n    B -->|2. Executa transformação| C\n    C -->|3. Processa dados| D\n    D -->|4. Disponibiliza para| E",
   "metrics": [
     "Validated ETL pipeline ready for Data Lake scaling"
   ]

@@ -5,7 +5,14 @@
   "category": "Architecture & Performance",
   "tier": 2,
   "summary": "Aumento de 10x na velocidade de páginas web, paralelização de suítes de teste com Laravel Dusk e Selenium no ecossistema imobiliário do Reino Unido.",
-  "techStack": ["Laravel", "Vue.js", "Laravel Dusk", "Selenium", "SQL Tuning", "DeployHQ"],
+  "techStack": [
+    "Laravel",
+    "Vue.js",
+    "Laravel Dusk",
+    "Selenium",
+    "SQL Tuning",
+    "DeployHQ"
+  ],
   "featured": false,
   "detailKey": "shosales",
   "overview": "Projeto de renovação da plataforma imobiliária Shosales (Reino Unido), focado em otimização extrema de performance web, refatoração de consultas SQL e automação de testes E2E.",
@@ -21,7 +28,7 @@
       "solution": "Eager loading (with) no Laravel Eloquent, inclusão de índices compostos no MySQL e cache em camada."
     }
   ],
-  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| Portal Imobiliário Laravel / Vue.js & Diretório de Propriedades (Reino Unido)|\n+----------------------------------------------------------------------------+\n               /                                            \\\n              v                                              v\n+----------------------------------+      +----------------------------------+\n| MySQL Eager Loading (with)       |      | Pipelines de Testes Paralelos    |\n| & Camada de Cache (Otimização 10x|      | (Laravel Dusk + Headless Selenium)\n+----------------------------------+      +----------------------------------+",
+  "architectureDiagramMermaid": "flowchart LR\n    subgraph DEV[\"🚧 Fluxo de Desenvolvimento & Qualidade\"]\n        Dusk[\"🧪 Testes E2E (Laravel Dusk & Selenium)\"]\n        Tuning[\"⚡ SQL Tuning & Cache\"]\n        Deploy[\"🚀 DeployHQ Automation\"]\n    end\n    subgraph APP[\"🖥️ Aplicação Shosales (Reino Unido)\"]\n        Laravel[\"⚙️ Backend Laravel\"]\n        Vue[\"🌐 Frontend Vue.js\"]\n        DB[(\"🗄️ MySQL Database\")]\n    end\n    Dusk -->|Valida fluxos| Vue\n    Tuning -->|Otimiza 10x velocidade| DB\n    Deploy -->|Deploy contínuo| Laravel\n    Vue <--> Laravel <--> DB",
   "metrics": [
     "Aumento de 10x na velocidade de resposta das páginas",
     "Redução no tempo de integração contínua com testes paralelos Dusk"

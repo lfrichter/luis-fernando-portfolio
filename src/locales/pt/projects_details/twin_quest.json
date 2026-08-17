@@ -5,7 +5,12 @@
   "category": "PoC & Open Source",
   "tier": 3,
   "summary": "Experimento de arquitetura de estado reativo frontend e engenharia de regras de jogo com TypeScript.",
-  "techStack": ["TypeScript", "Vue.js", "Pinia", "State Management"],
+  "techStack": [
+    "TypeScript",
+    "Vue.js",
+    "Pinia",
+    "State Management"
+  ],
   "featured": false,
   "detailKey": "twin_quest",
   "githubUrl": "https://github.com/lfrichter/twin-quest",
@@ -21,7 +26,7 @@
       "solution": "Uso de stores Pinia fortemente tipadas com getters e ações imutáveis."
     }
   ],
-  "architectureDiagramMermaid": "+----------------------------------+      +----------------------------------+\n| Motor de Regras do Jogo & Ações  | ---> | Stores de Estado Pinia Tipadas   |\n+----------------------------------+      +----------------------------------+\n                                                           |\n                                                           v\n+----------------------------------------------------------------------------+\n| Camada de Renderização Reativa Vue 3 / TypeScript                          |\n+----------------------------------------------------------------------------+",
+  "architectureDiagramMermaid": "graph TD\n    subgraph Client[\"💻 Cliente (Browser)\"]\n        U[👨‍💻 Usuário] --> FE[\"🌐 Frontend (Vue.js, TypeScript, Pinia)\"]\n    end\n    subgraph Server[\"🖥️ Servidor (Backend)\"]\n        BE[\"⚙️ Backend API (Laravel, Pest)\"] <--> Testes(\"🧪 Suíte de Testes (Pest)\")\n    end\n    subgraph Infra[\"📦 Infraestrutura Docker\"]\n        DB[(\"🗄️ PostgreSQL\")]\n    end\n    FE -->|HTTP Request| BE -->|JSON Response| FE\n    BE <--> DB",
   "metrics": [
     "Arquitetura de estado limpa e fácil de testar"
   ]

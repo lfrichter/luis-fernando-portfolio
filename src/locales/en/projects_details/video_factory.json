@@ -5,7 +5,18 @@
   "category": "AI/LLM",
   "tier": 2,
   "summary": "Autonomous Python 3.11 orchestrator with Modular Monolith architecture and Flask Microservice. SQLite 3.45 DB (content.db), ElevenLabs, local Coqui TTS (cloning), Replicate (SDXL), Pixabay, local Whisper, 2-stage FFmpeg, and launchd.",
-  "techStack": ["Python", "Flask", "SQLite", "OpenAI API", "ElevenLabs", "Coqui TTS", "Replicate (SDXL)", "Whisper", "FFmpeg", "YouTube API"],
+  "techStack": [
+    "Python",
+    "Flask",
+    "SQLite",
+    "OpenAI API",
+    "ElevenLabs",
+    "Coqui TTS",
+    "Replicate (SDXL)",
+    "Whisper",
+    "FFmpeg",
+    "YouTube API"
+  ],
   "featured": false,
   "detailKey": "video_factory",
   "overview": "An autonomous end-to-end automation solution built in Python 3.11 for batch generation and publishing of YouTube Shorts and long-form videos with minimal human intervention. The system evolved from flat scripts into a robust Modular Monolith architecture organized into clean decoupled layers (api/, services/, steps/, models/, utils/), operating seamlessly both as a high-performance CLI tool and as a Flask 3.0 REST API Microservice. The pipeline integrates relational data management in SQLite 3.45 (content.db) with batch directory storage (content/000xx/), neural voice synthesis via ElevenLabs (cloud) and Coqui TTS (100% offline local engine with voice cloning), visual selection via Replicate SDXL and Pixabay API, background music via Jamendo API, SRT subtitle transcription with word-level timestamps using local OpenAI Whisper, stabilized two-stage FFmpeg rendering (with dynamic vertical_offset framing and camera movement controls), and scheduled publishing via YouTube Data API v3 integrated with macOS launchd.",
@@ -44,7 +55,7 @@
       "solution": "Exposed core functionality as a Flask RESTful microservice (api/) with Application Factory pattern, offering HTTP endpoints (/generate-audio, /generate-subtitles, /assemble-video)."
     }
   ],
-  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| 📄 Ingestion & Relational SQLite 3.45 DB (content.db / ContentManager)     |\n| 📂 Transparent Batch Storage Strategy (content/000xx/)                    |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| 🤖 Scripts (OpenAI GPT-4) | 🎙️ Narration (ElevenLabs / Local Coqui TTS)   |\n+----------------------------------------------------------------------------+\n                      /                                  \\\n                     v                                    v\n+------------------------------------------+  +------------------------------+\n| 🖼️ Visuals: SDXL / Pixabay / Playwright  |  | 🌐 Flask REST Microservice   |\n| ✍️ Subtitles: Local OpenAI Whisper (SRT) |  | (/generate-audio, /subtitles,|\n| 🎵 Audio: Jamendo API (Licensed Tracks)  |  |  /assemble-video)            |\n| 🎬 2-Stage FFmpeg Render (scale/crop +   |  +------------------------------+\n|    MovementFilterGenerator)              |\n+------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| 🚀 Automated Upload & Scheduling (YouTube Data API v3 + macOS launchd)     |\n+----------------------------------------------------------------------------+",
+  "architectureDiagramMermaid": "graph TD\n    subgraph Data[\"Camada de Dados & Persistência\"]\n        DB[(\"📄 content.db SQLite\")]\n        Storage[\"📂 Storage por Lote\"]\n    end\n    subgraph Input[\"Entradas do Sistema\"]\n        CLI[\"💻 CLI Execution (main.py)\"]\n        API[\"🌐 REST API (api.py - Flask)\"]\n    end\n    subgraph Pipeline[\"Pipeline de Mídia (Python)\"]\n        A[\"🤖 Script Generator (OpenAI API)\"] --> DB\n        DB --> B[\"🎙️ TTS Service (ElevenLabs / Coqui TTS)\"]\n        B --> C[\"🖼️ Image Service (SDXL / Pixabay)\"]\n        B --> D[\"🎵 Music Service (Jamendo API)\"]\n        B --> E[\"✍️ Subtitle Service (Whisper Local)\"]\n        B & D --> F[\"🎛️ Audio Mixer (Pydub/NumPy)\"]\n        C & F & E --> G[\"🎬 Video Assembler (FFmpeg 2-Etapas)\"]\n    end\n    subgraph Output[\"Saídas e Publicação\"]\n        G --> Storage\n        G --> H{\"☁️ Upload YouTube?\"}\n        H -- Sim --> I[\"✅ YouTube Channel\"]\n        H -- Não --> J[\"📦 Local Video Saved\"]\n    end\n    CLI & API --> DB",
   "metrics": [
     "Reduced manual video production time from 2-3h to <5 min of autonomous processing per video",
     "Hands-free batch production & scheduled publishing via CLI (vid_schedule_all) and macOS launchd",

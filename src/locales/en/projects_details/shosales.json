@@ -5,7 +5,14 @@
   "category": "Architecture & Performance",
   "tier": 2,
   "summary": "10x performance improvement in web page rendering, parallel test suite execution with Laravel Dusk and Selenium across UK real estate platform.",
-  "techStack": ["Laravel", "Vue.js", "Laravel Dusk", "Selenium", "SQL Tuning", "DeployHQ"],
+  "techStack": [
+    "Laravel",
+    "Vue.js",
+    "Laravel Dusk",
+    "Selenium",
+    "SQL Tuning",
+    "DeployHQ"
+  ],
   "featured": false,
   "detailKey": "shosales",
   "overview": "Revamp project for UK real estate platform Shosales, focused on web performance optimization, SQL query refactoring, and automated E2E testing.",
@@ -21,7 +28,7 @@
       "solution": "Eager loading (with) in Laravel Eloquent, MySQL composite indexing, and multi-tier caching."
     }
   ],
-  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| Shosales Laravel / Vue.js Web Portal & Real Estate Directory               |\n+----------------------------------------------------------------------------+\n               /                                            \\\n              v                                              v\n+----------------------------------+      +----------------------------------+\n| MySQL Eager Loading (with)       |      | Parallel E2E Testing Pipelines   |\n| & Query Cache Layer (10x Speed)  |      | (Laravel Dusk + Headless Selenium)\n+----------------------------------+      +----------------------------------+",
+  "architectureDiagramMermaid": "flowchart LR\n    subgraph DEV[\"🚧 Fluxo de Desenvolvimento & Qualidade\"]\n        Dusk[\"🧪 Testes E2E (Laravel Dusk & Selenium)\"]\n        Tuning[\"⚡ SQL Tuning & Cache\"]\n        Deploy[\"🚀 DeployHQ Automation\"]\n    end\n    subgraph APP[\"🖥️ Aplicação Shosales (Reino Unido)\"]\n        Laravel[\"⚙️ Backend Laravel\"]\n        Vue[\"🌐 Frontend Vue.js\"]\n        DB[(\"🗄️ MySQL Database\")]\n    end\n    Dusk -->|Valida fluxos| Vue\n    Tuning -->|Otimiza 10x velocidade| DB\n    Deploy -->|Deploy contínuo| Laravel\n    Vue <--> Laravel <--> DB",
   "metrics": [
     "10x speedup in web page response times",
     "Reduced continuous integration build duration via parallel Dusk execution"

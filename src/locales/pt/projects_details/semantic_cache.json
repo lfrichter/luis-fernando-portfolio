@@ -5,7 +5,13 @@
   "category": "PoC & Open Source",
   "tier": 3,
   "summary": "Sistema de cache semântico 100% local em Python. Gera embeddings com Ollama e faz busca por similaridade em memória com FAISS e NumPy.",
-  "techStack": ["Python", "FAISS", "Ollama", "NumPy", "Vector Search"],
+  "techStack": [
+    "Python",
+    "FAISS",
+    "Ollama",
+    "NumPy",
+    "Vector Search"
+  ],
   "featured": false,
   "githubUrl": "https://github.com/lfrichter/semantic-cache",
   "detailKey": "semantic_cache",
@@ -22,7 +28,7 @@
       "solution": "Cache vetorial FAISS local que retorna a resposta instantaneamente quando a distância semântica é inferior ao limiar."
     }
   ],
-  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| Prompt / Consulta do Usuário                                               |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| Gerador de Embeddings Ollama Local (Array de Vetores Densos)               |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------+      +----------------------------------+\n| Índice FAISS IndexFlatL2 Memória | ---> | Cache Hit (Resposta <10ms)       |\n| (Cálculo de Distância Cosseno)   |      | OU Cache Miss -> Chamada LLM     |\n+----------------------------------+      +----------------------------------+",
+  "architectureDiagramMermaid": "flowchart LR\n    A[👤 Usuário]\n    B{{🧠 Lógica de Cache}}\n    C[\"🪄 Ollama (Embeddings)\"]\n    D[(📦 Índice FAISS)]\n    E[\"🤖 LLM (OpenAI)\"]\n    G[💾 Resposta em Cache]\n    H[📤 Resposta ao Usuário]\n    F{{🗄️ Armazenar no Cache}}\n    A -->|1. Pergunta| B\n    B -->|2. Gera embedding| C -->|3. Retorna| B\n    B -->|4. Busca| D -->|5. Resultado| B\n    B -->|6a. Cache Miss| E -->|7. Resposta| F -->|8. Atualiza| D\n    F -->|9. Retorna| H\n    B -->|6b. Cache Hit| G -->|9. Retorna| H -->|10. Final| A",
   "metrics": [
     "Latência de recuperação em caso de cache hit abaixo de 10ms",
     "Execução 100% local sem dependência de APIs externas na nuvem"

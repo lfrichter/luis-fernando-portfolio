@@ -5,7 +5,18 @@
   "category": "Full Stack",
   "tier": 1,
   "summary": "Cadastro Nacional de Observadores de Aves. Monolito Modular (Vertical Slice) em React/Vite/TS com backend Serverless em Supabase PostgreSQL, Edge Functions e RLS.",
-  "techStack": ["React", "Vite", "TypeScript", "Supabase", "PostgreSQL", "RLS", "Vertical Slice", "Vercel", "Tailwind CSS", "Cypress"],
+  "techStack": [
+    "React",
+    "Vite",
+    "TypeScript",
+    "Supabase",
+    "PostgreSQL",
+    "RLS",
+    "Vertical Slice",
+    "Vercel",
+    "Tailwind CSS",
+    "Cypress"
+  ],
   "featured": true,
   "liveUrl": "http://www.canaoaves.com.br",
   "detailKey": "canaoaves",
@@ -32,7 +43,7 @@
       "solution": "Fluxo assíncrono orientado a eventos usando Database Webhooks (`AFTER INSERT`) para disparar Supabase Edge Functions (Deno) que resolvem coordenadas Lat/Lng em background."
     }
   ],
-  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| 👤 Observador / Guia / Serviço (Browser)                                    |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| 🌐 React + Vite + TypeScript SPA (Vercel CDN)                              |\n| 📦 Monolito Modular (src/modules/ - 11 Domínios Autônomos)                 |\n| 📐 Pattern: Page ➔ Hook ➔ Service (*Service.ts)                            |\n| 🛡️ ErrorBoundary + client_errors Listener                                 |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| ⚙️ Supabase BaaS (Auth + PostgREST API + RLS + Storage)                   |\n| 🐘 PostgreSQL: Tabelas Polimórficas, PL/pgSQL RPCs & Gamificação Rules     |\n| ⚡ Database Webhooks ➔ Deno Edge Functions (Resend Email & Lat/Lng Geocode) |\n+----------------------------------------------------------------------------+",
+  "architectureDiagramMermaid": "flowchart TD\n    subgraph Client[\"👤 Camada de Usuário & Cliente\"]\n        UI[\"📱 Frontend React 19 + Vite\"]\n        SPA[\"⚛️ Single Page Application\"]\n    end\n    subgraph SupabasePlatform[\"☁️ Plataforma Supabase (Backend Serverless)\"]\n        AUTH[\"🔒 Supabase Auth\"]\n        API[\"📡 PostgREST API Gateway\"]\n        STORAGE[\"📂 Supabase Storage\"]\n        DB[(\"🗄️ PostgreSQL Database\")]\n        TABLES[\"📊 Tabelas de Dados (Aves, Listas, Usuários)\"]\n        PLPGSQL[\"⚡ Triggers & Funções PL/pgSQL\"]\n        EDGE[\"🚀 Edge Functions (Deno Runtime)\"]\n    end\n    subgraph External[\"🌐 Serviços Externos\"]\n        RESEND[\"✉️ Resend API (E-mails)\"]\n        IBGE[\"🗺️ IBGE Geocoding API\"]\n    end\n    UI --> SPA\n    SPA -->|Requisições Autenticadas| API\n    SPA -->|Autenticação| AUTH\n    SPA -->|Uploads de Mídia| STORAGE\n    API -->|Políticas RLS & CRUD| TABLES\n    TABLES -->|Executa Procedimentos| PLPGSQL\n    TABLES -->|Dispara Eventos| EDGE\n    EDGE -->|E-mails| RESEND\n    EDGE -->|Geocoding| IBGE",
   "metrics": [
     "Refatoração completa para Monolito Modular com 0% downtime e 0% regressão",
     "11 módulos autônomos e limpos com desacoplamento total via Service Layer",

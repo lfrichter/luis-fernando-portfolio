@@ -5,7 +5,14 @@
   "category": "Full Stack",
   "tier": 2,
   "summary": "High-performance RESTful API designed with Clean Architecture, SOLID principles, and automated testing for managing favorite product lists.",
-  "techStack": ["TypeScript", "Node.js", "Clean Architecture", "SOLID", "Jest", "Docker"],
+  "techStack": [
+    "TypeScript",
+    "Node.js",
+    "Clean Architecture",
+    "SOLID",
+    "Jest",
+    "Docker"
+  ],
   "featured": false,
   "detailKey": "favorite_products",
   "overview": "Decoupled microservice built with Node.js and TypeScript adhering to Clean Architecture and SOLID principles to provide a resilient API for managing favorite products.",
@@ -21,7 +28,7 @@
       "solution": "Utilized repository interfaces and native dependency injection."
     }
   ],
-  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| HTTP REST Clients / API Consumers                                          |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| Clean Architecture Core Domain (Use Cases & Entities)                      |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| Decoupled Infrastructure Layer (Repository Interfaces & Inversion of Control)|\n+----------------------------------------------------------------------------+",
+  "architectureDiagramMermaid": "flowchart TD\n    subgraph C[\"👤 Cliente\"]\n        Client[\"Frontend (SPA / Mobile App)\"]\n    end\n    subgraph A[\"🧩 Favorite Products API (Laravel + Docker)\"]\n        Router[\"1. Roteador API (api.php)\"]\n        Middleware[\"2. Middleware Sanctum\"]\n        FormRequest[\"3. Form Request Validation\"]\n        Controller[\"4. FavoriteProductController\"]\n        Service[\"5. FavoriteProductService\"]\n        Contract[\"6. ProductServiceContract\"]\n        ApiResource[\"7. API Resource (JSON)\"]\n        DB[(\"🗄️ PostgreSQL\")]\n        FakeStoreService[\"FakeStoreApiService\"]\n        Handler[\"Handler Global\"]\n        CustomException{\"Exceção Customizada\"}\n    end\n    subgraph E[\"🌐 Serviço Externo\"]\n        FakeStoreAPI[\"Fake Store API\"]\n    end\n    Client -->|HTTP + Token| Router\n    Router --> Middleware --> FormRequest --> Controller\n    Controller --> Service\n    Service --> DB & Contract\n    Contract --> FakeStoreService --> FakeStoreAPI\n    FakeStoreAPI --> FakeStoreService --> Service --> Controller --> ApiResource --> Client\n    FakeStoreService -- Falha --> CustomException --> Handler -->|HTTP 503| Client",
   "metrics": [
     "100% test coverage of core business domain rules with Jest",
     "Zero tight coupling to database persistence layer"

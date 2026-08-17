@@ -5,7 +5,15 @@
   "category": "Architecture & Performance",
   "tier": 2,
   "summary": "Dashboards em React para 200k+ pontos geoespaciais com Superfetch (30x mais rápido) e filas Laravel Horizon (500x mais rápido em corridas), integrado a Power BI.",
-  "techStack": ["Laravel", "React", "Laravel Horizon", "Redis", "Superfetch", "Google Geocoding", "Power BI"],
+  "techStack": [
+    "Laravel",
+    "React",
+    "Laravel Horizon",
+    "Redis",
+    "Superfetch",
+    "Google Geocoding",
+    "Power BI"
+  ],
   "featured": false,
   "detailKey": "toot",
   "overview": "Plataforma de análise de mobilidade urbana e inteligência de mercado para serviços de ride-sharing no Reino Unido, combinando APIs backend de alta vazão com dashboards geoespaciais em tempo real.",
@@ -21,7 +29,7 @@
       "solution": "Implementação de busca incremental paginada com Superfetch e agregação de dados no cliente."
     }
   ],
-  "architectureDiagramMermaid": "+----------------------------------+      +----------------------------------+\n| Dashboard React (200k Coordenadas)| ---> | Busca Incremental Paginada       |\n| (Interface Geoespacial de Mapas) |      | (Estratégia Superfetch 30x Fast) |\n+----------------------------------+      +----------------------------------+\n                                                           |\n                                                           v\n+----------------------------------+      +----------------------------------+\n| Servidor API Laravel & Geocoding | ---> | Workers Redis / Laravel Horizon  |\n| (Google Geocoding & Overpass)    |      | (Gargalo de Viagens 500x Faster) |\n+----------------------------------+      +----------------------------------+\n                                                           |\n                                                           v\n                                          +----------------------------------+\n                                          | Dashboards Executivos Power BI   |\n                                          +----------------------------------+",
+  "architectureDiagramMermaid": "flowchart LR\n    subgraph Frontend[\"🌐 Frontend\"]\n        A[👨‍💻 Usuário] --> B[⚛️ React App]\n        B --> C[🗺️ Google Maps API]\n        B --> D[🚀 Superfetch (200k+ pontos)]\n    end\n    subgraph Backend[\"🖥️ Backend\"]\n        E[🛠️ API Laravel + Horizon] --> F[🐬 MySQL Database]\n        E --> G[📄 Swagger Docs]\n    end\n    subgraph CICD[\"🔄 CI/CD & BI\"]\n        H[🚧 Pipeline CI/CD] --> E\n        I[📈 PowerBI] --> E\n    end\n    B --> E",
   "metrics": [
     "30x de melhoria no tempo de carregamento de mapas com 200k+ registros",
     "500x mais rápido no processamento assíncrono de corridas com Laravel Horizon"

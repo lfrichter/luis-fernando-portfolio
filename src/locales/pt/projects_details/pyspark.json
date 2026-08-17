@@ -5,7 +5,13 @@
   "category": "PoC & Open Source",
   "tier": 3,
   "summary": "Pipeline de ETL com PySpark e SQLite para consolidação de jobs de vídeo, roteiros e segmentos, executado de forma interativa em Jupyter Notebook.",
-  "techStack": ["Python", "PySpark", "SQLite", "Jupyter Notebook", "Pandas"],
+  "techStack": [
+    "Python",
+    "PySpark",
+    "SQLite",
+    "Jupyter Notebook",
+    "Pandas"
+  ],
   "featured": false,
   "detailKey": "pyspark",
   "overview": "Prova de Conceito (PoC) de engenharia de dados que valida o uso de PySpark para unificação e análise exploratória de tabelas relacionais de renderização de vídeos.",
@@ -21,7 +27,7 @@
       "solution": "Uso do PySpark DataFrames permitindo que a mesma lógica processe volumes de dados em larga escala no futuro."
     }
   ],
-  "architectureDiagramMermaid": "+----------------------------------+      +----------------------------------+\n| Tabelas SQLite Renderização      | ---> | Motor PySpark ETL Distribuído    |\n+----------------------------------+      +----------------------------------+\n                                                           |\n                                                           v\n+----------------------------------+      +----------------------------------+\n| DataFrames Joins (1:N Roteiros)  | ---> | Análise Jupyter Notebook &       |\n| & Consolidação de Dados          |      | Exportação para Data Lake        |\n+----------------------------------+      +----------------------------------+",
+  "architectureDiagramMermaid": "graph TD\n    subgraph Data[\"Fonte de Dados\"]\n        A[💾 Banco de Dados SQLite]\n    end\n    subgraph Analytics[\"Ambiente de Processamento\"]\n        B[Jupyter Notebook]\n        C{PySpark & SQL Engine}\n    end\n    subgraph Result[\"Resultado\"]\n       D[📊 DataFrame Unificado]\n       E[🔍 Análise e Insights]\n    end\n    A -->|1. Extração de dados brutos| B\n    B -->|2. Executa transformação| C\n    C -->|3. Processa dados| D\n    D -->|4. Disponibiliza para| E",
   "metrics": [
     "Pipeline ETL validado e pronto para escalabilidade em Data Lakes"
   ]

@@ -5,7 +5,12 @@
   "category": "PoC & Open Source",
   "tier": 3,
   "summary": "Frontend reactive state architecture experiment and game rule engine implemented in TypeScript.",
-  "techStack": ["TypeScript", "Vue.js", "Pinia", "State Management"],
+  "techStack": [
+    "TypeScript",
+    "Vue.js",
+    "Pinia",
+    "State Management"
+  ],
   "featured": false,
   "detailKey": "twin_quest",
   "overview": "Experimental project exploring advanced reactive state management patterns and strict TypeScript typing using Pinia in an interactive game engine interface.",
@@ -20,7 +25,7 @@
       "solution": "Utilized strongly typed Pinia stores with immutable getters and actions."
     }
   ],
-  "architectureDiagramMermaid": "+----------------------------------+      +----------------------------------+\n| Game Rule Engine & State Actions | ---> | Pinia Strongly-Typed State Stores|\n+----------------------------------+      +----------------------------------+\n                                                           |\n                                                           v\n+----------------------------------------------------------------------------+\n| Vue 3 / TypeScript Reactive Rendering Layer                                |\n+----------------------------------------------------------------------------+",
+  "architectureDiagramMermaid": "graph TD\n    subgraph Client[\"💻 Cliente (Browser)\"]\n        U[👨‍💻 Usuário] --> FE[\"🌐 Frontend (Vue.js, TypeScript, Pinia)\"]\n    end\n    subgraph Server[\"🖥️ Servidor (Backend)\"]\n        BE[\"⚙️ Backend API (Laravel, Pest)\"] <--> Testes(\"🧪 Suíte de Testes (Pest)\")\n    end\n    subgraph Infra[\"📦 Infraestrutura Docker\"]\n        DB[(\"🗄️ PostgreSQL\")]\n    end\n    FE -->|HTTP Request| BE -->|JSON Response| FE\n    BE <--> DB",
   "metrics": [
     "Clean, testable frontend state architecture"
   ]

@@ -5,7 +5,12 @@
   "category": "PoC & Open Source",
   "tier": 3,
   "summary": "Performance benchmark suite simulating high-traffic e-commerce microservices and profiling latency bottlenecks using k6 and JMeter.",
-  "techStack": ["k6", "JMeter", "Performance Profiling", "Load Testing"],
+  "techStack": [
+    "k6",
+    "JMeter",
+    "Performance Profiling",
+    "Load Testing"
+  ],
   "featured": false,
   "detailKey": "ecommerce_k6",
   "overview": "Performance benchmark designed to detect throughput limits, database query latency, and concurrency bottlenecks across e-commerce RESTful microservices.",
@@ -20,7 +25,7 @@
       "solution": "Ramp-up load testing using k6, measuring P95 and P99 latency percentiles."
     }
   ],
-  "architectureDiagramMermaid": "+----------------------------------+      +----------------------------------+\n| k6 / JMeter Load Generator       | ---> | Targeted REST API Endpoints      |\n| (Ramp-up to 10k Virtual Users)   |      | (E-Commerce Microservices)       |\n+----------------------------------+      +----------------------------------+\n                                                           |\n                                                           v\n+----------------------------------------------------------------------------+\n| Bottleneck Profiling & P95 / P99 Latency Percentiles Measurement          |\n+----------------------------------------------------------------------------+",
+  "architectureDiagramMermaid": "graph TD\n    subgraph Automation[\"Orchestration & Automation\"]\n        User((Engenheiro)) -->|npm run test:full| Shell[Script de Automação]\n        Shell -->|Provisiona| DC[Docker Compose]\n    end\n    subgraph Runners[\"Test Runners (Load Generators)\"]\n        JM[Apache JMeter Container]\n        K6[k6 TypeScript Container]\n        PW[Playwright Container]\n    end\n    subgraph Target[\"Target System\"]\n        WebShop[E-Commerce .NET<br/>Tricentis Demo Shop]\n    end\n    subgraph Obs[\"Observability Stack\"]\n        Influx[(InfluxDB)]\n        Grafana[Grafana Dashboards]\n    end\n    DC -->|Inicia| JM & K6 & PW & Influx & Grafana\n    JM -->|HTTP Load| WebShop\n    K6 -->|User Simulation| WebShop\n    PW -->|Visual Metrics| WebShop\n    JM -.->|Backend Metrics| Influx\n    K6 -.->|Custom Metrics| Influx\n    PW -.->|Web Vitals| Influx\n    Grafana <-->|Query Data| Influx",
   "metrics": [
     "Pinpointed latency bottlenecks at P99 threshold under 10k VUs"
   ],

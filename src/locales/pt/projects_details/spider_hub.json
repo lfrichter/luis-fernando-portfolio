@@ -5,7 +5,16 @@
   "category": "Architecture & Performance",
   "tier": 2,
   "summary": "Hub centralizado em PHP/Laravel para unificar pedidos entre Mercado Livre, B2W, Via Varejo e ERP Bling. Filas assíncronas em Redis e MongoDB como fonte da verdade.",
-  "techStack": ["PHP", "Laravel", "Redis", "Horizon", "MongoDB", "Bling ERP Webhooks", "AWS S3", "Docker"],
+  "techStack": [
+    "PHP",
+    "Laravel",
+    "Redis",
+    "Horizon",
+    "MongoDB",
+    "Bling ERP Webhooks",
+    "AWS S3",
+    "Docker"
+  ],
   "featured": false,
   "detailKey": "spider_hub",
   "overview": "O Spider é um hub de integração de alta capacidade arquitetado para centralizar o fluxo de pedidos, catálogo de produtos, estoque e preços entre grandes marketplaces nacionais (Mercado Livre, B2W, Via Varejo) e sistemas ERP (Bling).",
@@ -22,7 +31,7 @@
       "solution": "Uso de Redis locks distribuídos, ordenação estrita de mensagens em filas assíncronas e sincronização atômica de estoque."
     }
   ],
-  "architectureDiagramMermaid": "+----------------------------------------------------------------------------+\n| Webhooks de Marketplaces (Mercado Livre, B2W, Via Varejo, ERP Bling)       |\n+----------------------------------------------------------------------------+\n                                     |\n                                     v\n+----------------------------------------------------------------------------+\n| Gateway de Ingestão PHP/Laravel & Redis Queue Locks Distribuídos (Horizon) |\n+----------------------------------------------------------------------------+\n               /                                            \\\n              v                                              v\n+----------------------------------+      +----------------------------------+\n| Repositório MongoDB Document     |      | Motor de Sincronização Atômica   |\n| (Esquemas Flexíveis de Pedidos)  |      | (Locks de Estoque & Preços)      |\n+----------------------------------+      +----------------------------------+",
+  "architectureDiagramMermaid": "flowchart LR\n    subgraph EX[\"Fontes de Dados Externas\"]\n        ERP_Bling[\"🏢 ERP Bling\"]\n        ERP_BDI[\"🗃️ ERP Custom (MySQL)\"]\n        Marketplaces[\"🛒 Marketplaces (Plugg.to, Skyhub)\"]\n    end\n    subgraph IN[\"Entrada de Dados\"]\n        API[\"📡 API / Webhooks\"]\n        Commands[\"⚙️ Artisan Commands\"]\n    end\n    subgraph PR[\"Processamento Assíncrono\"]\n        Job_Stock[\"🧬 Atualizar Estoque\"]\n        Job_Order[\"📄 Processar Pedidos\"]\n        Job_Others[\"… Outros Jobs\"]\n    end\n    MongoDB[(\"🗄️ MongoDB\")]\n    Queues[\"📦 Filas (Redis)\"]\n    ERP_Bling -->|Webhooks| API\n    ERP_BDI -->|Commands| Commands\n    Marketplaces -->|Commands| Commands\n    API & Commands --> Queues --> Job_Stock & Job_Order & Job_Others\n    Job_Stock & Job_Order & Job_Others <--> MongoDB\n    Job_Order -->|Pedido Processado| ERP_Bling\n    Job_Stock -->|Estoque| Marketplaces",
   "metrics": [
     "Processamento resiliente de milhares de pedidos diários",
     "Zero ocorrências de overselling com estoques sincronizados em tempo real"
