@@ -18,7 +18,7 @@
     "Vercel"
   ],
   "featured": true,
-  "githubUrl": "https://github.com/lfrichter/ask-richter",
+  "liveUrl": "https://ask-richter-frontend.vercel.app/",
   "detailKey": "ask_richter",
   "overview": "The 'Ask Richter' project transforms a traditional resume into an interactive, intelligent conversational experience. It allows recruiters and tech leaders to explore my career trajectory in natural language with precise answers grounded in a vector knowledge base.",
   "roleDescription": "Architect and Full-Stack Developer responsible for the RAG solution design, prompt engineering, vectorization, and frontend/backend implementation.",

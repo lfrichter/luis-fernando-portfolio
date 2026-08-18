@@ -16,7 +16,6 @@
     "Vitest"
   ],
   "featured": true,
-  "githubUrl": "https://github.com/lfrichter/smartshorts-ui",
   "detailKey": "smart_shorts",
   "overview": "SmartShorts is an innovative SaaS for content creators and marketing agencies that turns simple text prompts into complete videos with narration, images, synchronized subtitles, and soundtrack.",
   "roleDescription": "Frontend Architect and Full-Stack Developer during UI modernization and migration from Vite/React to Next.js App Router.",

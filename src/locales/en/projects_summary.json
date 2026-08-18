@@ -19,7 +19,6 @@
     "summary": "Automated short and long-form video creation platform powered by AI. Next.js App Router frontend with httpOnly JWT cookies and Java / Spring Boot backend API.",
     "techStack": ["Next.js", "React", "TypeScript", "Java", "Spring Boot", "Axios", "Tailwind CSS", "Vitest"],
     "featured": true,
-    "githubUrl": "https://github.com/lfrichter/smartshorts-ui",
     "detailKey": "smart_shorts"
   },
   {
@@ -31,7 +30,7 @@
     "summary": "Interactive chatbot using RAG (Retrieval-Augmented Generation), in-memory FAISS, LangChain.js, Node.js/Express, Supabase, Next.js, Shadcn/ui, and LLMs.",
     "techStack": ["Node.js", "TypeScript", "LangChain.js", "FAISS", "Supabase", "Next.js", "OpenAI", "Docker"],
     "featured": true,
-    "githubUrl": "https://github.com/lfrichter/ask-richter",
+    "liveUrl": "https://ask-richter-frontend.vercel.app/",
     "detailKey": "ask_richter"
   },
   {
