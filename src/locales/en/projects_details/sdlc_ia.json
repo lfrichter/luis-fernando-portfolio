@@ -28,8 +28,15 @@
   ],
   "architectureDiagramMermaid": "graph TD\n    A[\"Human Developer\"] -->|Defines Vision via| B[\"META SPEC (Spec-as-Code)\"]\n    B --> C[\"Chief of Staff Orchestrator\"]\n    C -->|Applies WSCI| D[\"Context Window Manager\"]\n    C -->|Ruflo Swarm Topology| E[\"Sub-Agent Swarm\"]\n    \n    E --> F[\"Developer Agent\"]\n    E --> G[\"Code Reviewer Agent\"]\n    \n    F -->|SPARC+DD Lifecycle| H[\"Git Worktree (Isolation)\"]\n    G -->|Zero-Trust/AIDefence| H\n    \n    H --> I{\"Jidoka Validation / Andon Cord\"}\n    I -- \"Anomaly Detected\" --> J[\"Wipe & Restart (Clean Reset)\"]\n    J --> C\n    I -- \"Tests Passed\" --> K[\"Integration & Updated Docs\"]",
   "metrics": [
-    "Complete elimination of file collisions via Git Worktree isolation",
-    "Surgical execution with zero context window degradation (WSCI)",
-    "Automatic hallucination interruption via Andon Cord (Jidoka)"
+    "Zero file collision incidents via isolated Git Worktree environments",
+    "Surgical execution with zero context window degradation (WSCI framework)",
+    "Automated hallucination containment via Andon Cord (Jidoka principle)"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A04:2021",
+      "title": "Insecure Design (Zero-Trust AI Agents)",
+      "description": "Zero-Trust AI agent execution inside isolated Git Worktrees with automated Jidoka/Andon safety limits."
+    }
   ]
 }

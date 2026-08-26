@@ -27,6 +27,13 @@
   ],
   "architectureDiagramMermaid": "graph TD\n    subgraph Client[\"💻 Cliente (Browser)\"]\n        U[👨‍💻 Usuário] --> FE[\"🌐 Frontend (Vue.js, TypeScript, Pinia)\"]\n    end\n    subgraph Server[\"🖥️ Servidor (Backend)\"]\n        BE[\"⚙️ Backend API (Laravel, Pest)\"] <--> Testes(\"🧪 Suíte de Testes (Pest)\")\n    end\n    subgraph Infra[\"📦 Infraestrutura Docker\"]\n        DB[(\"🗄️ PostgreSQL\")]\n    end\n    FE -->|HTTP Request| BE -->|JSON Response| FE\n    BE <--> DB",
   "metrics": [
-    "Clean, testable frontend state architecture"
+    "Clean and easily testable state architecture"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A08:2021",
+      "title": "Software & Data Integrity Failures",
+      "description": "Reactive state management immutability via Pinia, validating game rule transitions against illegal state mutations."
+    }
   ]
 }

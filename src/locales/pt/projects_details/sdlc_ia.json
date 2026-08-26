@@ -31,5 +31,12 @@
     "Eliminação de colisões de arquivos via isolamento Git Worktree",
     "Execução cirúrgica com zero degradação de janela de contexto (WSCI)",
     "Interrupção automática de alucinações via Andon Cord (Jidoka)"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A04:2021",
+      "title": "Insecure Design (Zero-Trust AI Agents)",
+      "description": "Execução de agentes de IA sob arquitetura Zero-Trust em ambientes isolados (Git Worktrees) e mecanismos Jidoka/Andon."
+    }
   ]
 }

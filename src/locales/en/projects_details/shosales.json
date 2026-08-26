@@ -32,5 +32,12 @@
   "metrics": [
     "10x speedup in web page response times",
     "Reduced continuous integration build duration via parallel Dusk execution"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A08:2021",
+      "title": "Software & Data Integrity Failures",
+      "description": "Automated E2E testing battery (Laravel Dusk/Selenium) acting as a pipeline gatekeeper to prevent regressions."
+    }
   ]
 }

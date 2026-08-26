@@ -1,0 +1,52 @@
+{
+  "id": "learning-intelligence",
+  "title": "Learning Intelligence Platform 2.0",
+  "subtitle": "End-to-End Media Processing Orchestrator & Local AI",
+  "category": "AI/LLM",
+  "tier": 3,
+  "summary": "Local CLI platform for transcription (Whisper), visual analysis (FFmpeg keyframes/OCR), and intelligent synthesis (Ollama deepseek-r1) of video lectures with RAG and vector search.",
+  "techStack": ["Python", "Pydantic", "Ollama", "Whisper", "FFmpeg", "SQLite (FTS5)", "pgvector", "Pytest"],
+  "featured": false,
+  "detailKey": "learning_intelligence",
+  "overview": "Local CLI-orchestrated platform that transforms static video courses into a structured, searchable knowledge base via a robust 8-stage pipeline. Extracts audio and visual keyframes, generates precise timestamped transcriptions, and performs cognitive synthesis using local LLMs (Ollama / deepseek-r1). Produces Markdown dossiers and populates relational and vector databases powering AI Tutor (RRF hybrid search) and AI Copilot.",
+  "roleDescription": "AI Solutions Architect & Tech Lead — Designed V2 architecture, data pipeline engineering, and AI governance.",
+  "responsibilities": [
+    "Domain modeling using Pydantic and system evolution formalization across 15 Architecture Decision Records (ADRs).",
+    "Engineered the End-to-End orchestrator managing ingestion, transcription, visual analysis, and hierarchical synthesis (Lesson ➔ Module ➔ Course).",
+    "Implemented RAG engine featuring hybrid search (textual + semantic with Reciprocal Rank Fusion) and native integration with local models (Ollama / deepseek-r1).",
+    "Instituted Jidoka (Andon Cord) principles and created IsolationAuditorV5 for AI hallucination containment."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Unifying diverse engines (Computer Vision, Audio, LLM) into a fault-tolerant pipeline without forfeiting hours of neural network computations on heavy video batches.",
+      "solution": "Implemented Idempotency design patterns with intelligent caching (SKIPPED status for pre-processed assets) yielding 0.05s cache bypass and seamless hierarchical synthesis."
+    },
+    {
+      "challenge": "Migrating legacy V1 codebase while enforcing strict typing and decoupling legacy debt.",
+      "solution": "Created a structured Pydantic compatibility layer, isolating legacy structures from the clean domain core."
+    }
+  ],
+  "futureEvolution": [
+    "Development of a Web or Desktop GUI (Electron/Tauri) over the existing CLI.",
+    "Native ingestion and real-time transcription support for live video streams (RTMP)."
+  ],
+  "architectureDiagramMermaid": "flowchart TD\n    RawVideos[\"🎬 Raw Videos\"] --> CLI[\"⚙️ E2E Orchestrator\"]\n    CLI --> Media[\"🎵 Media Pipeline (FFmpeg)\"]\n    Media --> Audio[\"Audio .mp3\"]\n    Media --> Frames[\"Keyframes & OCR\"]\n    Audio --> Whisper[\"🎙️ Transcription (Whisper)\"]\n    Frames --> Vision[\"👁️ Vision Pipeline\"]\n    Whisper --> LessonIntel[\"🧠 Lesson Intelligence (Local Ollama)\"]\n    Vision --> LessonIntel\n    LessonIntel --> Hierarchical[\"🏗️ Hierarchical Aggregation\"]\n    Hierarchical --> Dossier[\"📚 Markdown Dossier\"]\n    Hierarchical --> Storage[\"🗄️ Storage & Vectors (SQLite/pgvector)\"]\n    Storage --> AITutor[\"🤖 AI Tutor (RAG / RRF)\"]\n    Storage --> AICopilot[\"💻 AI Copilot\"]\n    QualityGate[\"🛡️ Isolation Auditor V5.1\"] -.->|Validates Lineage ✅| Dossier",
+  "metrics": [
+    "106 unit & integration tests passing in just 1.25s",
+    "~80% reduction in video storage footprint via H.265 (HEVC) batch compression",
+    "100% Quality Gate fidelity without hallucinations via IsolationAuditorV5.1",
+    "Idempotent execution with 0.05s cache bypass"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A03:2021",
+      "title": "Injection & Arbitrary Artifact Execution",
+      "description": "Strict FFmpeg/FFprobe subprocess abstractions eliminating injection risks when handling untrusted external video files."
+    },
+    {
+      "code": "AI Security",
+      "title": "Privacy by Design & Anti-Hallucination / Prompt Injection Safeguards",
+      "description": "100% local processing with Whisper and Ollama. IsolationAuditorV5.1 anchors every AI assertion to real timestamp/frame evidence, ensuring zero data contamination."
+    }
+  ]
+}

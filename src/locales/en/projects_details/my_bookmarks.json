@@ -1,0 +1,51 @@
+{
+  "id": "my-bookmarks",
+  "title": "My Bookmarks",
+  "subtitle": "Data Engineering Pipeline & Bookmark Governance with Local AI",
+  "category": "AI/LLM",
+  "tier": 3,
+  "summary": "Chrome bookmark data pipeline with Canonical Domain Model, local AI classification (Ollama qwen2.5/deepseek-r1), RAG engine, and zero-conflict bidirectional reconciliation.",
+  "techStack": ["TypeScript", "Node.js", "Commander", "Cheerio", "Zod", "Ollama", "Vitest", "SHA-256"],
+  "featured": false,
+  "detailKey": "my_bookmarks",
+  "overview": "Treats chaotic bookmark collections as a data engineering pipeline decoupled from browser formats. Implements a versioned Canonical Domain Model adhering to the core principle: 'AI suggests, deterministic systems validate, human authorizes, engine executes.' Built across 9 Milestones (M1-M9), incorporating HTML parsing, domain entropy statistics, local AI governance (Ollama qwen2.5/deepseek-r1), conversational RAG, and atomic bidirectional reconciliation with Chrome.",
+  "roleDescription": "Principal Software Engineer & Solutions Architect — Pipeline architecture design, AI governance, and Jidoka quality suite.",
+  "responsibilities": [
+    "End-to-end design of the data pipeline defining immutable boundaries between ingestion, canonical modeling, and physical execution.",
+    "Implementation of human-in-the-loop AI governance strategy and RAG engine integration using Ollama (qwen2.5 / deepseek-r1).",
+    "Engineered rigorous test suite with JIDOKA validation and SHA-256 cryptographic guarantees preventing data loss."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "False positive overflow during Bidirectional Reconciliation (M7), where identical URLs across different folders generated thousands of fake tree diff conflicts.",
+      "solution": "Engineered the Stable Identity Matcher with a composite key (URL + folderPath + occurrence), reducing conflicts to exactly zero for a perfect 1:1 diff."
+    },
+    {
+      "challenge": "AI semantic over-merging (M3.1) suggesting dangerous folder merges between unrelated clients sharing common names (e.g., 'Testing').",
+      "solution": "Built Hard Safety Gates (M3.2) introducing deterministic scope boundaries (GLOBAL, PROJECT, CLIENT) that reject structural aberrations before AI scoring."
+    }
+  ],
+  "futureEvolution": [
+    "Development of a native browser extension companion for real-time bookmark capture and tagging.",
+    "Evolution into an interactive visual dashboard for live proposal reviews and tree diff visualization."
+  ],
+  "architectureDiagramMermaid": "flowchart TD\n    A[\"📄 Chrome Export HTML\"] --> B[\"🔌 HTML Parser Adapter\"]\n    B --> C[\"📦 Canonical Domain Model\"]\n    subgraph Deterministic Intelligence\n        C --> D[\"📊 Stats & Duplicate Analysis\"]\n        D --> E[\"🏷️ Taxonomy & Domain Engine\"]\n    end\n    subgraph Governance and AI\n        E --> F[\"🧠 M8 AI Organization (Local Ollama)\"]\n        F --> G[\"📑 Proposal Generator\"]\n        G --> H[\"👤 Human Review Queue ✅\"]\n    end\n    subgraph Execution and Sync\n        H --> I[\"⚡ In-Memory Simulation & JIDOKA\"]\n        I --> J[\"🚀 Controlled Physical Execution\"]\n        J --> C\n        C <--> K[\"🔄 M7 Bidirectional Chrome Sync ✅\"]\n    end",
+  "metrics": [
+    "0 reconciliation conflicts down from 4,388 initial diffs via Stable Identity Matcher",
+    "2,628 bookmarks and 904 folders processed with zero data loss or corruption",
+    "153 unit & integration tests (Vitest) with 100% pass rate",
+    "49 false AI merges eliminated via Hard Safety Gates M3.2"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "AI Security",
+      "title": "Local Privacy & Prompt Injection Containment",
+      "description": "100% local LLM inference via Ollama. Untrusted bookmark data isolated in <untrusted_bookmark_data> tags paired with M9 grounding validation to reject indirect prompt injections."
+    },
+    {
+      "code": "A08:2021",
+      "title": "Data Integrity & Cryptographic Hash Lineage (SHA-256 Epoch Lock)",
+      "description": "Every pipeline stage (M3 Plan, M4 Manifest, M5 Execution) is locked with a unique SHA-256 hash, immediately aborting execution or rollbacks if files are tampered with."
+    }
+  ]
+}

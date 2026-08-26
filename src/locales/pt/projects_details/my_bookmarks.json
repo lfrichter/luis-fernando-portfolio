@@ -1,0 +1,51 @@
+{
+  "id": "my-bookmarks",
+  "title": "My Bookmarks",
+  "subtitle": "Pipeline de Engenharia de Dados & Governança de Favoritos com IA Local",
+  "category": "AI/LLM",
+  "tier": 3,
+  "summary": "Pipeline de dados para favoritos do Chrome com Modelo Canônico, classificação por IA local (Ollama qwen2.5/deepseek-r1), motor RAG e reconciliação bidirecional sem conflitos.",
+  "techStack": ["TypeScript", "Node.js", "Commander", "Cheerio", "Zod", "Ollama", "Vitest", "SHA-256"],
+  "featured": false,
+  "detailKey": "my_bookmarks",
+  "overview": "Trata repositórios de favoritos históricos como um pipeline de engenharia de dados desacoplado do formato do Chrome. Implementa um Modelo Canônico independente e versionado operando sob a máxima: 'A IA sugere, sistemas determinísticos validam, o humano autoriza e o motor executa.' Evoluído ao longo de 9 Milestones (M1-M9), engloba parsing HTML, estatísticas de entropia, governança de IA local (Ollama qwen2.5/deepseek-r1), motor RAG conversacional e reconciliação bidirecional atômica com o perfil do navegador.",
+  "roleDescription": "Engenheiro de Software Principal & Arquiteto de Soluções — Desenho da arquitetura do pipeline, governança de IA e suíte de qualidade Jidoka.",
+  "responsibilities": [
+    "Desenho ponta a ponta do pipeline de dados definindo os limites entre ingestão, modelo canônico e execução.",
+    "Implementação da estratégia de governança humana sobre decisões da IA e desenvolvimento do motor RAG com Ollama (qwen2.5 / deepseek-r1).",
+    "Criação de suíte de testes rigorosa com validações JIDOKA e garantia criptográfica SHA-256 contra perda de dados."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Guerra dos Falsos Positivos na Reconciliação Bidirecional (M7), onde o Chrome gerava milhares de divergências falsas por ter URLs idênticas em pastas distintas.",
+      "solution": "Desenvolvimento do motor Stable Identity Matcher com identificador composto (URL + folderPath + ocorrência), eliminando conflitos e atingindo diff 1:1 perfeito."
+    },
+    {
+      "challenge": "Over-Merging semântico da IA (M3.1), fundindo pastas de clientes diferentes com nomes comuns (ex: Testing).",
+      "solution": "Arquitetura de Hard Safety Gates (M3.2) com barreiras determinísticas de escopo (GLOBAL, PROJECT, CLIENT) que rejeitam aberrações estruturais antes da avaliação da IA."
+    }
+  ],
+  "futureEvolution": [
+    "Desenvolvimento de extensão nativa de navegador para captura e classificação instantânea de novos favoritos.",
+    "Evolução para dashboard visual interativo em tempo real para revisão de propostas e diff de árvores."
+  ],
+  "architectureDiagramMermaid": "flowchart TD\n    A[\"📄 Chrome Export HTML\"] --> B[\"🔌 HTML Parser Adapter\"]\n    B --> C[\"📦 Modelo Canônico de Domínio\"]\n    subgraph Inteligencia Determinística\n        C --> D[\"📊 Estatísticas & Duplicatas\"]\n        D --> E[\"🏷️ Motor de Taxonomia & Domínio\"]\n    end\n    subgraph Governanca e IA\n        E --> F[\"🧠 M8 Organização IA (Ollama local)\"]\n        F --> G[\"📑 Gerador de Propostas\"]\n        G --> H[\"👤 Fila de Revisão Humana ✅\"]\n    end\n    subgraph Execucao e Sync\n        H --> I[\"⚡ Simulação em Memória & JIDOKA\"]\n        I --> J[\"🚀 Execução Física Controlada\"]\n        J --> C\n        C <--> K[\"🔄 M7 Sync Bidirecional Chrome ✅\"]\n    end",
+  "metrics": [
+    "0 conflitos de reconciliação de 4.388 diferenças iniciais via Stable Identity Matcher",
+    "2.628 favoritos e 904 pastas processados sem nenhuma perda de dados ou corrupção",
+    "153 testes unitários e de integração (Vitest) com 100% de aprovação",
+    "Eliminação de 49 fusões falsas de IA via Hard Safety Gates M3.2"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "AI Security",
+      "title": "Privacidade Local & Mitigação contra Prompt Injection",
+      "description": "Modelos LLM rodando 100% locais via Ollama. Isolamento de dados em tags <untrusted_bookmark_data> com validador de grounding M9 para rejeição de injeções indiretas."
+    },
+    {
+      "code": "A08:2021",
+      "title": "Integridade de Dados & Linhagem Criptográfica (SHA-256 Epoch Lock)",
+      "description": "Cada estado do pipeline (M3 Plan, M4 Manifest, M5 Execution) é selado por um hash SHA-256 único, abortando execuções ou rollbacks se houver adulteração de arquivos."
+    }
+  ]
+}

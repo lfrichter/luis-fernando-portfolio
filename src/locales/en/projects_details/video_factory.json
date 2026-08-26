@@ -60,5 +60,17 @@
     "Reduced manual video production time from 2-3h to <5 min of autonomous processing per video",
     "Hands-free batch production & scheduled publishing via CLI (vid_schedule_all) and macOS launchd",
     "Up to 85% API cost reduction by combining local engines (Coqui TTS, Whisper) and free services (Pixabay, Jamendo)"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A03:2021",
+      "title": "Injection (FFmpeg Command Isolation)",
+      "description": "Strict command-line argument sanitization and subprocess isolation across FFmpeg video generation routines."
+    },
+    {
+      "code": "A05:2021",
+      "title": "Security Misconfiguration",
+      "description": "API credential isolation in macOS launchd daemon environment variables preventing source code exposure."
+    }
   ]
 }

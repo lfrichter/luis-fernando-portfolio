@@ -190,5 +190,27 @@
     "githubUrl": "https://github.com/lfrichter/cat-guardian",
     "liveUrl": "https://cat-guardian-two.vercel.app/",
     "detailKey": "cat_guardian"
+  },
+  {
+    "id": "learning-intelligence",
+    "title": "Learning Intelligence Platform 2.0",
+    "subtitle": "End-to-End Media Processing Orchestrator & Local AI",
+    "category": "AI/LLM",
+    "tier": 3,
+    "summary": "Local CLI platform for transcription (Whisper), visual analysis (FFmpeg keyframes/OCR), and intelligent synthesis (Ollama deepseek-r1) of video lectures with RAG and vector search.",
+    "techStack": ["Python", "Pydantic", "Ollama", "Whisper", "FFmpeg", "SQLite (FTS5)", "pgvector", "Pytest"],
+    "featured": false,
+    "detailKey": "learning_intelligence"
+  },
+  {
+    "id": "my-bookmarks",
+    "title": "My Bookmarks",
+    "subtitle": "Data Engineering Pipeline & Bookmark Governance with Local AI",
+    "category": "AI/LLM",
+    "tier": 3,
+    "summary": "Chrome bookmark data pipeline with Canonical Domain Model, local AI classification (Ollama qwen2.5/deepseek-r1), RAG engine, and zero-conflict bidirectional reconciliation.",
+    "techStack": ["TypeScript", "Node.js", "Commander", "Cheerio", "Zod", "Ollama", "Vitest", "SHA-256"],
+    "featured": false,
+    "detailKey": "my_bookmarks"
   }
 ]

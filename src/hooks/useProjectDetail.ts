@@ -22,6 +22,8 @@ const detailModules: Record<string, Record<string, () => Promise<{ default: unkn
     ecommerce_k6: () => import('@/locales/pt/projects_details/ecommerce_k6.json'),
     twin_quest: () => import('@/locales/pt/projects_details/twin_quest.json'),
     cat_guardian: () => import('@/locales/pt/projects_details/cat_guardian.json'),
+    learning_intelligence: () => import('@/locales/pt/projects_details/learning_intelligence.json'),
+    my_bookmarks: () => import('@/locales/pt/projects_details/my_bookmarks.json'),
   },
   en: {
     ask_richter: () => import('@/locales/en/projects_details/ask_richter.json'),
@@ -41,6 +43,8 @@ const detailModules: Record<string, Record<string, () => Promise<{ default: unkn
     ecommerce_k6: () => import('@/locales/en/projects_details/ecommerce_k6.json'),
     twin_quest: () => import('@/locales/en/projects_details/twin_quest.json'),
     cat_guardian: () => import('@/locales/en/projects_details/cat_guardian.json'),
+    learning_intelligence: () => import('@/locales/en/projects_details/learning_intelligence.json'),
+    my_bookmarks: () => import('@/locales/en/projects_details/my_bookmarks.json'),
   },
 };
 

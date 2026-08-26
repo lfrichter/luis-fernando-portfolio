@@ -62,6 +62,27 @@ export const OwaspMatrixModal: React.FC<OwaspMatrixModalProps> = ({
             ? 'Correção de vulnerabilidades pós-pentest e fortalecimento do gerenciamento de sessões simultâneas.'
             : 'Post-pentest security fixes and hardening of concurrent session management.',
         },
+        {
+          name: 'Cat Guardian',
+          detailKey: 'cat_guardian',
+          mitigation: isPt
+            ? 'Blind Contact Relay via Resend API integrando Supabase com RLS — notificação anônima sem expor e-mail/telefone do dono no front-end.'
+            : 'Blind Contact Relay via Resend API integrated with Supabase RLS — anonymous notifications without exposing owner email/phone on front-end.',
+        },
+        {
+          name: 'E-Commerce Benchmark (k6)',
+          detailKey: 'ecommerce_k6',
+          mitigation: isPt
+            ? 'Scripts de carga em k6 com gerenciamento dinâmico de tokens Anti-CSRF e cookies de sessão para validação autenticada em alta escala.'
+            : 'k6 load scripts dynamically managing Anti-CSRF tokens and session cookies for high-scale authenticated load testing.',
+        },
+        {
+          name: 'Postmark Email Manager',
+          detailKey: 'postmark_email',
+          mitigation: isPt
+            ? 'Validação de assinatura HMAC em Inbound Webhooks e isolamento de escopo por usuário para comandos acionados por e-mail.'
+            : 'HMAC signature verification on Inbound Webhooks and user scope isolation for email-triggered commands.',
+        },
       ],
     },
     {
@@ -82,6 +103,13 @@ export const OwaspMatrixModal: React.FC<OwaspMatrixModalProps> = ({
           mitigation: isPt
             ? 'Geração de embeddings (Ollama) e busca vetorial (FAISS) 100% locais, eliminando envio de dados para APIs terceiras.'
             : '100% local embeddings (Ollama) and vector search (FAISS), eliminating sensitive data transmission to external APIs.',
+        },
+        {
+          name: 'My Bookmarks',
+          detailKey: 'my_bookmarks',
+          mitigation: isPt
+            ? 'Selamento criptográfico de estados do pipeline via hashes SHA-256 (Epoch Lock) prevenindo violações e adulterações de dados.'
+            : 'Pipeline state cryptographic sealing via SHA-256 hashes (Epoch Lock) preventing data tampering and illegal mutations.',
         },
       ],
     },
@@ -104,6 +132,20 @@ export const OwaspMatrixModal: React.FC<OwaspMatrixModalProps> = ({
             ? 'Sanitização rigorosa e validação de payload tipado no client e server com Zod e React Hook Form.'
             : 'Client and server-side typed payload sanitization and validation using Zod & React Hook Form.',
         },
+        {
+          name: 'Learning Intelligence V2',
+          detailKey: 'learning_intelligence',
+          mitigation: isPt
+            ? 'Abstrações estritas de subprocess no FFmpeg/FFprobe eliminando vulnerabilidades de injeção na manipulação de mídias de vídeo externas.'
+            : 'Strict FFmpeg/FFprobe subprocess abstractions eliminating command injection vulnerabilities when extracting untrusted external media.',
+        },
+        {
+          name: 'Video Factory Automated',
+          detailKey: 'video_factory',
+          mitigation: isPt
+            ? 'Sanitização rigorosa de parâmetros de linha de comando e isolamento de rotinas FFmpeg no pipeline de geração de vídeos.'
+            : 'Strict command-line argument sanitization and subprocess isolation across FFmpeg video generation routines.',
+        },
       ],
     },
     {
@@ -125,6 +167,27 @@ export const OwaspMatrixModal: React.FC<OwaspMatrixModalProps> = ({
             ? 'Execução de agentes de IA sob arquitetura Zero-Trust em ambientes isolados (Git Worktrees) e mecanismos Jidoka/Andon.'
             : 'Zero-Trust AI agent execution inside isolated Git Worktrees with automated Jidoka/Andon safety limits.',
         },
+        {
+          name: 'Ask Richter',
+          detailKey: 'ask_richter',
+          mitigation: isPt
+            ? 'Engenharia de prompt RAG com injeção estrita de contexto vetorial recuperado para contenção de vazamentos e alucinações.'
+            : 'RAG prompt engineering with strict context injection from vector search for hallucination and prompt leak containment.',
+        },
+        {
+          name: 'Learning Intelligence V2',
+          detailKey: 'learning_intelligence',
+          mitigation: isPt
+            ? 'Mecanismo IsolationAuditorV5.1 atrelando cada afirmação da IA a evidências de timestamp/frame, garantindo 100% de proveniência de fonte.'
+            : 'IsolationAuditorV5.1 mechanism anchoring every AI assertion to timestamp/frame evidence, ensuring 100% source provenance.',
+        },
+        {
+          name: 'My Bookmarks',
+          detailKey: 'my_bookmarks',
+          mitigation: isPt
+            ? 'Hard Safety Gates (M3.2) com limites determinísticos de escopo (GLOBAL, PROJECT, CLIENT) que rejeitam fusões indevidas da IA antes da avaliação.'
+            : 'Hard Safety Gates (M3.2) enforcing deterministic scope boundaries (GLOBAL, PROJECT, CLIENT) rejecting illegal AI folder merges prior to scoring.',
+        },
       ],
     },
     {
@@ -139,6 +202,20 @@ export const OwaspMatrixModal: React.FC<OwaspMatrixModalProps> = ({
             ? 'Tratamento de exceções customizadas por handler global devolvendo o status semântico 503 sem vazar stack traces.'
             : 'Global exception handler returning semantic HTTP 503 responses without exposing internal stack traces.',
         },
+        {
+          name: 'Spider — Hub de Integração',
+          detailKey: 'spider_hub',
+          mitigation: isPt
+            ? 'Armazenamento seguro de tokens Redis encriptados e verificação rigorosa de webhooks de marketplaces e Bling ERP.'
+            : 'Encrypted Redis token storage and strict webhook signature verification for marketplaces and Bling ERP.',
+        },
+        {
+          name: 'Video Factory Automated',
+          detailKey: 'video_factory',
+          mitigation: isPt
+            ? 'Isolamento de credenciais de API em variáveis de ambiente gerenciadas por launchd daemons no macOS sem exposição no código-fonte.'
+            : 'API credential isolation in macOS launchd daemon environment variables preventing source code exposure.',
+        },
       ],
     },
     {
@@ -152,6 +229,13 @@ export const OwaspMatrixModal: React.FC<OwaspMatrixModalProps> = ({
           mitigation: isPt
             ? 'Gerenciamento de dependências Java centralizado com BOM (Bill of Materials) do Spring Cloud.'
             : 'Centralized Java backend dependency management using Spring Cloud BOM (Bill of Materials).',
+        },
+        {
+          name: 'PySpark Render Jobs',
+          detailKey: 'pyspark',
+          mitigation: isPt
+            ? 'Ambiente containerizado com versões estritamente travadas de PySpark, SQLite 3.45 e dependências de análise distribuída.'
+            : 'Containerized environment with strictly pinned versions of PySpark, SQLite 3.45, and distributed analytics dependencies.',
         },
       ],
     },
@@ -181,6 +265,13 @@ export const OwaspMatrixModal: React.FC<OwaspMatrixModalProps> = ({
             ? 'Autenticação JWT segura via tymondesigns/jwt-auth para rotas transacionais.'
             : 'Secure JWT authentication via tymondesigns/jwt-auth for transaction routes.',
         },
+        {
+          name: 'Cat Guardian',
+          detailKey: 'cat_guardian',
+          mitigation: isPt
+            ? 'Autenticação anônima de remetente no relé de e-mail sem expor tokens Supabase ou credenciais do proprietário no cliente.'
+            : 'Anonymous sender relay authentication without exposing Supabase tokens or owner credentials to client UI.',
+        },
       ],
     },
     {
@@ -194,6 +285,27 @@ export const OwaspMatrixModal: React.FC<OwaspMatrixModalProps> = ({
           mitigation: isPt
             ? 'Bateria de testes E2E automatizados como pipeline gatekeeper para prevenir regressões e falhas de integridade.'
             : 'Automated E2E testing battery acting as a pipeline gatekeeper to prevent regressions.',
+        },
+        {
+          name: 'My Bookmarks',
+          detailKey: 'my_bookmarks',
+          mitigation: isPt
+            ? 'Simulação de transações em memória com interrupção automática JIDOKA antes de qualquer alteração física na árvore do Chrome.'
+            : 'In-memory transaction simulation with automated JIDOKA aborts prior to physical mutations on Chrome trees.',
+        },
+        {
+          name: 'Twin Quest Engine',
+          detailKey: 'twin_quest',
+          mitigation: isPt
+            ? 'Imutabilidade no gerenciamento de estado reativo frontend com Pinia, validando transições de regras contra alterações acidentais.'
+            : 'Reactive state management immutability via Pinia, validating game rule transitions against illegal mutations.',
+        },
+        {
+          name: 'PySpark Render Jobs',
+          detailKey: 'pyspark',
+          mitigation: isPt
+            ? 'Validação estrita de schemas em transformações ETL distribuídas garantindo a integridade dos relatórios consolidados de renderização.'
+            : 'Strict schema validation in distributed ETL transformations ensuring consolidated render report data integrity.',
         },
       ],
     },
@@ -222,6 +334,13 @@ export const OwaspMatrixModal: React.FC<OwaspMatrixModalProps> = ({
           mitigation: isPt
             ? 'Observabilidade de erros e telemetria em tempo real com Bugsnag.'
             : 'Real-time error tracking and telemetry via Bugsnag.',
+        },
+        {
+          name: 'Ask Richter',
+          detailKey: 'ask_richter',
+          mitigation: isPt
+            ? 'Telemetria de pontuações de similaridade RAG e métricas de busca vetorial em tempo real para monitorar a relevância do contexto.'
+            : 'Real-time RAG similarity score telemetry and vector search metrics monitoring context relevance.',
         },
       ],
     },

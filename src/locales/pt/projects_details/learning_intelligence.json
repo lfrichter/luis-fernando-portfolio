@@ -1,0 +1,52 @@
+{
+  "id": "learning-intelligence",
+  "title": "Learning Intelligence Platform 2.0",
+  "subtitle": "Orquestrador End-to-End de Processamento de Mídia e IA Local",
+  "category": "AI/LLM",
+  "tier": 3,
+  "summary": "Plataforma local via CLI para transcrição (Whisper), análise visual (FFmpeg keyframes/OCR) e síntese inteligente (Ollama deepseek-r1) de vídeos educacionais com RAG e busca vetorial.",
+  "techStack": ["Python", "Pydantic", "Ollama", "Whisper", "FFmpeg", "SQLite (FTS5)", "pgvector", "Pytest"],
+  "featured": false,
+  "detailKey": "learning_intelligence",
+  "overview": "Plataforma local orquestrada via CLI que transforma treinamentos em vídeo estáticos em uma base de conhecimento estruturada e pesquisável através de um pipeline robusto de 8 estágios. O sistema extrai áudio e keyframes visuais, realiza transcrição com timestamps exatos e executa síntese cognitiva com LLMs locais (Ollama / deepseek-r1). Gera dossiês em Markdown e nutre bancos relacionais/vetoriais para alimentarem o AI Tutor (busca híbrida RRF) e AI Copilot.",
+  "roleDescription": "AI Solutions Architect & Tech Lead — Desenho da arquitetura V2, engenharia de dados/pipeline e governança de IA.",
+  "responsibilities": [
+    "Modelagem de domínios via Pydantic e formalização da evolução do sistema através de 15 Architecture Decision Records (ADRs).",
+    "Construção do orquestrador End-to-End gerenciando ingestão, transcrição, análise visual e síntese hierárquica (Aula ➔ Módulo ➔ Curso).",
+    "Implementação do motor RAG com busca híbrida (textual e semântica com Reciprocal Rank Fusion) e integração nativa com modelos locais (Ollama / deepseek-r1).",
+    "Instituição do princípio Jidoka (Andon Cord) e criação do IsolationAuditorV5 para contenção de alucinações de IA."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Unificar motores variados (Visão Computacional, Áudio, LLM) em um pipeline resiliente a falhas sem perder horas de processamento de rede neural em grandes volumes de vídeos.",
+      "solution": "Implementação do padrão de Idempotência com cache inteligente (status SKIPPED para mídias/transcrições já processadas) e desvio em 0.05s, recombinando conhecimento hierarquicamente."
+    },
+    {
+      "challenge": "Migrar o legado V1 mantendo forte tipagem e eliminando acoplamentos antigos.",
+      "solution": "Criação de uma camada de compatibilidade estruturada com Pydantic isolando o legado da nova arquitetura de domínio limpa."
+    }
+  ],
+  "futureEvolution": [
+    "Desenvolvimento de interface gráfica Web ou Desktop (Electron/Tauri) sobre a CLI existente.",
+    "Suporte à ingestão e transcrição nativa de eventos ao vivo (streams RTMP) em tempo real."
+  ],
+  "architectureDiagramMermaid": "flowchart TD\n    RawVideos[\"🎬 Vídeos Brutos\"] --> CLI[\"⚙️ Orquestrador E2E\"]\n    CLI --> Media[\"🎵 Media Pipeline (FFmpeg)\"]\n    Media --> Audio[\"Áudio .mp3\"]\n    Media --> Frames[\"Keyframes & OCR\"]\n    Audio --> Whisper[\"🎙️ Transcrição (Whisper)\"]\n    Frames --> Vision[\"👁️ Vision Pipeline\"]\n    Whisper --> LessonIntel[\"🧠 Lesson Intelligence (Ollama local)\"]\n    Vision --> LessonIntel\n    LessonIntel --> Hierarchical[\"🏗️ Agregação Hierárquica\"]\n    Hierarchical --> Dossier[\"📚 Dossiê Markdown\"]\n    Hierarchical --> Storage[\"🗄️ Storage & Vetores (SQLite/pgvector)\"]\n    Storage --> AITutor[\"🤖 AI Tutor (RAG / RRF)\"]\n    Storage --> AICopilot[\"💻 AI Copilot\"]\n    QualityGate[\"🛡️ Auditor de Isolamento V5.1\"] -.->|Valida Proveniência ✅| Dossier",
+  "metrics": [
+    "106 testes unitários e de integração aprovados em apenas 1.25s",
+    "Redução de ~80% no espaço de armazenamento via compressão de vídeo H.265 (HEVC)",
+    "Fidelidade de 100% no Quality Gate sem alucinações via IsolationAuditorV5.1",
+    "Execução idempotente com desvio de cache em 0.05s"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A03:2021",
+      "title": "Injeção e Execução Arbitrária de Artefatos",
+      "description": "Abstrações estritas de subprocess no FFmpeg/FFprobe eliminando vulnerabilidades de injeção na manipulação de mídias externas corrompidas."
+    },
+    {
+      "code": "AI Security",
+      "title": "Privacidade por Design & Prevenção contra Alucinação / Prompt Injection",
+      "description": "Processamento 100% local com Whisper e Ollama. O IsolationAuditorV5.1 atrela cada afirmação da IA a evidências reais de timestamp/frame, garantindo isolamento total contra envenenamento de dados."
+    }
+  ]
+}

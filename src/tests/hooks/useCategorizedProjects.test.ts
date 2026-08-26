@@ -14,8 +14,10 @@ describe('useCategorizedProjects Custom Hook', () => {
     expect(result.current.tier1Projects.some((p) => p.id === 'eupizza')).toBe(true);
     // Verify Spider Hub is in Tier 2
     expect(result.current.tier2Projects.some((p) => p.id === 'spider-hub')).toBe(true);
-    // Verify Semantic Cache is in Tier 3
+    // Verify Semantic Cache, Learning Intelligence, and My Bookmarks are in Tier 3
     expect(result.current.tier3Projects.some((p) => p.id === 'semantic-cache')).toBe(true);
+    expect(result.current.tier3Projects.some((p) => p.id === 'learning-intelligence')).toBe(true);
+    expect(result.current.tier3Projects.some((p) => p.id === 'my-bookmarks')).toBe(true);
   });
 
   it('filters projects across all tiers by search query', () => {

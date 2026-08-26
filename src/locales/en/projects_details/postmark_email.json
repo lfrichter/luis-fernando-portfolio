@@ -31,5 +31,12 @@
   "architectureDiagramMermaid": "flowchart TD\n    Email[\"📧 E-mail Enviado (#prioridade, #concluir)\"] --> Webhook[\"📡 Postmark Inbound Webhook\"]\n    Webhook --> Parser[\"⚡ Parser Regex Hashtags (Laravel)\"]\n    Parser --> DB[(\"🗄️ PostgreSQL Database\")]\n    Parser --> UI[\"💻 Painel Reativo Livewire (Atualização Instantânea)\"]",
   "metrics": [
     "Sub-second task creation directly from email messages"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control (Inbound Webhook Verification)",
+      "description": "HMAC signature verification on Inbound Webhooks and user scope isolation for email-triggered commands."
+    }
   ]
 }

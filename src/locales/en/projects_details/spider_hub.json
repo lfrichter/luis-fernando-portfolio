@@ -35,5 +35,12 @@
   "metrics": [
     "Resilient processing of thousands of daily orders",
     "Zero overselling incidents with real-time synchronized stock levels"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A05:2021",
+      "title": "Security Misconfiguration",
+      "description": "Encrypted Redis token storage and strict HMAC signature verification for marketplace and Bling ERP webhooks."
+    }
   ]
 }

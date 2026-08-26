@@ -32,5 +32,17 @@
   "metrics": [
     "Preservação de 100% da privacidade do dono via Blind Contact Relay",
     "Geração de perfil inteligente com Gemini 2.0 Flash em tempo sub-segundo"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control (Blind Contact Relay)",
+      "description": "Blind Contact Relay via Resend API integrando Supabase com RLS — notificação anônima sem expor e-mail ou telefone do dono no front-end."
+    },
+    {
+      "code": "A07:2021",
+      "title": "Identification & Auth Failures",
+      "description": "Autenticação anônima de remetente no relé de e-mail sem expor tokens Supabase ou credenciais do proprietário no cliente."
+    }
   ]
 }

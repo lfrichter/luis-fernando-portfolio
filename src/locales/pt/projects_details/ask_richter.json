@@ -47,5 +47,17 @@
   "metrics": [
     "Busca por similaridade semântica respondendo em menos de 150ms",
     "100% de cobertura dos dados profissionais no formato RAG"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A04:2021",
+      "title": "Insecure Design (RAG Hallucination Containment)",
+      "description": "Engenharia de prompt RAG com injeção estrita de contexto vetorial recuperado para contenção de vazamentos e alucinações."
+    },
+    {
+      "code": "A09:2021",
+      "title": "Security Logging & Monitoring Failures",
+      "description": "Telemetria de pontuações de similaridade RAG e métricas de busca vetorial em tempo real para monitorar a relevância do contexto."
+    }
   ]
 }
