@@ -4,60 +4,68 @@
   "subtitle": "My Interactive AI CV (Full-Stack RAG Architecture)",
   "category": "AI/LLM",
   "tier": 1,
-  "summary": "Interactive chatbot using RAG (Retrieval-Augmented Generation), in-memory FAISS, LangChain.js, Node.js/Express, Supabase, Next.js, Shadcn/ui, and LLMs.",
+  "summary": "Interactive resume powered by hybrid RAG (FAISS + BM25), Node.js/Express, Next.js 15, Turborepo, and a multi-LLM ProviderFactory (Gemini, OpenRouter, HF, and local Ollama).",
   "techStack": [
+    "Next.js 15",
+    "React 19",
     "Node.js",
-    "TypeScript",
-    "LangChain.js",
+    "Express.js",
+    "Turborepo 2.x",
+    "LangChain",
     "FAISS",
-    "Supabase",
-    "Next.js",
-    "OpenAI",
-    "Docker",
+    "Supabase Storage",
+    "Gemini API",
+    "Ollama",
     "Render",
     "Vercel"
   ],
   "featured": true,
   "liveUrl": "https://ask-richter-frontend.vercel.app/",
   "detailKey": "ask_richter",
-  "overview": "The 'Ask Richter' project transforms a traditional resume into an interactive, intelligent conversational experience. It allows recruiters and tech leaders to explore my career trajectory in natural language with precise answers grounded in a vector knowledge base.",
-  "roleDescription": "Architect and Full-Stack Developer responsible for the RAG solution design, prompt engineering, vectorization, and frontend/backend implementation.",
+  "overview": "The **Ask Richter** project transforms a traditional static resume into an interactive, intelligent conversational experience. Instead of reading a lengthy document, recruiters and technical leaders can converse in natural language with an AI assistant specialized in my professional trajectory.\n\nConceived under the **SDLC-IA v2.0 Master Framework**, it serves as a production proof-of-concept for a hybrid, provider-agnostic Retrieval-Augmented Generation (RAG) architecture.\n\nThe architecture orchestrates a resilient ecosystem: the Node.js/Express backend hosts the FAISS vector index loaded into memory via Supabase Storage and manages inference through a *Design Pattern Factory*. The application prioritizes Google Gemini as the primary LLM, backed by a transparent fallback chain via OpenRouter, Hugging Face, and zero-cost local inference via Ollama (deepseek-r1:8b). The user interface is delivered via Next.js 15 (App Router) and React 19 on Vercel.",
+  "roleDescription": "As **AI Solutions Architect & Tech Lead**, I worked end-to-end on the construction and governance of the project, ensuring application lifecycle rigor from RAG architecture design and SDLC governance to Full-Stack development and Site Reliability Engineering (SRE).",
   "responsibilities": [
-    "Built LangChain.js indexing pipeline (DirectoryLoader, RecursiveCharacterTextSplitter) and vectorized content using OpenAI text-embedding-3-small.",
-    "Persisted and retrieved FAISS vector index via Supabase Storage.",
-    "Developed Node.js, Express, and TypeScript RESTful API with optimized semantic search endpoints.",
-    "Reactive Next.js App Router frontend styled with Shadcn/ui and Tailwind CSS, featuring Markdown response rendering with syntax highlighting.",
-    "CI/CD automation via GitHub Actions and containerized deployment using Docker on Render.com."
+    "RAG Architecture Design: Modeled data ingestion, chunk sanitization, and hybrid search (FAISS + BM25) to manage +29 software projects and career history.",
+    "Governance & SDLC: Instituted strict rules via Constitutional Meta Spec, scope isolation (WSCI), and monorepo orchestration using Turborepo 2.x.",
+    "Full-Stack Development: Built reactive frontend (Next.js 15, React 19, Tailwind, Framer Motion) and backend (Node.js, LangChain, ProviderFactory).",
+    "Reliability Engineering (SRE): Implemented Jidoka / Andon Cord validation pipeline preventing defective commits and fail-fast startup checks for embedding model dimension changes."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Fast semantic similarity search with minimal cloud infrastructure costs.",
-      "solution": "Pre-indexed Markdown documents in FAISS stored in Supabase Storage, loading the index into memory on Node.js container startup."
+      "challenge": "Broad Intent Routing where probabilistic vector search failed on complete listing requests.",
+      "solution": "Implemented a hybrid router triggering deterministic searches via docstore.json for pre-calculated synthetic chunks whenever broad queries (e.g., 'show all projects') are identified."
     },
     {
-      "challenge": "Concise and contextually accurate answers without LLM hallucination.",
-      "solution": "RAG prompt engineering strictly injecting vector search fragments with temperature controls."
+      "challenge": "Monorepo dependency tree conflicts (SSR/Hydration crashes between Next.js 14 and React 18/19).",
+      "solution": "Unified and locked strict version parity (Next.js 15.4.2 and React 19.1.0) across all Turborepo workspaces, stabilizing execution on Vercel."
     }
   ],
-  "architectureDiagramMermaid": "graph TD\n    subgraph Usuário\n        User[👨‍💻 Usuário no Navegador]\n    end\n    subgraph Nuvem Vercel\n        Frontend[\"⚛️ Frontend (Next.js)<br>ask-richter.vercel.app\"]\n    end\n    subgraph Nuvem Render.com\n        Backend[\"⚙️ Backend (Node.js/Express)<br>ask-richter.onrender.com\"]\n    end\n    subgraph Nuvem Supabase\n        SupabaseDB[\"📦 Supabase Storage<br>(Índice FAISS)\"]\n    end\n    subgraph Serviços de IA\n        OpenAI_API[\"🛰️ OpenAI API<br>(Embeddings)\"]\n        HF_API[\"🤗 Hugging Face API<br>(LLM em Produção)\"]\n    end\n    User -->|1. Pergunta em linguagem natural| Frontend\n    Frontend -->|2. Requisição para /api/chat| Backend\n    Backend -->|3. Download do Índice| SupabaseDB\n    Backend -->|4a. Gera Embedding| OpenAI_API\n    Backend -->|4b. Busca por Similaridade| faiss((FAISS em Memória))\n    faiss -->|5. Retorna Contexto| Backend\n    Backend -->|6. Envia Prompt| HF_API\n    HF_API -->|7. Retorna Resposta| Backend\n    Backend -->|8. Resposta para Frontend| Frontend\n    Frontend -->|9. Exibe ao Usuário| User",
+  "architectureDiagramMermaid": "graph TD\n    User[👨‍💻 User] -->|Interacts via Web| Frontend[\"⚛️ Next.js 15 (Vercel)\"]\n    Frontend -->|REST API Call| Backend[\"⚙️ Node.js Backend (Render)\"]\n    Backend -->|Strict Validation| StartupCheck{\"✅ Validate manifest.json<br>Fail-Fast\"}\n    StartupCheck -- Approves --> DB_Supabase\n    StartupCheck -- Rejects --> Halt[\"🛑 Halt Application\"]\n    DB_Supabase[(\"📦 Supabase Storage<br>(Index Persistence)\")] -->|FAISS Download| Vector_Memory[\"🧠 FAISS Vector DB<br>(In-Memory)\"]\n    Backend -->|Hybrid Search| Vector_Memory\n    Backend -->|Send Prompt + Context| AI_Factory{\"🌐 AI ProviderFactory<br>(Abstraction & Fallback)\"}\n    AI_Factory -->|1st Primary| Gemini[\"Gemini API\"]\n    AI_Factory -->|2nd Fallback| OpenRouter[\"OpenRouter\"]\n    AI_Factory -->|3rd Fallback| HuggingFace[\"Hugging Face\"]\n    AI_Factory -->|Dev / 4th Fallback| Ollama[\"Local Ollama\"]\n    classDef frontend fill:#E8DAEF,stroke:#8E44AD,stroke-width:2px;\n    classDef backend fill:#D5F5E3,stroke:#27AE60,stroke-width:2px;\n    classDef ai fill:#FDEDEC,stroke:#C0392B,stroke-width:2px;\n    classDef storage fill:#FEF9E7,stroke:#F1C40F,stroke-width:2px;\n    classDef governance fill:#D6EAF8,stroke:#2980B9,stroke-width:2px;\n    class Frontend frontend;\n    class Backend backend;\n    class AI_Factory,Gemini,OpenRouter,HuggingFace,Ollama ai;\n    class DB_Supabase,Vector_Memory storage;\n    class StartupCheck governance;",
   "futureEvolution": [
-    "Bidirectional voice support (STT and TTS).",
-    "Real-time telemetry integration with OpenTelemetry."
+    "Planned integration of the Groq engine into the ProviderFactory layer to enable extreme inference acceleration (reducing Time-To-First-Token).",
+    "Potential vector storage migration from FAISS in-memory to a fully-managed vector database (e.g., Supabase Vector / pgvector) as content volume scales."
   ],
   "metrics": [
-    "Semantic similarity search responded in under 150ms",
-    "100% professional data coverage in RAG format"
+    "High Availability via Tiered AI (4 fault-tolerance levels: Gemini ➔ OpenRouter ➔ Hugging Face ➔ Ollama)",
+    "Latency & Startup Fail-Fast: Strict manifest.json validation eliminating 100% of silent embedding dimension mismatch errors",
+    "Zero Dev Cost: 100% local dev environment running deepseek-r1:8b via Ollama coupled with Google Free Tier cloud infrastructure",
+    "RAG Search & Context: Hybrid routing deterministically filtering a catalog of +29 software projects"
   ],
   "owaspMitigations": [
     {
       "code": "A04:2021",
-      "title": "Insecure Design (RAG Hallucination Containment)",
-      "description": "RAG prompt engineering with strict context injection from vector search for hallucination and prompt leak containment."
+      "title": "Insecure Design (Context Poisoning & Scope Bleed Prevention)",
+      "description": "Boolean validation rules (e.g., isSoftwareProject) preventing scope bleed so certification data is not mixed into project metrics."
     },
     {
-      "code": "A09:2021",
-      "title": "Security Logging & Monitoring Failures",
-      "description": "Real-time RAG similarity score telemetry and vector search metrics monitoring context relevance."
+      "code": "A03:2021",
+      "title": "Prompt Injection / DoS & Resource Exhaustion",
+      "description": "Resource abuse control via request rate limiting with exponential backoff mechanisms and seamless fallback chain transitions."
+    },
+    {
+      "code": "A02:2021",
+      "title": "Cryptographic Failures (Secrets Protection)",
+      "description": "Strict backend abstraction ensuring API keys and SUPABASE_SERVICE_ROLE_KEY never leak to the client side, managed in Render and Vercel vaults."
     }
   ]
 }

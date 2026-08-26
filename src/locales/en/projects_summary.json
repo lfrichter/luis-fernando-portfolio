@@ -27,8 +27,8 @@
     "subtitle": "My Interactive AI CV (Full-Stack RAG Architecture)",
     "category": "AI/LLM",
     "tier": 1,
-    "summary": "Interactive chatbot using RAG (Retrieval-Augmented Generation), in-memory FAISS, LangChain.js, Node.js/Express, Supabase, Next.js, Shadcn/ui, and LLMs.",
-    "techStack": ["Node.js", "TypeScript", "LangChain.js", "FAISS", "Supabase", "Next.js", "OpenAI", "Docker"],
+    "summary": "Interactive resume powered by hybrid RAG (FAISS + BM25), Node.js/Express, Next.js 15, Turborepo 2.x, and a multi-LLM ProviderFactory (Gemini, OpenRouter, HF, and local Ollama).",
+    "techStack": ["Next.js 15", "React 19", "Node.js", "Express.js", "Turborepo 2.x", "LangChain", "FAISS", "Supabase Storage", "Gemini API", "Ollama", "Render", "Vercel"],
     "featured": true,
     "liveUrl": "https://ask-richter-frontend.vercel.app/",
     "detailKey": "ask_richter"
