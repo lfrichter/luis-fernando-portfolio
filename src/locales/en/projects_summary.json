@@ -6,7 +6,17 @@
     "category": "AI/LLM",
     "tier": 1,
     "summary": "Intelligent voice agent for restaurants. Real-time WebRTC/SIP communication via LiveKit, Deepgram STT, GPT-4o-mini LLM, ElevenLabs TTS, and menu OCR with Pytesseract.",
-    "techStack": ["Python", "FastAPI/Flask", "LiveKit", "WebRTC", "Deepgram STT", "OpenAI", "ElevenLabs", "Docker Swarm", "Supabase"],
+    "techStack": [
+      "Python",
+      "FastAPI/Flask",
+      "LiveKit",
+      "WebRTC",
+      "Deepgram STT",
+      "OpenAI",
+      "ElevenLabs",
+      "Docker Swarm",
+      "Supabase"
+    ],
     "featured": true,
     "detailKey": "eupizza"
   },
@@ -17,7 +27,16 @@
     "category": "SaaS",
     "tier": 1,
     "summary": "Automated short and long-form video creation platform powered by AI. Next.js App Router frontend with httpOnly JWT cookies and Java / Spring Boot backend API.",
-    "techStack": ["Next.js", "React", "TypeScript", "Java", "Spring Boot", "Axios", "Tailwind CSS", "Vitest"],
+    "techStack": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Java",
+      "Spring Boot",
+      "Axios",
+      "Tailwind CSS",
+      "Vitest"
+    ],
     "featured": true,
     "detailKey": "smart_shorts"
   },
@@ -28,7 +47,20 @@
     "category": "AI/LLM",
     "tier": 1,
     "summary": "Interactive resume powered by hybrid RAG (FAISS + BM25), Node.js/Express, Next.js 15, Turborepo 2.x, and a multi-LLM ProviderFactory (Gemini, OpenRouter, HF, and local Ollama).",
-    "techStack": ["Next.js 15", "React 19", "Node.js", "Express.js", "Turborepo 2.x", "LangChain", "FAISS", "Supabase Storage", "Gemini API", "Ollama", "Render", "Vercel"],
+    "techStack": [
+      "Next.js 15",
+      "React 19",
+      "Node.js",
+      "Express.js",
+      "Turborepo 2.x",
+      "LangChain",
+      "FAISS",
+      "Supabase Storage",
+      "Gemini API",
+      "Ollama",
+      "Render",
+      "Vercel"
+    ],
     "featured": true,
     "liveUrl": "https://ask-richter-frontend.vercel.app/",
     "detailKey": "ask_richter"
@@ -40,19 +72,39 @@
     "category": "Full Stack",
     "tier": 1,
     "summary": "National Registry of Birdwatchers. Modular Monolith (Vertical Slice) in React/Vite/TS with Serverless Supabase PostgreSQL backend, Edge Functions, and RLS.",
-    "techStack": ["React", "Vite", "TypeScript", "Supabase", "PostgreSQL", "RLS", "Vertical Slice", "Vercel", "Tailwind CSS", "Cypress"],
+    "techStack": [
+      "React",
+      "Vite",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL",
+      "RLS",
+      "Vertical Slice",
+      "Vercel",
+      "Tailwind CSS",
+      "Cypress"
+    ],
     "featured": true,
     "liveUrl": "http://www.canaoaves.com.br",
     "detailKey": "canaoaves"
   },
   {
     "id": "sdlc-ia",
-    "title": "AI-Driven SDLC Framework v2.0 Master",
-    "subtitle": "Spec-as-Code Ecosystem, Ruflo Swarm Orchestration, WSCI Context Engineering & Jidoka",
+    "title": "AI Engineering Framework v2.1 Master",
+    "subtitle": "Universal Agentic Architecture: Modular Adapters (Claw Code Rust, Ollama), Plugins (ECC, Karpathy, Ruflo), WSCI & Jidoka",
     "category": "AI/LLM",
     "tier": 1,
-    "summary": "AI-driven software engineering ecosystem integrating the Spec-as-Code paradigm (META SPEC), swarm topology (Ruflo), WSCI context engineering, and Jidoka quality gates (Andon Cord).",
-    "techStack": ["Spec-as-Code (META SPEC)", "WSCI Framework", "Ruflo (Swarm Topology)", "Open Design (MCP)", "Jidoka & Superpowers", "Git Worktrees", "Gemini 2.5 Pro", "Cursor IDE"],
+    "summary": "Universal agentic engineering constitution decoupled with a Modular Adapter layer (Claw Code CLI in Rust, Model Ollama, Git Worktrees), plugin ecosystem (Everything Claude Code, Karpathy Guidelines, Ruflo, Superpowers), Spec-as-Code governance, and automated bootstrap.",
+    "techStack": [
+      "AI Engineering Framework v2.1",
+      "Spec-as-Code (META_SPEC)",
+      "Claw Code Adapter (Rust/Python)",
+      "Adapters Layer (CLI, Model, Isolation, Verification)",
+      "Ollama (Local LLMs) & Google Gemini",
+      "Plugins: ECC, Karpathy, Ruflo & Superpowers",
+      "WSCI & SPARC+DD Lifecycle",
+      "Git Worktrees & Jidoka (Andon Cord)"
+    ],
     "featured": true,
     "detailKey": "sdlc_ia"
   },
@@ -63,7 +115,16 @@
     "category": "Architecture & Performance",
     "tier": 2,
     "summary": "Centralized PHP/Laravel hub to unify orders across Mercado Livre, B2W, Via Varejo, and Bling ERP. Redis asynchronous queue workers and MongoDB single source of truth.",
-    "techStack": ["PHP", "Laravel", "Redis", "Horizon", "MongoDB", "Bling ERP Webhooks", "AWS S3", "Docker"],
+    "techStack": [
+      "PHP",
+      "Laravel",
+      "Redis",
+      "Horizon",
+      "MongoDB",
+      "Bling ERP Webhooks",
+      "AWS S3",
+      "Docker"
+    ],
     "featured": false,
     "detailKey": "spider_hub"
   },
@@ -74,7 +135,15 @@
     "category": "Architecture & Performance",
     "tier": 2,
     "summary": "React dashboards for 200k+ geospatial map points using Superfetch (30x faster) and Laravel Horizon queues (500x faster trip processing), integrated with Power BI.",
-    "techStack": ["Laravel", "React", "Laravel Horizon", "Redis", "Superfetch", "Google Geocoding", "Power BI"],
+    "techStack": [
+      "Laravel",
+      "React",
+      "Laravel Horizon",
+      "Redis",
+      "Superfetch",
+      "Google Geocoding",
+      "Power BI"
+    ],
     "featured": false,
     "detailKey": "toot"
   },
@@ -85,7 +154,14 @@
     "category": "Architecture & Performance",
     "tier": 2,
     "summary": "10x performance improvement in web page rendering, parallel test suite execution with Laravel Dusk and Selenium across UK real estate platform.",
-    "techStack": ["Laravel", "Vue.js", "Laravel Dusk", "Selenium", "SQL Tuning", "DeployHQ"],
+    "techStack": [
+      "Laravel",
+      "Vue.js",
+      "Laravel Dusk",
+      "Selenium",
+      "SQL Tuning",
+      "DeployHQ"
+    ],
     "featured": false,
     "detailKey": "shosales"
   },
@@ -96,7 +172,14 @@
     "category": "Full Stack",
     "tier": 2,
     "summary": "High-performance RESTful API designed with Clean Architecture, SOLID principles, and automated testing for managing favorite product lists.",
-    "techStack": ["TypeScript", "Node.js", "Clean Architecture", "SOLID", "Jest", "Docker"],
+    "techStack": [
+      "TypeScript",
+      "Node.js",
+      "Clean Architecture",
+      "SOLID",
+      "Jest",
+      "Docker"
+    ],
     "featured": false,
     "detailKey": "favorite_products"
   },
@@ -107,7 +190,13 @@
     "category": "Full Stack",
     "tier": 2,
     "summary": "Modular event-driven Laravel platform for website registration, automated Web Push notification delivery, integrated with OneSignal and Pagar.me.",
-    "techStack": ["Laravel", "Event-Driven", "OneSignal", "Pagar.me", "MySQL"],
+    "techStack": [
+      "Laravel",
+      "Event-Driven",
+      "OneSignal",
+      "Pagar.me",
+      "MySQL"
+    ],
     "featured": false,
     "detailKey": "onepush"
   },
@@ -118,7 +207,18 @@
     "category": "AI/LLM",
     "tier": 2,
     "summary": "Autonomous Python 3.11 orchestrator with Modular Monolith architecture and Flask Microservice. SQLite 3.45 DB (content.db), ElevenLabs, local Coqui TTS (cloning), Replicate (SDXL), Pixabay, local Whisper, 2-stage FFmpeg, and launchd.",
-    "techStack": ["Python", "Flask", "SQLite", "OpenAI API", "ElevenLabs", "Coqui TTS", "Replicate (SDXL)", "Whisper", "FFmpeg", "YouTube API"],
+    "techStack": [
+      "Python",
+      "Flask",
+      "SQLite",
+      "OpenAI API",
+      "ElevenLabs",
+      "Coqui TTS",
+      "Replicate (SDXL)",
+      "Whisper",
+      "FFmpeg",
+      "YouTube API"
+    ],
     "featured": false,
     "detailKey": "video_factory"
   },
@@ -129,7 +229,13 @@
     "category": "PoC & Open Source",
     "tier": 3,
     "summary": "100% local semantic cache in Python. Generates embeddings using Ollama and performs in-memory similarity search with FAISS and NumPy.",
-    "techStack": ["Python", "FAISS", "Ollama", "NumPy", "Vector Search"],
+    "techStack": [
+      "Python",
+      "FAISS",
+      "Ollama",
+      "NumPy",
+      "Vector Search"
+    ],
     "featured": false,
     "detailKey": "semantic_cache"
   },
@@ -140,7 +246,13 @@
     "category": "PoC & Open Source",
     "tier": 3,
     "summary": "PySpark and SQLite ETL pipeline consolidating video rendering jobs, scripts, and segments, interactively analyzed in Jupyter Notebook.",
-    "techStack": ["Python", "PySpark", "SQLite", "Jupyter Notebook", "Pandas"],
+    "techStack": [
+      "Python",
+      "PySpark",
+      "SQLite",
+      "Jupyter Notebook",
+      "Pandas"
+    ],
     "featured": false,
     "detailKey": "pyspark"
   },
@@ -151,7 +263,13 @@
     "category": "PoC & Open Source",
     "tier": 3,
     "summary": "Transforms incoming emails via Postmark Inbound Webhooks into actionable Laravel tasks using hashtags (#priority, #done) with reactive Livewire UI.",
-    "techStack": ["Laravel", "Livewire", "Postmark API", "Pest", "Tailwind CSS"],
+    "techStack": [
+      "Laravel",
+      "Livewire",
+      "Postmark API",
+      "Pest",
+      "Tailwind CSS"
+    ],
     "featured": false,
     "githubUrl": "https://github.com/lfrichter/Interactive-email-management",
     "detailKey": "postmark_email"
@@ -163,7 +281,12 @@
     "category": "PoC & Open Source",
     "tier": 3,
     "summary": "Performance benchmark suite simulating high-traffic e-commerce microservices and profiling latency bottlenecks using k6 and JMeter.",
-    "techStack": ["k6", "JMeter", "Performance Profiling", "Load Testing"],
+    "techStack": [
+      "k6",
+      "JMeter",
+      "Performance Profiling",
+      "Load Testing"
+    ],
     "featured": false,
     "detailKey": "ecommerce_k6"
   },
@@ -174,7 +297,12 @@
     "category": "PoC & Open Source",
     "tier": 3,
     "summary": "Frontend reactive state architecture experiment and game rule engine implemented in TypeScript.",
-    "techStack": ["TypeScript", "Vue.js", "Pinia", "State Management"],
+    "techStack": [
+      "TypeScript",
+      "Vue.js",
+      "Pinia",
+      "State Management"
+    ],
     "featured": false,
     "detailKey": "twin_quest"
   },
@@ -185,7 +313,16 @@
     "category": "PoC & Open Source",
     "tier": 3,
     "summary": "Open Source platform featuring AI profile generator (Gemini 2.0 Flash), collar QR Codes, and privacy-first Blind Contact Relay (Resend API).",
-    "techStack": ["React 19", "Vite 6", "TypeScript", "Supabase", "PostgreSQL", "RLS", "Gemini 2.0", "Resend API"],
+    "techStack": [
+      "React 19",
+      "Vite 6",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL",
+      "RLS",
+      "Gemini 2.0",
+      "Resend API"
+    ],
     "featured": false,
     "githubUrl": "https://github.com/lfrichter/cat-guardian",
     "liveUrl": "https://cat-guardian-two.vercel.app/",
@@ -198,7 +335,16 @@
     "category": "AI/LLM",
     "tier": 3,
     "summary": "Local CLI platform for transcription (Whisper), visual analysis (FFmpeg keyframes/OCR), and intelligent synthesis (Ollama deepseek-r1) of video lectures with RAG and vector search.",
-    "techStack": ["Python", "Pydantic", "Ollama", "Whisper", "FFmpeg", "SQLite (FTS5)", "pgvector", "Pytest"],
+    "techStack": [
+      "Python",
+      "Pydantic",
+      "Ollama",
+      "Whisper",
+      "FFmpeg",
+      "SQLite (FTS5)",
+      "pgvector",
+      "Pytest"
+    ],
     "featured": false,
     "detailKey": "learning_intelligence"
   },
@@ -209,7 +355,16 @@
     "category": "AI/LLM",
     "tier": 3,
     "summary": "Chrome bookmark data pipeline with Canonical Domain Model, local AI classification (Ollama qwen2.5/deepseek-r1), RAG engine, and zero-conflict bidirectional reconciliation.",
-    "techStack": ["TypeScript", "Node.js", "Commander", "Cheerio", "Zod", "Ollama", "Vitest", "SHA-256"],
+    "techStack": [
+      "TypeScript",
+      "Node.js",
+      "Commander",
+      "Cheerio",
+      "Zod",
+      "Ollama",
+      "Vitest",
+      "SHA-256"
+    ],
     "featured": false,
     "detailKey": "my_bookmarks"
   }
