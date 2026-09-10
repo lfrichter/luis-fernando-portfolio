@@ -161,7 +161,7 @@ export const OwaspMatrixModal: React.FC<OwaspMatrixModalProps> = ({
             : 'SIP telephony flood protection and rate limiting implementation to prevent Denial of Service (DoS) attacks.',
         },
         {
-          name: 'Framework v2.0 Master',
+          name: 'AI Engineering Framework V2.1 Master',
           detailKey: 'sdlc_ia',
           mitigation: isPt
             ? 'Execução de agentes de IA sob arquitetura Zero-Trust em ambientes isolados (Git Worktrees) e mecanismos Jidoka/Andon.'
@@ -171,8 +171,8 @@ export const OwaspMatrixModal: React.FC<OwaspMatrixModalProps> = ({
           name: 'Ask Richter',
           detailKey: 'ask_richter',
           mitigation: isPt
-            ? 'Engenharia de prompt RAG com injeção estrita de contexto vetorial recuperado para contenção de vazamentos e alucinações.'
-            : 'RAG prompt engineering with strict context injection from vector search for hallucination and prompt leak containment.',
+            ? 'Constituição dos Agentes com limites operacionais estritos, workspaces segregados e aprovação humana mandatória.'
+            : 'Constitutional Agent Governance with strict operational boundaries, segregated workspaces, and mandatory human gates.',
         },
         {
           name: 'Learning Intelligence V2',
@@ -339,8 +339,8 @@ export const OwaspMatrixModal: React.FC<OwaspMatrixModalProps> = ({
           name: 'Ask Richter',
           detailKey: 'ask_richter',
           mitigation: isPt
-            ? 'Telemetria de pontuações de similaridade RAG e métricas de busca vetorial em tempo real para monitorar a relevância do contexto.'
-            : 'Real-time RAG similarity score telemetry and vector search metrics monitoring context relevance.',
+            ? 'Telemetria de relevância RAG e monitoramento de SLA de 300s no ciclo de cold-start/unpause do Supabase.'
+            : 'RAG relevance telemetry and 300s SLA monitoring for the Supabase database cold-start/unpause lifecycle.',
         },
       ],
     },

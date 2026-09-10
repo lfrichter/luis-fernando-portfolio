@@ -1,71 +1,65 @@
 {
   "id": "ask-richter",
   "title": "Ask Richter",
-  "subtitle": "My Interactive AI CV (Full-Stack RAG Architecture)",
+  "subtitle": "My Interactive AI CV (100% Serverless RAG Architecture)",
   "category": "AI/LLM",
   "tier": 1,
-  "summary": "Interactive resume powered by hybrid RAG (FAISS + BM25), Node.js/Express, Next.js 15, Turborepo, and a multi-LLM ProviderFactory (Gemini, OpenRouter, HF, and local Ollama).",
+  "summary": "Interactive resume powered by 100% Serverless RAG, Next.js 15, React 19, Supabase, pure TypeScript hybrid vector and lexical search (TSVectorStore), and multilingual M15 engine.",
   "techStack": [
-    "Next.js 15",
+    "Next.js 15 (App Router)",
     "React 19",
-    "Node.js",
-    "Express.js",
+    "TypeScript",
+    "Supabase",
+    "Supabase Management API",
+    "Google GenAI (Gemini)",
+    "Ollama (Local)",
     "Turborepo 2.x",
-    "LangChain",
-    "FAISS",
-    "Supabase Storage",
-    "Gemini API",
-    "Ollama",
-    "Render",
-    "Vercel"
+    "Tailwind CSS",
+    "Framer Motion"
   ],
   "featured": true,
   "liveUrl": "https://ask-richter-frontend.vercel.app/",
   "detailKey": "ask_richter",
-  "overview": "The **Ask Richter** project transforms a traditional static resume into an interactive, intelligent conversational experience. Instead of reading a lengthy document, recruiters and technical leaders can converse in natural language with an AI assistant specialized in my professional trajectory.\n\nConceived under the **SDLC-IA v2.0 Master Framework**, it serves as a production proof-of-concept for a hybrid, provider-agnostic Retrieval-Augmented Generation (RAG) architecture.\n\nThe architecture orchestrates a resilient ecosystem: the Node.js/Express backend hosts the FAISS vector index loaded into memory via Supabase Storage and manages inference through a *Design Pattern Factory*. The application prioritizes Google Gemini as the primary LLM, backed by a transparent fallback chain via OpenRouter, Hugging Face, and zero-cost local inference via Ollama (deepseek-r1:8b). The user interface is delivered via Next.js 15 (App Router) and React 19 on Vercel.",
-  "roleDescription": "As **AI Solutions Architect & Tech Lead**, I worked end-to-end on the construction and governance of the project, ensuring application lifecycle rigor from RAG architecture design and SDLC governance to Full-Stack development and Site Reliability Engineering (SRE).",
+  "overview": "A traditional resume tells what you did in the past, but what if it could converse, reason, and demonstrate your knowledge in real time? Ask Richter was born from this premise: transforming a static professional career into a dynamic and interactive dialogue experience. It is an AI chatbot specialized in my career, built on a 100% Serverless Retrieval-Augmented Generation (RAG) architecture.\n\nMore than just a portfolio, this project is a 'SaaS-like' application and a practical demonstration of the AI Engineering Framework v2.1. Powered by a multilingual RAG engine (M15), the platform detects the user's language (Portuguese, English, or Spanish) and orchestrates vector and lexical searches to formulate factual and precise responses. The entire architecture was engineered to run on the Vercel cloud (Next.js App Router) communicating with Supabase and provider-agnostic AI engines (such as Gemini and local Ollama), combining product innovation with strict governance, scope isolation (WSCI), and infrastructure resilience.",
+  "roleDescription": "As AI Solutions Architect & Full-Stack Developer, I worked end-to-end on the project, taking on the following key responsibilities:",
   "responsibilities": [
-    "RAG Architecture Design: Modeled data ingestion, chunk sanitization, and hybrid search (FAISS + BM25) to manage +29 software projects and career history.",
-    "Governance & SDLC: Instituted strict rules via Constitutional Meta Spec, scope isolation (WSCI), and monorepo orchestration using Turborepo 2.x.",
-    "Full-Stack Development: Built reactive frontend (Next.js 15, React 19, Tailwind, Framer Motion) and backend (Node.js, LangChain, ProviderFactory).",
-    "Reliability Engineering (SRE): Implemented Jidoka / Andon Cord validation pipeline preventing defective commits and fail-fast startup checks for embedding model dimension changes."
+    "Software & Cloud Architect: Designed the 100% Serverless architecture (ADR-0007/0008), eliminating complex native dependencies and ensuring minimal operating costs.",
+    "AI Engineer: Implemented the Hybrid RAG layer (Vector and Lexical search), integrated the Provider-Agnostic ecosystem (Gemini, OpenRouter, Ollama), and developed multilingual intelligence.",
+    "Frontend Developer: Built a modern, reactive, and resilient UI/UX with React 19, Next.js 15, and Framer Motion, ensuring smooth visual feedback even during database cold-starts.",
+    "Reliability Engineer (SRE/DevOps): Established strict governance protocols (Zero-Trust, Jidoka/Andon Cord) and the Turborepo CI/CD pipeline."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Broad Intent Routing where probabilistic vector search failed on complete listing requests.",
-      "solution": "Implemented a hybrid router triggering deterministic searches via docstore.json for pre-calculated synthetic chunks whenever broad queries (e.g., 'show all projects') are identified."
-    },
-    {
-      "challenge": "Monorepo dependency tree conflicts (SSR/Hydration crashes between Next.js 14 and React 18/19).",
-      "solution": "Unified and locked strict version parity (Next.js 15.4.2 and React 19.1.0) across all Turborepo workspaces, stabilizing execution on Vercel."
+      "challenge": "Volatility of free-tier cloud services, specifically Supabase inactivity pauses that severely degraded the user experience with unpredictable cold starts.",
+      "solution": "Designed the Operational State Machine (ADR-0009) featuring 7 strict operational states and the Golden Rule of Non-Inference of Pause. When a real pause is detected, the platform orchestrates automated server-side unpausing via the Supabase Management API with sequential polling, progressive backoff, and UI idempotency locks."
     }
   ],
-  "architectureDiagramMermaid": "graph TD\n    User[👨‍💻 User] -->|Interacts via Web| Frontend[\"⚛️ Next.js 15 (Vercel)\"]\n    Frontend -->|REST API Call| Backend[\"⚙️ Node.js Backend (Render)\"]\n    Backend -->|Strict Validation| StartupCheck{\"✅ Validate manifest.json<br>Fail-Fast\"}\n    StartupCheck -- Approves --> DB_Supabase\n    StartupCheck -- Rejects --> Halt[\"🛑 Halt Application\"]\n    DB_Supabase[(\"📦 Supabase Storage<br>(Index Persistence)\")] -->|FAISS Download| Vector_Memory[\"🧠 FAISS Vector DB<br>(In-Memory)\"]\n    Backend -->|Hybrid Search| Vector_Memory\n    Backend -->|Send Prompt + Context| AI_Factory{\"🌐 AI ProviderFactory<br>(Abstraction & Fallback)\"}\n    AI_Factory -->|1st Primary| Gemini[\"Gemini API\"]\n    AI_Factory -->|2nd Fallback| OpenRouter[\"OpenRouter\"]\n    AI_Factory -->|3rd Fallback| HuggingFace[\"Hugging Face\"]\n    AI_Factory -->|Dev / 4th Fallback| Ollama[\"Local Ollama\"]\n    classDef frontend fill:#E8DAEF,stroke:#8E44AD,stroke-width:2px;\n    classDef backend fill:#D5F5E3,stroke:#27AE60,stroke-width:2px;\n    classDef ai fill:#FDEDEC,stroke:#C0392B,stroke-width:2px;\n    classDef storage fill:#FEF9E7,stroke:#F1C40F,stroke-width:2px;\n    classDef governance fill:#D6EAF8,stroke:#2980B9,stroke-width:2px;\n    class Frontend frontend;\n    class Backend backend;\n    class AI_Factory,Gemini,OpenRouter,HuggingFace,Ollama ai;\n    class DB_Supabase,Vector_Memory storage;\n    class StartupCheck governance;",
   "futureEvolution": [
-    "Planned integration of the Groq engine into the ProviderFactory layer to enable extreme inference acceleration (reducing Time-To-First-Token).",
-    "Potential vector storage migration from FAISS in-memory to a fully-managed vector database (e.g., Supabase Vector / pgvector) as content volume scales."
+    "RAG Relevance Telemetry: Implement dashboards and implicit user feedback metrics to continuously fine-tune the accuracy of AI-retrieved chunks.",
+    "Continuous Integration with Local Agents: Expand the CI/CD pipeline so the Jidoka engine autonomously runs complex exploratory request simulations using local Ollama models before production deployments."
   ],
+  "architectureDiagramMermaid": "flowchart TD\n    User[\"👨‍💻 User in Browser\"] --> Frontend[\"⚛️ UI & App Router<br>ask-richter-frontend.vercel.app\"]\n    \n    Frontend -- \"2. Checks availability\" --> StatusApi[\"🔍 /api/supabase/status<br>Status Classifier\"]\n    StatusApi -- \"3. Health ping ✅\" --> SupabaseREST[\"📦 Supabase REST / Storage\"]\n    \n    Frontend -. \"4. If paused: request restore\" .-> RestoreApi[\"⚡ /api/supabase/restore\"]\n    RestoreApi -- \"5. Server-Side Unpause 🔐\" --> SupabaseMgmt[\"🔐 Supabase Management API\"]\n    RestoreApi -. \"6. Polling + Backoff\" .-> StatusApi\n    \n    Frontend -- \"7. Query (PT/EN/ES)\" --> ChatApi[\"🤖 /api/chat<br>Serverless RAG Engine\"]\n    ChatApi -- \"8. Vector & Lexical Search\" --> SupabaseREST\n    ChatApi -- \"9. Aligned Response Generation\" --> GeminiAPI[\"🌐 Google GenAI API\"]\n    ChatApi -- \"10. Real-time Response\" --> User\n\n    style User fill:#D6EAF8,stroke:#3498DB\n    style Frontend fill:#E8DAEF,stroke:#9B59B6\n    style StatusApi fill:#D5F5E3,stroke:#2ECC71\n    style RestoreApi fill:#D5F5E3,stroke:#2ECC71\n    style ChatApi fill:#D5F5E3,stroke:#2ECC71\n    style SupabaseREST fill:#FEF9E7,stroke:#F1C40F\n    style SupabaseMgmt fill:#FEF9E7,stroke:#F1C40F\n    style GeminiAPI fill:#FDEDEC,stroke:#E74C3C",
   "metrics": [
-    "High Availability via Tiered AI (4 fault-tolerance levels: Gemini ➔ OpenRouter ➔ Hugging Face ➔ Ollama)",
-    "Latency & Startup Fail-Fast: Strict manifest.json validation eliminating 100% of silent embedding dimension mismatch errors",
-    "Zero Dev Cost: 100% local dev environment running deepseek-r1:8b via Ollama coupled with Google Free Tier cloud infrastructure",
-    "RAG Search & Context: Hybrid routing deterministically filtering a catalog of +29 software projects"
+    "Minimized Infrastructure Costs: 100% Serverless architecture eliminating 24/7 dedicated servers, leveraging Vercel, Supabase, and Google AI Free Tiers",
+    "High Resilience & Calibrated SLA: Strict 300-second SLA calibrated in production for the database unpause/cold-start cycle with full user transparency",
+    "Quality & Test Coverage: Protected by a suite of 65 automated tests across 8 critical modules (resilience, routing, vector parity, and M15)",
+    "Performance & UX Engineering: Total elimination of C++ vector search dependencies, replaced by pure TypeScript implementations (TSVectorStore and SimpleTfIdf)"
   ],
   "owaspMitigations": [
     {
-      "code": "A04:2021",
-      "title": "Insecure Design (Context Poisoning & Scope Bleed Prevention)",
-      "description": "Boolean validation rules (e.g., isSoftwareProject) preventing scope bleed so certification data is not mixed into project metrics."
-    },
-    {
-      "code": "A03:2021",
-      "title": "Prompt Injection / DoS & Resource Exhaustion",
-      "description": "Resource abuse control via request rate limiting with exponential backoff mechanisms and seamless fallback chain transitions."
-    },
-    {
       "code": "A02:2021",
-      "title": "Cryptographic Failures (Secrets Protection)",
-      "description": "Strict backend abstraction ensuring API keys and SUPABASE_SERVICE_ROLE_KEY never leak to the client side, managed in Render and Vercel vaults."
+      "title": "Cryptographic Failures (Strict Credential Isolation)",
+      "description": "Communication with the Supabase Management API is strictly server-side (via /api/supabase/restore). The administrative token (SUPABASE_MANAGEMENT_TOKEN) remains 100% isolated from the browser under the principle of least privilege."
+    },
+    {
+      "code": "A10:2021",
+      "title": "Server-Side Request Forgery / SSRF (Secure Routing Invariants)",
+      "description": "Implementation of Production Routing Invariants (Zero Render Fallback) with automatic runtime URL sanitization to force exclusive use of native relative Vercel routes, blocking malicious redirects."
+    },
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control (Zero-Trust Agent Governance)",
+      "description": "The Constitutional Agent Specification defines strict operational boundaries for AI during development, using segregated workspaces and two-phase execution (Plan and Execution) requiring mandatory Human Gates."
     }
   ]
 }

@@ -99,7 +99,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
                   <Cpu className="w-5 h-5 text-primary" /> {t('modal.overviewTitle')}
                 </h3>
-                <p className="text-slate-600 dark:text-zinc-300 text-sm md:text-base leading-relaxed">
+                <p className="text-slate-600 dark:text-zinc-300 text-sm md:text-base leading-relaxed whitespace-pre-line">
                   {detail.overview}
                 </p>
               </div>

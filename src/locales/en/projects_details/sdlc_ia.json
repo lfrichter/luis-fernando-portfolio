@@ -1,14 +1,14 @@
 {
   "id": "sdlc-ia",
-  "title": "AI Engineering Framework v2.1 Master",
-  "subtitle": "Universal Agentic Architecture: Modular Adapters (Claw Code Rust, Ollama), Plugins (ECC, Karpathy, Ruflo), WSCI & Jidoka",
+  "title": "AI Engineering Framework V2.1 Master",
+  "subtitle": "Universal Agentic Architecture: Spec-as-Code Governance, Modular Adapters (Claw Code Rust, Ollama), WSCI & Jidoka",
   "category": "AI/LLM",
   "tier": 1,
   "summary": "Universal agentic engineering constitution decoupled with a Modular Adapter layer (Claw Code CLI in Rust, Model Ollama, Git Worktrees), plugin ecosystem (Everything Claude Code, Karpathy Guidelines, Ruflo, Superpowers), Spec-as-Code governance, and automated bootstrap.",
   "techStack": [
     "AI Engineering Framework v2.1",
     "Spec-as-Code (META_SPEC)",
-    "Claw Code Adapter (Rust/Python)",
+    "Claw Code Adapter (~73% Rust + Python)",
     "Adapters Layer (CLI, Model, Isolation, Verification)",
     "Ollama (Local LLMs) & Google Gemini",
     "Plugins: ECC, Karpathy, Ruflo & Superpowers",
@@ -17,48 +17,45 @@
   ],
   "featured": true,
   "detailKey": "sdlc_ia",
-  "overview": "The AI Engineering Framework v2.1 Master is a Universal Agentic Engineering Constitution designed to transform stochastic AI models into deterministic, disciplined operational team members. Version 2.1 introduces a formal decoupled Adapter Architecture across 5 essential categories (CLI, Model, Isolation, Verification, and Orchestration), strictly separating core principles and governance from execution technologies. The ecosystem natively integrates Claw Code (a high-performance clean-room rewrite with ~73% native Rust and async Python orchestration, 19 native tools, and MCP across 6 transports), zero-cost local models via Ollama, a rich ecosystem of first-class plugins and guides (Everything Claude Code / ECC, Andrej Karpathy Software 2.0 Guidelines, Ruflo Swarm Topology, Superpowers, and Open Design MCP), automated bootstrap workflows (bootstrap.sh), physical Git Worktree isolation, and WSCI context governance (Write, Select, Compress, Isolate) backed by industrial Jidoka (Andon Cord) quality containment.",
-  "roleDescription": "AI Solutions Architect, Tech Lead & Agentic Process Engineer.",
+  "overview": "The revolution of Artificial Intelligence in software development brought agility, but also revealed a major risk: treating autonomous agents as 'magical code generators', which often leads to brittle codebases, silent regressions, and a loss of governance. To solve this deep challenge in modern software engineering, I created the AI Engineering Framework V2.1 Master — a Universal Constitution for Agentic Engineering.\n\nThe central goal was to engineer a tool-agnostic governance architecture capable of orchestrating LLMs throughout the software development lifecycle. The solution establishes strict boundaries between intent (defined by humans in META_SPEC), execution, and verification. I implemented a structured lifecycle called SPARC+DD (Discovery, Specification, Pseudocode, Architecture, Refinement, Completion, Deployment, Documentation) and adopted the Declarative Pointers technique to integrate documentation without data duplication. With this, AI acts not as an unguided substitute, but as a surgical force multiplier of engineering capabilities.",
+  "roleDescription": "As AI Solutions Architect & Tech Lead, I defined the strategic, conceptual, and architectural design of the framework:",
   "responsibilities": [
-    "Conceived and designed the agentic governance architecture and modular Adapter Layer (CLI, Model, Isolation, Verification, and Orchestration), ensuring complete tool independence (Tool-Agnostic).",
-    "Integrated Claw Code as a high-performance CLI adapter, pairing a native 6-crate Rust runtime with async Python orchestration, 19 operational tools, and MCP across 6 transports.",
-    "Engineered the first-class plugin ecosystem and guides: Everything Claude Code (ECC), Andrej Karpathy Guidelines (Think Before Coding / Evidence Before Assumption), Ruflo Swarm Topology, and Open Design (MCP).",
-    "Architected the WSCI context engineering methodology (Write, Select, Compress, Isolate) and SPARC+DD lifecycle, eliminating model context window degradation and poisoning.",
-    "Developed the deterministic provisioning pipeline (bootstrap.sh) and standardized templates with a bilingual mirror architecture (canonical English and localized pt-BR).",
-    "Implemented Zero-Trust boundaries, Prompt Injection shields, and Jidoka (Andon Cord) quality gates for automated clean resets upon anomaly detection."
+    "Governance Design: Created the finite state machine (Bootstrap ➡️ Discovery ➡️ Foundation ➡️ Execution ➡️ Checkpoint) ensuring human developer authority at critical gates (Gate_1_Review).",
+    "Context Engineering (WSCI): Defined the context management methodology (Write, Select, Compress, Isolate) to prevent hallucinations caused by context poisoning or distraction.",
+    "Multi-Agent Topology: Architected separation of responsibilities among virtual agents (Analyst, Architect, Developer, QA), enforcing the principle of Least Privilege.",
+    "i18n Architecture: Developed the 'Single Source of Truth + Localized Mirror' solution, keeping canonical documentation in English for AI technical precision while localized mirrors in Portuguese serve human stakeholders."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Tight coupling of governance rules to proprietary AI runtimes and tools (vendor lock-in, frequent breaking changes in commercial CLIs, and lack of standardization).",
-      "solution": "Designed the Modular Technology Adapter Layer (adapters/): the Framework dictates universal principles, governance, and the META_SPEC; Adapters implement concrete technical bindings for CLIs (Claw Code Rust, Agy, Generic), Models (Ollama, Gemini, Anthropic), Isolation (Git Worktree), and Verification (Local runners), allowing any piece to be upgraded without modifying project rules."
+      "challenge": "Balancing the canonical context required for artificial intelligence models with information consumption by local engineering teams without creating duplicate documentation or single-source-of-truth conflicts.",
+      "solution": "Engineered the Declarative Pointers strategy, keeping canonical files such as META_SPEC.md and ADRs unmodified in their source locations (in English) while creating a Localized Mirror layer (docs/pt-br/) for human consumption."
     },
     {
-      "challenge": "Cognitive context window degradation (Poisoning, Distraction, Confusion) and speculative unauthorized refactorings during complex agent tasks.",
-      "solution": "Implemented WSCI Context Engineering combined with Andrej Karpathy Guidelines (Think Before Coding, Evidence Before Assumption, Surgical Changes), physical Git Worktree isolation (Superpowers), and an industrial immediate-stop Jidoka (Andon Cord) mechanism."
+      "challenge": "Excessive agent autonomy causing speculative unauthorized refactorings and silent regressions.",
+      "solution": "Formalized the Think Before Coding discipline and mandatory anchoring of every creative or modifying action to a verifiable Checkpoint, enforcing Evidence Before Assumption and strictly Surgical Changes."
     }
   ],
   "futureEvolution": [
-    "Expansion of Verification Adapters to support isolated ephemeral containers and remote CI/CD runners.",
-    "Automated telemetry tracking latency, accuracy, and token consumption across adapter categories (CLI Rust vs Python vs Node) under Zero-Trust policies.",
-    "Automated Architecture Decision Record (ADR) generation from synchronous multi-agent debates during the SPARC+DD Architecture phase."
+    "Implementation of automated CI/CD hooks to natively validate governance state machine Checkpoints prior to allowing merges.",
+    "Creation of telemetry metrics derived from reasoning layer logs (Plan Mode) to optimize context tokenization for LLMs."
   ],
-  "architectureDiagramMermaid": "flowchart TD\\n    A[\\\"🏛️ Universal Constitution [META_SPEC.md]\\\\\"] -->|Abstract Contract| B[\\\"🔌 Adapter Layer (v2.1)\\\\\"]\\n    \\n    subgraph Adapters [\\\"Modular Adapter Layer\\\\\"]\\n        B --> C[\\\"🖥️ CLI Adapters<br>(Claw Code Rust/Python | Agy | Generic)\\\\\"]\\n        B --> D[\\\"🧠 Model Adapters<br>(Ollama Local | Gemini | Anthropic)\\\\\"]\\n        B --> E[\\\"🌳 Isolation Adapters<br>(Git Worktrees)\\\\\"]\\n        B --> F[\\\"🧪 Verification Adapters<br>(Local Test Runners / Linter)\\\\\"]\\n    end\\n    \\n    subgraph Plugins [\\\"Plugins & Integrations v2.1\\\\\"]\\n        G[\\\"🦀 Claw Code (19 Tools, MCP 6 Transports)\\\\\"]\\n        H[\\\"⚡ Everything Claude Code (ECC)\\\\\"]\\n        I[\\\"📐 Karpathy Guidelines (Software 2.0)\\\\\"]\\n        J[\\\"🐝 Ruflo Swarm Topology\\\\\"]\\n        K[\\\"🦸 Superpowers & Open Design (MCP)\\\\\"]\\n    end\\n    \\n    Adapters -. Integration .- Plugins\\n    \\n    C --> L[\\\"⚙️ SPARC+DD Pipeline (WSCI)\\\\\"]\\n    D --> L\\n    E --> L\\n    \\n    L --> M{\\\"🛡️ Jidoka / Andon Cord\\\"}\\n    M -- \\\"Anomaly / Regression\\\" --> N[\\\"🛑 Clean Reset Protocol\\\\\"]\\n    N --> L\\n    M -- \\\"Evidence Proven\\\" --> O[\\\"🏁 Checkpoint & Merge\\\\\"]\\n    O --> P[\\\"🚀 Localized Mirror (docs/pt-br/)\\\\\"]",
+  "architectureDiagramMermaid": "flowchart TD\n    A[\"🏛️ Canonical Constitution [META_SPEC.md]\"] -->|Abstract Contract| B[\"🔌 Adapter Layer (v2.1)\"]\n    A -->|Localized Mirror| Mirror[\"📖 pt-BR Layer [docs/pt-br/]\"]\n    \n    subgraph Adapters [\"Modular Adapter Layer\"]\n        B --> C[\"🖥️ CLI Adapters<br>(Claw Code Rust/Python | Agy | Generic)\"]\n        B --> D[\"🧠 Model Adapters<br>(Ollama Local | Gemini | Anthropic)\"]\n        B --> E[\"🌳 Isolation Adapters<br>(Git Worktrees)\"]\n        B --> F[\"🧪 Verification Adapters<br>(Local Test Runner / Linter)\"]\n    end\n    \n    subgraph Plugins [\"Plugins & Integrations v2.1\"]\n        G[\"🦀 Claw Code (19 Tools, MCP 6 Transports)\"]\n        H[\"⚡ Everything Claude Code (ECC)\"]\n        I[\"📐 Karpathy Guidelines (Software 2.0)\"]\n        J[\"🐝 Ruflo Swarm Topology\"]\n        K[\"🦸 Superpowers & Open Design (MCP)\"]\n    end\n    \n    Adapters -. Integration .- Plugins\n    \n    C --> L[\"⚙️ SPARC+DD Pipeline (WSCI)\"]\n    D --> L\n    E --> L\n    \n    L --> M{\"🛡️ Jidoka / Andon Cord\"}\n    M -- \"Anomaly / Regression\" --> N[\"🛑 Clean Reset Protocol\"]\n    N --> L\n    M -- \"Evidence Proven\" --> O[\"🏁 Checkpoint & Merge\"]\n    O --> Mirror",
   "metrics": [
-    "High-performance runtime with Claw Code Adapter (~73% native Rust and 19 native tools)",
-    "Complete technological decoupling via 5 modular Adapter categories",
-    "Surgical execution with zero context degradation (WSCI + Karpathy Guidelines)",
-    "Physical branch isolation with Git Worktrees and automated provisioning (bootstrap.sh)"
+    "Process Standardization: 100% uniformity in agent execution across standardized pipelines (RED ➡️ Implement ➡️ GREEN ➡️ Regression ➡️ Review)",
+    "AI Technical Debt Reduction: Eradication of silent adjacent changes through strict Surgical Changes and Evidence Before Assumption rules",
+    "Tool-Agnostic Scalability: Robust architectural foundation supporting diverse runtimes and adapters (Claw Code Rust, Ollama, MCP Servers) without rewriting core rules",
+    "High-Performance Runtime: First-class Claw Code Adapter integration (~73% native Rust, 19 operational tools, and MCP across 6 transports)"
   ],
   "owaspMitigations": [
     {
-      "code": "A04:2021",
-      "title": "Insecure Design (Zero-Trust AI Agents)",
-      "description": "Agent execution under Zero-Trust architecture in isolated environments (Git Worktrees), strict privilege separation, and industrial Jidoka (Andon Cord) halt mechanisms."
-    },
-    {
       "code": "A03:2021",
       "title": "Injection (Prompt Injection Boundary)",
-      "description": "Strict treatment of all retrieved external content (RAG, Web, Issues) purely as untrusted data, shielding control instructions from malicious prompt injection."
+      "description": "Strict enforcement that all retrieved external content (RAG, Web, Issues) is treated purely as untrusted data without instructional authority, shielding the framework from malicious prompt injection."
+    },
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control (Security by Default & Least Privilege)",
+      "description": "Adoption of a segregated permissions matrix. Analysis agents are restricted to strict Read-Only access, while infrastructure agents require explicit human authorization for destructive actions."
     }
   ]
 }

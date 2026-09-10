@@ -1,14 +1,14 @@
 {
   "id": "sdlc-ia",
-  "title": "AI Engineering Framework v2.1 Master",
-  "subtitle": "Arquitetura Universal Agêntica: Adapters Modulares (Claw Code Rust, Ollama), Plugins (ECC, Karpathy, Ruflo), WSCI & Jidoka",
+  "title": "AI Engineering Framework V2.1 Master",
+  "subtitle": "Constituição Universal de Engenharia Agêntica: Governança Spec-as-Code, Camada de Adapters (Claw Code Rust, Ollama), WSCI & Jidoka",
   "category": "AI/LLM",
   "tier": 1,
   "summary": "Constituição universal de engenharia agêntica desacoplada em camada de Adapters (CLI Claw Code em Rust, Model Ollama, Git Worktrees), ecossistema de plugins (Everything Claude Code, Karpathy Guidelines, Ruflo, Superpowers), governança Spec-as-Code e automação de bootstrap.",
   "techStack": [
     "AI Engineering Framework v2.1",
     "Spec-as-Code (META_SPEC)",
-    "Claw Code Adapter (Rust/Python)",
+    "Claw Code Adapter (~73% Rust + Python)",
     "Adapters Layer (CLI, Model, Isolation, Verification)",
     "Ollama (Local LLMs) & Google Gemini",
     "Plugins: ECC, Karpathy, Ruflo & Superpowers",
@@ -17,48 +17,45 @@
   ],
   "featured": true,
   "detailKey": "sdlc_ia",
-  "overview": "O AI Engineering Framework v2.1 Master é uma Constituição Universal de Engenharia Agêntica concebida para transformar IAs estocásticas em membros operacionais determinísticos e disciplinados da equipe. A versão 2.1 introduz uma arquitetura formal de Adapters desacoplados em 5 categorias essenciais (CLI, Model, Isolation, Verification e Orchestration), isolando princípios e governança das tecnologias de execução. O ecossistema integra nativamente o Claw Code (clean-room rewrite de alto desempenho com ~73% em Rust e orquestração Python assíncrona, 19 ferramentas nativas e MCP em 6 transportes), modelos locais zero-cost via Ollama, um rico ecossistema de plugins e guias avançados (Everything Claude Code / ECC, Diretrizes de Andrej Karpathy para Software 2.0, Ruflo Swarm Topology, Superpowers e Open Design MCP), além de esteira de automação de bootstrap (bootstrap.sh), isolamento físico via Git Worktrees e governança de contexto WSCI (Write, Select, Compress, Isolate) com contenção industrial Jidoka (Andon Cord).",
-  "roleDescription": "AI Solutions Architect, Tech Lead & Engenheiro de Processos Agênticos.",
+  "overview": "A revolução da Inteligência Artificial no desenvolvimento de software trouxe agilidade, mas também revelou um grande risco: tratar agentes autônomos como 'geradores mágicos de código', o que frequentemente resulta em bases frágeis, regressões silenciosas e perda de governança. Para resolver essa dor profunda da engenharia moderna, criei o AI Engineering Framework V2.1 Master — uma Constituição Universal de Engenharia Agêntica.\n\nO objetivo central foi projetar uma arquitetura de governança, independente de ferramentas específicas (Tool Agnostic), capaz de orquestrar a atuação de LLMs no ciclo de vida de um software. A solução estabelece fronteiras claras entre intenção (definida por humanos na META_SPEC), execução e verificação. Implementei um ciclo de vida estruturado chamado SPARC+DD (Discovery, Specification, Pseudocode, Architecture, Refinement, Completion, Deployment, Documentation) e adotei a técnica de Ponteiros Declarativos para integrar a documentação sem duplicação de dados. Com isso, a IA atua não como um substituto sem controle, mas como um multiplicador cirúrgico das capacidades de engenharia.",
+  "roleDescription": "Como AI Solutions Architect e Tech Lead, atuei na definição estratégica, conceitual e arquitetural do framework:",
   "responsibilities": [
-    "Idealização e desenho da arquitetura de governança agêntica e da camada de Adapters Modulares (CLI, Model, Isolation, Verification e Orchestration), garantindo independência absoluta de ferramentas proprietárias (Tool-Agnostic).",
-    "Integração do Claw Code como adaptador CLI de alta performance, unindo runtime nativo em Rust (6 crates), orquestração assíncrona em Python, 19 ferramentas operacionais e suporte MCP em 6 transportes.",
-    "Estruturação do ecossistema de plugins e guias técnicos de primeira classe: Everything Claude Code (ECC), Diretrizes de Andrej Karpathy (Think Before Coding / Evidence Before Assumption), Ruflo Swarm Topology e Open Design (MCP).",
-    "Engenharia da metodologia de contexto WSCI (Write, Select, Compress, Isolate) e do ciclo SPARC+DD, eliminando a degradação e envenenamento da janela de contexto dos modelos.",
-    "Desenvolvimento da esteira de automação de provisionamento determinístico (bootstrap.sh) e templates padronizados com arquitetura de espelhos bilíngues (inglês canônico e localização pt-BR).",
-    "Implementação de barreiras de segurança (Zero-Trust, Prompt Injection Boundary) e pontos de validação Jidoka (Andon Cord) para parada e reset limpo imediato em caso de anomalia."
+    "Design de Governança: Criei a máquina de estados (Bootstrap ➡️ Discovery ➡️ Foundation ➡️ Execution ➡️ Checkpoint) garantindo a autoridade do desenvolvedor humano em portões críticos (Gate_1_Review).",
+    "Engenharia de Contexto (WSCI): Defini a metodologia de gestão de contexto (Write, Select, Compress, Isolate) para prevenir alucinações por Poisoning ou Distraction.",
+    "Topologia Multi-Agent: Projetei a segregação de responsabilidades entre agentes virtuais (Analyst, Architect, Developer, QA), implementando o princípio do Menor Privilégio (Least Privilege).",
+    "Arquitetura de i18n: Desenvolvi a solução de 'Single Source of Truth + Localized Mirror', onde a documentação canônica permanece em inglês para precisão técnica das IAs, enquanto espelhos localizados em português atendem aos requisitos humanos."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Acoplamento severo de regras de governança a runtimes e ferramentas proprietárias de IA (vendor lock-in, quebras frequentes com atualizações de CLIs comerciais e falta de padronização).",
-      "solution": "Projetei a Camada Tecnológica de Adapters Modulares (adapters/): o Framework dita princípios, governança e a META_SPEC; os Adapters definem a implementação técnica concreta para CLIs (Claw Code Rust, Agy, Generic), Modelos (Ollama, Gemini, Anthropic), Isolamento (Git Worktree) e Verificação (Local runners), permitindo alternar ou modernizar qualquer peça sem reescrever as regras do projeto."
+      "challenge": "Conciliar o contexto canônico necessário para as inteligências artificiais com o consumo de informações pelas equipes de desenvolvimento local sem gerar documentação duplicada ou conflitos de fonte da verdade (Source of Truth).",
+      "solution": "Projetei a estratégia de Ponteiros Declarativos, mantendo arquivos canônicos, como META_SPEC.md e ADRs, inalterados em seus locais de origem (em inglês) e criando uma camada de reflexo (Localized Mirror em docs/pt-br/) para consumo humano."
     },
     {
-      "challenge": "Degradação cognitiva da janela de contexto (Poisoning, Distraction, Confusion) e refatorações especulativas não autorizadas em tarefas agênticas complexas.",
-      "solution": "Implementação da Engenharia de Contexto WSCI combinada às Diretrizes de Andrej Karpathy (Think Before Coding, Evidence Before Assumption e Surgical Changes), além de isolamento físico de execução via Git Worktrees (Superpowers) e mecanismo industrial de parada imediata Jidoka (Andon Cord)."
+      "challenge": "Excesso de autonomia dos agentes gerando reescritas de código desnecessárias (refactoring especulativo) e regressões silenciosas.",
+      "solution": "Formalizei a técnica Think Before Coding e a obrigatoriedade de ancorar qualquer ação destrutiva ou criativa a um Checkpoint verificável, exigindo evidências antes de premissas (Evidence Before Assumption) e mudanças estritamente cirúrgicas (Surgical Changes)."
     }
   ],
   "futureEvolution": [
-    "Expansão dos Verification Adapters com suporte a contêineres efêmeros isolados e runners remotos de CI/CD.",
-    "Telemetria automatizada de latência, taxa de acerto e consumo de tokens por categoria de adapter (CLI Rust vs Python vs Node) sob política Zero-Trust.",
-    "Geração automatizada de ADRs através de debates síncronos entre agentes especialistas na fase de Arquitetura do SPARC+DD."
+    "Implementação de hooks automatizados de CI/CD para validar nativamente os Checkpoints da máquina de estado de governança antes de permitir merges.",
+    "Criação de métricas de telemetria baseadas em logs das camadas de raciocínio (Plan Mode) para otimizar a tokenização de contexto nos LLMs."
   ],
-  "architectureDiagramMermaid": "flowchart TD\\n    A[\\\"🏛️ Constituição Universal [META_SPEC.md]\\\\\"] -->|Contrato Abstrato| B[\\\"🔌 Camada de Adapters (v2.1)\\\\\"]\\n    \\n    subgraph Adapters [\\\"Camada de Adapters Modulares\\\\\"]\\n        B --> C[\\\"🖥️ CLI Adapters<br>(Claw Code Rust/Python | Agy | Generic)\\\\\"]\\n        B --> D[\\\"🧠 Model Adapters<br>(Ollama Local | Gemini | Anthropic)\\\\\"]\\n        B --> E[\\\"🌳 Isolation Adapters<br>(Git Worktrees)\\\\\"]\\n        B --> F[\\\"🧪 Verification Adapters<br>(Local Test Runners / Linter)\\\\\"]\\n    end\\n    \\n    subgraph Plugins [\\\"Plugins & Integrações v2.1\\\\\"]\\n        G[\\\"🦀 Claw Code (19 Tools, MCP 6 Transports)\\\\\"]\\n        H[\\\"⚡ Everything Claude Code (ECC)\\\\\"]\\n        I[\\\"📐 Karpathy Guidelines (Software 2.0)\\\\\"]\\n        J[\\\"🐝 Ruflo Swarm Topology\\\\\"]\\n        K[\\\"🦸 Superpowers & Open Design (MCP)\\\\\"]\\n    end\\n    \\n    Adapters -. Integração .- Plugins\\n    \\n    C --> L[\\\"⚙️ Pipeline SPARC+DD (WSCI)\\\\\"]\\n    D --> L\\n    E --> L\\n    \\n    L --> M{\\\"🛡️ Jidoka / Andon Cord\\\"}\\n    M -- \\\"Anomalia / Regressão\\\" --> N[\\\"🛑 Clean Reset Protocol\\\\\"]\\n    N --> L\\n    M -- \\\"Evidência Comprovada\\\" --> O[\\\"🏁 Checkpoint & Merge\\\\\"]\\n    O --> P[\\\"🚀 Localized Mirror (docs/pt-br/)\\\\\"]",
+  "architectureDiagramMermaid": "flowchart TD\n    A[\"🏛️ Constituição Canônica [META_SPEC.md]\"] -->|Contrato Abstrato| B[\"🔌 Camada de Adapters (v2.1)\"]\n    A -->|Espelho Localizado| Mirror[\"📖 Camada pt-BR [docs/pt-br/]\"]\n    \n    subgraph Adapters [\"Camada de Adapters Modulares\"]\n        B --> C[\"🖥️ CLI Adapters<br>(Claw Code Rust/Python | Agy | Generic)\"]\n        B --> D[\"🧠 Model Adapters<br>(Ollama Local | Gemini | Anthropic)\"]\n        B --> E[\"🌳 Isolation Adapters<br>(Git Worktrees)\"]\n        B --> F[\"🧪 Verification Adapters<br>(Local Test Runner / Linter)\"]\n    end\n    \n    subgraph Plugins [\"Plugins & Integrações v2.1\"]\n        G[\"🦀 Claw Code (19 Tools, MCP 6 Transports)\"]\n        H[\"⚡ Everything Claude Code (ECC)\"]\n        I[\"📐 Karpathy Guidelines (Software 2.0)\"]\n        J[\"🐝 Ruflo Swarm Topology\"]\n        K[\"🦸 Superpowers & Open Design (MCP)\"]\n    end\n    \n    Adapters -. Integração .- Plugins\n    \n    C --> L[\"⚙️ Pipeline SPARC+DD (WSCI)\"]\n    D --> L\n    E --> L\n    \n    L --> M{\"🛡️ Jidoka / Andon Cord\"}\n    M -- \"Anomalia / Regressão\" --> N[\"🛑 Clean Reset Protocol\"]\n    N --> L\n    M -- \"Evidência Comprovada\" --> O[\"🏁 Checkpoint & Merge\"]\n    O --> Mirror",
   "metrics": [
-    "Runtime de alto desempenho com Claw Code Adapter (~73% Rust nativo e 19 ferramentas)",
-    "Desacoplamento absoluto de tecnologia via 5 categorias de Adapters modulares",
-    "Execução cirúrgica com zero degradação de contexto (WSCI + Karpathy Guidelines)",
-    "Isolamento físico de branches com Git Worktrees e provisionamento automático (bootstrap.sh)"
+    "Padronização de Processos: 100% de uniformidade na execução de agentes através de pipelines padronizados (RED ➡️ Implement ➡️ GREEN ➡️ Regression ➡️ Review)",
+    "Redução de Débito Técnico de IA: Erradicação de alterações adjacentes silenciosas através da regra estrita de Surgical Changes e Evidence Before Assumption",
+    "Escalabilidade Tool-Agnostic: Criação de uma base arquitetural capaz de suportar diferentes runtimes e adapters (Claw Code, RAG, MCP Servers) sem a necessidade de reescrever as regras centrais",
+    "Runtime de Alto Desempenho: Integração do Claw Code Adapter com ~73% Rust nativo, 19 ferramentas operacionais e MCP em 6 transportes"
   ],
   "owaspMitigations": [
     {
-      "code": "A04:2021",
-      "title": "Insecure Design (Zero-Trust AI Agents)",
-      "description": "Execução de agentes sob arquitetura Zero-Trust em ambientes isolados (Git Worktrees), separação estrita de privilégios e mecanismo industrial de parada imediata Jidoka (Andon Cord)."
-    },
-    {
       "code": "A03:2021",
       "title": "Injection (Prompt Injection Boundary)",
-      "description": "Tratamento rigoroso de todo conteúdo externo recuperado (RAG, Web, Issues) estritamente como dados não confiáveis, blindando instruções de controle contra injeções maliciosas de prompt."
+      "description": "Implementação da diretriz rigorosa de que conteúdos externos recuperados (RAG, Web, Issues) são tratados puramente como dados, sem autoridade de instrução, blindando o framework contra comandos maliciosos embutidos em textos de terceiros."
+    },
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control (Security by Default & Least Privilege)",
+      "description": "Adoção de uma matriz de permissões segregada. Agentes de análise têm permissão estrita de Read-Only, enquanto agentes de infraestrutura exigem processos de autorização explícita para ações destrutivas no banco de dados, protegendo contra execuções arbitrárias de código e manipulação indevida de secrets."
     }
   ]
 }
