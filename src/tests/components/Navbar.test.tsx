@@ -4,7 +4,7 @@ import { ThemeProvider } from '@/context/ThemeContext';
 import { Navbar } from '@/components/Navbar';
 
 describe('Navbar Component', () => {
-  it('renders brand logo, avatar image, and title', () => {
+  it('renders brand logo, corporate isotype, and title', () => {
     render(
       <ThemeProvider>
         <Navbar />
@@ -12,6 +12,6 @@ describe('Navbar Component', () => {
     );
 
     expect(screen.getByText('Luis Fernando Richter')).toBeInTheDocument();
-    expect(screen.getByAltText('Luis Fernando Richter Avatar')).toBeInTheDocument();
+    expect(screen.getByAltText('Richter Logo')).toBeInTheDocument();
   });
 });
