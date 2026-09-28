@@ -1,0 +1,62 @@
+{
+  "id": "startup-center",
+  "title": "Startup Center — All-in-One Startup Incubation Ecosystem",
+  "subtitle": "WebRTC Video Conferencing, Real-Time Messaging, Gamification & Multi-Cloud Architecture",
+  "category": "SaaS",
+  "tier": 1,
+  "year": 2017,
+  "company": "Startup Center",
+  "summary": "All-in-one ecosystem for early-stage founders featuring TokBox WebRTC video rooms, Pusher real-time chat, gamified StarCoin economy, PayPal billing, and IBM Bluemix-to-AWS multi-cloud migration.",
+  "techStack": [
+    "Laravel",
+    "TokBox WebRTC",
+    "Pusher WebSockets",
+    "PayPal API",
+    "MySQL",
+    "AWS EC2",
+    "IBM Bluemix"
+  ],
+  "featured": false,
+  "detailKey": "startup_center",
+  "overview": "Startup Center was engineered as an all-in-one incubation ecosystem designed to foster collaboration, market validation, and growth for early-stage startups. The platform consolidated market validation surveys, real-time founder networking, internal gamified incentives, and third-party SaaS integrations, eliminating tooling fragmentation for founders. Acting as the solo software architect and engineer, I built the entire solution in Laravel, integrating WebRTC interactive video conferencing via TokBox, real-time messaging via Pusher, and PayPal checkout across an IBM Bluemix to AWS multi-cloud architecture.",
+  "roleDescription": "Software Architect & Full-Stack Engineer (Solo Developer).",
+  "responsibilities": [
+    "Ecosystem Architecture: Designed the end-to-end layered architecture integrating multiple external real-time APIs.",
+    "StarCoffee Module: Built interactive virtual conference rooms with low-latency audio/video and chat via TokBox WebRTC and Pusher.",
+    "Gamification Engine: Programmed the platform internal economy tracking Seeder reputation points and StarCoin virtual balances.",
+    "Monetization & Multi-Cloud: Integrated PayPal Express Checkout workflows and provisioned cloud infrastructure on IBM Bluemix and AWS."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Orchestrating multiple asynchronous external real-time streams (TokBox WebRTC, Pusher WebSockets, and PayPal IPN) inside a unified reactive UI.",
+      "solution": "Built decoupled adapter layers with an internal Laravel event bus to maintain seamless synchronized application state."
+    },
+    {
+      "challenge": "Migrating production live workloads from IBM Bluemix to AWS without service interruption.",
+      "solution": "Structured modular infrastructure scripts and executed progressive DNS routing cutover alongside replicated database syncing."
+    }
+  ],
+  "architectureDiagramMermaid": "graph TD\n    User[\"👨🏽‍💼 Founder / Startup Team\"] -->|\"HTTPS / Web App\"| LoadBalancer[\"🌐 Cloud Load Balancer\"]\n    LoadBalancer --> CoreApp[\"⚡ Startup Center Core (Laravel)\"]\n    subgraph Modulos [\"🧩 Platform Modules\"]\n        StarCoffee[\"☕ StarCoffee (Meeting & Video)\"]\n        StarCoin[\"🪙 StarCoin (Gamification Engine)\"]\n        StarIdea[\"💡 StarIdea (Surveys & Validation)\"]\n        PayModule[\"💳 Payment & Checkout Service\"]\n    end\n    CoreApp --> StarCoffee\n    CoreApp --> StarCoin\n    CoreApp --> StarIdea\n    CoreApp --> PayModule\n    StarCoffee <-->|\"WebRTC Stream\"| TokBox[\"📹 TokBox API (Vonage)\"]\n    StarCoffee <-->|\"WebSockets\"| Pusher[\"📡 Pusher API\"]\n    PayModule <-->|\"Checkout IPN\"| PayPal[\"💰 PayPal API\"]",
+  "metrics": [
+    "Sub-second low-latency WebRTC video conferencing across concurrent meeting rooms",
+    "Thousands of simulated transactions processed within active gamified token economy",
+    "Zero-downtime multi-cloud infrastructure migration from IBM Bluemix to AWS"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Strict backend authorization governing private conference access and virtual currency ledger operations."
+    },
+    {
+      "code": "A02:2021",
+      "title": "Cryptographic Failures",
+      "description": "PayPal transaction tokenization and encrypted WebRTC media channels (DTLS/SRTP)."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Comprehensive input validation and SQL parameterization across survey and payment engines."
+    }
+  ]
+}

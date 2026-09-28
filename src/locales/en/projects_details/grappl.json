@@ -1,0 +1,61 @@
+{
+  "id": "grappl",
+  "title": "Grappl — High-Performance API Modernization & Rapid Feature Delivery",
+  "subtitle": "Sub-400ms Home Feed Response, Multidimensional Search & CMS Ad Server",
+  "category": "Architecture & Performance",
+  "tier": 2,
+  "year": 2019,
+  "company": "Evoke Mobile / Grappl",
+  "summary": "RESTful API optimization in Laravel slashing home feed latency to < 400ms, eliminating N+1 queries, introducing faceted search, and deploying a CMS advertising monetization engine.",
+  "techStack": [
+    "PHP",
+    "Laravel",
+    "MySQL",
+    "Query Optimization",
+    "Docker",
+    "CMS"
+  ],
+  "featured": false,
+  "detailKey": "grappl",
+  "overview": "Grappl is a global community application dedicated to wrestling fans, allowing users to track, rate, and discover historical combat sports matches. In a targeted 2-month engineering engagement working directly with Evoke Mobile executive leadership, the goal was resolving critical load-time bottlenecks on the application home feed, refactoring complex SQL aggregation logic, and launching new product features including multidimensional search and an autonomous CMS advertising platform.",
+  "roleDescription": "Senior Backend Developer.",
+  "responsibilities": [
+    "Critical Endpoint Optimization: Reconstructed the Home Feed API, eliminating N+1 query patterns and establishing key relational indexes.",
+    "Multidimensional Search Engine: Architected the query filtering engine allowing combined multi-criteria searches (wrestlers, promotions, dates, ratings).",
+    "Monetization Module (CMS Ad Server): Built administrative CMS workflows for ad placement, scheduling, impression tracking, and partner campaigns.",
+    "Session Management & Security: Hardened session state management for persistent authenticated user navigation."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Aggregating community ratings across hundreds of matches per historical event without overloading the relational database.",
+      "solution": "Refactored raw SQL queries into optimized Query Builder statements with efficient relational prefetching and cached aggregations."
+    },
+    {
+      "challenge": "Delivering multiple enterprise features under an aggressive 60-day development window.",
+      "solution": "Partnered directly with the CEO in daily agile loops and engineered modular service boundaries decoupling ad tracking from content feeds."
+    }
+  ],
+  "architectureDiagramMermaid": "graph TD\n    User[\"👤 User / Web App\"] -->|\"HTTPS / REST API\"| ApiGateway[\"🌐 API Gateway / Nginx\"]\n    ApiGateway --> LaravelAPI[\"⚡ Laravel Application Core\"]\n    subgraph Modulos [\"🧩 Application Modules\"]\n        HomeFeed[\"🏠 Home Feed Service (Optimized)\"]\n        SearchEngine[\"🔍 Advanced Search Engine\"]\n        AdModule[\"📢 CMS Ad Management & Monetization\"]\n        SessionMgr[\"🔐 Session & Auth Manager\"]\n    end\n    LaravelAPI --> HomeFeed\n    LaravelAPI --> SearchEngine\n    LaravelAPI --> AdModule\n    LaravelAPI --> SessionMgr\n    HomeFeed --> MySQL[(\"🗄️ MySQL Database\")]\n    SearchEngine --> MySQL\n    AdModule --> MySQL\n    SessionMgr --> MySQL",
+  "metrics": [
+    "Home feed API response time reduced to < 400ms under active traffic",
+    "Instantaneous multidimensional search responses across thousands of historical records",
+    "Digital ad monetization successfully activated in month 1 of release"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Role-Based Access Control (RBAC) safeguarding CMS advertisement configuration and administrative settings."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Strict parameterized bindings on search filter predicates, preventing SQL injection."
+    },
+    {
+      "code": "A07:2021",
+      "title": "Identification and Authentication Failures",
+      "description": "Secure session regeneration preventing session fixation and credential interception."
+    }
+  ]
+}

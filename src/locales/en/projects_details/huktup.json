@@ -1,0 +1,63 @@
+{
+  "id": "huktup",
+  "title": "Huktup — Service Provider Operations & Scheduling Platform",
+  "subtitle": "RESTful Laravel API, Reactive Vue.js + Chart.js Dashboard & Twilio SMS Automation",
+  "category": "Full Stack",
+  "tier": 2,
+  "year": 2020,
+  "company": "Huktup",
+  "summary": "Centralized scheduling and business operations platform for service providers with a Laravel RESTful API, reactive Vue.js/Chart.js analytics, Firebase SSO, and Twilio SMS client automation.",
+  "techStack": [
+    "Laravel",
+    "Vue.js",
+    "Chart.js",
+    "Twilio API",
+    "Firebase Auth",
+    "Swagger",
+    "MySQL",
+    "Docker"
+  ],
+  "featured": false,
+  "detailKey": "huktup",
+  "overview": "In the local service sector, decentralized booking, payment collection, and manual customer follow-ups create severe operational roadblocks for business owners. Huktup was engineered to resolve this friction by offering an all-in-one operations hub. The platform centers around a high-performance RESTful API in Laravel (PHP) orchestrating reservations and finances, paired with a reactive analytical dashboard in Vue.js and Chart.js, automated SMS reminders and review collection via the Twilio API, and secure authentication via Firebase SSO.",
+  "roleDescription": "Lead Backend & Full-Stack Developer.",
+  "responsibilities": [
+    "Core API Development: Built the centralized Laravel RESTful API governing service catalogs, staff scheduling, and payment events.",
+    "Analytical Dashboard: Developed the responsive Vue.js frontend with Chart.js visualization for business revenue, client retention, and booking trends.",
+    "Third-Party Integrations: Implemented bidirectional SMS conversational flows via the Twilio API and secure onboarding via Firebase Auth (SSO).",
+    "API Documentation & DevOps: Standardized complete OpenAPI/Swagger specifications and containerized application services using Docker."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Minimizing customer no-shows through scalable, reliable bidirectional SMS communication.",
+      "solution": "Engineered automated messaging rules with Twilio handling booking confirmations, 24h reminders, and instant post-service feedback collection."
+    },
+    {
+      "challenge": "Accelerating parallel collaboration between frontend, backend, and QA teams without contract drifts.",
+      "solution": "Authored comprehensive OpenAPI/Swagger documentation, eliminating contract ambiguity and facilitating automated API testing."
+    }
+  ],
+  "architectureDiagramMermaid": "flowchart LR\n    subgraph Users[\"👥 Users\"]\n        A[\"🛠️ Service Provider\"]\n        B[\"👤 End Customer\"]\n    end\n    subgraph Platform[\"☁️ Huktup Cloud Platform\"]\n        C[\"📊 Admin Dashboard (Vue.js + Chart.js)\"]\n        D[\"⚙️ RESTful API (Laravel)\"]\n        E[(\"🐬 MySQL Database\")]\n        F[\"🔐 Firebase Authentication\"]\n        G[\"📲 Twilio SMS API\"]\n    end\n    A -->|\"Login / Management\"| C\n    A -->|\"SSO Auth\"| F\n    C <-->|\"Requests / Dispatches Data\"| D\n    D <-->|\"Persists Data\"| E\n    D -->|\"Validates Token\"| F\n    D -->|\"Triggers SMS\"| G\n    G -->|\"Reminder / Notification\"| B",
+  "metrics": [
+    "Measurable drop in appointment no-shows via automated Twilio SMS workflows",
+    "Real-time visual revenue analytics and booking KPI tracking via Vue.js and Chart.js",
+    "Interactive OpenAPI/Swagger documentation accelerating client and QA integration"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Strict role separation between service providers and end consumers authenticated via Firebase SSO."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Comprehensive request validation and parameterized queries across all RESTful endpoints."
+    },
+    {
+      "code": "A07:2021",
+      "title": "Identification and Authentication Failures",
+      "description": "Authentication delegated to Firebase Auth ensuring secure credential handling and brute-force defenses."
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "indicos-saas",
+  "title": "Índicos — Plataforma SaaS Multi-tenant de Marketing de Indicação",
+  "subtitle": "Primeira Plataforma SaaS Multi-tenant, Subdomínios Dinâmicos & Visualização de Redes",
+  "category": "SaaS",
+  "tier": 1,
+  "year": 2017,
+  "company": "Índicos SaaS",
+  "summary": "Plataforma SaaS multi-tenant em Laravel com isolamento rigoroso por subdomínio dinâmico, roteamento por middlewares customizados, comissionamento multinível e diagramas dinâmicos de hierarquia.",
+  "techStack": [
+    "Laravel",
+    "Multi-tenancy",
+    "MySQL",
+    "JavaScript",
+    "jQuery",
+    "Dynamic Subdomains",
+    "Custom Middlewares"
+  ],
+  "featured": false,
+  "detailKey": "indicos_saas",
+  "overview": "O projeto Índicos nasceu da visão de democratizar o marketing de indicação, permitindo que empresas implementassem programas de recompensas multinível de forma autônoma e escalável. O desafio central foi criar uma plataforma SaaS multi-tenant do zero, onde cada cliente (tenant) operasse em um ambiente estritamente isolado através de subdomínios exclusivos (ex: empresa.indicos.com.br), gerenciado sob uma única base de código centralizada. Um conjunto de middlewares personalizados em Laravel atuava como cérebro de roteamento identificando o tenant a cada requisição, segmentando autenticação, regras de negócios e persistência relacional no MySQL.",
+  "roleDescription": "Arquiteto de Software & Desenvolvedor Full-Stack Principal.",
+  "responsibilities": [
+    "Arquitetura Multi-Tenant: Estruturação completa do isolamento de dados por tenant e roteamento dinâmico por subdomínio.",
+    "Engine de Comissionamento: Codificação das regras de cálculo de bônus multinível, qualificações e automação de premiações.",
+    "Frontend & Diagramas Dinâmicos: Construção de dashboards interativos com renderização visual da árvore hierárquica de indicações em tempo real.",
+    "Infraestrutura & Resolução de Problemas: Diagnóstico profundo de limitações de hosting e configuração de subdomínios wildcard."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Configuração e resolução dinâmica de subdomínios wildcard em infraestrutura de hospedagem compartilhada com restrições de proxy.",
+      "solution": "Análise aprofundada de cabeçalhos HTTP de host e desenvolvimento de rotina intermediária no middleware para fallback resiliente."
+    },
+    {
+      "challenge": "Renderização e cálculo em tempo real de grafos de hierarquia de indicação multinível para dezenas de níveis sem travamento no browser.",
+      "solution": "Desenvolvimento de componente dinâmico com processamento vetorial em árvore no backend e renderização incremental no frontend."
+    }
+  ],
+  "architectureDiagramMermaid": "flowchart LR\n    subgraph U[\"Usuários\"]\n        MasterAdmin[\"👨‍💼 Administrador Master\"]\n        TenantUser[\"🧑‍🤝‍🧑 Usuário Cliente / Indicador\"]\n    end\n    subgraph P[\"Plataforma Índicos (SaaS Multi-tenant)\"]\n        SubdomainRouter{\"🔄 Middleware de Roteamento\"}\n        LaravelApp[\"⚙️ Aplicação Laravel\"]\n        subgraph M[\"Módulos da Aplicação\"]\n            AdminDashboard[\"📊 Dashboard Admin\"]\n            TenantDashboard[\"📈 Dashboard Cliente / Rede\"]\n        end\n    end\n    MySQLDatabase[(\"🗄️ Banco de Dados MySQL\")]\n    TenantUser -->|\"empresa-a.indicos.com\"| SubdomainRouter\n    MasterAdmin -->|\"admin.indicos.com\"| SubdomainRouter\n    SubdomainRouter -->|\"Identifica Tenant\"| LaravelApp\n    SubdomainRouter -->|\"Identifica Master\"| LaravelApp\n    LaravelApp --> TenantDashboard\n    LaravelApp --> AdminDashboard\n    TenantDashboard -->|\"Renderiza Árvore\"| TenantUser\n    AdminDashboard -->|\"Gerencia Tenants\"| MasterAdmin\n    LaravelApp <--> MySQLDatabase",
+  "metrics": [
+    "100% de isolamento de dados entre múltiplos tenants concorrentes",
+    "Primeiro SaaS multi-tenant completo desenvolvido e lançado em produção",
+    "Renderização visual instantânea de estruturas de indicação multinível"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Validação estrita de contexto de tenant em cada controller e middleware, impedindo vazamento de dados entre empresas."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Utilização rigorosa de bindings do Eloquent ORM para isolar comandos SQL e queries dinâmicas."
+    },
+    {
+      "code": "A07:2021",
+      "title": "Identification and Authentication Failures",
+      "description": "Sessões e cookies isolados por subdomínio específico, garantindo autenticação independente para cada tenant."
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "fanoty",
+  "title": "Fanoty — Real-Time Sports Mobile API & Backend Modernization",
+  "subtitle": "OPTA Sports Ingestion Pipeline, Laravel 5.1 Upgrade & Containerized CI/CD",
+  "category": "Architecture & Performance",
+  "tier": 2,
+  "year": 2019,
+  "company": "Evoke Mobile / Fanoty",
+  "summary": "Restructuring the real-time OPTA Sports data pipeline for a live iOS football app, upgrading legacy Laravel 5.0 to 5.1, cutting ingestion latency by 50%, and automating CI/CD via Docker and GitHub Actions.",
+  "techStack": [
+    "PHP",
+    "Laravel",
+    "OPTA Sports API",
+    "Docker",
+    "GitHub Actions",
+    "MySQL",
+    "PHPUnit"
+  ],
+  "featured": false,
+  "detailKey": "fanoty",
+  "overview": "Fanoty is an iOS mobile app built for football enthusiasts, delivering live match statistics, lineups, scores, and dynamic in-game events in real time. The backend suffered from severe latency bottlenecks and live-score divergence during peak matchdays due to synchronous ingestion of the external OPTA Sports API on an outdated Laravel 5.0 core. The project restructured the sports ingestion pipeline, upgraded the framework to Laravel 5.1, resolved live-score discrepancies, and established an automated CI/CD pipeline with GitHub Actions and Docker containers.",
+  "roleDescription": "Lead Backend Developer.",
+  "responsibilities": [
+    "Data Ingestion Engineering: Completely rewrote the ingestion, parsing, and normalization pipeline for OPTA Sports feeds and webhooks.",
+    "Refactoring & Framework Upgrade: Migrated core application architecture from Laravel 5.0 to 5.1, updating service contracts and repositories.",
+    "DevOps & CI/CD Automation: Built automated testing and continuous deployment workflows using GitHub Actions and Docker.",
+    "Quality Assurance: Built an extensive test suite in PHPUnit covering edge cases in score synchronization and match event sequencing."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Handling sudden schema mutations in raw XML/JSON payloads dispatched by OPTA Sports during live matches.",
+      "solution": "Built a robust Data Mapper normalization layer isolating domain models from external schema inconsistencies."
+    },
+    {
+      "challenge": "Executing a production framework version upgrade without introducing regressions for active mobile users.",
+      "solution": "Prioritized automated integration testing and established containerized blue-green deployments with instant rollback capability."
+    }
+  ],
+  "architectureDiagramMermaid": "graph TD\n    AppiOS[\"📱 Fanoty App (iOS)\"] -->|\"HTTPS / REST API\"| LoadBalancer[\"🌐 Nginx / Reverse Proxy\"]\n    LoadBalancer --> AppLaravel[\"⚡ Backend API (Laravel 5.1)\"]\n    subgraph Ingestao [\"🔄 Data Ingestion Pipeline\"]\n        OptaAPI[\"⚽ OPTA Sports API\"] -->|\"Feeds & Webhooks\"| DataParser[\"⚙️ OPTA Data Normalizer / Mapper\"]\n        DataParser --> AppLaravel\n    end\n    AppLaravel --> DB[(\"🗄️ MySQL Database\")]\n    subgraph DevOps [\"🚀 CI/CD & Deploy\"]\n        Git[\"🐙 GitHub Repository\"] --> Actions[\"⚙️ GitHub Actions CI\"]\n        Actions -->|\"Build & Test\"| Docker[\"🐳 Docker Registry / Deploy\"]\n    end",
+  "metrics": [
+    "50% reduction in sports data feed parsing and ingestion duration",
+    "100% consistency and accuracy in live match events across concurrent games",
+    "Automated zero-downtime deployment pipelines completed in under 5 minutes"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Strict session token validation and authentication on all mobile REST API requests."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Rigorous SQL parameterization enforced across Eloquent ORM and Query Builder."
+    },
+    {
+      "code": "A05:2021",
+      "title": "Security Misconfiguration",
+      "description": "Hardening of environment configurations and OPTA Sports credentials managed through GitHub Secrets."
+    }
+  ]
+}

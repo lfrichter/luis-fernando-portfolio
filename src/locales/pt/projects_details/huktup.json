@@ -1,0 +1,63 @@
+{
+  "id": "huktup",
+  "title": "Huktup — Plataforma de Agendamento & Gestão de Provedores de Serviço",
+  "subtitle": "API RESTful Laravel, Dashboard Reativo em Vue.js + Chart.js & Twilio SMS",
+  "category": "Full Stack",
+  "tier": 2,
+  "year": 2020,
+  "company": "Huktup",
+  "summary": "Plataforma centralizada de agendamento e faturamento para provedores de serviço com API RESTful em Laravel, dashboard analítico em Vue.js com Chart.js, autenticação Firebase SSO e automação Twilio SMS.",
+  "techStack": [
+    "Laravel",
+    "Vue.js",
+    "Chart.js",
+    "Twilio API",
+    "Firebase Auth",
+    "Swagger",
+    "MySQL",
+    "Docker"
+  ],
+  "featured": false,
+  "detailKey": "huktup",
+  "overview": "No setor de serviços, a gestão descentralizada de reservas, agendamentos, pagamentos e comunicação com clientes representa um grande obstáculo para o crescimento de negócios locais. O Huktup nasceu para resolver essa dor, oferecendo um ecossistema completo onde provedores de serviço centralizam toda a sua operação. A solução foi arquitetada em torno de uma API RESTful em Laravel (PHP), orquestrando agendamentos, serviços e faturamento, combinada com um dashboard analítico reativo desenvolvido em Vue.js e Chart.js, integração com Twilio API para automação de lembretes e feedbacks via SMS, e autenticação com Firebase SSO.",
+  "roleDescription": "Desenvolvedor Backend & Full-Stack Principal.",
+  "responsibilities": [
+    "Desenvolvimento do Core: Construção da API RESTful em Laravel centralizando todas as regras de negócio de agendamento e ofertas.",
+    "Dashboard Analítico: Criação da interface em Vue.js com Chart.js para visualização clara de faturamento, reservas e retenção de clientes.",
+    "Integração de Serviços Terceirizados: Implementação de mensageria SMS inteligente com Twilio e autenticação segura com Firebase Auth (SSO).",
+    "Documentação & DevOps: Padronização completa dos contratos de API com Swagger (OpenAPI) e conteinerização em Docker."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Garantir fluxos de comunicação confiáveis e bidirecionais via SMS em grande volume para redução de não-comparecimento.",
+      "solution": "Desenvolvimento de fluxos automatizados com a Twilio API, cobrindo confirmações, lembretes de véspera e coleta instantânea de avaliações pós-atendimento."
+    },
+    {
+      "challenge": "Alinhar e acelerar o desenvolvimento paralelo entre equipes de frontend, backend e QA sem divergências de contratos.",
+      "solution": "Elaboração de documentação viva e interativa da API no padrão Swagger (OpenAPI), eliminando ambiguidades e acelerando a validação."
+    }
+  ],
+  "architectureDiagramMermaid": "flowchart LR\n    subgraph Users[\"👥 Usuários\"]\n        A[\"🛠️ Provedor de Serviço\"]\n        B[\"👤 Cliente Final\"]\n    end\n    subgraph Platform[\"☁️ Plataforma Huktup (Cloud)\"]\n        C[\"📊 Dashboard Administrativo (Vue.js + Chart.js)\"]\n        D[\"⚙️ API RESTful (Laravel)\"]\n        E[(\"🐬 Banco de Dados MySQL\")]\n        F[\"🔐 Firebase Authentication\"]\n        G[\"📲 Twilio SMS API\"]\n    end\n    A -->|\"Login / Gestão\"| C\n    A -->|\"Autenticação SSO\"| F\n    C <-->|\"Solicita / Envia Dados\"| D\n    D <-->|\"Persiste Dados\"| E\n    D -->|\"Valida Token\"| F\n    D -->|\"Dispara SMS\"| G\n    G -->|\"Lembrete / Alerta\"| B",
+  "metrics": [
+    "Redução significativa de no-shows através de réguas automatizadas de SMS via Twilio",
+    "Visualização em tempo real de KPIs de faturamento e agendamentos com Vue.js e Chart.js",
+    "Documentação interativa OpenAPI/Swagger acelerando a integração dos clientes"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Isolamento rígido de perfis entre prestadores de serviço e clientes finais autenticados via Firebase SSO."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Parametrização estrita de entradas e validação de schemas em todos os endpoints RESTful."
+    },
+    {
+      "code": "A07:2021",
+      "title": "Identification and Authentication Failures",
+      "description": "Autenticação delegada ao Firebase Auth garantindo segurança de credenciais e proteção contra ataques de força bruta."
+    }
+  ]
+}

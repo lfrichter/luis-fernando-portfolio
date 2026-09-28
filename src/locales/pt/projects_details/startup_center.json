@@ -1,0 +1,62 @@
+{
+  "id": "startup-center",
+  "title": "Startup Center — Ecossistema de Ferramentas Para Apoio a Startups",
+  "subtitle": "Salas Virtuais WebRTC, Mensageria em Tempo Real, Economia Gamificada & Multi-Cloud",
+  "category": "SaaS",
+  "tier": 1,
+  "year": 2017,
+  "company": "Startup Center",
+  "summary": "Ecossistema all-in-one para startups com videoconferência TokBox WebRTC, mensageria em tempo real via Pusher, economia gamificada (StarCoins), pagamentos PayPal e infraestrutura multi-cloud.",
+  "techStack": [
+    "Laravel",
+    "TokBox WebRTC",
+    "Pusher WebSockets",
+    "PayPal API",
+    "MySQL",
+    "AWS EC2",
+    "IBM Bluemix"
+  ],
+  "featured": false,
+  "detailKey": "startup_center",
+  "overview": "O Startup Center foi concebido como uma plataforma all-in-one para fomentar a colaboração, ideação e crescimento de novos empreendedores e startups em estágio inicial. O objetivo era reunir em um único ecossistema ferramentas de validação de mercado, networking em tempo real, economia interna gamificada e integração de serviços terceirizados, eliminando a fragmentação de ferramentas que costuma encarecer a jornada de fundadores. Como único arquiteto e engenheiro do projeto, desenvolvi toda a solução em Laravel, integrando videoconferência via TokBox WebRTC, sinalização e mensageria em tempo real com Pusher, pesquisas dinâmicas e pagamentos via PayPal, orquestrando deploy multi-cloud da IBM Bluemix para a AWS.",
+  "roleDescription": "Arquiteto de Software & Engenheiro Full-Stack (Solo Developer).",
+  "responsibilities": [
+    "Concepção & Arquitetura do Ecossistema: Definição da arquitetura em camadas e integração de múltiplos serviços em tempo real.",
+    "Módulo StarCoffee: Implementação de salas de reunião interativas com vídeo e chat em tempo real via TokBox WebRTC e Pusher.",
+    "Módulo de Gamificação: Engenharia da economia interna da plataforma com cálculo de pontos Seeder e saldo em moedas virtuais (StarCoins).",
+    "Monetização & Infraestrutura Multi-Cloud: Integração do PayPal Express Checkout e provisionamento em nuvem na IBM Bluemix e AWS."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Orquestração de múltiplos serviços terceirizados assíncronos (TokBox WebRTC, Pusher WebSockets e PayPal) em uma única interface reativa.",
+      "solution": "Desenvolvimento de camada de adaptadores desacoplada com barramento de eventos no Laravel para sincronização transparente de estado."
+    },
+    {
+      "challenge": "Migração de cargas de trabalho em produção da IBM Bluemix para AWS sem perda de disponibilidade.",
+      "solution": "Estruturação de pipeline de infraestrutura modular e migração progressiva de DNS com banco de dados replicado."
+    }
+  ],
+  "architectureDiagramMermaid": "graph TD\n    User[\"👨🏽‍💼 Empreendedor / Startup\"] -->|\"HTTPS / Web App\"| LoadBalancer[\"🌐 Cloud Load Balancer\"]\n    LoadBalancer --> CoreApp[\"⚡ Startup Center Core (Laravel)\"]\n    subgraph Modulos [\"🧩 Módulos da Plataforma\"]\n        StarCoffee[\"☕ StarCoffee (Meeting & Video)\"]\n        StarCoin[\"🪙 StarCoin (Gamification Engine)\"]\n        StarIdea[\"💡 StarIdea (Surveys & Validation)\"]\n        PayModule[\"💳 Payment & Checkout Service\"]\n    end\n    CoreApp --> StarCoffee\n    CoreApp --> StarCoin\n    CoreApp --> StarIdea\n    CoreApp --> PayModule\n    StarCoffee <-->|\"WebRTC Stream\"| TokBox[\"📹 TokBox API (Vonage)\"]\n    StarCoffee <-->|\"WebSockets\"| Pusher[\"📡 Pusher API\"]\n    PayModule <-->|\"Checkout IPN\"| PayPal[\"💰 PayPal API\"]",
+  "metrics": [
+    "Comunicação WebRTC de baixa latência para conferências simultâneas",
+    "Milhares de transações simuladas de StarCoins em economia gamificada ativa",
+    "Migração multi-cloud bem-sucedida da IBM Bluemix para AWS"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Controle estrito de acesso a salas de conferência privadas e transações de moedas virtuais no backend."
+    },
+    {
+      "code": "A02:2021",
+      "title": "Cryptographic Failures",
+      "description": "Tokenização de pagamentos via PayPal e canais WebRTC criptografados (DTLS/SRTP)."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Parametrização integral de entradas em pesquisas dinâmicas e transações financeiras."
+    }
+  ]
+}

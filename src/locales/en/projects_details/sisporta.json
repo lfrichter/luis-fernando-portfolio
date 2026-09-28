@@ -1,0 +1,62 @@
+{
+  "id": "sisporta",
+  "title": "Sisporta — Resilient Data Synchronization Pipeline",
+  "subtitle": "Asynchronous Integration Pipeline, Python ETL Agent & Delete-by-Absence Strategy",
+  "category": "Architecture & Performance",
+  "tier": 2,
+  "year": 2018,
+  "company": "Alfasoft",
+  "summary": "Decoupled and resilient data pipeline syncing an untouchable legacy SQL Server ERP to a modern Laravel platform via a Python ETL agent, asynchronous Laravel Horizon queues, and delete-by-absence mirror logic.",
+  "techStack": [
+    "Python",
+    "PHP",
+    "Laravel",
+    "Laravel Horizon",
+    "SQL Server",
+    "MySQL",
+    "Bitbucket Pipelines"
+  ],
+  "featured": false,
+  "detailKey": "sisporta",
+  "overview": "The Sisporta project was born from the classic engineering challenge of modernizing enterprise quotation workflows without touching an untouchable legacy SQL Server ERP database. The solution was an asynchronous, resilient data pipeline: an external Python ETL agent reads active records from SQL Server and batches JSON payloads to a modern Laravel API. Ingestion is fully decoupled using Laravel Horizon queues, where background workers process updates and execute an automated 'delete-by-absence' cleanup job, guaranteeing an exact, clean mirror of ERP products and dealers without leaving orphaned or stale records.",
+  "roleDescription": "Solutions Architect & Lead Full-Stack Developer.",
+  "responsibilities": [
+    "Architecture Design: Conceptualized the asynchronous integration architecture ensuring high throughput and complete decoupling from legacy ERP.",
+    "Python ETL Agent: Developed the automated extraction script collecting and formatting commercial entities from SQL Server.",
+    "Laravel Application & Queues: Implemented ingestion API endpoints and distributed job handling with Laravel Horizon.",
+    "CI/CD Pipeline: Automated testing suites and continuous deployment pipelines using Bitbucket Pipelines."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Synchronizing enterprise datasets without write access to database schemas, views, or triggers in the legacy SQL Server ERP.",
+      "solution": "Built an external Python ETL runner conducting non-blocking reads paired with a full-refresh 'delete-by-absence' mirroring routine."
+    },
+    {
+      "challenge": "Guaranteeing fault tolerance and zero data loss during high-volume batch sync cycles.",
+      "solution": "Leveraged Laravel Horizon asynchronous queues with automated retry backoffs and isolated dead-letter handling."
+    }
+  ],
+  "architectureDiagramMermaid": "graph TD\n    subgraph ERP_Legado [\"Legacy ERP System\"]\n        ERP[(\"💾 SQL Server (Untouchable ERP)\")]\n    end\n    subgraph Pipeline [\"Integration Pipeline\"]\n        Script[\"🐍 Python ETL Agent\"]\n        API[\"🔌 Ingestion API (Laravel)\"]\n        Horizon[\"🔄 Processing Queue (Laravel Horizon)\"]\n        Workers[\"⚙️ Async Background Workers\"]\n    end\n    subgraph AppCloud [\"Modern Cloud Application\"]\n        DB[(\"☁️ Quotation App (Laravel / MySQL)\")]\n    end\n    ERP -->|\"1. Extracts active records\"| Script\n    Script -->|\"2. Sends JSON batches\"| API\n    API -->|\"3. Enqueues sync jobs\"| Horizon\n    Horizon -->|\"4. Dispatches workers\"| Workers\n    Workers -->|\"5. Insert / Update Records\"| DB\n    Workers -->|\"6. Cleanup (Delete-by-Absence)\"| DB",
+  "metrics": [
+    "Zero database lock contention or performance degradation on legacy ERP SQL Server",
+    "Flawless catalog consistency achieved through automated delete-by-absence mirror routines",
+    "Automated Bitbucket CI/CD pipeline delivering rapid and verified code deployments"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "API token authentication and strict IP whitelisting protecting ETL data ingestion endpoints."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "JSON schema sanitization and parameterized query execution enforced via Eloquent ORM."
+    },
+    {
+      "code": "A04:2021",
+      "title": "Insecure Design",
+      "description": "Idempotent background job architecture preventing duplicate records or corrupted price books."
+    }
+  ]
+}

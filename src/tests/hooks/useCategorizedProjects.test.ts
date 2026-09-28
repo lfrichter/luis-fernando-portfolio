@@ -74,4 +74,89 @@ describe('useCategorizedProjects Custom Hook', () => {
     expect(result.current.legacyProjects.length).toBe(3);
     expect(result.current.tier1Projects.length).toBe(0);
   });
+
+  it('computes eraCounts correctly across all project periods', () => {
+    const { result } = renderHook(() => useCategorizedProjects());
+
+    expect(result.current.eraCounts.all).toBe(result.current.totalProjectsCount);
+    expect(result.current.eraCounts.legacy).toBe(3);
+    expect(result.current.eraCounts.scaling).toBeGreaterThanOrEqual(8);
+    expect(result.current.eraCounts.modern).toBeGreaterThan(0);
+    expect(
+      result.current.eraCounts.modern +
+        result.current.eraCounts.scaling +
+        result.current.eraCounts.legacy
+    ).toBe(result.current.eraCounts.all);
+  });
+
+  it('filters strictly by selectedEra', () => {
+    const { result } = renderHook(() => useCategorizedProjects());
+
+    // Switch to scaling era (2016 - 2020)
+    act(() => {
+      result.current.setSelectedEra('scaling');
+    });
+
+    expect(result.current.selectedEra).toBe('scaling');
+    expect(result.current.legacyProjects.length).toBe(0);
+    const activeScalingProjects = [
+      ...result.current.tier1Projects,
+      ...result.current.tier2Projects,
+      ...result.current.tier3Projects,
+    ];
+    expect(activeScalingProjects.length).toBe(result.current.eraCounts.scaling);
+    expect(
+      activeScalingProjects.every(
+        (p) => typeof p.year === 'number' && p.year >= 2016 && p.year <= 2020
+      )
+    ).toBe(true);
+
+    // Verify key 2016-2020 projects are present
+    expect(activeScalingProjects.some((p) => p.id === 'indicos-saas')).toBe(true);
+    expect(activeScalingProjects.some((p) => p.id === 'aso-saude')).toBe(true);
+    expect(activeScalingProjects.some((p) => p.id === 'startup-center')).toBe(true);
+    expect(activeScalingProjects.some((p) => p.id === 'sisporta')).toBe(true);
+    expect(activeScalingProjects.some((p) => p.id === 'fanoty')).toBe(true);
+    expect(activeScalingProjects.some((p) => p.id === 'grappl')).toBe(true);
+    expect(activeScalingProjects.some((p) => p.id === 'huktup')).toBe(true);
+
+    // Switch to modern era (2021+)
+    act(() => {
+      result.current.setSelectedEra('modern');
+    });
+
+    expect(result.current.selectedEra).toBe('modern');
+    expect(result.current.legacyProjects.length).toBe(0);
+    const activeModernProjects = [
+      ...result.current.tier1Projects,
+      ...result.current.tier2Projects,
+      ...result.current.tier3Projects,
+    ];
+    expect(activeModernProjects.length).toBe(result.current.eraCounts.modern);
+    expect(
+      activeModernProjects.every(
+        (p) => !p.year || p.year >= 2021
+      )
+    ).toBe(true);
+    expect(activeModernProjects.some((p) => p.id === 'eupizza')).toBe(true);
+    expect(activeModernProjects.some((p) => p.id === 'indicos-saas')).toBe(false);
+
+    // Switch to legacy era (< 2015)
+    act(() => {
+      result.current.setSelectedEra('legacy');
+    });
+
+    expect(result.current.selectedEra).toBe('legacy');
+    expect(result.current.legacyProjects.length).toBe(3);
+    expect(result.current.tier1Projects.length).toBe(0);
+    expect(result.current.tier2Projects.length).toBe(0);
+    expect(result.current.tier3Projects.length).toBe(0);
+
+    // Switch back to all
+    act(() => {
+      result.current.setSelectedEra('all');
+    });
+    expect(result.current.selectedEra).toBe('all');
+    expect(result.current.legacyProjects.length).toBe(3);
+  });
 });

@@ -112,6 +112,8 @@
     "subtitle": "Orquestrador Multi-Marketplace & Bling ERP (High Volume)",
     "category": "Architecture & Performance",
     "tier": 2,
+    "year": 2017,
+    "company": "Plugae",
     "summary": "Hub centralizado em PHP/Laravel para unificar pedidos entre Mercado Livre, B2W, Via Varejo e ERP Bling. Filas assíncronas em Redis e MongoDB como fonte da verdade.",
     "techStack": [
       "PHP",
@@ -132,6 +134,8 @@
     "subtitle": "Análise Geoespacial & Otimização de Filas (500x Speedup)",
     "category": "Architecture & Performance",
     "tier": 2,
+    "year": 2019,
+    "company": "Evoke Mobile",
     "summary": "Dashboards em React para 200k+ pontos geoespaciais com Superfetch (30x mais rápido) e filas Laravel Horizon (500x mais rápido em corridas), integrado a Power BI.",
     "techStack": [
       "Laravel",
@@ -151,6 +155,8 @@
     "subtitle": "Otimização de 10x em Carregamento & Testes Paralelos",
     "category": "Architecture & Performance",
     "tier": 2,
+    "year": 2021,
+    "company": "Full Comms",
     "summary": "Aumento de 10x na velocidade de páginas web, paralelização de suítes de teste com Laravel Dusk e Selenium no ecossistema imobiliário do Reino Unido.",
     "techStack": [
       "Laravel",
@@ -169,6 +175,7 @@
     "subtitle": "Microsserviço RESTful com Clean Architecture & SOLID",
     "category": "Full Stack",
     "tier": 2,
+    "year": 2025,
     "summary": "API RESTful de alta performance projetada com Clean Architecture, princípios SOLID e testes automatizados para gerenciamento de listas de produtos favoritos.",
     "techStack": [
       "TypeScript",
@@ -187,6 +194,8 @@
     "subtitle": "Plataforma Orientada a Eventos para Web Push Notifications",
     "category": "Full Stack",
     "tier": 2,
+    "year": 2017,
+    "company": "Pilha Digital",
     "summary": "Plataforma modular em Laravel orientada a eventos para registro de websites, envio automatizado de notificações Web Push e integração com OneSignal e Pagar.me.",
     "techStack": [
       "Laravel",
@@ -426,6 +435,175 @@
     ],
     "featured": false,
     "detailKey": "ftd_controle_producao"
+  },
+  {
+    "id": "aso-saude",
+    "title": "ASO — Reconstrução e Modernização de Sistema de Gestão de Saúde",
+    "subtitle": "Recuperação Emergencial, Clean Code em PHP OOP & Migração para Nuvem AWS",
+    "category": "Architecture & Performance",
+    "tier": 2,
+    "year": 2016,
+    "company": "ASO Medicina e Segurança do Trabalho",
+    "summary": "Recuperação emergencial em 15 dias e reconstrução de plataforma de gestão hospitalar e prontuários médicos em PHP OOP moderno, com migração segura de dados para AWS (EC2, RDS, S3).",
+    "techStack": [
+      "PHP",
+      "OOP",
+      "Clean Code",
+      "MySQL",
+      "AWS EC2",
+      "AWS RDS",
+      "AWS S3",
+      "CloudFront"
+    ],
+    "featured": false,
+    "detailKey": "aso_saude"
+  },
+  {
+    "id": "indicos-saas",
+    "title": "Índicos — Plataforma SaaS Multi-tenant de Marketing de Indicação",
+    "subtitle": "Primeira Plataforma SaaS Multi-tenant, Subdomínios Dinâmicos & Visualização de Redes",
+    "category": "SaaS",
+    "tier": 1,
+    "year": 2017,
+    "company": "Índicos SaaS",
+    "summary": "Plataforma SaaS multi-tenant em Laravel com isolamento rigoroso por subdomínio dinâmico, roteamento por middlewares customizados, comissionamento multinível e diagramas dinâmicos de hierarquia.",
+    "techStack": [
+      "Laravel",
+      "Multi-tenancy",
+      "MySQL",
+      "JavaScript",
+      "jQuery",
+      "Dynamic Subdomains",
+      "Custom Middlewares"
+    ],
+    "featured": false,
+    "detailKey": "indicos_saas"
+  },
+  {
+    "id": "startup-center",
+    "title": "Startup Center — Ecossistema de Ferramentas Para Apoio a Startups",
+    "subtitle": "Salas Virtuais WebRTC, Mensageria em Tempo Real, Economia Gamificada & Multi-Cloud",
+    "category": "SaaS",
+    "tier": 1,
+    "year": 2017,
+    "company": "Startup Center",
+    "summary": "Ecossistema all-in-one para startups com videoconferência TokBox WebRTC, mensageria em tempo real via Pusher, economia gamificada (StarCoins), pagamentos PayPal e infraestrutura multi-cloud.",
+    "techStack": [
+      "Laravel",
+      "TokBox WebRTC",
+      "Pusher WebSockets",
+      "PayPal API",
+      "MySQL",
+      "AWS EC2",
+      "IBM Bluemix"
+    ],
+    "featured": false,
+    "detailKey": "startup_center"
+  },
+  {
+    "id": "sisporta",
+    "title": "Sisporta — Sincronização Inteligente de Dados",
+    "subtitle": "Pipeline de Integração Assíncrona, Python ETL & Estratégia Delete-by-Absence",
+    "category": "Architecture & Performance",
+    "tier": 2,
+    "year": 2018,
+    "company": "Alfasoft",
+    "summary": "Pipeline de dados desacoplado e resiliente integrando banco SQL Server legado a uma aplicação Laravel moderna via agente Python ETL, filas assíncronas com Laravel Horizon e sincronização com Delete-by-Absence.",
+    "techStack": [
+      "Python",
+      "PHP",
+      "Laravel",
+      "Laravel Horizon",
+      "SQL Server",
+      "MySQL",
+      "Bitbucket Pipelines"
+    ],
+    "featured": false,
+    "detailKey": "sisporta"
+  },
+  {
+    "id": "simulados-medicos",
+    "title": "Simulados Médicos — Plataforma EdTech de Exames de Especialidade",
+    "subtitle": "MVP EdTech em Portugal, Motor de Provas Resiliente & Pagamentos EuPago.pt",
+    "category": "SaaS",
+    "tier": 1,
+    "year": 2018,
+    "company": "Medical EdTech Portugal",
+    "summary": "Plataforma EdTech para preparação de médicos em Portugal com motor de exames cronometrado tolerante a desconexões, banco de questões categorizado, pagamentos automatizados via EuPago.pt e Docker.",
+    "techStack": [
+      "Laravel",
+      "PHP",
+      "MySQL",
+      "Docker",
+      "EuPago.pt API",
+      "JavaScript",
+      "CI/CD"
+    ],
+    "featured": false,
+    "detailKey": "simulados_medicos"
+  },
+  {
+    "id": "fanoty",
+    "title": "Fanoty — Modernização de Backend & API de Esportes em Tempo Real",
+    "subtitle": "Ingestão de Feeds OPTA Sports, Atualização Laravel 5.1 & CI/CD com Docker",
+    "category": "Architecture & Performance",
+    "tier": 2,
+    "year": 2019,
+    "company": "Evoke Mobile / Fanoty",
+    "summary": "Reestruturação do pipeline de ingestão de feeds esportivos da OPTA Sports para app mobile iOS, migração de Laravel 5.0 para 5.1, redução de 50% no tempo de processamento e CI/CD com Docker e GitHub Actions.",
+    "techStack": [
+      "PHP",
+      "Laravel",
+      "OPTA Sports API",
+      "Docker",
+      "GitHub Actions",
+      "MySQL",
+      "PHPUnit"
+    ],
+    "featured": false,
+    "detailKey": "fanoty"
+  },
+  {
+    "id": "grappl",
+    "title": "Grappl — Modernização de API e Entrega Rápida de Funcionalidades",
+    "subtitle": "Carregamento de Feed em < 400ms, Busca Multidimensional & CMS de Anúncios",
+    "category": "Architecture & Performance",
+    "tier": 2,
+    "year": 2019,
+    "company": "Evoke Mobile / Grappl",
+    "summary": "Otimização de API RESTful em Laravel reduzindo tempo de resposta do feed principal para < 400ms, eliminação de queries N+1, implementação de motor de busca avançada e CMS para monetização de anúncios.",
+    "techStack": [
+      "PHP",
+      "Laravel",
+      "MySQL",
+      "Query Optimization",
+      "Docker",
+      "CMS"
+    ],
+    "featured": false,
+    "detailKey": "grappl"
+  },
+  {
+    "id": "huktup",
+    "title": "Huktup — Plataforma de Agendamento & Gestão de Provedores de Serviço",
+    "subtitle": "API RESTful Laravel, Dashboard Reativo em Vue.js + Chart.js & Twilio SMS",
+    "category": "Full Stack",
+    "tier": 2,
+    "year": 2020,
+    "company": "Huktup",
+    "summary": "Plataforma centralizada de agendamento e faturamento para provedores de serviço com API RESTful em Laravel, dashboard analítico em Vue.js com Chart.js, autenticação Firebase SSO e automação Twilio SMS.",
+    "techStack": [
+      "Laravel",
+      "Vue.js",
+      "Chart.js",
+      "Twilio API",
+      "Firebase Auth",
+      "Swagger",
+      "MySQL",
+      "Docker"
+    ],
+    "featured": false,
+    "detailKey": "huktup"
   }
 ]
 

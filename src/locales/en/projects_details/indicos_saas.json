@@ -1,0 +1,62 @@
+{
+  "id": "indicos-saas",
+  "title": "Índicos — Multi-Tenant Referral Marketing SaaS Platform",
+  "subtitle": "First Multi-Tenant SaaS Architecture, Dynamic Subdomains & Referral Graph Visualization",
+  "category": "SaaS",
+  "tier": 1,
+  "year": 2017,
+  "company": "Índicos SaaS",
+  "summary": "Full multi-tenant referral marketing SaaS in Laravel featuring dynamic subdomain isolation, custom middleware routing, multi-level commission logic, and dynamic hierarchy network graphs.",
+  "techStack": [
+    "Laravel",
+    "Multi-tenancy",
+    "MySQL",
+    "JavaScript",
+    "jQuery",
+    "Dynamic Subdomains",
+    "Custom Middlewares"
+  ],
+  "featured": false,
+  "detailKey": "indicos_saas",
+  "overview": "The Índicos project was founded on the vision of democratizing referral marketing, enabling companies of any size to independently manage automated multi-level rewards programs. The engineering core was building a multi-tenant SaaS platform from scratch where each tenant operated in an isolated scope via dynamic subdomains (e.g., company.indicos.com.br) powered by a single centralized Laravel application. Custom routing middlewares served as the platform gateway, resolving tenant contexts per HTTP request and isolating user authentication, business commission logic, and relational MySQL persistence.",
+  "roleDescription": "Software Architect & Principal Full-Stack Developer.",
+  "responsibilities": [
+    "Multi-Tenant Architecture: Designed and implemented from-scratch tenant boundary isolation and dynamic subdomain routing.",
+    "Commissioning Engine: Programmed the business rules governing multi-level compensation, reward criteria, and payment distribution.",
+    "Interactive Dashboards: Built real-time network graphs visualizing hierarchical referral trees directly inside client dashboards.",
+    "Infrastructure Problem Solving: Diagnosed hosting provider edge limitations to establish reliable wildcard subdomain resolution."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Configuring dynamic wildcard subdomains on constrained hosting environments with restrictive reverse proxy setups.",
+      "solution": "Conducted deep HTTP host header analysis, implementing custom middleware fallback logic to ensure reliable tenant resolution."
+    },
+    {
+      "challenge": "Rendering multi-level network hierarchies in real-time without client-side lag or memory exhaustion.",
+      "solution": "Developed an optimized recursive tree generator in the backend with incremental DOM visualization in the browser."
+    }
+  ],
+  "architectureDiagramMermaid": "flowchart LR\n    subgraph U[\"Users\"]\n        MasterAdmin[\"👨‍💼 Master Platform Admin\"]\n        TenantUser[\"🧑‍🤝‍🧑 Tenant Customer / Referrer\"]\n    end\n    subgraph P[\"Índicos Platform (Multi-Tenant SaaS)\"]\n        SubdomainRouter{\"🔄 Subdomain Router Middleware\"}\n        LaravelApp[\"⚙️ Laravel Application Core\"]\n        subgraph M[\"Application Modules\"]\n            AdminDashboard[\"📊 Master Admin Dashboard\"]\n            TenantDashboard[\"📈 Tenant Dashboard & Network\"]\n        end\n    end\n    MySQLDatabase[(\"🗄️ MySQL Database (Tenant-Isolated)\")]\n    TenantUser -->|\"tenant-a.indicos.com\"| SubdomainRouter\n    MasterAdmin -->|\"admin.indicos.com\"| SubdomainRouter\n    SubdomainRouter -->|\"Resolves Tenant\"| LaravelApp\n    SubdomainRouter -->|\"Resolves Master\"| LaravelApp\n    LaravelApp --> TenantDashboard\n    LaravelApp --> AdminDashboard\n    TenantDashboard -->|\"Renders Tree\"| TenantUser\n    AdminDashboard -->|\"Manages Tenants\"| MasterAdmin\n    LaravelApp <--> MySQLDatabase",
+  "metrics": [
+    "100% strict data isolation across multiple concurrent tenant accounts",
+    "Successfully launched first enterprise-grade multi-tenant SaaS platform",
+    "Sub-second hierarchical graph rendering of complex referral organizations"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Tenant context verified at middleware layer on every request, preventing cross-tenant data leakage."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Strict Eloquent ORM bindings across all dynamic tenant database queries."
+    },
+    {
+      "code": "A07:2021",
+      "title": "Identification and Authentication Failures",
+      "description": "Subdomain-scoped session storage and authentication cookies preventing cross-tenant session reuse."
+    }
+  ]
+}

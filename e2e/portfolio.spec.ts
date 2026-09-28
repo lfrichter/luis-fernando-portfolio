@@ -31,7 +31,7 @@ test.describe('Portfolio E2E & i18n Tests', () => {
     }
 
     // 3. Switch back to Projects tab and open Lazy ProjectModal
-    const projectsTab = page.getByRole('button', { name: /Projetos|Projects/i });
+    const projectsTab = page.getByRole('button', { name: /^Projetos & Destaques|^Projects & Highlights/i });
     await projectsTab.click();
 
     const detailBtn = page.getByRole('button', { name: /Especificações|Specs|Detalhes|Details/i }).first();
@@ -55,5 +55,35 @@ test.describe('Portfolio E2E & i18n Tests', () => {
     // 5. Verify Theme Toggle
     const themeBtn = page.getByRole('button', { name: /toggle theme/i });
     await expect(themeBtn).toBeVisible();
+  });
+
+  test('should filter projects using Career Era tabs (AI & Cloud, Scaling 2016-2020, Legacy)', async ({ page }) => {
+    await page.goto('/');
+
+    const projectsTab = page.getByRole('button', { name: /^Projetos & Destaques|^Projects & Highlights/i });
+    await projectsTab.click();
+
+    // Verify default view displays all projects
+    await expect(page.getByText('Ask Richter').first()).toBeVisible();
+
+    // Click 2016-2020 scaling era button
+    const scalingBtn = page.getByRole('button', { name: /2016 – 2020/i });
+    await scalingBtn.click();
+
+    // 2016-2020 projects should be visible
+    await expect(page.getByText(/Índicos/i).first()).toBeVisible();
+    await expect(page.getByText(/ASO/i).first()).toBeVisible();
+    await expect(page.getByText(/Startup Center/i).first()).toBeVisible();
+
+    // Modern projects should not be visible
+    await expect(page.getByText('Ask Richter')).not.toBeVisible();
+
+    // Click Legacy era button
+    const legacyBtn = page.getByRole('button', { name: /Pré-2015|Pre-2015/i });
+    await legacyBtn.click();
+
+    // Pre-2015 FTD project should be visible
+    await expect(page.getByText(/FTD — Gestão de Acessos/i).first()).toBeVisible();
+    await expect(page.getByText(/Índicos/i)).not.toBeVisible();
   });
 });

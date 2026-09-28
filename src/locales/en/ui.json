@@ -68,7 +68,16 @@
     "legacyTitle": "Enterprise Systems & Legacy Projects (Pre-2015)",
     "legacySubtitle": "Pioneering software engineering, component-based development (CBD), distributed architectures, and ERP decoupling built prior to 2015 at Editora FTD S/A.",
     "legacyBadge": "Corporate History • Pre-2015",
-    "viewLegacyBtn": "View Legacy Architecture"
+    "viewLegacyBtn": "View Legacy Architecture",
+    "eraFilterLabel": "Career Era / Cycle:",
+    "eraAll": "All Projects",
+    "eraAllSub": "Consolidated overview",
+    "eraModern": "AI & Cloud Native (2021 – Present)",
+    "eraModernSub": "2021 – Present",
+    "eraScaling": "SaaS, Cloud & High-Scale APIs (2016 – 2020)",
+    "eraScalingSub": "2016 – 2020",
+    "eraLegacy": "Enterprise Legacy Systems (< 2015)",
+    "eraLegacySub": "Pre-2015"
   },
   "modal": {
     "headerBadge": "CTO & Tech Leadership Briefing",

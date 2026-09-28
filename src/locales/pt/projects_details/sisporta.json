@@ -1,0 +1,62 @@
+{
+  "id": "sisporta",
+  "title": "Sisporta — Sincronização Inteligente de Dados",
+  "subtitle": "Pipeline de Integração Assíncrona, Python ETL & Estratégia Delete-by-Absence",
+  "category": "Architecture & Performance",
+  "tier": 2,
+  "year": 2018,
+  "company": "Alfasoft",
+  "summary": "Pipeline de dados desacoplado e resiliente integrando banco SQL Server legado a uma aplicação Laravel moderna via agente Python ETL, filas assíncronas com Laravel Horizon e sincronização com Delete-by-Absence.",
+  "techStack": [
+    "Python",
+    "PHP",
+    "Laravel",
+    "Laravel Horizon",
+    "SQL Server",
+    "MySQL",
+    "Bitbucket Pipelines"
+  ],
+  "featured": false,
+  "detailKey": "sisporta",
+  "overview": "O projeto Sisporta nasceu do desafio de modernizar o sistema de orçamentos de uma empresa fabricante de portões sem poder alterar seu ERP legado com banco Microsoft SQL Server intocável. A solução concebida consistiu em um pipeline de dados desacoplado e resiliente: um script Python atuando como agente extrator (ETL), lendo dados do SQL Server e enviando lotes JSON para a API Laravel. A ingestão foi projetada de forma assíncrona com Laravel Horizon, onde workers em background processam e persistem os dados com uma rotina inteligente de 'delete-by-absence', garantindo que o sistema novo seja um espelho exato e limpo do ERP sem acumular dados órfãos.",
+  "roleDescription": "Arquiteto de Soluções & Desenvolvedor Full-Stack Principal.",
+  "responsibilities": [
+    "Desenho da Arquitetura: Idealização da arquitetura assíncrona de integração garantindo alta vazão e desacoplamento do legado.",
+    "Script de Extração Python: Desenvolvimento do agente coletor e formatador dos dados de produtos e revendedores do SQL Server.",
+    "Aplicação Laravel & Queues: Implementação da API REST de ingestão e dos jobs distribuídos com Laravel Horizon.",
+    "Pipeline CI/CD: Configuração completa de testes automatizados e esteira de deploy no Bitbucket Pipelines."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Sincronizar massas de dados sem acesso direto para modificação de esquemas ou triggers no ERP SQL Server legado.",
+      "solution": "Criação de agente Python externo executando leituras não bloqueantes e estratégia de espelhamento com rotina automatizada de 'delete-by-absence'."
+    },
+    {
+      "challenge": "Garantir tolerância a falhas e evitar gargalos de processamento durante cargas volumosas de dados.",
+      "solution": "Uso de filas assíncronas no Laravel Horizon com reprocessamento automático e isolamento de falhas sem impacto na aplicação final."
+    }
+  ],
+  "architectureDiagramMermaid": "graph TD\n    subgraph ERP_Legado [\"Sistema Legado\"]\n        ERP[(\"💾 SQL Server (ERP Legado)\")]\n    end\n    subgraph Pipeline [\"Pipeline de Integração\"]\n        Script[\"🐍 Script de Extração (Python)\"]\n        API[\"🔌 API de Ingestão (Laravel)\"]\n        Horizon[\"🔄 Fila de Processamento (Laravel Horizon)\"]\n        Workers[\"⚙️ Jobs Assíncronos (Workers)\"]\n    end\n    subgraph AppCloud [\"Nova Aplicação Cloud\"]\n        DB[(\"☁️ App de Orçamentos (Laravel / MySQL)\")]\n    end\n    ERP -->|\"1. Extrai dados ativos (Full Refresh)\"| Script\n    Script -->|\"2. Envia lotes JSON\"| API\n    API -->|\"3. Enfileira jobs\"| Horizon\n    Horizon -->|\"4. Despacha workers\"| Workers\n    Workers -->|\"5. Insert / Update e Persiste\"| DB\n    Workers -->|\"6. Limpeza (Delete-by-Absence)\"| DB",
+  "metrics": [
+    "Zero impacto de performance ou bloqueios no banco SQL Server do ERP legado",
+    "Consistência estrita de catálogo através de espelhamento com delete-by-absence",
+    "Pipeline de CI/CD automatizado garantindo deploys seguros no Bitbucket"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Autenticação por chave de API e controle de acesso estrito nos endpoints de ingestão de dados."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Sanitização de payloads JSON e execução de queries parametrizadas via Eloquent ORM."
+    },
+    {
+      "code": "A04:2021",
+      "title": "Insecure Design",
+      "description": "Filas assíncronas com tratamento de idempotência prevenindo duplicação ou corrupção de orçamentos."
+    }
+  ]
+}

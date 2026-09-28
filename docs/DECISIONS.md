@@ -127,3 +127,22 @@ This document records key architectural, technological, and engineering decision
   - Sourced and validated all 3 notes directly from Obsidian Vault (`B-Areas/Particular/Curriculo/Projects/2006-2015/`), maintaining bidirectional parity with `.sync_manifest.json` and Continuous Content Delivery (CCD).
 - **Consequences:** Preserves clean executive focus on modern cloud/AI stacks while giving recruiters and tech leadership transparent visibility into 15+ years of foundational enterprise engineering, covered by 14 Vitest test suites (35 unit tests) and Playwright E2E integration verification.
 
+---
+
+## ADR-010: Career Era Filtering Architecture (Timeline Horizons: Modern, Scaling, Legacy)
+
+- **Date:** 2026-09-28
+- **Status:** Accepted
+- **Context:** Ingesting 8 historical projects from 2016 to 2020 (ASO [2016], Índicos SaaS [2017], Startup Center [2017], Sisporta [2018], Simulados Médicos [2018], Fanoty [2019], Grappl [2019], Huktup [2020]) brought the portfolio to 30 projects. Without temporal categorization, visitors and tech leadership could experience cognitive overload distinguishing modern AI/Cloud Native architectures from previous high-scale API/SaaS cycles.
+- **Decision:**
+  - Implemented Career Era / Timeline Horizon filtering (Option 1) in `useCategorizedProjects.ts`:
+    - `all`: Full consolidated view (30 projects).
+    - `modern`: AI & Cloud Native (2021 – Present).
+    - `scaling`: SaaS, Cloud & High-Scale APIs (2016 – 2020).
+    - `legacy`: Enterprise Legacy Systems (< 2015).
+  - Integrated interactive era tab pills with live project counts (`eraCounts`) into `src/components/Projects.tsx`.
+  - Added full bilingual support in `src/locales/pt/ui.json` and `src/locales/en/ui.json`.
+  - Ingested all 8 Obsidian notes (`B-Areas/Particular/Curriculo/Projects/2016-2020/`), generated detailed bilingual architecture specifications with Mermaid diagrams (`projects_details/`), and registered dynamic code-split lazy loading in `useProjectDetail.ts`.
+  - Reconciled state in `.sync_manifest.json` and updated mapping documentation (`Portfolio-Dados-Publicados-e-Mapeamento.md`).
+- **Consequences:** Provides effortless career progression filtering for CTOs and hiring managers, eliminates UI crowding, maintains 100% test coverage (14 Vitest suites, 38 unit tests + 2 Playwright E2E specs), and verifies full bilingual integrity.
+

@@ -7,7 +7,7 @@
 
 ## 1. Mapeamento de Projetos por Categoria
 
-A aplicação organiza os 22 projetos em tiers de destaque (19 projetos modernos em Tiers 1, 2 e 3) e uma seção exclusiva para Projetos Corporativos Legado (< 2015).
+A aplicação organiza 30 projetos através de uma navegação por Horizontes/Eras de Carreira (*AI & Nuvem Nativa 2021–Presente*, *SaaS, Cloud & APIs de Escala 2016–2020*, e *Sistemas Corporativos Legado < 2015*), divididos em Tiers de impacto técnico para CTOs, líderes de engenharia e recrutadores.
 
 ### 🌟 Projetos Principais (SaaS, Full Stack & Engenharia de Produção)
 
@@ -53,6 +53,21 @@ A aplicação organiza os 22 projetos em tiers de destaque (19 projetos modernos
 | :--- | :--- | :--- | :--- |
 | `cat-guardian` | **Cat Guardian — Passaporte Felino** | Plataforma Open Source com perfil IA (Gemini 2.0 Flash), QR Code e Blind Contact Relay com Resend API (React 19, Vite 6, Supabase RLS) | `B-Areas/Particular/Curriculo/Challenges/Challenge - Cat Guardian.md` |
 | `postmark-email-task` | **Gerenciador Conversacional por E-mail** | Postmark Inbound Webhooks transformando e-mails em tarefas via hashtags `#prioridade`, `#concluir` (Laravel, Livewire, Pest, Postmark API) | `B-Areas/Particular/Curriculo/Challenges/Challenge - E-mail Task Manager Conversacional 📥 Postmark.md` |
+
+---
+
+### ⚡ Projetos de Escala, Nuvem & SaaS (2016 – 2020)
+
+| ID do Projeto | Nome na Aplicação | Ano | Resumo / Stack Principal | Nota Fonte no Obsidian |
+| :--- | :--- | :--- | :--- | :--- |
+| `aso-saude` | **ASO — Reconstrução e Modernização de Sistema de Gestão de Saúde** | 2016 | Reconstrução de HealthTech legado para PHP OOP robusto e migração para AWS (RDS Multi-AZ, EC2, S3, Apache) | `B-Areas/Particular/Curriculo/Projects/2016-2020/Project - ASO - Reconstrução e Modernização de Sistema de Gestão de Saúde.md` |
+| `indicos-saas` | **Índicos — Plataforma SaaS Multi-tenant de Marketing de Indicação** | 2017 | 1ª plataforma multi-tenant em Laravel com isolamento por subdomínios dinâmicos e árvores de hierarquia | `B-Areas/Particular/Curriculo/Projects/2016-2020/Project - Índicos SaaS Multi-tenant para Marketing de Indicação.md` |
+| `startup-center` | **Startup Center — Ecossistema de Ferramentas para Apoio a Startups** | 2017 | Plataforma de videoconferência WebRTC TokBox/OpenTok, websockets em tempo real Pusher, PayPal e IBM Bluemix -> AWS | `B-Areas/Particular/Curriculo/Projects/2016-2020/Project - Startup Center - Ecossistema de Ferramentas para Apoio a Startups.md` |
+| `sisporta` | **Sisporta — Sincronização Inteligente de Dados** | 2018 | Pipeline ETL resiliente em Python, reconciliação Delete-by-Absence e CI/CD Bitbucket (SQL Server -> MySQL) | `B-Areas/Particular/Curriculo/Projects/2016-2020/Project - Sisporta - Sincronização Inteligente de Dados.md` |
+| `simulados-medicos` | **Simulados Médicos — Plataforma para Exames de Especialidade Médica** | 2018 | EdTech médica em Portugal com gateways de pagamento EuPago.pt, Docker e avaliação psicométrica | `B-Areas/Particular/Curriculo/Projects/2016-2020/Project - Simulados Médicos - Plataforma para Exames de Especialidade Médica.md` |
+| `fanoty` | **Fanoty — Modernização de Backend e API de Esportes** | 2019 | Backend Laravel para aplicativo iOS, integração OPTA Sports Data API e pipelines automatizados com GitHub Actions | `B-Areas/Particular/Curriculo/Projects/2016-2020/Project - Fanoty - Modernização de Backend e API de Esportes.md` |
+| `grappl` | **Grappl — Modernização de API e Entrega Rápida de Funcionalidades** | 2019 | Otimização de queries e índices para latência < 400ms na Wrestling API, Ad Server CMS e busca dinâmica | `B-Areas/Particular/Curriculo/Projects/2016-2020/Project - Grappl - Modernização de API e Entrega Rápida de Funcionalidades.md` |
+| `huktup` | **Huktup — Plataforma de Engajamento e Relacionamento Digital** | 2020 | API RESTful com documentação OpenAPI/Swagger, dashboard em Vue.js + Chart.js, autenticação Firebase e SMS Twilio | `B-Areas/Particular/Curriculo/Projects/2016-2020/Project - Huktup.md` |
 
 ---
 

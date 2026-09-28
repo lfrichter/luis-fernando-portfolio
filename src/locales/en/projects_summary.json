@@ -112,6 +112,8 @@
     "subtitle": "Multi-Marketplace Orchestrator & Bling ERP (High Volume)",
     "category": "Architecture & Performance",
     "tier": 2,
+    "year": 2017,
+    "company": "Plugae",
     "summary": "Centralized PHP/Laravel hub to unify orders across Mercado Livre, B2W, Via Varejo, and Bling ERP. Redis asynchronous queue workers and MongoDB single source of truth.",
     "techStack": [
       "PHP",
@@ -132,6 +134,8 @@
     "subtitle": "Geospatial Analytics & Queue Optimization (500x Speedup)",
     "category": "Architecture & Performance",
     "tier": 2,
+    "year": 2019,
+    "company": "Evoke Mobile",
     "summary": "React dashboards for 200k+ geospatial map points using Superfetch (30x faster) and Laravel Horizon queues (500x faster trip processing), integrated with Power BI.",
     "techStack": [
       "Laravel",
@@ -151,6 +155,8 @@
     "subtitle": "10x Page Load Speedup & Parallel E2E Test Automation",
     "category": "Architecture & Performance",
     "tier": 2,
+    "year": 2021,
+    "company": "Full Comms",
     "summary": "10x performance improvement in web page rendering, parallel test suite execution with Laravel Dusk and Selenium across UK real estate platform.",
     "techStack": [
       "Laravel",
@@ -169,6 +175,7 @@
     "subtitle": "RESTful Microservice with Clean Architecture & SOLID",
     "category": "Full Stack",
     "tier": 2,
+    "year": 2025,
     "summary": "High-performance RESTful API designed with Clean Architecture, SOLID principles, and automated testing for managing favorite product lists.",
     "techStack": [
       "TypeScript",
@@ -187,6 +194,8 @@
     "subtitle": "Event-Driven Web Push Notification Platform",
     "category": "Full Stack",
     "tier": 2,
+    "year": 2017,
+    "company": "Pilha Digital",
     "summary": "Modular event-driven Laravel platform for website registration, automated Web Push notification delivery, integrated with OneSignal and Pagar.me.",
     "techStack": [
       "Laravel",
@@ -426,6 +435,175 @@
     ],
     "featured": false,
     "detailKey": "ftd_controle_producao"
+  },
+  {
+    "id": "aso-saude",
+    "title": "ASO — Healthcare Management System Reconstruction & Modernization",
+    "subtitle": "Emergency Recovery, Clean Code PHP OOP & Cloud Migration to AWS",
+    "category": "Architecture & Performance",
+    "tier": 2,
+    "year": 2016,
+    "company": "ASO Occupational Medicine & Healthcare",
+    "summary": "15-day critical stabilization and complete reconstruction of an enterprise hospital and medical records platform using modern PHP OOP, migrating infrastructure to AWS (EC2, RDS, S3).",
+    "techStack": [
+      "PHP",
+      "OOP",
+      "Clean Code",
+      "MySQL",
+      "AWS EC2",
+      "AWS RDS",
+      "AWS S3",
+      "CloudFront"
+    ],
+    "featured": false,
+    "detailKey": "aso_saude"
+  },
+  {
+    "id": "indicos-saas",
+    "title": "Índicos — Multi-Tenant Referral Marketing SaaS Platform",
+    "subtitle": "First Multi-Tenant SaaS Architecture, Dynamic Subdomains & Referral Graph Visualization",
+    "category": "SaaS",
+    "tier": 1,
+    "year": 2017,
+    "company": "Índicos SaaS",
+    "summary": "Full multi-tenant referral marketing SaaS in Laravel featuring dynamic subdomain isolation, custom middleware routing, multi-level commission logic, and dynamic hierarchy network graphs.",
+    "techStack": [
+      "Laravel",
+      "Multi-tenancy",
+      "MySQL",
+      "JavaScript",
+      "jQuery",
+      "Dynamic Subdomains",
+      "Custom Middlewares"
+    ],
+    "featured": false,
+    "detailKey": "indicos_saas"
+  },
+  {
+    "id": "startup-center",
+    "title": "Startup Center — All-in-One Startup Incubation Ecosystem",
+    "subtitle": "WebRTC Video Conferencing, Real-Time Messaging, Gamification & Multi-Cloud Architecture",
+    "category": "SaaS",
+    "tier": 1,
+    "year": 2017,
+    "company": "Startup Center",
+    "summary": "All-in-one ecosystem for early-stage founders featuring TokBox WebRTC video rooms, Pusher real-time chat, gamified StarCoin economy, PayPal billing, and IBM Bluemix-to-AWS multi-cloud migration.",
+    "techStack": [
+      "Laravel",
+      "TokBox WebRTC",
+      "Pusher WebSockets",
+      "PayPal API",
+      "MySQL",
+      "AWS EC2",
+      "IBM Bluemix"
+    ],
+    "featured": false,
+    "detailKey": "startup_center"
+  },
+  {
+    "id": "sisporta",
+    "title": "Sisporta — Resilient Data Synchronization Pipeline",
+    "subtitle": "Asynchronous Integration Pipeline, Python ETL Agent & Delete-by-Absence Strategy",
+    "category": "Architecture & Performance",
+    "tier": 2,
+    "year": 2018,
+    "company": "Alfasoft",
+    "summary": "Decoupled and resilient data pipeline syncing an untouchable legacy SQL Server ERP to a modern Laravel platform via a Python ETL agent, asynchronous Laravel Horizon queues, and delete-by-absence mirror logic.",
+    "techStack": [
+      "Python",
+      "PHP",
+      "Laravel",
+      "Laravel Horizon",
+      "SQL Server",
+      "MySQL",
+      "Bitbucket Pipelines"
+    ],
+    "featured": false,
+    "detailKey": "sisporta"
+  },
+  {
+    "id": "simulados-medicos",
+    "title": "Simulados Médicos — Medical Specialty Examination EdTech Platform",
+    "subtitle": "Portuguese EdTech MVP, Resilient Exam Engine & Automated EuPago.pt Payments",
+    "category": "SaaS",
+    "tier": 1,
+    "year": 2018,
+    "company": "Medical EdTech Portugal",
+    "summary": "EdTech platform preparing physicians for medical specialty boards in Portugal, featuring a disconnect-tolerant timed exam engine, question taxonomy, EuPago.pt payment processing, and Docker.",
+    "techStack": [
+      "Laravel",
+      "PHP",
+      "MySQL",
+      "Docker",
+      "EuPago.pt API",
+      "JavaScript",
+      "CI/CD"
+    ],
+    "featured": false,
+    "detailKey": "simulados_medicos"
+  },
+  {
+    "id": "fanoty",
+    "title": "Fanoty — Real-Time Sports Mobile API & Backend Modernization",
+    "subtitle": "OPTA Sports Ingestion Pipeline, Laravel 5.1 Upgrade & Containerized CI/CD",
+    "category": "Architecture & Performance",
+    "tier": 2,
+    "year": 2019,
+    "company": "Evoke Mobile / Fanoty",
+    "summary": "Restructuring the real-time OPTA Sports data pipeline for a live iOS football app, upgrading legacy Laravel 5.0 to 5.1, cutting ingestion latency by 50%, and automating CI/CD via Docker and GitHub Actions.",
+    "techStack": [
+      "PHP",
+      "Laravel",
+      "OPTA Sports API",
+      "Docker",
+      "GitHub Actions",
+      "MySQL",
+      "PHPUnit"
+    ],
+    "featured": false,
+    "detailKey": "fanoty"
+  },
+  {
+    "id": "grappl",
+    "title": "Grappl — High-Performance API Modernization & Rapid Feature Delivery",
+    "subtitle": "Sub-400ms Home Feed Response, Multidimensional Search & CMS Ad Server",
+    "category": "Architecture & Performance",
+    "tier": 2,
+    "year": 2019,
+    "company": "Evoke Mobile / Grappl",
+    "summary": "RESTful API optimization in Laravel slashing home feed latency to < 400ms, eliminating N+1 queries, introducing faceted search, and deploying a CMS advertising monetization engine.",
+    "techStack": [
+      "PHP",
+      "Laravel",
+      "MySQL",
+      "Query Optimization",
+      "Docker",
+      "CMS"
+    ],
+    "featured": false,
+    "detailKey": "grappl"
+  },
+  {
+    "id": "huktup",
+    "title": "Huktup — Service Provider Operations & Scheduling Platform",
+    "subtitle": "RESTful Laravel API, Reactive Vue.js + Chart.js Dashboard & Twilio SMS Automation",
+    "category": "Full Stack",
+    "tier": 2,
+    "year": 2020,
+    "company": "Huktup",
+    "summary": "Centralized scheduling and business operations platform for service providers with a Laravel RESTful API, reactive Vue.js/Chart.js analytics, Firebase SSO, and Twilio SMS client automation.",
+    "techStack": [
+      "Laravel",
+      "Vue.js",
+      "Chart.js",
+      "Twilio API",
+      "Firebase Auth",
+      "Swagger",
+      "MySQL",
+      "Docker"
+    ],
+    "featured": false,
+    "detailKey": "huktup"
   }
 ]
 

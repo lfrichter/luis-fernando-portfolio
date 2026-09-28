@@ -1,0 +1,62 @@
+{
+  "id": "simulados-medicos",
+  "title": "Simulados Médicos — Medical Specialty Examination EdTech Platform",
+  "subtitle": "Portuguese EdTech MVP, Resilient Exam Engine & Automated EuPago.pt Payments",
+  "category": "SaaS",
+  "tier": 1,
+  "year": 2018,
+  "company": "Medical EdTech Portugal",
+  "summary": "EdTech platform preparing physicians for medical specialty boards in Portugal, featuring a disconnect-tolerant timed exam engine, question taxonomy, EuPago.pt payment processing, and Docker.",
+  "techStack": [
+    "Laravel",
+    "PHP",
+    "MySQL",
+    "Docker",
+    "EuPago.pt API",
+    "JavaScript",
+    "CI/CD"
+  ],
+  "featured": false,
+  "detailKey": "simulados_medicos",
+  "overview": "The project involved end-to-end development of the Minimum Viable Product (MVP) for an educational technology (EdTech) platform focused on preparing doctors for medical specialty and certification exams in Portugal. The system required dynamic question banks, timed test execution with instant scoring and pedagogical feedback, and immediate monetization via subscription packages. Architected in Laravel and integrated with the Portuguese EuPago.pt payment gateway, the platform ran on a containerized Docker deployment pipeline enabling rapid market validation from day one.",
+  "roleDescription": "Lead Full-Stack Developer.",
+  "responsibilities": [
+    "Domain Modeling & Backend: Designed relational structures for question banks, answer keys, exam sessions, and audit logs.",
+    "Exam Engine: Developed the testing engine with strict time limits, dynamic question shuffling, and instant feedback computation.",
+    "Financial Integration (EuPago.pt): Implemented checkout workflows, automated Multibanco / MB Way payment reference generation, and asynchronous webhook reconciliation.",
+    "DevOps & Infrastructure: Configured cloud servers, containerized services with Docker, and automated continuous deployment workflows."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Preventing exam session corruption or lost timer countdowns during accidental tab closures or mobile network drops.",
+      "solution": "Built a periodic state synchronization mechanism with server-enforced timestamp validation on every submitted answer."
+    },
+    {
+      "challenge": "Handling asynchronous webhook payment confirmations reliably in the Portuguese banking ecosystem (Multibanco / MB Way).",
+      "solution": "Engineered idempotent payment listeners with database transactions to ensure access was granted exactly once per payment."
+    }
+  ],
+  "architectureDiagramMermaid": "graph TD\n    Aluno[\"👨‍⚕️ Medical Student / Doctor\"] -->|\"HTTPS / Web UI\"| Nginx[\"🌐 Nginx Web Server\"]\n    Nginx --> Laravel[\"⚡ Laravel EdTech Core Engine\"]\n    subgraph CoreEngine [\"🧩 System Modules\"]\n        AuthModule[\"🔐 Auth & Access Control\"]\n        ExamEngine[\"📝 Exam Engine & Timer Service\"]\n        PaymentModule[\"💳 Payment Gateway Handler\"]\n        AnalyticsModule[\"📊 Result & Analytics Service\"]\n    end\n    Laravel --> AuthModule\n    Laravel --> ExamEngine\n    Laravel --> PaymentModule\n    Laravel --> AnalyticsModule\n    PaymentModule <-->|\"Webhooks / References\"| EuPago[\"🇵🇹 EuPago.pt Gateway\"]\n    ExamEngine --> DB[(\"🗄️ MySQL Database\")]\n    AnalyticsModule --> DB\n    AuthModule --> DB",
+  "metrics": [
+    "Complete commercial MVP scoped, engineered, and launched in production in 60 days",
+    "Immediate day-one monetization via automated EuPago.pt reconciliation",
+    "99.9% uptime maintained during high-concurrency medical exam sittings"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Strict server-side isolation of answer keys, preventing client-side inspection before test completion."
+    },
+    {
+      "code": "A02:2021",
+      "title": "Cryptographic Failures",
+      "description": "End-to-end TLS encryption and cryptographic signature verification on payment webhooks."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Rigorous input sanitization and parameterized database execution via Eloquent ORM."
+    }
+  ]
+}

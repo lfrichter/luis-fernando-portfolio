@@ -1,0 +1,63 @@
+{
+  "id": "aso-saude",
+  "title": "ASO — Reconstrução e Modernização de Sistema de Gestão de Saúde",
+  "subtitle": "Recuperação Emergencial, Clean Code em PHP OOP & Migração para Nuvem AWS",
+  "category": "Architecture & Performance",
+  "tier": 2,
+  "year": 2016,
+  "company": "ASO Medicina e Segurança do Trabalho",
+  "summary": "Recuperação emergencial em 15 dias e reconstrução de plataforma de gestão hospitalar e prontuários médicos em PHP OOP moderno, com migração segura de dados para AWS (EC2, RDS, S3).",
+  "techStack": [
+    "PHP",
+    "OOP",
+    "Clean Code",
+    "MySQL",
+    "AWS EC2",
+    "AWS RDS",
+    "AWS S3",
+    "CloudFront"
+  ],
+  "featured": false,
+  "detailKey": "aso_saude",
+  "overview": "O projeto na ASO consistiu na recuperação emergencial e subsequente reconstrução completa de uma plataforma legada corporativa de gestão hospitalar, clínicas e prontuários médicos desenvolvida em PHP Orientado a Objetos. O sistema original sofria de instabilidade crônica, alto acoplamento e frequentes quedas de banco de dados, colocando em risco a continuidade dos atendimentos clínicos diários. A intervenção foi estruturada em duas fases estratégicas: uma estabilização emergencial nos primeiros 15 dias para restabelecer a operação hospitalar crítica, seguida por um ciclo profundo de 10 meses de engenharia de software para refatoração arquitetural, reescrita de módulos centrais e migração de servidores locais para a nuvem Amazon Web Services (AWS).",
+  "roleDescription": "Desenvolvedor Full-Stack Sênior & Responsável Técnico.",
+  "responsibilities": [
+    "Diagnóstico & Recuperação Emergencial: Identificação de gargalos estruturais de concorrência e aplicação de correções críticas em 15 dias.",
+    "Engenharia de Reconstrução: Reescrita completa do código em PHP OOP moderno com separação estrita de camadas (Domain, Service, Data Access).",
+    "Otimização de Banco de Dados: Normalização de esquemas, reindexação de tabelas relacionais em MySQL e eliminação de queries bloqueantes.",
+    "Arquitetura em Nuvem & Migração AWS: Planejamento e execução do deploy na AWS utilizando EC2 para computação, Amazon RDS (MySQL) para alta disponibilidade e S3 para armazenamento de prontuários e laudos médicos."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Operação de alto risco em ambiente hospitalar, refatorando sistemas em produção contínua sem permitir indisponibilidade para médicos e pacientes.",
+      "solution": "Estratégia de modernização faseada com testes de regressão contínuos e migração de tráfego progressiva por módulo de atendimento."
+    },
+    {
+      "challenge": "Migração segura de gigabytes de dados médicos sensíveis sem perda de integridade histórica.",
+      "solution": "Execução de scripts de validação de checksum e scripts de reconciliação antes da transição definitiva para o Amazon RDS."
+    }
+  ],
+  "architectureDiagramMermaid": "graph TD\n    HospitalUser[\"🏥 Clínicas & Hospitais\"] -->|\"HTTPS / VPN Segura\"| CloudFront[\"🌐 AWS CloudFront / SSL\"]\n    CloudFront --> AppEC2[\"⚡ AWS EC2 (PHP OOP Application)\"]\n    subgraph HealthcareModules [\"🩺 Módulos de Gestão de Saúde\"]\n        Prontuario[\"📋 Prontuário Eletrônico\"]\n        Agendamento[\"📅 Gestão de Consultas & Leitos\"]\n        Faturamento[\"💳 Faturamento & Convênios\"]\n    end\n    AppEC2 --> Prontuario\n    AppEC2 --> Agendamento\n    AppEC2 --> Faturamento\n    AppEC2 --> RDS[(\"🗄️ AWS RDS MySQL Database\")]\n    AppEC2 --> S3[\"📦 AWS S3 (Exames & Documentos)\"]",
+  "metrics": [
+    "Estabilização crítica da operação em 15 dias corridos",
+    "100% de refatoração arquitetural com separação estrita de camadas",
+    "Migração para AWS concluída com zero perda de prontuários históricos"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Controle rigoroso de papéis e permissões para acesso a prontuários e dados médicos confidenciais."
+    },
+    {
+      "code": "A02:2021",
+      "title": "Cryptographic Failures",
+      "description": "Criptografia de dados sensíveis e comunicação segura via TLS em toda a infraestrutura hospitalar."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Parametrização integral de comandos SQL via PDO e Prepared Statements, eliminando vulnerabilidades legadas."
+    }
+  ]
+}

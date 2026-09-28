@@ -55,4 +55,33 @@ describe('Projects Component', () => {
     expect(screen.getByText('FTD — Gerenciador Iconográfico (DAM Corporativo)')).toBeInTheDocument();
     expect(screen.getByText('FTD — Controle de Produção Editorial')).toBeInTheDocument();
   });
+
+  it('filters projects by era tab buttons', () => {
+    render(<Projects />);
+
+    // Click on 2016-2020 Era button
+    const scalingEraBtn = screen.getByRole('button', { name: /saas, cloud & apis de escala/i });
+    fireEvent.click(scalingEraBtn);
+
+    // 2016-2020 projects should be visible
+    expect(screen.getByText(/Índicos/i)).toBeInTheDocument();
+    expect(screen.getByText(/ASO/i)).toBeInTheDocument();
+    expect(screen.getByText(/Startup Center/i)).toBeInTheDocument();
+
+    // Modern (2021+) projects should not be visible
+    expect(screen.queryByText('Ask Richter')).not.toBeInTheDocument();
+    expect(screen.queryByText('EuPizza / Robô de Atendimento por Voz')).not.toBeInTheDocument();
+
+    // Legacy section should not be visible in scaling era
+    expect(screen.queryByText('FTD — Gestão de Acessos para Conteúdo Educacional')).not.toBeInTheDocument();
+
+    // Click on Legacy (< 2015) Era button
+    const legacyEraBtn = screen.getByRole('button', { name: /sistemas corporativos legado/i });
+    fireEvent.click(legacyEraBtn);
+
+    // Only FTD projects visible
+    expect(screen.getByText('FTD — Gestão de Acessos para Conteúdo Educacional')).toBeInTheDocument();
+    expect(screen.queryByText(/Índicos/i)).not.toBeInTheDocument();
+    expect(screen.queryByText('Ask Richter')).not.toBeInTheDocument();
+  });
 });

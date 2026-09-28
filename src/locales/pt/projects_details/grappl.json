@@ -1,0 +1,61 @@
+{
+  "id": "grappl",
+  "title": "Grappl — Modernização de API e Entrega Rápida de Funcionalidades",
+  "subtitle": "Carregamento de Feed em < 400ms, Busca Multidimensional & CMS de Anúncios",
+  "category": "Architecture & Performance",
+  "tier": 2,
+  "year": 2019,
+  "company": "Evoke Mobile / Grappl",
+  "summary": "Otimização de API RESTful em Laravel reduzindo tempo de resposta do feed principal para < 400ms, eliminação de queries N+1, implementação de motor de busca avançada e CMS para monetização de anúncios.",
+  "techStack": [
+    "PHP",
+    "Laravel",
+    "MySQL",
+    "Query Optimization",
+    "Docker",
+    "CMS"
+  ],
+  "featured": false,
+  "detailKey": "grappl",
+  "overview": "O Grappl é uma plataforma e rede comunitária voltada para fãs de wrestling e esportes de combate, permitindo aos usuários acompanhar, avaliar e catalogar combates e eventos históricos. Em um ciclo focado de entrega de 2 meses, o objetivo foi atuar diretamente com a liderança executiva da Evoke Mobile para resolver gargalos severos de carregamento na página inicial, refatorar a camada de consultas SQL e implantar novas frentes de produto, como busca avançada multidimensional e monetização por publicidade via CMS customizado.",
+  "roleDescription": "Desenvolvedor Backend Sênior (Senior Backend Developer).",
+  "responsibilities": [
+    "Refatoração de Endpoints Críticos: Reconstrução da API da página inicial (Home Feed), eliminando consultas N+1 e indexando tabelas essenciais.",
+    "Mecanismo de Busca Avançada: Arquitetura e desenvolvimento da engine de busca com múltiplos filtros combinados (lutadores, promoções, datas, avaliações).",
+    "Módulo de Monetização (CMS Ad Server): Criação de área administrativa no CMS para publicação, agendamento e rastreamento de anúncios.",
+    "Gestão de Sessão & Autenticação: Implementação de gerenciamento seguro de estado e sessão de usuários para navegação persistente e customizada."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Otimizar agregação de notas e avaliações médias de centenas de lutas por evento sem sobrecarregar o banco de dados.",
+      "solution": "Refatoração profunda de queries SQL, eliminação de loops N+1 e adoção de estratégias de prefetching eficiente no Query Builder."
+    },
+    {
+      "challenge": "Entrega ágil de múltiplos módulos de produto em um prazo extremamente reduzido de 60 dias.",
+      "solution": "Comunicação direta em ciclos diários com o CEO e arquitetura modular isolando o ad server dos endpoints de conteúdo comunitário."
+    }
+  ],
+  "architectureDiagramMermaid": "graph TD\n    User[\"👤 Usuário / App Web\"] -->|\"HTTPS / REST API\"| ApiGateway[\"🌐 API Gateway / Nginx\"]\n    ApiGateway --> LaravelAPI[\"⚡ Laravel Application Core\"]\n    subgraph Modulos [\"🧩 Módulos da Aplicação\"]\n        HomeFeed[\"🏠 Home Feed Service (Otimizado)\"]\n        SearchEngine[\"🔍 Advanced Search Engine\"]\n        AdModule[\"📢 CMS Ad Management & Monetization\"]\n        SessionMgr[\"🔐 Session & Auth Manager\"]\n    end\n    LaravelAPI --> HomeFeed\n    LaravelAPI --> SearchEngine\n    LaravelAPI --> AdModule\n    LaravelAPI --> SessionMgr\n    HomeFeed --> MySQL[(\"🗄️ MySQL Database\")]\n    SearchEngine --> MySQL\n    AdModule --> MySQL\n    SessionMgr --> MySQL",
+  "metrics": [
+    "Carregamento do Home Feed reduzido para < 400ms",
+    "Mecanismo de busca multidimensional com resposta instantânea",
+    "Monetização por publicidade ativada com sucesso no primeiro mês"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Controle de acesso baseado em papéis (RBAC) no painel administrativo do CMS, protegendo anúncios e configurações."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Tratamento estrito de parâmetros da busca avançada através de bindings preparados no ORM."
+    },
+    {
+      "code": "A07:2021",
+      "title": "Identification and Authentication Failures",
+      "description": "Renovação segura de identificadores de sessão e proteção contra fixação de sessão."
+    }
+  ]
+}

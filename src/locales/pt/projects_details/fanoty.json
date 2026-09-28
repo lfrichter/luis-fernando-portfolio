@@ -1,0 +1,62 @@
+{
+  "id": "fanoty",
+  "title": "Fanoty — Modernização de Backend & API de Esportes em Tempo Real",
+  "subtitle": "Ingestão de Feeds OPTA Sports, Atualização Laravel 5.1 & CI/CD com Docker",
+  "category": "Architecture & Performance",
+  "tier": 2,
+  "year": 2019,
+  "company": "Evoke Mobile / Fanoty",
+  "summary": "Reestruturação do pipeline de ingestão de feeds esportivos da OPTA Sports para app mobile iOS, migração de Laravel 5.0 para 5.1, redução de 50% no tempo de processamento e CI/CD com Docker e GitHub Actions.",
+  "techStack": [
+    "PHP",
+    "Laravel",
+    "OPTA Sports API",
+    "Docker",
+    "GitHub Actions",
+    "MySQL",
+    "PHPUnit"
+  ],
+  "featured": false,
+  "detailKey": "fanoty",
+  "overview": "O Fanoty é um aplicativo mobile iOS voltado para fãs de futebol, oferecendo acompanhamento em tempo real de estatísticas, escalações, placares e eventos dinâmicos de partidas esportivas. O backend da plataforma enfrentava gargalos severos de latência e divergência de dados durante picos de tráfego em jogos ao vivo, causados pela complexidade na ingestão síncrona da API externa da OPTA Sports e por uma base de código em Laravel 5.0 desatualizada. A missão do projeto consistiu em reestruturar a camada de ingestão de dados esportivos, atualizar o framework para Laravel 5.1, eliminar inconsistências em tempo real e estabelecer um fluxo contínuo de entrega com GitHub Actions e contêineres Docker.",
+  "roleDescription": "Desenvolvedor Backend Líder (Lead Backend Developer).",
+  "responsibilities": [
+    "Engenharia de Ingestão de Dados: Reescrita completa da rotina de consumo, parsing e normalização dos feeds esportivos da OPTA Sports API.",
+    "Refatoração & Atualização de Framework: Migração do core de Laravel 5.0 para 5.1, modernizando contratos de serviços e repositórios.",
+    "DevOps & Automação CI/CD: Criação de pipelines automatizados de teste e deploy com GitHub Actions e contêineres Docker.",
+    "Garantia de Qualidade: Desenvolvimento de suíte de testes com PHPUnit cobrindo cenários críticos de cálculo e sincronização de placares."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Tratamento de variações repentinas na estrutura de dados XML/JSON enviada pelos webhooks e feeds da OPTA Sports durante partidas ao vivo.",
+      "solution": "Criação de camada de normalização resiliente (Data Mappers) isolando o domínio da aplicação contra mudanças nos esquemas externos."
+    },
+    {
+      "challenge": "Migração de versão de framework em produção sem interrupção de serviço para os usuários ativos do app mobile.",
+      "solution": "Expansão prévia de testes de regressão automatizados e deploy em contêineres Docker com suporte a rollback imediato."
+    }
+  ],
+  "architectureDiagramMermaid": "graph TD\n    AppiOS[\"📱 Fanoty App (iOS)\"] -->|\"HTTPS / REST API\"| LoadBalancer[\"🌐 Nginx / Reverse Proxy\"]\n    LoadBalancer --> AppLaravel[\"⚡ Backend API (Laravel 5.1)\"]\n    subgraph Ingestao [\"🔄 Pipeline de Ingestão de Dados\"]\n        OptaAPI[\"⚽ OPTA Sports API\"] -->|\"Feeds & Webhooks\"| DataParser[\"⚙️ OPTA Data Normalizer / Mapper\"]\n        DataParser --> AppLaravel\n    end\n    AppLaravel --> DB[(\"🗄️ MySQL Database\")]\n    subgraph DevOps [\"🚀 CI/CD & Deploy\"]\n        Git[\"🐙 GitHub Repository\"] --> Actions[\"⚙️ GitHub Actions CI\"]\n        Actions -->|\"Build & Test\"| Docker[\"🐳 Docker Registry / Deploy\"]\n    end",
+  "metrics": [
+    "50% de redução no tempo de ingestão e processamento dos feeds esportivos",
+    "100% de confiabilidade e consistência nos placares ao vivo durante partidas simultâneas",
+    "Deploys automatizados com zero-downtime reduzidos para menos de 5 minutos"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Validação rigorosa de tokens de sessão e autenticação em requisições provenientes do aplicativo mobile iOS."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Parametrização estrita de todas as consultas via Eloquent ORM e Query Builder, prevenindo injeção SQL."
+    },
+    {
+      "code": "A05:2021",
+      "title": "Security Misconfiguration",
+      "description": "Hardening de variáveis de ambiente e segredos de API da OPTA Sports isolados no GitHub Actions Secrets."
+    }
+  ]
+}

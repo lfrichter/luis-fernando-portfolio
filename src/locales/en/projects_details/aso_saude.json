@@ -1,0 +1,63 @@
+{
+  "id": "aso-saude",
+  "title": "ASO — Healthcare Management System Reconstruction & Modernization",
+  "subtitle": "Emergency Recovery, Clean Code PHP OOP & Cloud Migration to AWS",
+  "category": "Architecture & Performance",
+  "tier": 2,
+  "year": 2016,
+  "company": "ASO Occupational Medicine & Healthcare",
+  "summary": "15-day critical stabilization and complete reconstruction of an enterprise hospital and medical records platform using modern PHP OOP, migrating infrastructure to AWS (EC2, RDS, S3).",
+  "techStack": [
+    "PHP",
+    "OOP",
+    "Clean Code",
+    "MySQL",
+    "AWS EC2",
+    "AWS RDS",
+    "AWS S3",
+    "CloudFront"
+  ],
+  "featured": false,
+  "detailKey": "aso_saude",
+  "overview": "The project at ASO consisted of the emergency recovery and subsequent full architectural rebuild of a legacy enterprise management platform for hospitals, outpatient clinics, and electronic health records (EHR) written in Object-Oriented PHP. The original codebase suffered from chronic concurrency bottlenecks, severe component coupling, and recurring database deadlocks, threatening daily clinical operations. The engagement was structured into two strategic phases: a 15-day rapid stabilization to maintain operational continuity, followed by a 10-month deep software engineering overhaul including modular redesign, query optimization, and infrastructure migration to Amazon Web Services (AWS).",
+  "roleDescription": "Senior Full-Stack Developer & Technical Lead.",
+  "responsibilities": [
+    "Diagnostic & Emergency Stabilization: Identified concurrency bottlenecks and rolled out critical database locking fixes within 15 days.",
+    "Reconstruction Engineering: Rebuilt core modules using modern PHP OOP with strict layering (Domain, Service, Data Access).",
+    "Database Tuning: Normalized relational schemas, re-indexed high-volume medical tables in MySQL, and eliminated blocking queries.",
+    "Cloud Architecture & AWS Migration: Planned and executed AWS deployment utilizing EC2 instances, Amazon RDS (MySQL) for high availability, and S3 for medical attachments."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "High-risk operation refactoring mission-critical hospital software in 24/7 continuous production with zero downtime for medical staff.",
+      "solution": "Adopted a phased strangle-pattern modernization strategy with automated regression checks and progressive traffic routing per clinical department."
+    },
+    {
+      "challenge": "Migrating gigabytes of sensitive historical patient records without integrity loss.",
+      "solution": "Engineered automated ETL validation and checksum comparison routines prior to cutover to Amazon RDS."
+    }
+  ],
+  "architectureDiagramMermaid": "graph TD\n    HospitalUser[\"🏥 Hospitals & Clinics\"] -->|\"HTTPS / Secure VPN\"| CloudFront[\"🌐 AWS CloudFront / SSL\"]\n    CloudFront --> AppEC2[\"⚡ AWS EC2 (PHP OOP Application)\"]\n    subgraph HealthcareModules [\"🩺 Healthcare Modules\"]\n        Prontuario[\"📋 Electronic Health Records\"]\n        Agendamento[\"📅 Appointments & Bed Allocations\"]\n        Faturamento[\"💳 Medical Billing & Insurance\"]\n    end\n    AppEC2 --> Prontuario\n    AppEC2 --> Agendamento\n    AppEC2 --> Faturamento\n    AppEC2 --> RDS[(\"🗄️ AWS RDS MySQL Database\")]\n    AppEC2 --> S3[\"📦 AWS S3 (Lab Exams & Records)\"]",
+  "metrics": [
+    "15-day rapid stabilization averting complete operational hospital downtime",
+    "100% clean-architecture refactoring with strict separation of concerns",
+    "Seamless AWS cloud migration preserving complete historical EHR data"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Strict role-based access control protecting confidential patient health records and clinical history."
+    },
+    {
+      "code": "A02:2021",
+      "title": "Cryptographic Failures",
+      "description": "End-to-end data encryption in transit via TLS and secure handling of sensitive health records."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Comprehensive parameterization using PDO prepared statements, eradicating legacy injection vectors."
+    }
+  ]
+}
