@@ -1,0 +1,61 @@
+{
+  "id": "ftd-gerenciador-iconografico",
+  "title": "FTD — Gerenciador Iconográfico (DAM Corporativo)",
+  "subtitle": "Banco de Imagens Corporativo & Gestão de Ativos Digitais (ColdFusion CBD + MS SQL Server)",
+  "category": "Architecture & Performance",
+  "tier": 2,
+  "year": 2008,
+  "company": "Editora FTD S/A",
+  "summary": "Plataforma corporativa DAM para catalogação com metadados, controle rigoroso de direitos autorais e busca avançada para designers e pesquisadores de livros didáticos.",
+  "techStack": [
+    "ColdFusion",
+    "Java Servlets",
+    "CBD",
+    "MS SQL Server",
+    "Windows Server / IIS",
+    "DAM"
+  ],
+  "featured": false,
+  "detailKey": "ftd_gerenciador_iconografico",
+  "overview": "Na Editora FTD S/A, o acervo iconográfico (fotos, ilustrações científicas, mapas, infográficos e obras de arte) é um patrimônio estratégico essencial para a produção de centenas de títulos didáticos simultâneos. Antes da implantação do sistema, a localização de ativos e a conferência de contratos de direitos autorais e licenças de uso eram manuais, gerando lentidão no fechamento de livros e riscos jurídicos de uso indevido de imagens. Para atender a essa demanda em escala corporativa, foi concebido o Gerenciador Iconográfico, uma plataforma completa de Gestão de Ativos Digitais (DAM - Digital Asset Management). A solução foi arquitetada em ColdFusion (Java Servlets) sobre Microsoft SQL Server, utilizando desenvolvimento baseado em componentes (CBD), proporcionando catalogação com metadados avançados, controle rigoroso de direitos autorais e motor de busca com múltiplos critérios de refinamento.",
+  "roleDescription": "Desenvolvedor Web & Membro da Equipe de Engenharia.",
+  "responsibilities": [
+    "Mecanismo de Busca Avançada: Arquitetura e programação do motor de busca com refinamento dinâmico por palavras-chave, fotógrafos, datas, coleções e status de licenciamento.",
+    "Módulo de Catalogação & Metadados: Desenvolvimento da interface e regras de negócio para associação de imagens a metadados essenciais (direitos autorais, vigência de licença, resoluções e restrições de uso).",
+    "Engenharia de Componentes (CBD): Estruturação de componentes reutilizáveis em ColdFusion (CFCs) para garantir alta performance e escalabilidade no tráfego de arquivos e metadados.",
+    "Integração de Storage & Servidores: Configuração de diretórios seguros de armazenamento em alta capacidade no Windows Server / IIS."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Performance na busca multidimensional combinando múltiplos critérios em uma base com grande volume de registros de imagens.",
+      "solution": "Criação de índices específicos no Microsoft SQL Server, particionamento de tabelas de metadados e pré-compilação de consultas no ColdFusion."
+    },
+    {
+      "challenge": "Garantia de segurança contra downloads não autorizados de imagens em altíssima resolução.",
+      "solution": "Armazenamento dos ativos originais fora da raiz pública do servidor web (Web Root), com fluxo de entrega intermediado por scripts autenticados com verificação de perfil."
+    }
+  ],
+  "architectureDiagramMermaid": "graph TD\n    User[\"🎨 Designers / Pesquisadores Iconográficos\"] -->|\"HTTP / Intranet FTD\"| IIS[\"🌐 Microsoft IIS Web Server\"]\n    IIS --> DAMCore[\"⚡ ColdFusion DAM Core (Java Servlets)\"]\n    subgraph DAMModules [\"🧩 Módulos DAM (CBD)\"]\n        SearchModule[\"🔍 Advanced Search & Filter Engine\"]\n        CatalogModule[\"🏷️ Metadata & Rights Management\"]\n        MediaDelivery[\"🖼️ Secure Asset Delivery Service\"]\n    end\n    DAMCore --> SearchModule\n    DAMCore --> CatalogModule\n    DAMCore --> MediaDelivery\n    SearchModule --> SQLServer[(\"🗄️ MS SQL Server - Metadados\")]\n    CatalogModule --> SQLServer\n    MediaDelivery --> Storage[\"📦 Storage Corporativo (Imagens Hi-Res)\"]",
+  "metrics": [
+    "Redução de 80% no tempo de busca e localização de imagens didáticas",
+    "Mitigação total de riscos jurídicos de uso indevido de licenças expiradas",
+    "Centralização institucional de milhares de ativos digitais de alta resolução"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Restrição estrita de download de arquivos originais em alta resolução baseada no perfil de permissão do usuário."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Parametrização rígida de consultas SQL com <cfqueryparam> no ColdFusion, blindando o motor de busca contra injeções."
+    },
+    {
+      "code": "A05:2021",
+      "title": "Security Misconfiguration",
+      "description": "Armazenamento de ativos fora da raiz pública do servidor web (Web Root), com entrega intermediada por scripts controlados de autorização."
+    }
+  ]
+}

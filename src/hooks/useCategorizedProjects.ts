@@ -32,18 +32,34 @@ export function useCategorizedProjects() {
     });
   }, [projects, selectedCategory, searchQuery]);
 
-  const tier1Projects = useMemo(
-    () => filteredProjects.filter((p) => p.tier === 1),
+  const isLegacyProject = (p: IProjectSummary) =>
+    typeof p.year === 'number' && p.year < 2015;
+
+  const modernProjects = useMemo(
+    () => filteredProjects.filter((p) => !isLegacyProject(p)),
     [filteredProjects]
+  );
+
+  const tier1Projects = useMemo(
+    () => modernProjects.filter((p) => p.tier === 1),
+    [modernProjects]
   );
 
   const tier2Projects = useMemo(
-    () => filteredProjects.filter((p) => p.tier === 2),
-    [filteredProjects]
+    () => modernProjects.filter((p) => p.tier === 2),
+    [modernProjects]
   );
 
   const tier3Projects = useMemo(
-    () => filteredProjects.filter((p) => p.tier === 3),
+    () => modernProjects.filter((p) => p.tier === 3),
+    [modernProjects]
+  );
+
+  const legacyProjects = useMemo(
+    () =>
+      filteredProjects
+        .filter(isLegacyProject)
+        .sort((a, b) => (b.year || 0) - (a.year || 0)),
     [filteredProjects]
   );
 
@@ -53,6 +69,7 @@ export function useCategorizedProjects() {
     tier1Projects,
     tier2Projects,
     tier3Projects,
+    legacyProjects,
     selectedCategory,
     setSelectedCategory,
     categories,

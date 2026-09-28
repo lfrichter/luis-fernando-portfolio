@@ -1,0 +1,62 @@
+{
+  "id": "ftd-gestao-acessos",
+  "title": "FTD — Educational Content Access Governance Platform",
+  "subtitle": "Distributed Multi-Branch Platform & ERP Decoupling (ColdFusion + MS SQL Server)",
+  "category": "Architecture & Performance",
+  "tier": 1,
+  "year": 2006,
+  "company": "Editora FTD S/A",
+  "summary": "Distributed governance platform for 24 regional FTD branches, decoupling legacy Progress ERP via an ETL pipeline to dedicated SQL Server, eliminating 100% of query timeouts.",
+  "techStack": [
+    "ColdFusion",
+    "Java Servlets",
+    "MS SQL Server",
+    "Progress DB",
+    "ODBC",
+    "Windows Server / IIS",
+    "ETL"
+  ],
+  "featured": false,
+  "detailKey": "ftd_gestao_acessos",
+  "overview": "Editora FTD S/A operates nationally across Brazil with 24 regional branches. As digital learning media and textbook companion resources expanded, the organization faced a critical requirement for a centralized yet distributed platform capable of granting exclusive pedagogical access to teachers, coordinators, and partner schools strictly aligned with physically purchased book collections. The legacy setup relied on synchronous live queries to the corporate Progress DB ERP via ODBC connections, resulting in frequent timeouts, high latency, and network instability across branches. The engineering solution introduced ColdFusion (Java Servlets) into the enterprise, replacing legacy ASP, coupled with an automated ETL pipeline feeding a dedicated Microsoft SQL Server web database to provide decentralized branch governance with millisecond response times.",
+  "roleDescription": "Senior Web Developer & Solution Co-Architect.",
+  "responsibilities": [
+    "Technological Pioneering: Benchmark evaluation, technical leadership, and enterprise adoption of ColdFusion as the new web development standard at Editora FTD, multiplying squad velocity.",
+    "Data Strategy & ERP Decoupling: Architectural design of the automated ETL routine syncing commercial records from Progress DB to high-performance SQL Server web storage.",
+    "Distributed Architecture Co-Design: Worked directly with Felipe Richter on the topology and decentralized permissioning model for all 24 regional branches.",
+    "Security & Content Governance: Implemented granular authorization rules pairing teacher profiles, school institutional records, and adopted curriculum collections."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Overcoming chronic ODBC connection latency and query timeouts when 24 branches queried the legacy Progress ERP concurrently.",
+      "solution": "Architected an intermediate Microsoft SQL Server web data tier fed by a scheduled sync pipeline, completely shielding the transactional backoffice ERP from web traffic."
+    },
+    {
+      "challenge": "Cultural technology transformation and slow development velocity under legacy ASP.",
+      "solution": "Successfully pioneered ColdFusion (Java Servlets) across enterprise systems, increasing new module delivery speed by over 40%."
+    }
+  ],
+  "architectureDiagramMermaid": "graph TD\n    Professores[\"👨‍🏫 Teachers / Schools\"] -->|\"HTTPS / Web\"| WebServer[\"🌐 IIS Web Server\"]\n    Filiais[\"🏢 24 Regional FTD Branches\"] -->|\"HTTPS / Access Management\"| WebServer\n    WebServer --> ColdFusion[\"⚡ ColdFusion App Server (Java Servlets)\"]\n    subgraph AccessGov [\"🔐 Access Governance\"]\n        AuthService[\"🔑 Auth & Session Service\"]\n        AccessEngine[\"📜 Permissions & Book Catalog Matcher\"]\n    end\n    ColdFusion --> AuthService\n    ColdFusion --> AccessEngine\n    AccessEngine --> SQLServer[(\"🗄️ MS SQL Server - Dedicated Web DB\")]\n    subgraph ERP_Sync [\"🔄 Data Extraction Pipeline\"]\n        ERP[\"🏢 Corporate ERP (Progress DB)\"] -->|\"ODBC / Sync\"| SQLServer\n    end",
+  "metrics": [
+    "100% elimination of ERP query timeouts and network freezes",
+    "24 regional branches integrated with decentralized autonomy and sub-second query latency",
+    "+40% increase in squad velocity delivering new enterprise web features"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Rigorous validation binding school contracts, book editions, and teacher accounts prior to unlocking digital teaching resources."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Strict SQL query parameterization using ColdFusion <cfqueryparam> tags, neutralizing injection attack vectors."
+    },
+    {
+      "code": "A07:2021",
+      "title": "Identification and Authentication Failures",
+      "description": "Secure multi-branch session lifecycle management with protected credentials and regional permission isolation."
+    }
+  ]
+}

@@ -113,3 +113,17 @@ This document records key architectural, technological, and engineering decision
   - Created `LanguageToggle.tsx` component in `Navbar.tsx` for seamless single-click language switching without page reloads.
   - Extended Vitest unit test suite (`LanguageToggle.test.tsx`) and Playwright E2E spec (`portfolio.spec.ts`) verifying live language switching.
 - **Consequences:** Provides instant bilingual switching across all sections and modals, preserving 100% component reusability, modular locale datasets, and full test suite coverage (13 Vitest test files, 28 unit tests + E2E Playwright).
+
+---
+
+## ADR-009: Dedicated Legacy Projects Section & Pre-2015 Temporal Isolation
+
+- **Date:** 2026-09-28
+- **Status:** Accepted
+- **Context:** Enterprise projects engineered prior to 2015 (Editora FTD S/A: Gestão de Acessos multi-filiais, Gerenciador Iconográfico DAM, Controle de Produção Editorial) represent important historical software architecture (ColdFusion, Java Servlets, Component-Based Development, ERP Progress decoupling via MS SQL Server). However, they must not dilute modern AI/Cloud showcases (Tiers 1, 2, and 3).
+- **Decision:**
+  - Introduced strict temporal partitioning in `useCategorizedProjects` hook isolating any project with `year < 2015` exclusively into `legacyProjects`.
+  - Built a dedicated, collapsable legacy showcase section in `Projects.tsx` with distinctive corporate branding, year badges (`2006`, `2008`, `2010`), and deep-dive technical modals with interactive Mermaid diagrams.
+  - Sourced and validated all 3 notes directly from Obsidian Vault (`B-Areas/Particular/Curriculo/Projects/2006-2015/`), maintaining bidirectional parity with `.sync_manifest.json` and Continuous Content Delivery (CCD).
+- **Consequences:** Preserves clean executive focus on modern cloud/AI stacks while giving recruiters and tech leadership transparent visibility into 15+ years of foundational enterprise engineering, covered by 14 Vitest test suites (35 unit tests) and Playwright E2E integration verification.
+

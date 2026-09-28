@@ -1,0 +1,61 @@
+{
+  "id": "ftd-controle-producao",
+  "title": "FTD — Controle de Produção Editorial",
+  "subtitle": "Workflow Management Corporativo & Cronometragem de Ciclo Editorial de Livros",
+  "category": "Architecture & Performance",
+  "tier": 2,
+  "year": 2010,
+  "company": "Editora FTD S/A",
+  "summary": "Aplicação corporativa para mapeamento digital, cronometragem precisa de etapas (revisão, diagramação, checagem) e eliminação de gargalos na esteira produtiva editorial.",
+  "techStack": [
+    "ColdFusion",
+    "Java Servlets",
+    "CBD",
+    "MS SQL Server",
+    "Windows Server / IIS",
+    "Workflow Engine"
+  ],
+  "featured": false,
+  "detailKey": "ftd_controle_producao",
+  "overview": "Na Editora FTD S/A, um dos maiores desafios operacionais na publicação de obras didáticas e de literatura era a rastreabilidade e a gestão de prazos durante o ciclo de produção dos livros físicos e digitais. Cada obra passava por dezenas de etapas sequenciais e paralelas — redação, revisão de texto, iconografia, diagramação, checagem técnica e aprovação editorial —, gerando pontos cegos na esteira produtiva quando controlada por planilhas manuais. Para solucionar essa complexidade, desenvolvi uma aplicação web corporativa interna voltada ao mapeamento digital, cronometragem precisa e controle de fluxo (Workflow Management). A arquitetura foi concebida utilizando desenvolvimento baseado em componentes (CBD) com ColdFusion (Java Servlets) sobre banco de dados Microsoft SQL Server, hospedada em ambiente corporativo IIS / Windows Server.",
+  "roleDescription": "Desenvolvedor Web & Engenheiro de Aplicações.",
+  "responsibilities": [
+    "Mapeamento de Processos: Análise detalhada dos fluxos de trabalho editoriais junto a editores, revisores e designers.",
+    "Engenharia de Software (CBD): Arquitetura e programação de componentes modulares reutilizáveis em ColdFusion (CFCs), assegurando padronização do código corporativo.",
+    "Motor de Cronometragem & Workflow: Desenvolvimento da lógica de transição de estados dos protótipos de livros e cronometragem de tempo de permanência em cada departamento.",
+    "Geração de Indicadores (Dashboard): Criação de relatórios analíticos de produtividade e detecção antecipada de gargalos para a diretoria editorial."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Modelagem de um processo produtivo editorial altamente complexo, sujeito a múltiplos loops de revisão técnica e idas e vindas de originais.",
+      "solution": "Desenvolvimento de um motor de máquina de estados confiável e intuitivo, registrando carimbos de tempo imutáveis para cada mudança de custódia editorial."
+    },
+    {
+      "challenge": "Garantia de integridade e auditoria em relatórios estratégicos utilizados para decisões de lançamentos didáticos anuais.",
+      "solution": "Estruturação de trilhas de auditoria completas no Microsoft SQL Server e cálculo automatizado de SLA departamental com ColdFusion."
+    }
+  ],
+  "architectureDiagramMermaid": "graph TD\n    User[\"👥 Equipe Editorial / Gestão\"] -->|\"HTTP / Intranet FTD\"| IIS[\"🌐 Microsoft IIS Web Server\"]\n    IIS --> CFC[\"⚡ ColdFusion Application Server (Java Servlets)\"]\n    subgraph CBDModules [\"🧩 Componentes de Workflow (CBD)\"]\n        StateEngine[\"⚙️ State Machine & Workflow Engine\"]\n        TimerService[\"⏱️ Production Timer & SLA Tracker\"]\n        ReportService[\"📊 Analytics & Bottleneck Reports\"]\n    end\n    CFC --> StateEngine\n    CFC --> TimerService\n    CFC --> ReportService\n    StateEngine --> SQLServer[(\"🗄️ MS SQL Server Database\")]\n    TimerService --> SQLServer\n    ReportService --> SQLServer",
+  "metrics": [
+    "100% de rastreabilidade do status e histórico de cada livro didático em produção",
+    "Identificação e erradicação de gargalos interdepartamentais antes do início do ano letivo",
+    "Redução significativa no tempo de manutenção através da reutilização de componentes (CBD)"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Controle de acesso hierárquico integrado à infraestrutura corporativa, garantindo que apenas departamentos autorizados avançassem o status dos protótipos."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Parametrização rígida de queries via tags <cfqueryparam> no ColdFusion, eliminando riscos de SQL Injection."
+    },
+    {
+      "code": "A07:2021",
+      "title": "Identification and Authentication Failures",
+      "description": "Gestão segura de sessões corporativas protegidas contra interceptação na intranet da editora."
+    }
+  ]
+}

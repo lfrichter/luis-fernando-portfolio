@@ -64,7 +64,11 @@
     "clearFilters": "Limpar Filtros",
     "viewArchBtn": "Ver Especificações de Arquitetura",
     "viewTechBtn": "Detalhes Técnicos",
-    "viewPocBtn": "Ver PoC"
+    "viewPocBtn": "Ver PoC",
+    "legacyTitle": "Sistemas Corporativos & Projetos Legado (Pré-2015)",
+    "legacySubtitle": "Engenharia de software pioneira, desenvolvimento corporativo baseado em componentes (CBD), arquiteturas distribuídas e desacoplamento de ERPs desenvolvidos antes de 2015 na Editora FTD S/A.",
+    "legacyBadge": "Histórico Corporativo • Pré-2015",
+    "viewLegacyBtn": "Ver Arquitetura Legado"
   },
   "modal": {
     "headerBadge": "CTO & Tech Leadership Briefing",

@@ -6,7 +6,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { GithubIcon } from '@/components/icons/SocialIcons';
-import { Search, ExternalLink, Layers, Sparkles, Cpu, Wrench, Terminal, ChevronDown, ChevronUp } from 'lucide-react';
+import { Search, ExternalLink, Layers, Sparkles, Cpu, Wrench, Terminal, Landmark, ChevronDown, ChevronUp } from 'lucide-react';
 
 export const Projects: React.FC = () => {
   const { t } = useTranslation();
@@ -15,6 +15,7 @@ export const Projects: React.FC = () => {
     tier1Projects,
     tier2Projects,
     tier3Projects,
+    legacyProjects,
     selectedCategory,
     setSelectedCategory,
     categories,
@@ -24,6 +25,7 @@ export const Projects: React.FC = () => {
 
   const [activeModalDetailKey, setActiveModalDetailKey] = useState<string | null>(null);
   const [isTier3Open, setIsTier3Open] = useState<boolean>(true);
+  const [isLegacyOpen, setIsLegacyOpen] = useState<boolean>(true);
 
   return (
     <section className="py-12 px-4 max-w-5xl mx-auto space-y-12">
@@ -314,6 +316,90 @@ export const Projects: React.FC = () => {
                     <span>{t('projects.viewPocBtn')}</span>
                   </Button>
                 </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* 🏛️ LEGACY: Sistemas Corporativos & Projetos Legado (Pré-2015) */}
+      {legacyProjects.length > 0 && (
+        <div className="space-y-4 pt-6 border-t border-border/60">
+          <button
+            onClick={() => setIsLegacyOpen(!isLegacyOpen)}
+            className="w-full flex items-center justify-between p-4 rounded-xl bg-amber-500/5 hover:bg-amber-500/10 transition-colors border border-amber-500/20 text-left"
+          >
+            <div className="flex items-center gap-2.5">
+              <Landmark className="w-5 h-5 text-amber-500 shrink-0" />
+              <div>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-base font-bold text-foreground">
+                    🏛️ {t('projects.legacyTitle')} ({legacyProjects.length})
+                  </h3>
+                  <Badge variant="outline" className="text-[10px] border-amber-500/40 text-amber-600 dark:text-amber-400 font-semibold">
+                    {t('projects.legacyBadge')}
+                  </Badge>
+                </div>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  {t('projects.legacySubtitle')}
+                </p>
+              </div>
+            </div>
+            {isLegacyOpen ? <ChevronUp className="w-5 h-5 text-muted-foreground" /> : <ChevronDown className="w-5 h-5 text-muted-foreground" />}
+          </button>
+
+          {isLegacyOpen && (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+              {legacyProjects.map((project) => (
+                <Card
+                  key={project.id}
+                  className="flex flex-col justify-between border border-border/80 hover:border-amber-500/50 transition-all duration-200 bg-card shadow-sm hover:shadow-md"
+                >
+                  <CardHeader className="pb-2.5">
+                    <div className="flex items-center justify-between gap-1.5 mb-1.5">
+                      <Badge variant="outline" className="text-[10px] font-mono font-semibold bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/30">
+                        {project.year}
+                      </Badge>
+                      {project.company && (
+                        <span className="text-[10px] font-medium text-muted-foreground">
+                          {project.company}
+                        </span>
+                      )}
+                    </div>
+                    <CardTitle className="text-base font-bold text-foreground leading-snug">
+                      {project.title}
+                    </CardTitle>
+                    <CardDescription className="text-xs font-medium text-primary/80 line-clamp-1">
+                      {project.subtitle}
+                    </CardDescription>
+                  </CardHeader>
+
+                  <CardContent className="space-y-3">
+                    <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3">
+                      {project.summary}
+                    </p>
+
+                    <div className="flex flex-wrap gap-1 pt-1">
+                      {project.techStack.map((tech) => (
+                        <Badge key={tech} variant="outline" className="text-[10px] bg-muted/40 font-normal">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+
+                  <CardFooter className="pt-3 border-t border-border/40 flex items-center justify-between gap-2">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setActiveModalDetailKey(project.detailKey)}
+                      className="text-xs w-full gap-1.5 hover:border-amber-500/50 hover:bg-amber-500/10"
+                    >
+                      <Layers className="w-3.5 h-3.5 text-amber-500" />
+                      <span>{t('projects.viewTechBtn')}</span>
+                    </Button>
+                  </CardFooter>
+                </Card>
               ))}
             </div>
           )}

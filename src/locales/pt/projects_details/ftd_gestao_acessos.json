@@ -1,0 +1,62 @@
+{
+  "id": "ftd-gestao-acessos",
+  "title": "FTD — Gestão de Acessos para Conteúdo Educacional",
+  "subtitle": "Plataforma Distribuída Multi-Filiais & Desacoplamento de ERP (ColdFusion + MS SQL Server)",
+  "category": "Architecture & Performance",
+  "tier": 1,
+  "year": 2006,
+  "company": "Editora FTD S/A",
+  "summary": "Plataforma distribuída para 24 filiais da Editora FTD, desacoplando o ERP Progress legado através de pipeline ETL para SQL Server dedicado, eliminando 100% dos timeouts de consulta.",
+  "techStack": [
+    "ColdFusion",
+    "Java Servlets",
+    "MS SQL Server",
+    "Progress DB",
+    "ODBC",
+    "Windows Server / IIS",
+    "ETL"
+  ],
+  "featured": false,
+  "detailKey": "ftd_gestao_acessos",
+  "overview": "A Editora FTD S/A opera nacionalmente com 24 filiais distribuídas por todas as regiões do Brasil. Com o avanço das mídias digitais e materiais de apoio pedagógico aos livros didáticos adotados, surgiu a necessidade crítica de uma plataforma centralizada e distribuída capaz de conceder acessos digitais exclusivos a professores, coordenadores e escolas parceiras com base estrita nas coleções físicas adquiridas. O sistema original dependia de consultas diretas em tempo real ao ERP legado corporativo (Progress DB) via conexões ODBC, o que causava frequentes lentidões, timeouts e instabilidades de rede nas filiais. A solução envolveu a concepção de uma arquitetura distribuída moderna, introduzindo pioneiramente o ColdFusion (Java Servlets) na empresa em substituição ao ASP legado, combinada com uma estratégia de pipeline de extração e sincronização de dados (ETL) para um banco Microsoft SQL Server dedicado, proporcionando alta velocidade e governança descentralizada para as 24 filiais.",
+  "roleDescription": "Desenvolvedor Web Sênior & Co-Arquiteto da Solução.",
+  "responsibilities": [
+    "Pioneirismo Tecnológico: Análise comparativa, recomendação técnica e introdução do ColdFusion como novo padrão de desenvolvimento web na Editora FTD, multiplicando a produtividade das equipes.",
+    "Estratégia de Dados & Desacoplamento de ERP: Concepção da rotina de extração, transformação e carga dos dados comerciais do ERP Progress para um banco SQL Server otimizado para a web.",
+    "Co-Desenho da Arquitetura Distribuída: Trabalho direto com Felipe Richter no desenho da topologia e lógica de concessão descentralizada de permissões para as filiais.",
+    "Segurança & Governança de Conteúdos: Implementação das regras de autorização granulares baseadas em catálogos de livros e escolas associadas."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Superação da lentidão de conexões ODBC legadas e timeouts constantes ao consultar o ERP corporativo Progress.",
+      "solution": "Concepção de arquitetura de dados intermediária em Microsoft SQL Server dedicada à web, isolando a carga transacional do ERP de retaguarda através de pipeline de sincronização."
+    },
+    {
+      "challenge": "Transformação cultural de tecnologia e baixa velocidade de entrega no ASP clássico.",
+      "solution": "Introdução pioneira e estruturação da stack ColdFusion (Java Servlets) em uma empresa de grande porte, acelerando a entrega de módulos em mais de 40%."
+    }
+  ],
+  "architectureDiagramMermaid": "graph TD\n    Professores[\"👨‍🏫 Professores / Escolas\"] -->|\"HTTPS / Web\"| WebServer[\"🌐 IIS Web Server\"]\n    Filiais[\"🏢 24 Filiais Regionais FTD\"] -->|\"HTTPS / Gestão de Acessos\"| WebServer\n    WebServer --> ColdFusion[\"⚡ ColdFusion App Server (Java Servlets)\"]\n    subgraph AccessGov [\"🔐 Governança de Acessos\"]\n        AuthService[\"🔑 Auth & Session Service\"]\n        AccessEngine[\"📜 Permissions & Book Catalog Matcher\"]\n    end\n    ColdFusion --> AuthService\n    ColdFusion --> AccessEngine\n    AccessEngine --> SQLServer[(\"🗄️ MS SQL Server - Web Dedicado\")]\n    subgraph ERP_Sync [\"🔄 Pipeline de Extração de Dados\"]\n        ERP[\"🏢 ERP Corporativo (Progress DB)\"] -->|\"ODBC / Sync\"| SQLServer\n    end",
+  "metrics": [
+    "Eliminação de 100% dos timeouts de consulta ao ERP Progress",
+    "24 filiais regionais integradas com autonomia completa e tempo de resposta em milissegundos",
+    "+40% de produtividade no ciclo de entrega de novos módulos web corporativos"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Validação rigorosa de vínculo entre a escola, coleção didática e professor antes de liberar o acesso a materiais de apoio exclusivos."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Parametrização rígida de consultas SQL com <cfqueryparam> no ColdFusion, eliminando vulnerabilidades de injeção."
+    },
+    {
+      "code": "A07:2021",
+      "title": "Identification and Authentication Failures",
+      "description": "Mecanismo seguro de autenticação com senhas protegidas e renovação de sessão por filial."
+    }
+  ]
+}

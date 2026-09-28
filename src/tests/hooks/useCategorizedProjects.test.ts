@@ -42,4 +42,36 @@ describe('useCategorizedProjects Custom Hook', () => {
     expect(result.current.tier1Projects.every((p) => p.category === 'AI/LLM')).toBe(true);
     expect(result.current.tier2Projects.every((p) => p.category === 'AI/LLM')).toBe(true);
   });
+
+  it('correctly isolates pre-2015 legacy projects into legacyProjects without polluting modern tiers', () => {
+    const { result } = renderHook(() => useCategorizedProjects());
+
+    // Legacy projects must exist and only contain projects before 2015
+    expect(result.current.legacyProjects.length).toBe(3);
+    expect(result.current.legacyProjects.every((p) => typeof p.year === 'number' && p.year < 2015)).toBe(true);
+
+    // Verify the 3 FTD projects
+    expect(result.current.legacyProjects.some((p) => p.id === 'ftd-gestao-acessos')).toBe(true);
+    expect(result.current.legacyProjects.some((p) => p.id === 'ftd-gerenciador-iconografico')).toBe(true);
+    expect(result.current.legacyProjects.some((p) => p.id === 'ftd-controle-producao')).toBe(true);
+
+    // None of the modern tiers should contain any pre-2015 projects
+    const allModern = [
+      ...result.current.tier1Projects,
+      ...result.current.tier2Projects,
+      ...result.current.tier3Projects,
+    ];
+    expect(allModern.some((p) => typeof p.year === 'number' && p.year < 2015)).toBe(false);
+  });
+
+  it('filters legacy projects by search query (e.g. ColdFusion)', () => {
+    const { result } = renderHook(() => useCategorizedProjects());
+
+    act(() => {
+      result.current.setSearchQuery('ColdFusion');
+    });
+
+    expect(result.current.legacyProjects.length).toBe(3);
+    expect(result.current.tier1Projects.length).toBe(0);
+  });
 });

@@ -365,5 +365,67 @@
     ],
     "featured": false,
     "detailKey": "my_bookmarks"
+  },
+  {
+    "id": "ftd-gestao-acessos",
+    "title": "FTD — Gestão de Acessos para Conteúdo Educacional",
+    "subtitle": "Plataforma Distribuída Multi-Filiais & Desacoplamento de ERP (ColdFusion + MS SQL Server)",
+    "category": "Architecture & Performance",
+    "tier": 1,
+    "year": 2006,
+    "company": "Editora FTD S/A",
+    "summary": "Plataforma distribuída para 24 filiais da Editora FTD, desacoplando o ERP Progress legado através de pipeline ETL para SQL Server dedicado, eliminando 100% dos timeouts de consulta.",
+    "techStack": [
+      "ColdFusion",
+      "Java Servlets",
+      "MS SQL Server",
+      "Progress DB",
+      "ODBC",
+      "Windows Server / IIS",
+      "ETL"
+    ],
+    "featured": false,
+    "detailKey": "ftd_gestao_acessos"
+  },
+  {
+    "id": "ftd-gerenciador-iconografico",
+    "title": "FTD — Gerenciador Iconográfico (DAM Corporativo)",
+    "subtitle": "Banco de Imagens Corporativo & Gestão de Ativos Digitais (ColdFusion CBD + MS SQL Server)",
+    "category": "Architecture & Performance",
+    "tier": 2,
+    "year": 2008,
+    "company": "Editora FTD S/A",
+    "summary": "Plataforma corporativa DAM para catalogação com metadados, controle rigoroso de direitos autorais e busca avançada para designers e pesquisadores de livros didáticos.",
+    "techStack": [
+      "ColdFusion",
+      "Java Servlets",
+      "CBD",
+      "MS SQL Server",
+      "Windows Server / IIS",
+      "DAM"
+    ],
+    "featured": false,
+    "detailKey": "ftd_gerenciador_iconografico"
+  },
+  {
+    "id": "ftd-controle-producao",
+    "title": "FTD — Controle de Produção Editorial",
+    "subtitle": "Workflow Management Corporativo & Cronometragem de Ciclo Editorial de Livros",
+    "category": "Architecture & Performance",
+    "tier": 2,
+    "year": 2010,
+    "company": "Editora FTD S/A",
+    "summary": "Aplicação corporativa para mapeamento digital, cronometragem precisa de etapas (revisão, diagramação, checagem) e eliminação de gargalos na esteira produtiva editorial.",
+    "techStack": [
+      "ColdFusion",
+      "Java Servlets",
+      "CBD",
+      "MS SQL Server",
+      "Windows Server / IIS",
+      "Workflow Engine"
+    ],
+    "featured": false,
+    "detailKey": "ftd_controle_producao"
   }
 ]
+

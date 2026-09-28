@@ -7,7 +7,7 @@
 
 ## 1. Mapeamento de Projetos por Categoria
 
-A aplicação organiza os 19 projetos em tiers de destaque e classificações funcionais (Projetos Principais, Side Projects, PoCs, Challenges/Hackathons).
+A aplicação organiza os 22 projetos em tiers de destaque (19 projetos modernos em Tiers 1, 2 e 3) e uma seção exclusiva para Projetos Corporativos Legado (< 2015).
 
 ### 🌟 Projetos Principais (SaaS, Full Stack & Engenharia de Produção)
 
@@ -53,6 +53,16 @@ A aplicação organiza os 19 projetos em tiers de destaque e classificações fu
 | :--- | :--- | :--- | :--- |
 | `cat-guardian` | **Cat Guardian — Passaporte Felino** | Plataforma Open Source com perfil IA (Gemini 2.0 Flash), QR Code e Blind Contact Relay com Resend API (React 19, Vite 6, Supabase RLS) | `B-Areas/Particular/Curriculo/Challenges/Challenge - Cat Guardian.md` |
 | `postmark-email-task` | **Gerenciador Conversacional por E-mail** | Postmark Inbound Webhooks transformando e-mails em tarefas via hashtags `#prioridade`, `#concluir` (Laravel, Livewire, Pest, Postmark API) | `B-Areas/Particular/Curriculo/Challenges/Challenge - E-mail Task Manager Conversacional 📥 Postmark.md` |
+
+---
+
+### 🏛️ Projetos Corporativos Legado (Anteriores a 2015)
+
+| ID do Projeto | Nome na Aplicação | Ano | Resumo / Stack Principal | Nota Fonte no Obsidian |
+| :--- | :--- | :--- | :--- | :--- |
+| `ftd-gestao-acessos` | **FTD — Gestão de Acessos para Conteúdo Educacional** | 2006 | Plataforma distribuída multi-filiais & desacoplamento de ERP Progress (ColdFusion, Java Servlets, SQL Server, ODBC, ETL) | `B-Areas/Particular/Curriculo/Projects/2006-2015/Project - FTD - Gestão de Acessos para Conteúdo Educacional.md` |
+| `ftd-gerenciador-iconografico` | **FTD — Gerenciador Iconográfico (DAM Corporativo)** | 2008 | Banco de imagens corporativo DAM & motor de busca multidimensional (ColdFusion, Java Servlets, CBD, SQL Server, IIS) | `B-Areas/Particular/Curriculo/Projects/2006-2015/Project - FTD - Gerenciador Iconográfico.md` |
+| `ftd-controle-producao` | **FTD — Controle de Produção Editorial** | 2010 | Workflow management corporativo & cronometragem de ciclo de livros (ColdFusion, Java Servlets, CBD, SQL Server, IIS) | `B-Areas/Particular/Curriculo/Projects/2006-2015/Project - FTD - Controle de Produção Editorial.md` |
 
 ---
 

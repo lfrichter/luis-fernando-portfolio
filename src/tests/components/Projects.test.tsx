@@ -46,4 +46,13 @@ describe('Projects Component', () => {
     // Modal dialog should appear in the document
     expect(screen.getByRole('dialog')).toBeInTheDocument();
   });
+
+  it('renders pre-2015 legacy projects section with FTD projects', () => {
+    render(<Projects />);
+
+    expect(screen.getByText(/sistemas corporativos & projetos legado/i)).toBeInTheDocument();
+    expect(screen.getByText('FTD — Gestão de Acessos para Conteúdo Educacional')).toBeInTheDocument();
+    expect(screen.getByText('FTD — Gerenciador Iconográfico (DAM Corporativo)')).toBeInTheDocument();
+    expect(screen.getByText('FTD — Controle de Produção Editorial')).toBeInTheDocument();
+  });
 });

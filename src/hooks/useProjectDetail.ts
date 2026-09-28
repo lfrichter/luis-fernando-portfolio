@@ -24,6 +24,9 @@ const detailModules: Record<string, Record<string, () => Promise<{ default: unkn
     cat_guardian: () => import('@/locales/pt/projects_details/cat_guardian.json'),
     learning_intelligence: () => import('@/locales/pt/projects_details/learning_intelligence.json'),
     my_bookmarks: () => import('@/locales/pt/projects_details/my_bookmarks.json'),
+    ftd_gestao_acessos: () => import('@/locales/pt/projects_details/ftd_gestao_acessos.json'),
+    ftd_gerenciador_iconografico: () => import('@/locales/pt/projects_details/ftd_gerenciador_iconografico.json'),
+    ftd_controle_producao: () => import('@/locales/pt/projects_details/ftd_controle_producao.json'),
   },
   en: {
     ask_richter: () => import('@/locales/en/projects_details/ask_richter.json'),
@@ -45,6 +48,9 @@ const detailModules: Record<string, Record<string, () => Promise<{ default: unkn
     cat_guardian: () => import('@/locales/en/projects_details/cat_guardian.json'),
     learning_intelligence: () => import('@/locales/en/projects_details/learning_intelligence.json'),
     my_bookmarks: () => import('@/locales/en/projects_details/my_bookmarks.json'),
+    ftd_gestao_acessos: () => import('@/locales/en/projects_details/ftd_gestao_acessos.json'),
+    ftd_gerenciador_iconografico: () => import('@/locales/en/projects_details/ftd_gerenciador_iconografico.json'),
+    ftd_controle_producao: () => import('@/locales/en/projects_details/ftd_controle_producao.json'),
   },
 };
 

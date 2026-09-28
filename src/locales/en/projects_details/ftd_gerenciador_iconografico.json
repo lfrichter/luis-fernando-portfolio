@@ -1,0 +1,61 @@
+{
+  "id": "ftd-gerenciador-iconografico",
+  "title": "FTD — Iconographic Asset Manager (Corporate DAM)",
+  "subtitle": "Corporate Digital Asset Management & Multi-Criteria Search (ColdFusion CBD + MS SQL Server)",
+  "category": "Architecture & Performance",
+  "tier": 2,
+  "year": 2008,
+  "company": "Editora FTD S/A",
+  "summary": "Corporate DAM platform for metadata cataloging, strict copyright governance, and advanced multi-criteria search for textbook designers and researchers.",
+  "techStack": [
+    "ColdFusion",
+    "Java Servlets",
+    "CBD",
+    "MS SQL Server",
+    "Windows Server / IIS",
+    "DAM"
+  ],
+  "featured": false,
+  "detailKey": "ftd_gerenciador_iconografico",
+  "overview": "At Editora FTD S/A, the iconographic catalog (high-resolution photography, scientific illustrations, historical maps, infographics, and fine artwork) represents a strategic asset essential to the concurrent publication of hundreds of educational textbooks. Prior to system deployment, locating assets and verifying contractual usage terms and copyright expiration dates was completely manual, generating publication bottlenecks and intellectual property compliance liabilities. To solve this at enterprise scale, the Iconographic Asset Manager was engineered as a comprehensive Digital Asset Management (DAM) system. Built with Component-Based Development (CBD) on ColdFusion (Java Servlets) and Microsoft SQL Server, it delivered advanced metadata indexing, strict copyright lifecycle tracking, and dynamic multi-criteria search.",
+  "roleDescription": "Web Developer & Software Engineering Team Member.",
+  "responsibilities": [
+    "Advanced Search Engine: Designed and implemented the faceted search engine supporting dynamic query filtering by keywords, photographers, dates, textbook collections, and licensing statuses.",
+    "Cataloging & Metadata Module: Developed the UI workflows and business rules binding assets to essential metadata (copyright owners, expiration windows, resolution tiers, usage restrictions).",
+    "Component Engineering (CBD): Architected reusable ColdFusion Components (CFCs) to ensure high performance and maintainability across heavy file transactions and metadata streams.",
+    "Storage & Server Integration: Configured secure high-capacity media repositories on corporate Windows Server / IIS infrastructure."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Maintaining sub-second search performance across deep multidimensional filters over large volumes of asset records.",
+      "solution": "Implemented specialized SQL Server indexes, partitioned metadata tables, and pre-compiled ColdFusion queries with cached parameter plans."
+    },
+    {
+      "challenge": "Enforcing data protection against unauthorized direct access or bulk scraping of master high-resolution media files.",
+      "solution": "Stored raw digital assets outside the public web root directory, brokering file delivery exclusively through authenticated controller scripts that validated user privileges."
+    }
+  ],
+  "architectureDiagramMermaid": "graph TD\n    User[\"🎨 Designers / Iconographic Researchers\"] -->|\"HTTP / Intranet FTD\"| IIS[\"🌐 Microsoft IIS Web Server\"]\n    IIS --> DAMCore[\"⚡ ColdFusion DAM Core (Java Servlets)\"]\n    subgraph DAMModules [\"🧩 DAM Modules (CBD)\"]\n        SearchModule[\"🔍 Advanced Search & Filter Engine\"]\n        CatalogModule[\"🏷️ Metadata & Rights Management\"]\n        MediaDelivery[\"🖼️ Secure Asset Delivery Service\"]\n    end\n    DAMCore --> SearchModule\n    DAMCore --> CatalogModule\n    DAMCore --> MediaDelivery\n    SearchModule --> SQLServer[(\"🗄️ MS SQL Server - Metadata\")]\n    CatalogModule --> SQLServer\n    MediaDelivery --> Storage[\"📦 Corporate Storage (Hi-Res Images)\"]",
+  "metrics": [
+    "80% reduction in image search and retrieval cycle times for editorial squads",
+    "Zero copyright infringement incidents through automated license expiry tracking",
+    "Centralized enterprise governance over tens of thousands of high-resolution educational assets"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Strict role-based download enforcement for original high-resolution master media files."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Comprehensive parameterization using ColdFusion <cfqueryparam> tags, shielding search predicates from SQL injection."
+    },
+    {
+      "code": "A05:2021",
+      "title": "Security Misconfiguration",
+      "description": "Isolated high-resolution asset storage outside the public web root, served strictly via authenticated streaming handlers."
+    }
+  ]
+}

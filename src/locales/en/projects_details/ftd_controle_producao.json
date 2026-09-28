@@ -1,0 +1,61 @@
+{
+  "id": "ftd-controle-producao",
+  "title": "FTD — Editorial Production Control & Workflow",
+  "subtitle": "Corporate Workflow Management & Book Production Timeline SLA Tracking",
+  "category": "Architecture & Performance",
+  "tier": 2,
+  "year": 2010,
+  "company": "Editora FTD S/A",
+  "summary": "Enterprise workflow application for digital mapping, precise stage time-tracking (review, layout, proofreading), and bottleneck elimination across book production.",
+  "techStack": [
+    "ColdFusion",
+    "Java Servlets",
+    "CBD",
+    "MS SQL Server",
+    "Windows Server / IIS",
+    "Workflow Engine"
+  ],
+  "featured": false,
+  "detailKey": "ftd_controle_producao",
+  "overview": "At Editora FTD S/A, a major operational challenge in publishing educational textbooks and literature was maintaining stage traceability and strict deadline adherence across complex physical and digital book lifecycles. Each publication transitioned through dozens of parallel and sequential steps — drafting, text copyediting, iconography research, typography and desktop publishing, technical proofing, and executive sign-off —, creating critical visibility gaps across the pipeline when managed through manual spreadsheets. To address this complexity, I engineered an internal enterprise web application dedicated to digital mapping, fine-grained duration tracking, and state-machine workflow management. The system was designed using Component-Based Development (CBD) on ColdFusion (Java Servlets) over a Microsoft SQL Server database on Windows Server / IIS.",
+  "roleDescription": "Web Developer & Enterprise Applications Engineer.",
+  "responsibilities": [
+    "Process Mapping: In-depth workflow analysis across editorial boards, copywriters, proofreaders, and art directors.",
+    "Software Engineering (CBD): Architected reusable, standardized ColdFusion Components (CFCs), establishing high code maintainability.",
+    "State Machine & Workflow Engine: Engineered the state transition rules for book prototypes and automated stage duration timing across departments.",
+    "Executive Reporting & Metrics: Created analytics dashboards identifying inter-departmental bottlenecks in advance for the publishing directorate."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Modeling a highly dynamic editorial lifecycle with frequent iterative revision loops without creating deadlocks or state inconsistencies.",
+      "solution": "Built a reliable state machine with immutable audit timestamps logged on every handover event between editorial departments."
+    },
+    {
+      "challenge": "Ensuring data integrity and executive auditability for strategic decisions affecting national school year textbook releases.",
+      "solution": "Structured relational audit trails in Microsoft SQL Server coupled with automated departmental SLA calculations in ColdFusion."
+    }
+  ],
+  "architectureDiagramMermaid": "graph TD\n    User[\"👥 Editorial Staff / Management\"] -->|\"HTTP / Intranet FTD\"| IIS[\"🌐 Microsoft IIS Web Server\"]\n    IIS --> CFC[\"⚡ ColdFusion Application Server (Java Servlets)\"]\n    subgraph CBDModules [\"🧩 Workflow Components (CBD)\"]\n        StateEngine[\"⚙️ State Machine & Workflow Engine\"]\n        TimerService[\"⏱️ Production Timer & SLA Tracker\"]\n        ReportService[\"📊 Analytics & Bottleneck Reports\"]\n    end\n    CFC --> StateEngine\n    CFC --> TimerService\n    CFC --> ReportService\n    StateEngine --> SQLServer[(\"🗄️ MS SQL Server Database\")]\n    TimerService --> SQLServer\n    ReportService --> SQLServer",
+  "metrics": [
+    "100% real-time tracking visibility across all textbook titles under editorial production",
+    "Rapid identification and remediation of inter-departmental publication bottlenecks",
+    "Substantial reduction in maintenance overhead via Component-Based Development (CBD)"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Role-based authorization tied to corporate directory infrastructure, ensuring only authorized departments could advance publication phases."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Strict parameterized queries implemented using ColdFusion <cfqueryparam> tags, preventing SQL injection."
+    },
+    {
+      "code": "A07:2021",
+      "title": "Identification and Authentication Failures",
+      "description": "Hardened corporate session management protected against tampering across intranet environments."
+    }
+  ]
+}

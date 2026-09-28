@@ -365,5 +365,67 @@
     ],
     "featured": false,
     "detailKey": "my_bookmarks"
+  },
+  {
+    "id": "ftd-gestao-acessos",
+    "title": "FTD — Educational Content Access Governance Platform",
+    "subtitle": "Distributed Multi-Branch Platform & ERP Decoupling (ColdFusion + MS SQL Server)",
+    "category": "Architecture & Performance",
+    "tier": 1,
+    "year": 2006,
+    "company": "Editora FTD S/A",
+    "summary": "Distributed governance platform for 24 regional FTD branches, decoupling legacy Progress ERP via an ETL pipeline to dedicated SQL Server, eliminating 100% of query timeouts.",
+    "techStack": [
+      "ColdFusion",
+      "Java Servlets",
+      "MS SQL Server",
+      "Progress DB",
+      "ODBC",
+      "Windows Server / IIS",
+      "ETL"
+    ],
+    "featured": false,
+    "detailKey": "ftd_gestao_acessos"
+  },
+  {
+    "id": "ftd-gerenciador-iconografico",
+    "title": "FTD — Iconographic Asset Manager (Corporate DAM)",
+    "subtitle": "Corporate Digital Asset Management & Multi-Criteria Search (ColdFusion CBD + MS SQL Server)",
+    "category": "Architecture & Performance",
+    "tier": 2,
+    "year": 2008,
+    "company": "Editora FTD S/A",
+    "summary": "Corporate DAM platform for metadata cataloging, strict copyright governance, and advanced multi-criteria search for textbook designers and researchers.",
+    "techStack": [
+      "ColdFusion",
+      "Java Servlets",
+      "CBD",
+      "MS SQL Server",
+      "Windows Server / IIS",
+      "DAM"
+    ],
+    "featured": false,
+    "detailKey": "ftd_gerenciador_iconografico"
+  },
+  {
+    "id": "ftd-controle-producao",
+    "title": "FTD — Editorial Production Control & Workflow",
+    "subtitle": "Corporate Workflow Management & Book Production Timeline SLA Tracking",
+    "category": "Architecture & Performance",
+    "tier": 2,
+    "year": 2010,
+    "company": "Editora FTD S/A",
+    "summary": "Enterprise workflow application for digital mapping, precise stage time-tracking (review, layout, proofreading), and bottleneck elimination across book production.",
+    "techStack": [
+      "ColdFusion",
+      "Java Servlets",
+      "CBD",
+      "MS SQL Server",
+      "Windows Server / IIS",
+      "Workflow Engine"
+    ],
+    "featured": false,
+    "detailKey": "ftd_controle_producao"
   }
 ]
+

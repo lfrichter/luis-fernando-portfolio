@@ -64,7 +64,11 @@
     "clearFilters": "Clear Filters",
     "viewArchBtn": "View Architecture Specs",
     "viewTechBtn": "Technical Details",
-    "viewPocBtn": "View PoC"
+    "viewPocBtn": "View PoC",
+    "legacyTitle": "Enterprise Systems & Legacy Projects (Pre-2015)",
+    "legacySubtitle": "Pioneering software engineering, component-based development (CBD), distributed architectures, and ERP decoupling built prior to 2015 at Editora FTD S/A.",
+    "legacyBadge": "Corporate History • Pre-2015",
+    "viewLegacyBtn": "View Legacy Architecture"
   },
   "modal": {
     "headerBadge": "CTO & Tech Leadership Briefing",

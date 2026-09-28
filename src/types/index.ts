@@ -47,6 +47,8 @@ export interface IProjectSummary {
   githubUrl?: string;
   liveUrl?: string;
   detailKey: string;
+  year?: number;
+  company?: string;
 }
 
 export interface IOwaspMitigation {
