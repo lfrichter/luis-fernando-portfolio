@@ -43,25 +43,30 @@
   {
     "id": "ask-richter",
     "title": "Ask Richter",
-    "subtitle": "Meu CV Interativo com IA (Arquitetura RAG 100% Serverless)",
+    "subtitle": "AI Career Agent & Tri-Retrieval Engine (Sanity Content Lake)",
     "category": "AI/LLM",
     "tier": 1,
-    "summary": "CV interativo utilizando RAG 100% Serverless, Next.js 15, React 19, Supabase, busca híbrida vetorial e léxica em TypeScript puro (TSVectorStore) e motor multilíngue M15.",
+    "summary": "AI Career Agent com modelagem ontológica no Sanity Content Lake (101 docs/121 referências), arquitetura Tri-Retrieval Engine (M2 GROQ, M3 Semantic Embeddings, M4 Agentic Graph) e suíte de 170 testes automatizados.",
     "techStack": [
-      "Next.js 15",
+      "Sanity Content Lake",
+      "Sanity Studio v3.78",
+      "Sanity GROQ",
+      "Sanity Dataset Embeddings",
+      "Google GenAI (Gemini 3.6-flash)",
+      "Sanity MCP Server",
+      "Next.js 15 (App Router)",
       "React 19",
       "TypeScript",
+      "TSVectorStore",
       "Supabase",
-      "Supabase Management API",
-      "Google GenAI (Gemini)",
-      "Ollama",
       "Turborepo 2.x",
       "Tailwind CSS",
       "Framer Motion"
     ],
     "featured": true,
     "liveUrl": "https://ask-richter-frontend.vercel.app/",
-    "detailKey": "ask_richter"
+    "detailKey": "ask_richter",
+    "githubUrl": "https://github.com/lfrichter/ask-richter"
   },
   {
     "id": "canaoaves",
@@ -606,4 +611,3 @@
     "detailKey": "huktup"
   }
 ]
-

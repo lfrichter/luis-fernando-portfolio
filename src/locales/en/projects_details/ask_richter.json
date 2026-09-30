@@ -1,18 +1,22 @@
 {
   "id": "ask-richter",
   "title": "Ask Richter",
-  "subtitle": "My Interactive AI CV (100% Serverless RAG Architecture)",
+  "subtitle": "AI Career Agent & Tri-Retrieval Engine (Sanity Content Lake)",
   "category": "AI/LLM",
   "tier": 1,
-  "summary": "Interactive resume powered by 100% Serverless RAG, Next.js 15, React 19, Supabase, pure TypeScript hybrid vector and lexical search (TSVectorStore), and multilingual M15 engine.",
+  "summary": "AI Career Agent with ontological modeling on Sanity Content Lake (101 docs/121 references), Tri-Retrieval Engine architecture (M2 GROQ, M3 Semantic Embeddings, M4 Agentic Graph), and a suite of 170 automated tests.",
   "techStack": [
+    "Sanity Content Lake",
+    "Sanity Studio v3.78",
+    "Sanity GROQ",
+    "Sanity Dataset Embeddings",
+    "Google GenAI (Gemini 3.6-flash)",
+    "Sanity MCP Server",
     "Next.js 15 (App Router)",
     "React 19",
     "TypeScript",
+    "TSVectorStore",
     "Supabase",
-    "Supabase Management API",
-    "Google GenAI (Gemini)",
-    "Ollama (Local)",
     "Turborepo 2.x",
     "Tailwind CSS",
     "Framer Motion"
@@ -20,46 +24,56 @@
   "featured": true,
   "liveUrl": "https://ask-richter-frontend.vercel.app/",
   "detailKey": "ask_richter",
-  "overview": "A traditional resume tells what you did in the past, but what if it could converse, reason, and demonstrate your knowledge in real time? Ask Richter was born from this premise: transforming a static professional career into a dynamic and interactive dialogue experience. It is an AI chatbot specialized in my career, built on a 100% Serverless Retrieval-Augmented Generation (RAG) architecture.\n\nMore than just a portfolio, this project is a 'SaaS-like' application and a practical demonstration of the AI Engineering Framework v2.1. Powered by a multilingual RAG engine (M15), the platform detects the user's language (Portuguese, English, or Spanish) and orchestrates vector and lexical searches to formulate factual and precise responses. The entire architecture was engineered to run on the Vercel cloud (Next.js App Router) communicating with Supabase and provider-agnostic AI engines (such as Gemini and local Ollama), combining product innovation with strict governance, scope isolation (WSCI), and infrastructure resilience.",
-  "roleDescription": "As AI Solutions Architect & Full-Stack Developer, I worked end-to-end on the project, taking on the following key responsibilities:",
+  "overview": "A traditional resume recounts past experiences statically, but what if your professional career could be queried as a living, relational, and auditable knowledge base in real time? Ask Richter transcends the conventional portfolio concept: it is a multilingual AI Career Agent (English, Portuguese, and Spanish) grounded on a Tri-Retrieval Engine architecture and ontological modeling on the Sanity Content Lake.\n\nThe core architectural differentiator lies in the transition from a traditional flat-text RAG to a strongly typed, interconnected dataset containing 101 documents and 121 references. Operating under the fundamental premise \"Retrieve evidence first. Generate second. Abstain when there is no evidence\", the system prevents hallucinations via intelligent intent routing: M2 (Structured GROQ), M3 (Semantic Embeddings), and M4 (Agentic Knowledge Graph Bounded Traversal).\n\nThe entire infrastructure operates 100% Serverless (Next.js 15 App Router on Vercel), combined with the Sanity MCP server in the engineering environment, Google GenAI (Gemini 3.6-flash) integration, and deterministic pure TypeScript fallback (TSVectorStore).",
+  "roleDescription": "As AI Solutions Architect & Lead Full-Stack Engineer, I worked end-to-end on the system design, ontological modeling, and software engineering:",
   "responsibilities": [
-    "Software & Cloud Architect: Designed the 100% Serverless architecture (ADR-0007/0008), eliminating complex native dependencies and ensuring minimal operating costs.",
-    "AI Engineer: Implemented the Hybrid RAG layer (Vector and Lexical search), integrated the Provider-Agnostic ecosystem (Gemini, OpenRouter, Ollama), and developed multilingual intelligence.",
-    "Frontend Developer: Built a modern, reactive, and resilient UI/UX with React 19, Next.js 15, and Framer Motion, ensuring smooth visual feedback even during database cold-starts.",
-    "Reliability Engineer (SRE/DevOps): Established strict governance protocols (Zero-Trust, Jidoka/Andon Cord) and the Turborepo CI/CD pipeline."
+    "AI & Knowledge Solutions Architect: Modeled the career ontology in Sanity Content Lake (schemas: skill, experience, project, education, achievement, architectureDecision), formalizing 121 structured references and ADR-0010 (Tri-Retrieval Engine).",
+    "AI Engineer: Implemented the 3 retrieval engines (declarative GROQ, semantic dataset embeddings, and agentic multi-hop KnowledgeGraphRetriever), enforcing strict Factual Abstention.",
+    "Full-Stack Developer: Built the serverless backend on Next.js 15 App Router with resilient /api/chat routes and reactive UI in React 19 with Tailwind CSS and Framer Motion.",
+    "Reliability Engineer (SRE/DevOps): Built the automated Jidoka/Turborepo pipeline, ensuring strict typing, workspace isolation, and official Sanity MCP integration for autonomous agent auditing."
   ],
   "challengesAndSolutions": [
     {
-      "challenge": "Volatility of free-tier cloud services, specifically Supabase inactivity pauses that severely degraded the user experience with unpredictable cold starts.",
-      "solution": "Designed the Operational State Machine (ADR-0009) featuring 7 strict operational states and the Golden Rule of Non-Inference of Pause. When a real pause is detected, the platform orchestrates automated server-side unpausing via the Supabase Management API with sequential polling, progressive backoff, and UI idempotency locks."
+      "challenge": "Overcoming Flat-Text RAG and Complex Relationships: Conventional vector RAG pipelines struggled with exact relational queries, project cardinality, or exhaustive categorical lists.",
+      "solution": "Architected the Tri-Retrieval Engine (ADR-0010) on top of Sanity Content Lake: deterministic queries route to GROQ (M2), open-ended questions to Semantic Embeddings (M3), and relational queries to Graph Traversal (M4)."
+    },
+    {
+      "challenge": "Agentic Loop Bounds and Execution Control: Autonomous agent traversals in knowledge graphs risk context drift, unbounded latency, and recursive loops.",
+      "solution": "Established strict deterministic execution invariants (Bounded Execution): maximum of 2 hops, ceiling of 4 tool calls, 4,000ms global timeout, cycle detection, and strictly read-only execution (Zero Mutation)."
+    },
+    {
+      "challenge": "Serverless Resilience and Native C++ Dependency Elimination: Heavy C++ binaries (FAISS) compromised bundling size and cold-start predictability in Serverless runtimes.",
+      "solution": "Engineered pure TypeScript TSVectorStore for in-memory 768-dimensional vector operations as a resilient fallback layer, combined with a 7-state Operational State Machine (ADR-0009) for database recovery."
     }
   ],
   "futureEvolution": [
-    "RAG Relevance Telemetry: Implement dashboards and implicit user feedback metrics to continuously fine-tune the accuracy of AI-retrieved chunks.",
-    "Continuous Integration with Local Agents: Expand the CI/CD pipeline so the Jidoka engine autonomously runs complex exploratory request simulations using local Ollama models before production deployments."
+    "RAG Relevance Telemetry: Implement advanced observability dashboards to measure implicit relevance feedback and ranking accuracy across retrieval engines.",
+    "Expanded Bidirectional Multi-Hop Graph: Enhance support for reverse graph traversals within the strict 4-second latency budget."
   ],
-  "architectureDiagramMermaid": "flowchart TD\n    User[\"👨‍💻 User in Browser\"] --> Frontend[\"⚛️ UI & App Router<br>ask-richter-frontend.vercel.app\"]\n    \n    Frontend -- \"2. Checks availability\" --> StatusApi[\"🔍 /api/supabase/status<br>Status Classifier\"]\n    StatusApi -- \"3. Health ping ✅\" --> SupabaseREST[\"📦 Supabase REST / Storage\"]\n    \n    Frontend -. \"4. If paused: request restore\" .-> RestoreApi[\"⚡ /api/supabase/restore\"]\n    RestoreApi -- \"5. Server-Side Unpause 🔐\" --> SupabaseMgmt[\"🔐 Supabase Management API\"]\n    RestoreApi -. \"6. Polling + Backoff\" .-> StatusApi\n    \n    Frontend -- \"7. Query (PT/EN/ES)\" --> ChatApi[\"🤖 /api/chat<br>Serverless RAG Engine\"]\n    ChatApi -- \"8. Vector & Lexical Search\" --> SupabaseREST\n    ChatApi -- \"9. Aligned Response Generation\" --> GeminiAPI[\"🌐 Google GenAI API\"]\n    ChatApi -- \"10. Real-time Response\" --> User\n\n    style User fill:#D6EAF8,stroke:#3498DB\n    style Frontend fill:#E8DAEF,stroke:#9B59B6\n    style StatusApi fill:#D5F5E3,stroke:#2ECC71\n    style RestoreApi fill:#D5F5E3,stroke:#2ECC71\n    style ChatApi fill:#D5F5E3,stroke:#2ECC71\n    style SupabaseREST fill:#FEF9E7,stroke:#F1C40F\n    style SupabaseMgmt fill:#FEF9E7,stroke:#F1C40F\n    style GeminiAPI fill:#FDEDEC,stroke:#E74C3C",
+  "architectureDiagramMermaid": "flowchart TD\n    User[\"👨‍💻 User in Browser<br>(EN / PT / ES)\"] --> Frontend[\"⚛️ Next.js 15 & React 19 UI<br>ask-richter-frontend.vercel.app\"]\n    \n    Frontend -- \"1. Sends Query\" --> ChatRoute[\"🛣️ /api/chat<br>Serverless Orchestrator\"]\n    ChatRoute --> Classifier[\"🧭 Intent & Eligibility Classifier\"]\n    \n    Classifier -- \"Structured / Factual\" --> M2[\"📊 M2: Structured GROQ<br>Sanity Content Lake\"]\n    Classifier -- \"Relational Multi-Hop\" --> M4[\"🕸️ M4: Agentic Graph Retriever<br>Max 2 Hops / 4 Calls\"]\n    Classifier -- \"Semantic / Free-form\" --> M3[\"🧠 M3: Semantic Embeddings<br>Sanity Dataset Embeddings\"]\n    \n    M2 --> SanityDB[(\"🗄️ Sanity Content Lake<br>101 Docs & 121 References\")]\n    M4 --> SanityDB\n    M3 --> SanityDB\n    \n    M2 -. \"Recoverable failure\" .-> Fallback[\"🛡️ TSVectorStore<br>In-Memory TS Fallback\"]\n    M4 -. \"Recoverable failure\" .-> Fallback\n    M3 -. \"Recoverable failure\" .-> Fallback\n    \n    SanityDB -- \"Retrieved Evidence\" --> ContextAssembler[\"📝 Grounded Context Assembler<br>Budget: 2,800 Tokens\"]\n    Fallback -- \"Fallback Evidence\" --> ContextAssembler\n    \n    ContextAssembler --> Gemini[\"🌐 Google GenAI API<br>Gemini 3.6-flash\"]\n    Gemini -- \"Grounded Factual Answer ✅\" --> ChatRoute\n    Gemini -- \"Factual Abstention (No Evidence)\" --> ChatRoute\n    ChatRoute -- \"Stream Response\" --> User\n\n    style User fill:#D6EAF8,stroke:#3498DB\n    style Frontend fill:#E8DAEF,stroke:#9B59B6\n    style ChatRoute fill:#D5F5E3,stroke:#2ECC71\n    style Classifier fill:#FCF3CF,stroke:#F39C12\n    style M2 fill:#E8F8F5,stroke:#1ABC9C\n    style M4 fill:#E8F8F5,stroke:#1ABC9C\n    style M3 fill:#E8F8F5,stroke:#1ABC9C\n    style SanityDB fill:#FADBD8,stroke:#E74C3C\n    style Fallback fill:#EBEDEF,stroke:#7F8C8D\n    style ContextAssembler fill:#FEF9E7,stroke:#F1C40F\n    style Gemini fill:#FDEDEC,stroke:#C0392B",
   "metrics": [
-    "Minimized Infrastructure Costs: 100% Serverless architecture eliminating 24/7 dedicated servers, leveraging Vercel, Supabase, and Google AI Free Tiers",
-    "High Resilience & Calibrated SLA: Strict 300-second SLA calibrated in production for the database unpause/cold-start cycle with full user transparency",
-    "Quality & Test Coverage: Protected by a suite of 65 automated tests across 8 critical modules (resilience, routing, vector parity, and M15)",
-    "Performance & UX Engineering: Total elimination of C++ vector search dependencies, replaced by pure TypeScript implementations (TSVectorStore and SimpleTfIdf)"
+    "Ontological Knowledge Base: 101 typed documents and 121 structured references in Sanity Content Lake",
+    "Quality & Test Coverage: Protected by 170 passing automated tests (151 frontend + 19 backend), 17 end-to-end HTTP scenarios, and 14/14 Jidoka stages",
+    "Bounded Agentic Execution (M4): Strict limits with max 2 hops, 4 tool calls, 4,000ms global timeout, and cycle detection",
+    "Context Budget & Latency Optimization: Payload strictly capped at CONTEXT_BUDGET_TOKENS = 2800",
+    "Zero Infrastructure Cost ($0/month): 100% Serverless architecture leveraging Vercel, Sanity, Google GenAI, and Supabase Free Tiers"
   ],
   "owaspMitigations": [
     {
-      "code": "A02:2021",
-      "title": "Cryptographic Failures (Strict Credential Isolation)",
-      "description": "Communication with the Supabase Management API is strictly server-side (via /api/supabase/restore). The administrative token (SUPABASE_MANAGEMENT_TOKEN) remains 100% isolated from the browser under the principle of least privilege."
-    },
-    {
-      "code": "A10:2021",
-      "title": "Server-Side Request Forgery / SSRF (Secure Routing Invariants)",
-      "description": "Implementation of Production Routing Invariants (Zero Render Fallback) with automatic runtime URL sanitization to force exclusive use of native relative Vercel routes, blocking malicious redirects."
-    },
-    {
       "code": "A01:2021",
-      "title": "Broken Access Control (Zero-Trust Agent Governance)",
-      "description": "The Constitutional Agent Specification defines strict operational boundaries for AI during development, using segregated workspaces and two-phase execution (Plan and Execution) requiring mandatory Human Gates."
+      "title": "Broken Access Control (Zero Mutation in Agentic Environments)",
+      "description": "The M4 agent operates strictly with read-only tools, preventing any document creation, modification, or deletion in the Content Lake."
+    },
+    {
+      "code": "A02:2021",
+      "title": "Cryptographic Failures (Strict Secret & Token Isolation)",
+      "description": "Communication with Sanity API and Supabase Management API is strictly server-side. Master tokens and API keys are never leaked to client browsers."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection & SSRF (Sanitized Queries & Invariant Routing)",
+      "description": "GROQ queries (M2) are typed and parameterized without string interpolation. URLs are runtime-sanitized to enforce native relative routes."
     }
-  ]
+  ],
+  "githubUrl": "https://github.com/lfrichter/ask-richter"
 }
