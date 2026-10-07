@@ -1,30 +1,56 @@
-# 🚀 Luis Fernando Richter — Portfolio & Architecture Showcase
+# 🚀 Richter — Technology, Software Engineering & AI Solutions
 
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6.x-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![React 19](https://img.shields.io/badge/React-19.x-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/Vite-6.x-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Vite](https://img.shields.io/badge/Vite-8.x-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Vitest](https://img.shields.io/badge/Vitest-TDD_Passed-6E9F18?style=for-the-badge&logo=vitest&logoColor=white)](https://vitest.dev/)
-[![Playwright](https://img.shields.io/badge/Playwright-E2E_Covered-2EAD33?style=for-the-badge&logo=playwright&logoColor=white)](https://playwright.dev/)
+[![Vitest](https://img.shields.io/badge/Vitest-16_Suites_Passed-6E9F18?style=for-the-badge&logo=vitest&logoColor=white)](https://vitest.dev/)
+[![Playwright](https://img.shields.io/badge/Playwright-4_E2E_Covered-2EAD33?style=for-the-badge&logo=playwright&logoColor=white)](https://playwright.dev/)
 [![i18next](https://img.shields.io/badge/i18n-PT--BR_%7C_EN--US-26A69A?style=for-the-badge&logo=i18next&logoColor=white)](https://www.i18next.com/)
 
-A high-performance, responsive, and bilingual (PT-BR / EN-US) single-page portfolio application engineered to showcase 15+ years of software development experience, high-throughput distributed systems, AI-native architectures, and production SaaS applications.
+A high-performance, responsive, and decoupled web platform engineered by **Luis Fernando Richter** to showcase 15+ years of software architecture, distributed microservices, AI-native engineering, and production SaaS products.
 
-Designed specifically with an executive-level briefing focus for CTOs, VPs of Engineering, and Technical Recruiters.
+---
+
+## 🏛️ Architecture Overview: Three-Tier Entry Gateway
+
+The platform operates on a clean, decoupled three-tier routing architecture:
+
+```text
+                                / (Richter Gateway)
+                                        │
+                    ┌───────────────────┴───────────────────┐
+                    │                                       │
+                /imobflow                              /portfolio
+                    │                                       │
+         [ ImobFlow Product Landing ]             [ Full Career Portfolio ]
+          • AI Sales Engine for Real Estate        • 15+ Years Tech Leadership
+          • WhatsApp Conversational AI             • 30+ Architectural Projects
+          • Deterministic Rule Engine              • Bilingual i18n (PT/EN)
+          • Semantic Property Matching             • Interactive Mermaid Topology
+```
+
+1. **`/` (Richter Product Gateway)**: Minimalist, editorial entry page directing visitors to either the flagship AI product (**ImobFlow**) or the comprehensive technical portfolio (**Luis Fernando Richter**).
+2. **`/imobflow` (ImobFlow Landing Page)**: Static, standalone product landing page presenting the AI Sales Engine for real estate, strictly adhering to **Product Truth** (no unverified SLAs or fake dashboards).
+3. **`/portfolio` (Full Career Portfolio)**: Detailed CTO/VP-level briefing covering 15+ years of software engineering, project tiers, career eras, academic credentials, and tech posts.
 
 ---
 
 ## 🌟 Highlights & Key Features
 
+- ⚡ **Flagship AI SaaS Showcase (ImobFlow)**: Complete presentation of the conversational AI for WhatsApp, structured lead qualification, real property matching (Reserva Campolim), and deterministic operational guardrails.
 - 🌐 **Bilingual Engine (i18n)**: Seamless single-click switching between English (EN-US) and Portuguese (PT-BR) with automatic browser language detection (`i18next`).
-- ⚡ **Code-Splitting & Dynamic Import**: Architectural detail specifications for projects are dynamically lazily loaded to minimize initial JavaScript bundle size.
-- 🎨 **Modern Design System**: Native dark/light mode engine powered by Tailwind CSS v4 and accessible Shadcn/ui component primitives (`Card`, `Badge`, `Button`, `Dialog`).
-- 🎯 **Executive Project Tiering**: Projects organized into 3 distinct impact tiers:
+- 🎯 **CTO-Focused Project Tiering**: Projects organized into 3 distinct impact tiers:
   - **Tier 1**: Production AI, Cloud Architectures & SaaS (Hero Showcase Cards).
-  - **Tier 2**: Performance Engineering & System Integrations (High-Throughput Systems).
+  - **Tier 2**: Performance Engineering & High-Throughput System Integrations.
   - **Tier 3**: PoCs, Benchmarks & Technical Challenges (Local Profiling & Benchmarks).
-- 📈 **Quantified Impact Metrics**: Career history highlighting key achievements (e.g., `-40% API latency`, `+30% retention`, `30x faster query performance`).
-- 🔍 **Real-Time Search & Filtering**: Multi-criteria search and filter chips across projects, tech stack, and 15+ years of career experience.
+- ⏳ **Career Era Horizons**: Filter projects by career evolution:
+  - **Modern**: AI & Cloud Native (2021 – Present)
+  - **Scaling**: SaaS, Cloud & High-Scale APIs (2016 – 2020)
+  - **Legacy**: Enterprise Legacy Systems (< 2015, Editora FTD S/A)
+- 📊 **Visual Topology Diagrams**: Interactive architecture diagrams rendered dynamically via `mermaid`.
+- 🛡️ **OWASP Top 10 Mitigation Matrix**: Interactive security-by-design compliance matrix across portfolio projects.
+- 🎨 **Modern Design System**: Native dark/light mode engine powered by Tailwind CSS v4 and accessible Shadcn/ui component primitives (`Card`, `Badge`, `Button`, `Separator`).
 
 ---
 
@@ -32,59 +58,61 @@ Designed specifically with an executive-level briefing focus for CTOs, VPs of En
 
 | Technology | Role & Purpose |
 | :--- | :--- |
-| **React 19** | Modern UI framework utilizing concurrent rendering primitives. |
-| **TypeScript** | Strict static typing across data layers, hooks, and components. |
-| **Vite 6** | High-speed build tool and development server with instant HMR. |
-| **Tailwind CSS v4** | Utility-first CSS framework with dynamic CSS variables and HSL design tokens. |
-| **Shadcn/ui** | Accessible, unstyled component primitives for buttons, badges, cards, and modal dialogs. |
-| **i18next & react-i18next** | Internationalization framework with JSON locale datasets and custom hooks integration. |
-| **Lucide React** | Consistent, light-weight SVG vector iconography. |
-| **Vitest & React Testing Library** | Unit testing, hook testing, and TDD component assertion runner. |
-| **Playwright** | End-to-End browser testing verifying UI flows, modals, and language switching. |
+| **React 19** (`19.2.7`) | Modern UI framework utilizing concurrent rendering primitives. |
+| **TypeScript** (`~6.0.2`) | Strict static typing across data layers, hooks, and components. |
+| **Vite 8** (`8.1.1`) | Ultra-fast build tool and development server with instant HMR. |
+| **Tailwind CSS v4** (`4.3.3`) | Utility-first CSS framework with dynamic CSS variables and HSL design tokens. |
+| **Shadcn/ui & Radix UI** | Accessible, unstyled component primitives (`Slot`, `Button`, `Card`, `Badge`). |
+| **i18next & react-i18next** | Bilingual internationalization framework with dynamic JSON locale datasets. |
+| **Mermaid** (`11.16.1`) | Dynamic client-side rendering of architecture topology diagrams. |
+| **Lucide React** (`1.27.0`) | Consistent, lightweight vector iconography. |
+| **Oxlint** (`1.71.0`) | High-performance Rust-based static code linter. |
+| **Vitest** (`4.1.10`) | Unit testing, hook testing, and TDD component assertion runner. |
+| **Playwright** (`1.62.0`) | End-to-End browser testing verifying routes, navigation, and modals. |
 
 ---
 
 ## 🧪 Test-Driven Development (TDD) & Quality Assurance
 
-This repository strictly adheres to **Test-Driven Development (TDD)** and **Red-Green-Refactor** engineering workflows. Every user interaction, filter hook, language toggle, and modal lifecycle is covered by automated testing.
+This repository strictly adheres to **Test-Driven Development (TDD)** and **Red-Green-Refactor** engineering workflows.
 
-```
+```text
 [ Red: Write Failing Test ] ➔ [ Green: Implement Minimal Code ] ➔ [ Refactor & Verify ]
 ```
 
-### Testing Strategy
+### Testing Breakdown
 
-1. **Unit & Component Tests (Vitest + `@testing-library/react`)**:
-   - **Coverage**: 13 test suites / 28 unit tests passed.
-   - Verifies state initialization, category filtering, search input debounce, modal dialog mounting, dark mode toggling, and bilingual translation key fallbacks.
+1. **Unit & Component Tests (Vitest + React Testing Library)**:
+   - **Coverage**: 16 test suites / 44 unit tests passed (100% pass rate).
+   - Verifies route parsing, Gateway selection, ImobFlow anti-claims verification, project categorization hooks, dark mode toggling, and bilingual translation key fallbacks.
 2. **End-to-End Integration Tests (Playwright)**:
-   - Verifies full browser workflow in headless Chrome/Firefox/WebKit: tab switching (`TabsNav`), modal interactions (`ProjectModal`), live language toggling (`LanguageToggle`), and project search inputs.
+   - **Coverage**: 4 browser specs passing in headless Chrome/Firefox/WebKit.
+   - Verifies the full user journey: Gateway routing (`/` ➔ `/portfolio`, `/` ➔ `/imobflow`), tab switching, modal interactions, and language switching.
 
 ### Test Execution Commands
 
 ```bash
-# Run unit tests via Vitest
+# Run all unit test suites via Vitest
 npm test
 
 # Run Vitest in watch mode for active TDD development
-npx vitest
+npm run test:watch
 
 # Run Playwright E2E browser tests
 npm run test:e2e
 
-# Run complete verification pipeline (Build + Unit Tests)
-npm run build && npm test
+# Run linter
+npm run lint
+
+# Run complete verification pipeline (Lint + Unit Tests + E2E Tests + Production Build)
+npm run lint && npm test && npm run test:e2e && npm run build
 ```
 
 ---
 
 ## 📐 Architecture Decision Records (ADRs)
 
-All major technical decisions, design choices, data modeling strategies, and refactoring steps are formally documented in accordance with Architecture Decision Record standards.
-
-📖 **Full Architectural Log**: Read the complete [`docs/DECISIONS.md`](docs/DECISIONS.md) document.
-
-### Summary of ADRs
+All major technical decisions, design choices, data modeling strategies, and refactoring steps are formally documented in [`docs/DECISIONS.md`](docs/DECISIONS.md).
 
 | ADR | Title | Status | Summary |
 | :--- | :--- | :--- | :--- |
@@ -96,47 +124,68 @@ All major technical decisions, design choices, data modeling strategies, and ref
 | **[ADR-006](docs/DECISIONS.md#adr-006-decoupled-custom-hooks--responsive-tabbed-ui-architecture)** | Custom Hooks & Responsive Tabbed UI | Accepted | Creation of dedicated hooks (`useProjects`, `useExperience`, `useEducationAndCerts`) and `TabsNav.tsx`. |
 | **[ADR-007](docs/DECISIONS.md#adr-007-project-tier-strategy--cto-focused-architectural-curation)** | CTO-Focused Project Tier Strategy | Accepted | Visual grouping into Tier 1 (AI Showcase), Tier 2 (High-Throughput), and Tier 3 (PoCs & Benchmarks). |
 | **[ADR-008](docs/DECISIONS.md#adr-008-i18n-internationalization-architecture-bilingual-pt-br--en-us)** | Bilingual i18n Architecture | Accepted | Integration of `react-i18next` with structured locale directories (`src/locales/pt`, `src/locales/en`). |
+| **[ADR-009](docs/DECISIONS.md#adr-009-dedicated-legacy-projects-section--pre-2015-temporal-isolation)** | Legacy Projects Temporal Isolation | Accepted | Partitioning of pre-2015 enterprise architectures (Editora FTD S/A) into dedicated collapsable section. |
+| **[ADR-010](docs/DECISIONS.md#adr-010-career-era-filtering-architecture-timeline-horizons-modern-scaling-legacy)** | Career Era Filtering Architecture | Accepted | Timeline horizons filtering (`modern`, `scaling`, `legacy`, `all`) with dynamic counts. |
+| **[ADR-011](docs/DECISIONS.md#adr-011-three-tier-gateway-routing--imobflow-product-landing-page-architecture)** | Three-Tier Gateway & ImobFlow Product Landing | Accepted | Zero-dependency client routing (`/`, `/imobflow`, `/portfolio`) & modular ImobFlow landing adhering to Product Truth. |
 
 ---
 
 ## 📂 Project Structure
 
-```
+```text
 luis-fernando-portfolio/
 ├── docs/
-│   └── DECISIONS.md              # Architectural Decision Records (ADR-001 to ADR-008)
+│   ├── DECISIONS.md              # Architectural Decision Records (ADR-001 to ADR-011)
+│   └── Portfolio-Dados...md      # Source data mapping documentation
 ├── e2e/
-│   └── portfolio.spec.ts         # Playwright E2E browser integration spec
-├── public/                       # Static public assets (favicon, manifest)
+│   ├── imobflow.spec.ts          # Playwright E2E spec for /imobflow route
+│   └── portfolio.spec.ts         # Playwright E2E spec for Gateway & Portfolio
+├── public/                       # Static public assets (favicons, icons)
 ├── src/
-│   ├── assets/                   # Profile avatar and media assets
-│   ├── components/               # React UI components
+│   ├── assets/                   # Media assets, brand logos (ImobFlow, Richter)
+│   ├── components/               # Portfolio UI components
+│   │   ├── imobflow/             # ImobFlow modular landing components
+│   │   │   ├── ImobFlowCTA.tsx
+│   │   │   ├── ImobFlowFeatures.tsx
+│   │   │   ├── ImobFlowFooter.tsx
+│   │   │   ├── ImobFlowHero.tsx
+│   │   │   ├── ImobFlowHowItWorks.tsx
+│   │   │   ├── ImobFlowNavbar.tsx
+│   │   │   ├── ImobFlowNoFriction.tsx
+│   │   │   ├── ImobFlowPainPoints.tsx
+│   │   │   ├── ImobFlowTechDiff.tsx
+│   │   │   └── ImobFlowVisualProof.tsx
 │   │   ├── ui/                   # Shadcn base primitives (Badge, Button, Card, Separator)
-│   │   ├── __tests__/            # Vitest unit test suites for UI components
-│   │   ├── EducationCerts.tsx    # Academic education & verified credentials tab
+│   │   ├── EducationCerts.tsx    # Academic education & certifications tab
 │   │   ├── Experience.tsx        # 15+ Yrs career timeline & quantified metrics
-│   │   ├── Hero.tsx              # Hero profile header section
+│   │   ├── Footer.tsx            # Corporate portfolio footer
+│   │   ├── Hero.tsx              # Executive profile header section
 │   │   ├── LanguageToggle.tsx    # PT / EN locale switcher button
-│   │   ├── Navbar.tsx            # Sticky main navigation header
+│   │   ├── MermaidViewer.tsx     # Dynamic topology renderer
+│   │   ├── Navbar.tsx            # Navigation header with Início link
+│   │   ├── OwaspMatrixModal.tsx  # OWASP Top 10 compliance modal
+│   │   ├── Posts.tsx             # Technical articles & blog publications tab
 │   │   ├── ProjectModal.tsx      # Lazy-loaded CTO briefing dialog
 │   │   ├── Projects.tsx          # Tiered projects showcase section
 │   │   ├── Skills.tsx            # Technical competencies & AI tools section
-│   │   └── TabsNav.tsx           # Responsive tab navigation bar
+│   │   ├── TabsNav.tsx           # Responsive tab navigation bar
+│   │   └── ThemeToggle.tsx       # Dark / Light mode toggle
+│   ├── config/                   # Configuration constants & verified contact channels
+│   │   └── imobflow.ts
+│   ├── context/                  # Theme context & provider
 │   ├── data/                     # Data schemas & local fallback sets
 │   ├── hooks/                    # Custom React state & data fetch hooks
-│   │   ├── useCategorizedProjects.ts
-│   │   ├── useEducationAndCerts.ts
-│   │   ├── useExperience.ts
-│   │   ├── useProfile.ts
-│   │   └── useProjectDetail.ts
-│   ├── i18n/                     # i18next initialization & configuration
-│   ├── locales/                  # Bilingual translation datasets
-│   │   ├── en/                   # English (EN-US) JSON files
-│   │   └── pt/                   # Portuguese (PT-BR) JSON files
+│   ├── i18n/                     # i18next configuration
+│   ├── locales/                  # Bilingual translation datasets (pt / en)
+│   ├── pages/                    # Core view pages
+│   │   ├── ImobFlowLanding.tsx   # /imobflow landing page
+│   │   ├── PortfolioPage.tsx     # /portfolio full portfolio page
+│   │   └── RichterGateway.tsx    # / root entry gateway page
+│   ├── styles/                   # CSS stylesheets & Tailwind v4 token definitions
+│   ├── tests/                    # Vitest unit test suites
 │   ├── types/                    # TypeScript interfaces & data models
-│   ├── App.tsx                   # Main layout container
-│   ├── main.tsx                  # Application entry point
-│   └── index.css                 # Global CSS variables & Tailwind v4 theme setup
+│   ├── App.tsx                   # Main layout container & lightweight client router
+│   └── main.tsx                  # Application entry point
 ├── package.json
 ├── playwright.config.ts
 ├── tailwind.config.js
@@ -150,8 +199,8 @@ luis-fernando-portfolio/
 
 ### Prerequisites
 
-- **Node.js**: v18.x or v20.x+
-- **npm**: v9.x or v10.x+
+- **Node.js**: `v20.x` or higher
+- **npm**: `v10.x` or higher
 
 ### Installation & Run
 
@@ -181,6 +230,6 @@ luis-fernando-portfolio/
 
 ## 📜 License
 
-Distributed under the **MIT License**. See `LICENSE` for more information.
+Distributed under the **MIT License**.
 
-Developed with ❤️ by **Luis Fernando Richter** — Senior Software Engineer & Tech Lead.
+Engineered by **Luis Fernando Richter** — Senior Software Engineer, Tech Lead & AI Solution Architect.
