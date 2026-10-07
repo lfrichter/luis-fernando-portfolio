@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import avatarImg from '@/assets/AvatarCircle.png';
+import brasaoImg from '@/assets/Brasao-bg-trans.png';
+import logoImobFlow from '@/assets/imobflow/Logo-ImobFlow.png';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
-import brasaoImg from '@/assets/Brasao-bg-trans.png';
-import logoImobFlow from '@/assets/imobflow/Logo-ImobFlow.png';
-import avatarImg from '@/assets/AvatarCircle.png';
-import { ArrowRight, Bot, Cpu, Sparkles, Building2 } from 'lucide-react';
+import { ArrowRight, Bot, Building2, Cpu, Sparkles } from 'lucide-react';
+import React, { useEffect } from 'react';
 
 interface RichterGatewayProps {
   onNavigateToImobFlow: () => void;
@@ -104,7 +104,7 @@ export const RichterGateway: React.FC<RichterGatewayProps> = ({
                   />
                   <div>
                     <span className="text-xs sm:text-sm font-mono font-medium text-muted-foreground block leading-snug">
-                      AI Sales Engine para Imobiliárias
+                      Acelerador de Vendas Imobiliárias
                     </span>
                   </div>
                 </div>
