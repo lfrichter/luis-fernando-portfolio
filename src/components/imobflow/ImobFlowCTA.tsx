@@ -24,7 +24,7 @@ export const ImobFlowCTA: React.FC = () => {
           </h2>
 
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Converse diretamente com o desenvolvedor responsável pela arquitetura da ImobFlow e veja como implementar o atendimento inteligente no seu fluxo.
+            Fale conosco e veja como a ImobFlow pode se integrar ao fluxo comercial da sua imobiliária.
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -63,7 +63,7 @@ export const ImobFlowCTA: React.FC = () => {
           <div className="pt-6 border-t border-border/50 flex flex-wrap items-center justify-center gap-6 text-xs text-muted-foreground">
             <span className="flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4 text-primary" />
-              Arquitetura Segura & Resiliente
+              Arquitetura desenvolvida por Richter Tecnologia
             </span>
             <span className="flex items-center gap-1.5">
               <CheckCircle2 className="w-4 h-4 text-primary" />

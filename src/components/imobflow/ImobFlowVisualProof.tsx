@@ -16,7 +16,7 @@ export const ImobFlowVisualProof: React.FC = () => {
             Veja a ImobFlow em ação no WhatsApp
           </h2>
           <p className="mt-3 text-sm sm:text-base text-muted-foreground">
-            Simulação fiel baseada nas conversas reais de qualificação e busca de imóveis do sistema.
+            Simulação baseada em fluxo real homologado do sistema.
           </p>
         </div>
 

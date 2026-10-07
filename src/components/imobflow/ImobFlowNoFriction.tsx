@@ -26,10 +26,10 @@ export const ImobFlowNoFriction: React.FC = () => {
             <div className="p-5 rounded-xl bg-card border border-border/60 flex flex-col space-y-2">
               <div className="flex items-center gap-2 text-foreground font-bold text-sm">
                 <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
-                <span>Zero Curva de Aprendizado</span>
+                <span>Sem Nova Ferramenta para o Corretor</span>
               </div>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Nenhum software pesado para instalar nem treinamentos longos para os corretores da casa.
+                Nenhum software pesado para instalar nem novos sistemas complexos para a equipe aprender.
               </p>
             </div>
 

@@ -66,7 +66,7 @@ export const ImobFlowTechDiff: React.FC = () => {
             </CardHeader>
             <CardContent className="p-6 pt-2 space-y-3 flex-1 flex flex-col justify-between">
               <p className="text-xs text-muted-foreground leading-relaxed">
-                A IA atua exclusivamente na compreensão da linguagem. Nenhuma ação no mundo real acontece sem aprovação da camada determinística.
+                A IA atua na compreensão da linguagem. Ações operacionais sensíveis e agendamentos passam pela validação da camada determinística.
               </p>
               <div className="p-3.5 rounded-lg bg-primary/5 border border-primary/20 text-xs text-foreground space-y-1.5">
                 <div className="font-semibold text-primary flex items-center gap-1.5">
@@ -84,7 +84,7 @@ export const ImobFlowTechDiff: React.FC = () => {
                   </li>
                   <li className="flex items-center gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0" />
-                    <span>Isolamento total de dados e regras por imobiliária</span>
+                    <span>Isolamento de dados e regras por imobiliária</span>
                   </li>
                 </ul>
               </div>
