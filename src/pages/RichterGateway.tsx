@@ -95,16 +95,18 @@ export const RichterGateway: React.FC<RichterGatewayProps> = ({
                   </div>
                 </div>
 
-                {/* Product Logo / Title */}
-                <div className="mb-4">
+                {/* Product Logo & Title to the right */}
+                <div className="flex items-center gap-3.5 mb-4">
                   <img
                     src={logoImobFlow}
                     alt="Logo ImobFlow"
-                    className="h-11 sm:h-13 w-auto object-contain mb-2"
+                    className="h-14 sm:h-16 w-auto object-contain shrink-0"
                   />
-                  <span className="text-xs font-mono text-muted-foreground block">
-                    AI Sales Engine para Imobiliárias
-                  </span>
+                  <div>
+                    <span className="text-xs sm:text-sm font-mono font-medium text-muted-foreground block leading-snug">
+                      AI Sales Engine para Imobiliárias
+                    </span>
+                  </div>
                 </div>
 
                 {/* Description */}
