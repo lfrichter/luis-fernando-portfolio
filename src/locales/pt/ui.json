@@ -143,5 +143,27 @@
   "footer": {
     "rights": "Todos os direitos reservados.",
     "builtWith": "Construído com React 19, Vite, TypeScript, Tailwind CSS & Shadcn UI"
+  },
+  "gateway": {
+    "brandSubtitle": "Tecnologia & Inovação",
+    "badge": "Software, AI & Product Engineering",
+    "title": "O que você deseja conhecer?",
+    "subtitle": "Escolha uma das portas abaixo para explorar o produto ou o histórico de engenharia.",
+    "imobflow": {
+      "badge": "Produto SaaS & IA",
+      "subtitle": "Acelerador de Vendas Imobiliárias",
+      "description": "Atendimento inteligente no WhatsApp em segundos. Qualificação de leads, busca semântica de imóveis e agendamento protegido por regras determinísticas.",
+      "cta": "Explorar ImobFlow"
+    },
+    "portfolio": {
+      "badge": "Engenharia & Arquitetura",
+      "role": "Tech Lead & AI Solution Architect",
+      "description": "15+ anos de experiência construindo sistemas distribuídos, plataformas de alta vazão, arquiteturas limpas e soluções nativas em Inteligência Artificial.",
+      "cta": "Ver Portfólio Completo"
+    },
+    "footer": {
+      "rights": "Richter Tecnologia e Desenvolvimento",
+      "location": "Sorocaba, SP • Brasil"
+    }
   }
 }

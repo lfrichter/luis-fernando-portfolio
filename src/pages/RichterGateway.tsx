@@ -1,11 +1,13 @@
 import avatarImg from '@/assets/AvatarCircle.png';
 import brasaoImg from '@/assets/Brasao-bg-trans.png';
 import logoImobFlow from '@/assets/imobflow/Logo-ImobFlow.png';
+import { LanguageToggle } from '@/components/LanguageToggle';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import { ArrowRight, Bot, Building2, Cpu, Sparkles } from 'lucide-react';
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface RichterGatewayProps {
   onNavigateToImobFlow: () => void;
@@ -16,6 +18,8 @@ export const RichterGateway: React.FC<RichterGatewayProps> = ({
   onNavigateToImobFlow,
   onNavigateToPortfolio,
 }) => {
+  const { t } = useTranslation();
+
   useEffect(() => {
     document.title = 'Richter | Software, AI & Product Engineering';
     window.scrollTo(0, 0);
@@ -39,12 +43,13 @@ export const RichterGateway: React.FC<RichterGatewayProps> = ({
               Richter
             </span>
             <span className="text-[10px] text-muted-foreground font-mono">
-              Tecnologia & Inovação
+              {t('gateway.brandSubtitle', 'Tecnologia & Inovação')}
             </span>
           </div>
         </div>
 
         <div className="flex items-center gap-3">
+          <LanguageToggle />
           <ThemeToggle />
         </div>
       </header>
@@ -57,15 +62,15 @@ export const RichterGateway: React.FC<RichterGatewayProps> = ({
             variant="outline"
             className="mb-4 text-xs font-semibold px-3 py-1 border-primary/30 text-primary bg-primary/5"
           >
-            Software, AI & Product Engineering
+            {t('gateway.badge', 'Software, AI & Product Engineering')}
           </Badge>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground leading-[1.15]">
-            O que você deseja conhecer?
+            {t('gateway.title', 'O que você deseja conhecer?')}
           </h1>
 
           <p className="mt-3 text-sm sm:text-base text-muted-foreground">
-            Escolha uma das portas abaixo para explorar o produto ou o histórico de engenharia.
+            {t('gateway.subtitle', 'Escolha uma das portas abaixo para explorar o produto ou o histórico de engenharia.')}
           </p>
         </div>
 
@@ -88,7 +93,7 @@ export const RichterGateway: React.FC<RichterGatewayProps> = ({
                 <div className="flex items-center justify-between mb-6">
                   <Badge variant="secondary" className="text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
                     <Sparkles className="w-3 h-3 mr-1" />
-                    Produto SaaS & IA
+                    {t('gateway.imobflow.badge', 'Produto SaaS & IA')}
                   </Badge>
                   <div className="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Building2 className="w-5 h-5" />
@@ -104,20 +109,20 @@ export const RichterGateway: React.FC<RichterGatewayProps> = ({
                   />
                   <div>
                     <span className="text-xs sm:text-sm font-mono font-medium text-muted-foreground block leading-snug">
-                      Acelerador de Vendas Imobiliárias
+                      {t('gateway.imobflow.subtitle', 'Acelerador de Vendas Imobiliárias')}
                     </span>
                   </div>
                 </div>
 
                 {/* Description */}
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Atendimento inteligente no WhatsApp em segundos. Qualificação de leads, busca semântica de imóveis e agendamento protegido por regras determinísticas.
+                  {t('gateway.imobflow.description', 'Atendimento inteligente no WhatsApp em segundos. Qualificação de leads, busca semântica de imóveis e agendamento protegido por regras determinísticas.')}
                 </p>
               </div>
 
               {/* Action Button Link */}
               <div className="mt-8 pt-4 border-t border-border/60 flex items-center justify-between text-primary font-semibold text-sm group-hover:text-primary">
-                <span>Explorar ImobFlow</span>
+                <span>{t('gateway.imobflow.cta', 'Explorar ImobFlow')}</span>
                 <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center group-hover:translate-x-1 transition-transform">
                   <ArrowRight className="w-4 h-4" />
                 </div>
@@ -142,7 +147,7 @@ export const RichterGateway: React.FC<RichterGatewayProps> = ({
                 <div className="flex items-center justify-between mb-6">
                   <Badge variant="outline" className="text-xs font-semibold text-foreground border-border">
                     <Cpu className="w-3 h-3 mr-1 text-primary" />
-                    Engenharia & Arquitetura
+                    {t('gateway.portfolio.badge', 'Engenharia & Arquitetura')}
                   </Badge>
                   <div className="w-9 h-9 rounded-lg bg-muted text-foreground flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Bot className="w-5 h-5" />
@@ -161,20 +166,20 @@ export const RichterGateway: React.FC<RichterGatewayProps> = ({
                       Luis Fernando Richter
                     </h2>
                     <span className="text-xs font-mono text-muted-foreground block">
-                      Tech Lead & AI Solution Architect
+                      {t('gateway.portfolio.role', 'Tech Lead & AI Solution Architect')}
                     </span>
                   </div>
                 </div>
 
                 {/* Description */}
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  15+ anos de experiência construindo sistemas distribuídos, plataformas de alta vazão, arquiteturas limpas e soluções nativas em Inteligência Artificial.
+                  {t('gateway.portfolio.description', '15+ anos de experiência construindo sistemas distribuídos, plataformas de alta vazão, arquiteturas limpas e soluções nativas em Inteligência Artificial.')}
                 </p>
               </div>
 
               {/* Action Button Link */}
               <div className="mt-8 pt-4 border-t border-border/60 flex items-center justify-between text-foreground font-semibold text-sm group-hover:text-primary transition-colors">
-                <span>Ver Portfólio Completo</span>
+                <span>{t('gateway.portfolio.cta', 'Ver Portfólio Completo')}</span>
                 <div className="w-8 h-8 rounded-full bg-muted group-hover:bg-primary/10 flex items-center justify-center group-hover:translate-x-1 transition-transform">
                   <ArrowRight className="w-4 h-4" />
                 </div>
@@ -187,8 +192,8 @@ export const RichterGateway: React.FC<RichterGatewayProps> = ({
       {/* Clean Bottom Footer */}
       <footer className="w-full py-6 px-6 text-center text-xs text-muted-foreground border-t border-border/40">
         <div className="container max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-          <span>© {new Date().getFullYear()} Richter Tecnologia e Desenvolvimento</span>
-          <span className="text-[11px] font-mono">Sorocaba, SP • Brasil</span>
+          <span>© {new Date().getFullYear()} {t('gateway.footer.rights', 'Richter Tecnologia e Desenvolvimento')}</span>
+          <span className="text-[11px] font-mono">{t('gateway.footer.location', 'Sorocaba, SP • Brasil')}</span>
         </div>
       </footer>
     </div>
