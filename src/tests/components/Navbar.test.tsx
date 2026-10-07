@@ -13,5 +13,6 @@ describe('Navbar Component', () => {
 
     expect(screen.getByText('Luis Fernando Richter')).toBeInTheDocument();
     expect(screen.getByAltText('Richter Logo')).toBeInTheDocument();
+    expect(screen.getByText('Início')).toBeInTheDocument();
   });
 });

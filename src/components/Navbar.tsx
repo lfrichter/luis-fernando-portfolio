@@ -3,6 +3,8 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import { LanguageToggle } from '@/components/LanguageToggle';
 import logoImg from '@/assets/Brasao-bg-trans.png';
 
+import { ArrowLeft } from 'lucide-react';
+
 interface NavbarProps {
   onNavigateHome?: () => void;
 }
@@ -36,7 +38,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateHome }) => {
         </a>
 
         {/* Actions */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <a
+            href="/"
+            onClick={handleLogoClick}
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors px-2.5 py-1.5 rounded-md hover:bg-muted/50"
+          >
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>Início</span>
+          </a>
           <LanguageToggle />
           <ThemeToggle />
         </div>

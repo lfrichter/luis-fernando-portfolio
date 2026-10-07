@@ -44,10 +44,10 @@ export const ImobFlowNavbar: React.FC<ImobFlowNavbarProps> = ({ onBackToPortfoli
           <a
             href="/"
             onClick={handleBack}
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors px-2.5 py-2 rounded-md hover:bg-muted/50"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors px-2.5 py-1.5 rounded-md hover:bg-muted/50"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Início Richter</span>
+            <span>Início</span>
           </a>
 
           <ThemeToggle />
