@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test.describe('ImobFlow Landing Page E2E Tests', () => {
   test('should render ImobFlow landing page, verify core sections, and navigate back to portfolio', async ({ page }) => {
@@ -33,11 +33,12 @@ test.describe('ImobFlow Landing Page E2E Tests', () => {
     // 8. Verify CTA section & WhatsApp button
     await expect(page.getByText('Falar pelo WhatsApp')).toBeVisible();
 
-    // 9. Click "Portfólio Richter" link in navbar to navigate back
-    const backBtn = page.getByText('Portfólio Richter');
+    // 9. Click "Início" link in navbar to navigate back to gateway
+    const backBtn = page.getByText('Início');
     await backBtn.click();
 
-    // Verify returning to portfolio
-    await expect(page.getByText('Luis Fernando Richter').first()).toBeVisible();
+    // Verify returning to Gateway
+    await expect(page.getByRole('heading', { level: 1, name: /O que você deseja conhecer\?/i })).toBeVisible();
+    await expect(page).toHaveURL(/\//);
   });
 });

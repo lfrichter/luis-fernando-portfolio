@@ -3,13 +3,25 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import { LanguageToggle } from '@/components/LanguageToggle';
 import logoImg from '@/assets/Brasao-bg-trans.png';
 
-export const Navbar: React.FC = () => {
+interface NavbarProps {
+  onNavigateHome?: () => void;
+}
+
+export const Navbar: React.FC<NavbarProps> = ({ onNavigateHome }) => {
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (onNavigateHome) {
+      e.preventDefault();
+      onNavigateHome();
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-md transition-colors duration-200">
       <div className="container max-w-5xl mx-auto flex h-16 items-center justify-between px-4">
         {/* Brand Logo with Isotype */}
         <a
-          href="#"
+          href="/"
+          onClick={handleLogoClick}
           className="flex items-center gap-2.5 font-bold text-lg tracking-tight hover:text-primary transition-colors group"
         >
           <img

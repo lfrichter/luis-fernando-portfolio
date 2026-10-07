@@ -69,6 +69,7 @@ describe('Posts Section & Hooks', () => {
   });
 
   it('navigates to Posts tab in App integration', () => {
+    window.history.pushState({}, '', '/portfolio');
     render(<App />);
 
     const postsTabBtn = screen.getByRole('button', { name: /Posts & Artigos/i });

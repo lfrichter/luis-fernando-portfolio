@@ -1,11 +1,21 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Portfolio E2E & i18n Tests', () => {
-  test('should render portfolio, navigate tabs, toggle language between PT and EN, and open project modal', async ({ page }) => {
+  test('should render gateway on root / and navigate to portfolio', async ({ page }) => {
     await page.goto('/');
 
+    await expect(page.getByRole('heading', { level: 1, name: /O que você deseja conhecer\?/i })).toBeVisible();
+    const portfolioBtn = page.getByText(/Ver Portfólio Completo/i);
+    await portfolioBtn.click();
+
+    await expect(page.getByText('Luis Fernando Richter').first()).toBeVisible();
+    await expect(page).toHaveURL(/\/portfolio/);
+  });
+
+  test('should render portfolio directly via /portfolio, navigate tabs, toggle language between PT and EN, and open project modal', async ({ page }) => {
+    await page.goto('/portfolio');
+
     // 1. Verify Title & Hero Section
-    await expect(page).toHaveTitle(/Luis Fernando Richter/i);
     await expect(page.getByText('Luis Fernando Richter').first()).toBeVisible();
 
     // 2. Verify i18n Language Toggle (Clicking PT/EN changes title)
@@ -58,7 +68,7 @@ test.describe('Portfolio E2E & i18n Tests', () => {
   });
 
   test('should filter projects using Career Era tabs (AI & Cloud, Scaling 2016-2020, Legacy)', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/portfolio');
 
     const projectsTab = page.getByRole('button', { name: /^Projetos & Destaques|^Projects & Highlights/i });
     await projectsTab.click();

@@ -19,32 +19,35 @@ export const ImobFlowNavbar: React.FC<ImobFlowNavbarProps> = ({ onBackToPortfoli
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-md transition-colors duration-200">
-      <div className="container max-w-6xl mx-auto flex h-16 items-center justify-between px-4 sm:px-6">
-        {/* Brand Logo & Origin Badge */}
-        <div className="flex items-center gap-3">
-          <a href="/imobflow" className="flex items-center gap-2.5 group">
+    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/85 backdrop-blur-md transition-colors duration-200">
+      <div className="container max-w-6xl mx-auto flex h-20 sm:h-24 items-center justify-between px-3 sm:px-6">
+        {/* Brand Logo & Origin Badge - Enlarged & Zero Restriction */}
+        <div className="flex items-center gap-2 sm:gap-4">
+          <a href="/imobflow" className="flex items-center p-0 m-0 group">
             <img
               src={logoImobFlow}
               alt="Logo ImobFlow"
-              className="h-8 sm:h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+              className="h-12 sm:h-16 md:h-18 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
             />
           </a>
-          <Badge variant="outline" className="hidden sm:inline-flex text-[11px] font-normal border-primary/30 text-muted-foreground">
+          <Badge
+            variant="outline"
+            className="hidden md:inline-flex text-[11px] font-normal border-primary/30 text-muted-foreground"
+          >
             by Richter Tecnologia
           </Badge>
         </div>
 
         {/* Actions */}
         <div className="flex items-center gap-2 sm:gap-3">
-          {/* Back to main portfolio */}
+          {/* Back to Gateway */}
           <a
             href="/"
             onClick={handleBack}
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors px-2 py-1.5 rounded-md hover:bg-muted/50"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors px-2.5 py-2 rounded-md hover:bg-muted/50"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            <span className="hidden md:inline">Portfólio Richter</span>
+            <span className="hidden sm:inline">Início Richter</span>
           </a>
 
           <ThemeToggle />
@@ -69,3 +72,5 @@ export const ImobFlowNavbar: React.FC<ImobFlowNavbarProps> = ({ onBackToPortfoli
     </header>
   );
 };
+
+export default ImobFlowNavbar;

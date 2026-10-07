@@ -1,30 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { ThemeProvider } from '@/context/ThemeContext';
-import { Navbar } from '@/components/Navbar';
-import { Hero } from '@/components/Hero';
-import { TabsNav, type TabType } from '@/components/TabsNav';
-import { Projects } from '@/components/Projects';
-import { Experience } from '@/components/Experience';
-import { Skills } from '@/components/Skills';
-import { EducationCerts } from '@/components/EducationCerts';
-import { Posts } from '@/components/Posts';
-import { Footer } from '@/components/Footer';
+import { RichterGateway } from '@/pages/RichterGateway';
 import { ImobFlowLanding } from '@/pages/ImobFlowLanding';
+import { PortfolioPage } from '@/pages/PortfolioPage';
 
-const getInitialRoute = (): 'home' | 'imobflow' => {
-  if (typeof window === 'undefined') return 'home';
-  const path = window.location.pathname.toLowerCase();
+export type AppRoute = 'entry' | 'imobflow' | 'portfolio';
+
+const parseCurrentRoute = (): AppRoute => {
+  if (typeof window === 'undefined') return 'entry';
+  const path = window.location.pathname.toLowerCase().replace(/\/$/, '');
   const hash = window.location.hash.toLowerCase();
-  return path.startsWith('/imobflow') || hash === '#imobflow' ? 'imobflow' : 'home';
+
+  if (path === '/imobflow' || hash === '#imobflow' || path.startsWith('/imobflow')) {
+    return 'imobflow';
+  }
+  if (path === '/portfolio' || hash === '#portfolio' || path.startsWith('/portfolio')) {
+    return 'portfolio';
+  }
+  return 'entry';
 };
 
 export const App: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<TabType>('projects');
-  const [currentRoute, setCurrentRoute] = useState<'home' | 'imobflow'>(getInitialRoute);
+  const [currentRoute, setCurrentRoute] = useState<AppRoute>(parseCurrentRoute);
 
   useEffect(() => {
     const handleLocationChange = () => {
-      setCurrentRoute(getInitialRoute());
+      setCurrentRoute(parseCurrentRoute());
     };
 
     window.addEventListener('popstate', handleLocationChange);
@@ -36,40 +37,30 @@ export const App: React.FC = () => {
     };
   }, []);
 
-  const navigateToHome = () => {
-    if (window.location.pathname !== '/' || window.location.hash) {
-      window.history.pushState({}, '', '/');
+  const navigateTo = useCallback((route: AppRoute) => {
+    const targetPath = route === 'entry' ? '/' : `/${route}`;
+    if (window.location.pathname !== targetPath) {
+      window.history.pushState({}, '', targetPath);
     }
-    setCurrentRoute('home');
-  };
+    setCurrentRoute(route);
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <ThemeProvider>
-      {currentRoute === 'imobflow' ? (
-        <ImobFlowLanding onNavigateHome={navigateToHome} />
-      ) : (
-        <div className="min-h-screen bg-background text-foreground flex flex-col font-sans selection:bg-primary/20 selection:text-primary">
-          {/* Header */}
-          <Navbar />
+      {currentRoute === 'entry' && (
+        <RichterGateway
+          onNavigateToImobFlow={() => navigateTo('imobflow')}
+          onNavigateToPortfolio={() => navigateTo('portfolio')}
+        />
+      )}
 
-          {/* Hero Section */}
-          <Hero />
+      {currentRoute === 'imobflow' && (
+        <ImobFlowLanding onNavigateHome={() => navigateTo('entry')} />
+      )}
 
-          {/* Main Tab Navigation Bar */}
-          <TabsNav activeTab={activeTab} onTabChange={setActiveTab} />
-
-          {/* Tab Content Panels */}
-          <main className="flex-1">
-            {activeTab === 'projects' && <Projects />}
-            {activeTab === 'experience' && <Experience />}
-            {activeTab === 'skills' && <Skills />}
-            {activeTab === 'education' && <EducationCerts />}
-            {activeTab === 'posts' && <Posts />}
-          </main>
-
-          {/* Footer */}
-          <Footer />
-        </div>
+      {currentRoute === 'portfolio' && (
+        <PortfolioPage onNavigateHome={() => navigateTo('entry')} />
       )}
     </ThemeProvider>
   );
