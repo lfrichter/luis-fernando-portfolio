@@ -1,12 +1,12 @@
 import { expect, test } from '@playwright/test';
 
-test.describe('ImobFlow Landing Page E2E Tests', () => {
-  test('should render ImobFlow landing page, verify core sections, and navigate back to portfolio', async ({ page }) => {
-    // 1. Open /imobflow
-    await page.goto('/imobflow');
+test.describe('NiceMove Landing Page E2E Tests', () => {
+  test('should render NiceMove landing page, verify core sections, and navigate back to gateway', async ({ page }) => {
+    // 1. Open /nicemove
+    await page.goto('/nicemove');
 
     // 2. Verify Page Title & SEO Metadata
-    await expect(page).toHaveTitle(/ImobFlow/i);
+    await expect(page).toHaveTitle(/NiceMove/i);
 
     // 3. Verify Hero Section & Headline
     await expect(
@@ -20,10 +20,11 @@ test.describe('ImobFlow Landing Page E2E Tests', () => {
     await expect(page.getByText('Oportunidade Perdida')).toBeVisible();
 
     // 5. Verify How It Works section
-    await expect(page.getByText('Como a ImobFlow conduz cada conversa')).toBeVisible();
+    await expect(page.getByText('Como a NiceMove conduz cada conversa')).toBeVisible();
 
-    // 6. Verify Visual Proof section with Reserva Campolim
+    // 6. Verify Visual Proof section with Reserva Campolim and NiceMove Assistant
     await expect(page.getByText('Reserva Campolim').first()).toBeVisible();
+    await expect(page.getByText('NiceMove Assistant')).toBeVisible();
 
     // 7. Verify Deterministic rules technical differentiator
     await expect(

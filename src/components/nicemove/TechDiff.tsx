@@ -3,7 +3,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ShieldAlert, ShieldCheck, CheckCircle2, Lock } from 'lucide-react';
 
-export const ImobFlowTechDiff: React.FC = () => {
+export const TechDiff: React.FC = () => {
   return (
     <section className="py-16 md:py-24 bg-muted/20 border-b border-border/40">
       <div className="container max-w-5xl mx-auto px-4 sm:px-6">
@@ -17,7 +17,7 @@ export const ImobFlowTechDiff: React.FC = () => {
             As regras determinísticas protegem a operação.
           </h2>
           <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
-            Diferente de chatbots genéricos que podem alucinar informações ou prometer o que não devem, a ImobFlow separa a interpretação linguística das regras rígidas do seu negócio.
+            Diferente de chatbots genéricos que podem alucinar informações ou prometer o que não devem, a NiceMove separa a interpretação linguística das regras rígidas do seu negócio.
           </p>
         </div>
 
@@ -52,13 +52,13 @@ export const ImobFlowTechDiff: React.FC = () => {
             </CardContent>
           </Card>
 
-          {/* Box 2: Como a ImobFlow Opera (Proteção Determinística) */}
+          {/* Box 2: Como a NiceMove Opera (Proteção Determinística) */}
           <Card className="border-primary/40 bg-card relative overflow-hidden shadow-md flex flex-col">
             <div className="absolute top-0 left-0 right-0 h-1 bg-primary" />
             <CardHeader className="p-6 pb-3">
               <div className="flex items-center gap-2 mb-2 text-primary">
                 <ShieldCheck className="w-5 h-5" />
-                <span className="text-xs font-semibold uppercase tracking-wider">Padrão ImobFlow</span>
+                <span className="text-xs font-semibold uppercase tracking-wider">Padrão NiceMove</span>
               </div>
               <CardTitle className="text-lg font-bold text-foreground">
                 Grounding & Regras Determinísticas

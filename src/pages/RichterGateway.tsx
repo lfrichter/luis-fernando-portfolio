@@ -1,6 +1,6 @@
 import avatarImg from '@/assets/AvatarCircle.png';
 import brasaoImg from '@/assets/Brasao-bg-trans.png';
-import logoImobFlow from '@/assets/imobflow/Logo-ImobFlow.png';
+import logoNiceMove from '@/assets/NiceMove/LogoNiceMoveRetangle.png';
 import { LanguageToggle } from '@/components/LanguageToggle';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { Badge } from '@/components/ui/badge';
@@ -10,15 +10,18 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 interface RichterGatewayProps {
-  onNavigateToImobFlow: () => void;
+  onNavigateToNiceMove?: () => void;
+  onNavigateToImobFlow?: () => void;
   onNavigateToPortfolio: () => void;
 }
 
 export const RichterGateway: React.FC<RichterGatewayProps> = ({
+  onNavigateToNiceMove,
   onNavigateToImobFlow,
   onNavigateToPortfolio,
 }) => {
   const { t } = useTranslation();
+  const handleNavigateProduct = onNavigateToNiceMove || onNavigateToImobFlow || (() => {});
 
   useEffect(() => {
     document.title = 'Richter | Software, AI & Product Engineering';
@@ -76,12 +79,12 @@ export const RichterGateway: React.FC<RichterGatewayProps> = ({
 
         {/* 2 Main Legitimate Gateways */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 w-full max-w-4xl">
-          {/* Gateway 1: ImobFlow (Product / SaaS) */}
+          {/* Gateway 1: NiceMove (Product / SaaS) */}
           <a
-            href="/imobflow"
+            href="/nicemove"
             onClick={(e) => {
               e.preventDefault();
-              onNavigateToImobFlow();
+              handleNavigateProduct();
             }}
             className="group block text-left outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-2xl"
           >
@@ -93,7 +96,7 @@ export const RichterGateway: React.FC<RichterGatewayProps> = ({
                 <div className="flex items-center justify-between mb-6">
                   <Badge variant="secondary" className="text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
                     <Sparkles className="w-3 h-3 mr-1" />
-                    {t('gateway.imobflow.badge', 'Produto SaaS & IA')}
+                    {t('gateway.nicemove.badge', t('gateway.imobflow.badge', 'Produto SaaS & IA'))}
                   </Badge>
                   <div className="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Building2 className="w-5 h-5" />
@@ -103,26 +106,26 @@ export const RichterGateway: React.FC<RichterGatewayProps> = ({
                 {/* Product Logo & Title to the right */}
                 <div className="flex items-center gap-3.5 mb-4">
                   <img
-                    src={logoImobFlow}
-                    alt="Logo ImobFlow"
+                    src={logoNiceMove}
+                    alt="Logo NiceMove"
                     className="h-14 sm:h-16 w-auto object-contain shrink-0"
                   />
                   <div>
                     <span className="text-xs sm:text-sm font-mono font-medium text-muted-foreground block leading-snug">
-                      {t('gateway.imobflow.subtitle', 'Acelerador de Vendas Imobiliárias')}
+                      {t('gateway.nicemove.subtitle', t('gateway.imobflow.subtitle', 'Acelerador de Vendas Imobiliárias'))}
                     </span>
                   </div>
                 </div>
 
                 {/* Description */}
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  {t('gateway.imobflow.description', 'Atendimento inteligente no WhatsApp em segundos. Qualificação de leads, busca semântica de imóveis e agendamento protegido por regras determinísticas.')}
+                  {t('gateway.nicemove.description', t('gateway.imobflow.description', 'Atendimento inteligente no WhatsApp em segundos. Qualificação de leads, busca semântica de imóveis e agendamento protegido por regras determinísticas.'))}
                 </p>
               </div>
 
               {/* Action Button Link */}
               <div className="mt-8 pt-4 border-t border-border/60 flex items-center justify-between text-primary font-semibold text-sm group-hover:text-primary">
-                <span>{t('gateway.imobflow.cta', 'Explorar ImobFlow')}</span>
+                <span>{t('gateway.nicemove.cta', t('gateway.imobflow.cta', 'Explorar NiceMove'))}</span>
                 <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center group-hover:translate-x-1 transition-transform">
                   <ArrowRight className="w-4 h-4" />
                 </div>

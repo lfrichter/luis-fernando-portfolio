@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { IMOBFLOW_CONFIG } from '@/config/imobflow';
+import { NICEMOVE_CONFIG } from '@/config/nicemove';
 import { MessageSquare, Mail, CheckCircle2, ShieldCheck } from 'lucide-react';
 
-export const ImobFlowCTA: React.FC = () => {
+export const CTA: React.FC = () => {
   return (
     <section id="cta" className="py-20 md:py-28 relative overflow-hidden">
       {/* Background Decorative Glow */}
@@ -24,7 +24,7 @@ export const ImobFlowCTA: React.FC = () => {
           </h2>
 
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Fale conosco e veja como a ImobFlow pode se integrar ao fluxo comercial da sua imobiliária.
+            Fale conosco e veja como a NiceMove pode se integrar ao fluxo comercial da sua imobiliária.
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -34,7 +34,7 @@ export const ImobFlowCTA: React.FC = () => {
               className="w-full sm:w-auto text-base font-semibold px-8 py-6 rounded-xl bg-primary text-primary-foreground shadow-md hover:bg-primary/90 transition-all hover:scale-[1.02]"
             >
               <a
-                href={IMOBFLOW_CONFIG.contact.whatsappUrl}
+                href={NICEMOVE_CONFIG.contact.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2"
@@ -51,7 +51,7 @@ export const ImobFlowCTA: React.FC = () => {
               className="w-full sm:w-auto text-base font-medium px-6 py-6 rounded-xl hover:bg-muted/60 transition-all"
             >
               <a
-                href={`mailto:${IMOBFLOW_CONFIG.contact.email}?subject=Demonstração%20ImobFlow`}
+                href={`mailto:${NICEMOVE_CONFIG.contact.email}?subject=Demonstração%20NiceMove`}
                 className="flex items-center justify-center gap-2"
               >
                 <Mail className="w-4 h-4" />

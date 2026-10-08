@@ -2,15 +2,15 @@ import React from 'react';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { IMOBFLOW_CONFIG } from '@/config/imobflow';
-import logoImobFlow from '@/assets/imobflow/Logo-ImobFlow.png';
+import { NICEMOVE_CONFIG } from '@/config/nicemove';
+import logoNiceMove from '@/assets/NiceMove/LogoNiceMoveRetangle.png';
 import { ArrowLeft, MessageSquare } from 'lucide-react';
 
-interface ImobFlowNavbarProps {
+interface NavbarProps {
   onBackToPortfolio?: () => void;
 }
 
-export const ImobFlowNavbar: React.FC<ImobFlowNavbarProps> = ({ onBackToPortfolio }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onBackToPortfolio }) => {
   const handleBack = (e: React.MouseEvent) => {
     if (onBackToPortfolio) {
       e.preventDefault();
@@ -23,10 +23,10 @@ export const ImobFlowNavbar: React.FC<ImobFlowNavbarProps> = ({ onBackToPortfoli
       <div className="container max-w-6xl mx-auto flex h-20 sm:h-24 items-center justify-between px-3 sm:px-6">
         {/* Brand Logo & Origin Badge - Enlarged & Zero Restriction */}
         <div className="flex items-center gap-2 sm:gap-4">
-          <a href="/imobflow" className="flex items-center p-0 m-0 group">
+          <a href="/nicemove" className="flex items-center p-0 m-0 group">
             <img
-              src={logoImobFlow}
-              alt="Logo ImobFlow"
+              src={logoNiceMove}
+              alt="Logo NiceMove"
               className="h-12 sm:h-16 md:h-18 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
             />
           </a>
@@ -58,7 +58,7 @@ export const ImobFlowNavbar: React.FC<ImobFlowNavbarProps> = ({ onBackToPortfoli
             className="hidden sm:inline-flex bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm"
           >
             <a
-              href={IMOBFLOW_CONFIG.contact.whatsappUrl}
+              href={NICEMOVE_CONFIG.contact.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5"
@@ -73,4 +73,4 @@ export const ImobFlowNavbar: React.FC<ImobFlowNavbarProps> = ({ onBackToPortfoli
   );
 };
 
-export default ImobFlowNavbar;
+export default Navbar;

@@ -3,7 +3,7 @@ import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import { CheckCheck, Building, Calendar } from 'lucide-react';
 
-export const ImobFlowVisualProof: React.FC = () => {
+export const VisualProof: React.FC = () => {
   return (
     <section className="py-16 md:py-24 border-b border-border/40">
       <div className="container max-w-5xl mx-auto px-4 sm:px-6">
@@ -13,7 +13,7 @@ export const ImobFlowVisualProof: React.FC = () => {
             Experiência Real
           </Badge>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-            Veja a ImobFlow em ação no WhatsApp
+            Veja a NiceMove em ação no WhatsApp
           </h2>
           <p className="mt-3 text-sm sm:text-base text-muted-foreground">
             Simulação baseada em fluxo real homologado do sistema.
@@ -27,10 +27,10 @@ export const ImobFlowVisualProof: React.FC = () => {
             <div className="bg-[#075E54] dark:bg-[#128C7E]/90 text-white px-4 py-3 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center font-bold text-sm">
-                  IF
+                  NM
                 </div>
                 <div>
-                  <h4 className="font-semibold text-sm leading-tight text-white">ImobFlow Assistant</h4>
+                  <h4 className="font-semibold text-sm leading-tight text-white">NiceMove Assistant</h4>
                   <p className="text-[11px] text-emerald-100 flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                     Atendimento Imobiliário
@@ -57,7 +57,7 @@ export const ImobFlowVisualProof: React.FC = () => {
                 </div>
               </div>
 
-              {/* Message 2: ImobFlow (Instant response & Matching) */}
+              {/* Message 2: NiceMove (Instant response & Matching) */}
               <div className="flex justify-start">
                 <div className="max-w-[85%] bg-card text-foreground p-3.5 rounded-2xl rounded-tl-none border border-border/50 shadow-xs space-y-2">
                   <p className="leading-relaxed">
@@ -94,7 +94,7 @@ export const ImobFlowVisualProof: React.FC = () => {
                 </div>
               </div>
 
-              {/* Message 4: ImobFlow (Availability rule + Scheduling) */}
+              {/* Message 4: NiceMove (Availability rule + Scheduling) */}
               <div className="flex justify-start">
                 <div className="max-w-[85%] bg-card text-foreground p-3.5 rounded-2xl rounded-tl-none border border-border/50 shadow-xs space-y-2">
                   <p className="leading-relaxed">
@@ -119,7 +119,7 @@ export const ImobFlowVisualProof: React.FC = () => {
                 </div>
               </div>
 
-              {/* Message 6: ImobFlow Confirmation */}
+              {/* Message 6: NiceMove Confirmation */}
               <div className="flex justify-start">
                 <div className="max-w-[85%] bg-card text-foreground p-3.5 rounded-2xl rounded-tl-none border border-border/50 shadow-xs space-y-1.5">
                   <div className="flex items-center gap-1.5 text-xs font-semibold text-primary">

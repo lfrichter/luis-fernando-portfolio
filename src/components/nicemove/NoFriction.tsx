@@ -2,7 +2,7 @@ import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { CheckCircle2 } from 'lucide-react';
 
-export const ImobFlowNoFriction: React.FC = () => {
+export const NoFriction: React.FC = () => {
   return (
     <section className="py-16 md:py-24 border-b border-border/40">
       <div className="container max-w-5xl mx-auto px-4 sm:px-6">
@@ -13,7 +13,7 @@ export const ImobFlowNoFriction: React.FC = () => {
             </Badge>
 
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-foreground leading-tight">
-              A ImobFlow trabalha antes do corretor,<br className="hidden sm:inline" /> sem exigir uma nova ferramenta para sua equipe.
+              A NiceMove trabalha antes do corretor,<br className="hidden sm:inline" /> sem exigir uma nova ferramenta para sua equipe.
             </h2>
 
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto pt-2">

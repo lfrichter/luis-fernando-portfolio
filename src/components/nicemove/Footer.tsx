@@ -1,13 +1,13 @@
 import React from 'react';
 import brasaoImg from '@/assets/Brasao-bg-trans.png';
-import logoImobFlow from '@/assets/imobflow/Logo-ImobFlow.png';
+import logoNiceMove from '@/assets/NiceMove/LogoNiceMoveRetangle.png';
 import logoRichter from '@/assets/Logo-Richter.png';
 
-interface ImobFlowFooterProps {
+interface FooterProps {
   onBackToPortfolio?: () => void;
 }
 
-export const ImobFlowFooter: React.FC<ImobFlowFooterProps> = () => {
+export const Footer: React.FC<FooterProps> = () => {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -16,8 +16,8 @@ export const ImobFlowFooter: React.FC<ImobFlowFooterProps> = () => {
         {/* Left: Product & Company Logos */}
         <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
           <img
-            src={logoImobFlow}
-            alt="ImobFlow Logo"
+            src={logoNiceMove}
+            alt="NiceMove Logo"
             className="h-12 sm:h-16 w-auto object-contain"
           />
           <div className="hidden sm:block w-px h-8 bg-border" />
@@ -35,11 +35,11 @@ export const ImobFlowFooter: React.FC<ImobFlowFooterProps> = () => {
 
         {/* Right: Copyright */}
         <div className="flex flex-col sm:flex-row items-center gap-4">
-          <span>© {currentYear} ImobFlow. Todos os direitos reservados.</span>
+          <span>© {currentYear} NiceMove. Todos os direitos reservados.</span>
         </div>
       </div>
     </footer>
   );
 };
 
-export default ImobFlowFooter;
+export default Footer;

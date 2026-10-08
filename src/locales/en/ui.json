@@ -149,11 +149,11 @@
     "badge": "Software, AI & Product Engineering",
     "title": "What would you like to explore?",
     "subtitle": "Choose one of the gateways below to explore the product or technical engineering history.",
-    "imobflow": {
+    "nicemove": {
       "badge": "SaaS & AI Product",
       "subtitle": "Real Estate Sales Accelerator",
       "description": "Intelligent WhatsApp response in seconds. Lead qualification, semantic property search, and scheduling protected by deterministic business rules.",
-      "cta": "Explore ImobFlow"
+      "cta": "Explore NiceMove"
     },
     "portfolio": {
       "badge": "Engineering & Architecture",

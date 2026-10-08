@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { ThemeProvider } from '@/context/ThemeContext';
-import { ImobFlowLanding } from '@/pages/ImobFlowLanding';
-import { IMOBFLOW_CONFIG } from '@/config/imobflow';
+import { NiceMoveLanding } from '@/pages/NiceMoveLanding';
+import { NICEMOVE_CONFIG } from '@/config/nicemove';
 import App from '@/App';
 
 const renderWithTheme = (ui: React.ReactElement) => {
@@ -20,7 +20,7 @@ describe('ImobFlowLanding Page', () => {
   });
 
   it('renders all core landing sections strictly following product truth', () => {
-    renderWithTheme(<ImobFlowLanding />);
+    renderWithTheme(<NiceMoveLanding />);
 
     // Hero headline and badge
     expect(
@@ -29,7 +29,7 @@ describe('ImobFlowLanding Page', () => {
     expect(screen.getByText(/⚡ Atendimento em segundos/i)).toBeInTheDocument();
 
     // Subheadline
-    expect(screen.getByText(new RegExp(IMOBFLOW_CONFIG.description, 'i'))).toBeInTheDocument();
+    expect(screen.getByText(new RegExp(NICEMOVE_CONFIG.description, 'i'))).toBeInTheDocument();
 
     // Pain points
     expect(screen.getByText(/Lead Esperando/i)).toBeInTheDocument();
@@ -37,7 +37,7 @@ describe('ImobFlowLanding Page', () => {
     expect(screen.getByText(/Oportunidade Perdida/i)).toBeInTheDocument();
 
     // How it works steps
-    expect(screen.getByText(/Como a ImobFlow conduz cada conversa/i)).toBeInTheDocument();
+    expect(screen.getByText(/Como a NiceMove conduz cada conversa/i)).toBeInTheDocument();
     expect(screen.getAllByText(/WhatsApp/i).length).toBeGreaterThan(0);
     expect(screen.getByText(/Entendimento/i)).toBeInTheDocument();
     expect(screen.getAllByText(/Qualificação/i).length).toBeGreaterThan(0);
@@ -50,6 +50,7 @@ describe('ImobFlowLanding Page', () => {
 
     // Visual proof (WhatsApp conversation with Reserva Campolim)
     expect(screen.getAllByText(/Reserva Campolim/i).length).toBeGreaterThan(0);
+    expect(screen.getByText(/NiceMove Assistant/i)).toBeInTheDocument();
 
     // Technical difference & deterministic rules
     expect(
@@ -61,7 +62,7 @@ describe('ImobFlowLanding Page', () => {
 
     // Operational simplicity
     expect(
-      screen.getByText(/A ImobFlow trabalha antes do corretor,/i)
+      screen.getByText(/A NiceMove trabalha antes do corretor,/i)
     ).toBeInTheDocument();
 
     // CTAs and Contact
@@ -70,7 +71,7 @@ describe('ImobFlowLanding Page', () => {
   });
 
   it('respects Product Truth anti-claims (no unverified SLAs or fake dashboards)', () => {
-    const { container } = renderWithTheme(<ImobFlowLanding />);
+    const { container } = renderWithTheme(<NiceMoveLanding />);
     const textContent = container.textContent || '';
 
     // Prohibited marketing claims
@@ -82,8 +83,8 @@ describe('ImobFlowLanding Page', () => {
     expect(textContent).not.toMatch(/Slack/i);
   });
 
-  it('renders ImobFlowLanding when URL path is /imobflow', () => {
-    window.history.pushState({}, '', '/imobflow');
+  it('renders Landing when URL path is /nicemove or /imobflow', () => {
+    window.history.pushState({}, '', '/nicemove');
     render(<App />);
 
     expect(

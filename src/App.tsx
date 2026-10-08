@@ -1,18 +1,21 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { ThemeProvider } from '@/context/ThemeContext';
 import { RichterGateway } from '@/pages/RichterGateway';
-import { ImobFlowLanding } from '@/pages/ImobFlowLanding';
+import { NiceMoveLanding } from '@/pages/NiceMoveLanding';
 import { PortfolioPage } from '@/pages/PortfolioPage';
 
-export type AppRoute = 'entry' | 'imobflow' | 'portfolio';
+export type AppRoute = 'entry' | 'nicemove' | 'portfolio' | 'imobflow';
 
 const parseCurrentRoute = (): AppRoute => {
   if (typeof window === 'undefined') return 'entry';
   const path = window.location.pathname.toLowerCase().replace(/\/$/, '');
   const hash = window.location.hash.toLowerCase();
 
-  if (path === '/imobflow' || hash === '#imobflow' || path.startsWith('/imobflow')) {
-    return 'imobflow';
+  if (
+    path === '/nicemove' || hash === '#nicemove' || path.startsWith('/nicemove') ||
+    path === '/imobflow' || hash === '#imobflow' || path.startsWith('/imobflow')
+  ) {
+    return 'nicemove';
   }
   if (path === '/portfolio' || hash === '#portfolio' || path.startsWith('/portfolio')) {
     return 'portfolio';
@@ -38,11 +41,12 @@ export const App: React.FC = () => {
   }, []);
 
   const navigateTo = useCallback((route: AppRoute) => {
-    const targetPath = route === 'entry' ? '/' : `/${route}`;
+    const targetRoute = route === 'imobflow' ? 'nicemove' : route;
+    const targetPath = targetRoute === 'entry' ? '/' : `/${targetRoute}`;
     if (window.location.pathname !== targetPath) {
       window.history.pushState({}, '', targetPath);
     }
-    setCurrentRoute(route);
+    setCurrentRoute(targetRoute);
     window.scrollTo(0, 0);
   }, []);
 
@@ -50,13 +54,14 @@ export const App: React.FC = () => {
     <ThemeProvider>
       {currentRoute === 'entry' && (
         <RichterGateway
-          onNavigateToImobFlow={() => navigateTo('imobflow')}
+          onNavigateToNiceMove={() => navigateTo('nicemove')}
+          onNavigateToImobFlow={() => navigateTo('nicemove')}
           onNavigateToPortfolio={() => navigateTo('portfolio')}
         />
       )}
 
-      {currentRoute === 'imobflow' && (
-        <ImobFlowLanding onNavigateHome={() => navigateTo('entry')} />
+      {(currentRoute === 'nicemove' || currentRoute === 'imobflow') && (
+        <NiceMoveLanding onNavigateHome={() => navigateTo('entry')} />
       )}
 
       {currentRoute === 'portfolio' && (

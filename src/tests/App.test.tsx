@@ -17,7 +17,7 @@ describe('Main App Integration & Routing', () => {
 
     // Default Entry Page
     expect(screen.getByRole('heading', { level: 1, name: /O que você deseja conhecer\?/i })).toBeInTheDocument();
-    expect(screen.getByText(/Explorar ImobFlow/i)).toBeInTheDocument();
+    expect(screen.getByText(/Explorar NiceMove/i)).toBeInTheDocument();
     expect(screen.getByText(/Ver Portfólio Completo/i)).toBeInTheDocument();
 
     // Navigate to Portfolio
@@ -40,8 +40,8 @@ describe('Main App Integration & Routing', () => {
     expect(screen.getByText(/Portfólio de Engenharia & Projetos/i)).toBeInTheDocument();
   });
 
-  it('renders ImobFlow landing page directly when accessed via /imobflow', () => {
-    window.history.pushState({}, '', '/imobflow');
+  it('renders NiceMove landing page directly when accessed via /nicemove or /imobflow', () => {
+    window.history.pushState({}, '', '/nicemove');
     render(<App />);
 
     expect(

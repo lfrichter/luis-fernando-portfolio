@@ -2,7 +2,7 @@ import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { MessageSquare, BrainCircuit, UserCheck, Home, CalendarCheck, ArrowRight } from 'lucide-react';
 
-export const ImobFlowHowItWorks: React.FC = () => {
+export const HowItWorks: React.FC = () => {
   const steps = [
     {
       step: '01',
@@ -45,7 +45,7 @@ export const ImobFlowHowItWorks: React.FC = () => {
             Jornada do Atendimento
           </Badge>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-            Como a ImobFlow conduz cada conversa
+            Como a NiceMove conduz cada conversa
           </h2>
           <p className="mt-3 text-sm sm:text-base text-muted-foreground">
             Um fluxo linear e objetivo, da primeira mensagem do cliente até a preparação para o corretor.

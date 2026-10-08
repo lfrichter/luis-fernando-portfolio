@@ -29,17 +29,17 @@ describe('RichterGateway Page', () => {
       screen.getByRole('heading', { level: 1, name: /O que você deseja conhecer\?/i })
     ).toBeInTheDocument();
 
-    // Gateway 1: ImobFlow
+    // Gateway 1: NiceMove
     expect(screen.getByText(/Acelerador de Vendas Imobiliárias/i)).toBeInTheDocument();
-    expect(screen.getByText(/Explorar ImobFlow/i)).toBeInTheDocument();
+    expect(screen.getByText(/Explorar NiceMove/i)).toBeInTheDocument();
 
     // Gateway 2: Luis Fernando Richter
     expect(screen.getByText(/Tech Lead & AI Solution Architect/i)).toBeInTheDocument();
     expect(screen.getByText(/Ver Portfólio Completo/i)).toBeInTheDocument();
 
     // Test Navigation Clicks
-    const imobFlowBtn = screen.getByText(/Explorar ImobFlow/i);
-    fireEvent.click(imobFlowBtn);
+    const niceMoveBtn = screen.getByText(/Explorar NiceMove/i);
+    fireEvent.click(niceMoveBtn);
     expect(handleImobFlow).toHaveBeenCalledTimes(1);
 
     const portfolioBtn = screen.getByText(/Ver Portfólio Completo/i);
@@ -67,7 +67,7 @@ describe('RichterGateway Page', () => {
     expect(
       await screen.findByRole('heading', { level: 1, name: /What would you like to explore\?/i })
     ).toBeInTheDocument();
-    expect(screen.getByText(/Explore ImobFlow/i)).toBeInTheDocument();
+    expect(screen.getByText(/Explore NiceMove/i)).toBeInTheDocument();
     expect(screen.getByText(/View Full Portfolio/i)).toBeInTheDocument();
   });
 });

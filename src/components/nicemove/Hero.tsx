@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { IMOBFLOW_CONFIG } from '@/config/imobflow';
+import { NICEMOVE_CONFIG } from '@/config/nicemove';
 import { MessageSquare, ArrowDown, ShieldCheck, Zap, Sparkles, Building2 } from 'lucide-react';
 
-export const ImobFlowHero: React.FC = () => {
+export const Hero: React.FC = () => {
   return (
     <section className="relative overflow-hidden pt-12 pb-16 md:pt-20 md:pb-24 border-b border-border/40">
       {/* Background Subtle Gradient Glow */}
@@ -17,18 +17,18 @@ export const ImobFlowHero: React.FC = () => {
             variant="secondary"
             className="px-3.5 py-1 text-xs sm:text-sm font-semibold tracking-wide bg-primary/10 text-primary border border-primary/20 shadow-xs"
           >
-            {IMOBFLOW_CONFIG.badge}
+            {NICEMOVE_CONFIG.badge}
           </Badge>
         </div>
 
         {/* Primary Headline */}
         <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-foreground leading-[1.15] max-w-4xl mx-auto">
-          {IMOBFLOW_CONFIG.tagline}
+          {NICEMOVE_CONFIG.tagline}
         </h1>
 
         {/* Subheadline */}
         <p className="mt-6 text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-          {IMOBFLOW_CONFIG.description}
+          {NICEMOVE_CONFIG.description}
         </p>
 
         {/* Action CTAs */}
@@ -39,7 +39,7 @@ export const ImobFlowHero: React.FC = () => {
             className="w-full sm:w-auto text-base font-semibold px-8 py-6 rounded-xl bg-primary text-primary-foreground shadow-md hover:bg-primary/90 transition-all hover:scale-[1.02]"
           >
             <a
-              href={IMOBFLOW_CONFIG.contact.whatsappUrl}
+              href={NICEMOVE_CONFIG.contact.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2"

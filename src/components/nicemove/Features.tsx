@@ -3,7 +3,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { MessageSquare, Search, Filter, Calendar, CheckCircle2 } from 'lucide-react';
 
-export const ImobFlowFeatures: React.FC = () => {
+export const Features: React.FC = () => {
   const features = [
     {
       icon: MessageSquare,

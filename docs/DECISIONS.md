@@ -148,18 +148,19 @@ This document records key architectural, technological, and engineering decision
 
 ---
 
-## ADR-011: Three-Tier Gateway Routing & ImobFlow Product Landing Page Architecture
+## ADR-011: Three-Tier Gateway Routing & NiceMove Product Landing Page Architecture
 
-- **Date:** 2026-10-07
+- **Date:** 2026-10-07 (Updated 2026-10-08)
 - **Status:** Accepted
-- **Context:** The platform needed to showcase both Luis Fernando Richter's 15+ years career portfolio and the flagship B2B SaaS product **ImobFlow** (AI Sales Engine for Real Estate). The architecture needed clean separation without adding heavy dependencies like `react-router-dom` or `framer-motion`, while strictly respecting **Product Truth** (no unverified SLAs, fake metrics, fake CRMs, or fake dashboards).
+- **Context:** The platform needed to showcase both Luis Fernando Richter's 15+ years career portfolio and the flagship B2B SaaS product **NiceMove** (formerly ImobFlow — AI Sales Engine for Real Estate). The architecture needed clean separation without adding heavy dependencies like `react-router-dom` or `framer-motion`, while strictly respecting **Product Truth** (no unverified SLAs, fake metrics, fake CRMs, or fake dashboards).
 - **Decision:**
   - Implemented a lightweight, zero-dependency client routing architecture in `App.tsx` utilizing `window.history.pushState` with `popstate` and `hashchange` events supporting three entry points:
     - `/`: Minimalist, editorial Richter Gateway (`RichterGateway.tsx`) with two dedicated entry doors.
-    - `/imobflow`: Dedicated, modular B2B product landing page (`ImobFlowLanding.tsx`).
+    - `/nicemove` (and backward-compatible legacy alias `/imobflow`): Dedicated, modular B2B product landing page (`ImobFlowLanding.tsx`).
     - `/portfolio`: Full career portfolio view (`PortfolioPage.tsx`).
   - Built modular landing components under `@/components/imobflow/` (`Hero`, `PainPoints`, `HowItWorks`, `Features`, `VisualProof`, `TechDiff`, `NoFriction`, `CTA`, `Footer`, `Navbar`).
   - Maintained strict Product Truth: documented deterministic business rule guardrails, Reserva Campolim real property matching demo, and zero fake operational claims.
+  - Rebranded public brand assets to official **NiceMove** logos (`LogoNiceMoveRetangle.png`, `LogoNiceMoveSquare.png`).
   - Implemented uniform `Início` link in Navbars and direct WhatsApp/Email contact channels in `src/config/imobflow.ts`.
-- **Consequences:** Clean decoupling of product marketing from technical career biography, zero bundle bloat, and verified by 16 Vitest test suites (44 unit tests) and 4 Playwright E2E browser tests.
+- **Consequences:** Clean decoupling of product marketing from technical career biography, zero bundle bloat, and verified by 16 Vitest test suites (45 unit tests) and 4 Playwright E2E browser tests.
 

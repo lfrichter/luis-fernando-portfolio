@@ -3,7 +3,7 @@ import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/ca
 import { Badge } from '@/components/ui/badge';
 import { Clock, MessageSquareDashed, TrendingDown } from 'lucide-react';
 
-export const ImobFlowPainPoints: React.FC = () => {
+export const PainPoints: React.FC = () => {
   const painPoints = [
     {
       icon: Clock,

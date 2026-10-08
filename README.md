@@ -30,15 +30,15 @@ The platform operates on a clean, decoupled three-tier routing architecture:
           • Semantic Property Matching             • Interactive Mermaid Topology
 ```
 
-1. **`/` (Richter Product Gateway)**: Minimalist, editorial entry page directing visitors to either the flagship AI product (**ImobFlow**) or the comprehensive technical portfolio (**Luis Fernando Richter**).
-2. **`/imobflow` (ImobFlow Landing Page)**: Static, standalone product landing page presenting the AI Sales Engine for real estate, strictly adhering to **Product Truth** (no unverified SLAs or fake dashboards).
+1. **`/` (Richter Product Gateway)**: Minimalist, editorial entry page directing visitors to either the flagship AI product (**NiceMove**) or the comprehensive technical portfolio (**Luis Fernando Richter**).
+2. **`/nicemove` (NiceMove Landing Page)**: Static, standalone product landing page presenting the AI Sales Engine for real estate, strictly adhering to **Product Truth** (no unverified SLAs or fake dashboards).
 3. **`/portfolio` (Full Career Portfolio)**: Detailed CTO/VP-level briefing covering 15+ years of software engineering, project tiers, career eras, academic credentials, and tech posts.
 
 ---
 
 ## 🌟 Highlights & Key Features
 
-- ⚡ **Flagship AI SaaS Showcase (ImobFlow)**: Complete presentation of the conversational AI for WhatsApp, structured lead qualification, real property matching (Reserva Campolim), and deterministic operational guardrails.
+- ⚡ **Flagship AI SaaS Showcase (NiceMove)**: Complete presentation of the conversational AI for WhatsApp, structured lead qualification, real property matching (Reserva Campolim), and deterministic operational guardrails.
 - 🌐 **Bilingual Engine (i18n)**: Seamless single-click switching between English (EN-US) and Portuguese (PT-BR) with automatic browser language detection (`i18next`).
 - 🎯 **CTO-Focused Project Tiering**: Projects organized into 3 distinct impact tiers:
   - **Tier 1**: Production AI, Cloud Architectures & SaaS (Hero Showcase Cards).
@@ -126,7 +126,7 @@ All major technical decisions, design choices, data modeling strategies, and ref
 | **[ADR-008](docs/DECISIONS.md#adr-008-i18n-internationalization-architecture-bilingual-pt-br--en-us)** | Bilingual i18n Architecture | Accepted | Integration of `react-i18next` with structured locale directories (`src/locales/pt`, `src/locales/en`). |
 | **[ADR-009](docs/DECISIONS.md#adr-009-dedicated-legacy-projects-section--pre-2015-temporal-isolation)** | Legacy Projects Temporal Isolation | Accepted | Partitioning of pre-2015 enterprise architectures (Editora FTD S/A) into dedicated collapsable section. |
 | **[ADR-010](docs/DECISIONS.md#adr-010-career-era-filtering-architecture-timeline-horizons-modern-scaling-legacy)** | Career Era Filtering Architecture | Accepted | Timeline horizons filtering (`modern`, `scaling`, `legacy`, `all`) with dynamic counts. |
-| **[ADR-011](docs/DECISIONS.md#adr-011-three-tier-gateway-routing--imobflow-product-landing-page-architecture)** | Three-Tier Gateway & ImobFlow Product Landing | Accepted | Zero-dependency client routing (`/`, `/imobflow`, `/portfolio`) & modular ImobFlow landing adhering to Product Truth. |
+| **[ADR-011](docs/DECISIONS.md#adr-011-three-tier-gateway-routing--nicemove-product-landing-page-architecture)** | Three-Tier Gateway & NiceMove Product Landing | Accepted | Zero-dependency client routing (`/`, `/nicemove`, `/portfolio`) & modular NiceMove landing adhering to Product Truth. |
 
 ---
 
@@ -138,11 +138,11 @@ luis-fernando-portfolio/
 │   ├── DECISIONS.md              # Architectural Decision Records (ADR-001 to ADR-011)
 │   └── Portfolio-Dados...md      # Source data mapping documentation
 ├── e2e/
-│   ├── imobflow.spec.ts          # Playwright E2E spec for /imobflow route
+│   ├── imobflow.spec.ts          # Playwright E2E spec for /nicemove route
 │   └── portfolio.spec.ts         # Playwright E2E spec for Gateway & Portfolio
 ├── public/                       # Static public assets (favicons, icons)
 ├── src/
-│   ├── assets/                   # Media assets, brand logos (ImobFlow, Richter)
+│   ├── assets/                   # Media assets, brand logos (NiceMove, Richter)
 │   ├── components/               # Portfolio UI components
 │   │   ├── imobflow/             # ImobFlow modular landing components
 │   │   │   ├── ImobFlowCTA.tsx
