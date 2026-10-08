@@ -81,11 +81,15 @@ export const RichterGateway: React.FC<RichterGatewayProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 w-full max-w-4xl">
           {/* Gateway 1: NiceMove (Product / SaaS) */}
           <a
-            href="/nicemove"
+            href="https://nicemove.com.br"
             onClick={(e) => {
-              e.preventDefault();
-              handleNavigateProduct();
+              if (onNavigateToNiceMove || onNavigateToImobFlow) {
+                e.preventDefault();
+                handleNavigateProduct();
+              }
             }}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group block text-left outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-2xl"
           >
             <Card className="h-full border border-border/80 bg-card/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl hover:border-primary/60 hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden group-hover:-translate-y-1">
