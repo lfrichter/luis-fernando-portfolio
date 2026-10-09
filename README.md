@@ -12,27 +12,26 @@ A high-performance, responsive, and decoupled web platform engineered by **Luis 
 
 ---
 
-## 🏛️ Architecture Overview: Three-Tier Entry Gateway
+## 🏛️ Architecture Overview: Two-Tier Entry Gateway
 
-The platform operates on a clean, decoupled three-tier routing architecture:
+The platform operates on a clean, decoupled routing architecture:
 
 ```text
                                 / (Richter Gateway)
                                         │
                     ┌───────────────────┴───────────────────┐
                     │                                       │
-                /imobflow                              /portfolio
+            nicemove.com.br (External)                  /portfolio
                     │                                       │
-         [ ImobFlow Product Landing ]             [ Full Career Portfolio ]
+         [ NiceMove Product Platform ]            [ Full Career Portfolio ]
           • AI Sales Engine for Real Estate        • 15+ Years Tech Leadership
           • WhatsApp Conversational AI             • 30+ Architectural Projects
           • Deterministic Rule Engine              • Bilingual i18n (PT/EN)
           • Semantic Property Matching             • Interactive Mermaid Topology
 ```
 
-1. **`/` (Richter Product Gateway)**: Minimalist, editorial entry page directing visitors to either the flagship AI product (**NiceMove**) or the comprehensive technical portfolio (**Luis Fernando Richter**).
-2. **`/nicemove` (NiceMove Landing Page)**: Static, standalone product landing page presenting the AI Sales Engine for real estate, strictly adhering to **Product Truth** (no unverified SLAs or fake dashboards).
-3. **`/portfolio` (Full Career Portfolio)**: Detailed CTO/VP-level briefing covering 15+ years of software engineering, project tiers, career eras, academic credentials, and tech posts.
+1. **`/` (Richter Product Gateway)**: Minimalist, editorial entry page directing visitors to either the flagship AI product (**NiceMove** at `https://nicemove.com.br`) or the comprehensive technical portfolio (**Luis Fernando Richter**).
+2. **`/portfolio` (Full Career Portfolio)**: Detailed CTO/VP-level briefing covering 15+ years of software engineering, project tiers, career eras, academic credentials, and tech posts.
 
 ---
 

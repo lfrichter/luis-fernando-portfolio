@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { ThemeProvider } from '@/context/ThemeContext';
 import { RichterGateway } from '@/pages/RichterGateway';
-import { NiceMoveLanding } from '@/pages/NiceMoveLanding';
 import { PortfolioPage } from '@/pages/PortfolioPage';
 
-export type AppRoute = 'entry' | 'nicemove' | 'portfolio' | 'imobflow';
+export type AppRoute = 'entry' | 'portfolio';
 
 const parseCurrentRoute = (): AppRoute => {
   if (typeof window === 'undefined') return 'entry';
@@ -15,7 +14,8 @@ const parseCurrentRoute = (): AppRoute => {
     path === '/nicemove' || hash === '#nicemove' || path.startsWith('/nicemove') ||
     path === '/imobflow' || hash === '#imobflow' || path.startsWith('/imobflow')
   ) {
-    return 'nicemove';
+    window.location.replace('https://nicemove.com.br');
+    return 'entry';
   }
   if (path === '/portfolio' || hash === '#portfolio' || path.startsWith('/portfolio')) {
     return 'portfolio';
@@ -41,12 +41,11 @@ export const App: React.FC = () => {
   }, []);
 
   const navigateTo = useCallback((route: AppRoute) => {
-    const targetRoute = route === 'imobflow' ? 'nicemove' : route;
-    const targetPath = targetRoute === 'entry' ? '/' : `/${targetRoute}`;
+    const targetPath = route === 'entry' ? '/' : `/${route}`;
     if (window.location.pathname !== targetPath) {
       window.history.pushState({}, '', targetPath);
     }
-    setCurrentRoute(targetRoute);
+    setCurrentRoute(route);
     window.scrollTo(0, 0);
   }, []);
 
@@ -54,14 +53,8 @@ export const App: React.FC = () => {
     <ThemeProvider>
       {currentRoute === 'entry' && (
         <RichterGateway
-          onNavigateToNiceMove={() => navigateTo('nicemove')}
-          onNavigateToImobFlow={() => navigateTo('nicemove')}
           onNavigateToPortfolio={() => navigateTo('portfolio')}
         />
-      )}
-
-      {(currentRoute === 'nicemove' || currentRoute === 'imobflow') && (
-        <NiceMoveLanding onNavigateHome={() => navigateTo('entry')} />
       )}
 
       {currentRoute === 'portfolio' && (

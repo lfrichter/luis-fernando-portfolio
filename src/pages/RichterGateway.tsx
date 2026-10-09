@@ -10,18 +10,13 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 interface RichterGatewayProps {
-  onNavigateToNiceMove?: () => void;
-  onNavigateToImobFlow?: () => void;
   onNavigateToPortfolio: () => void;
 }
 
 export const RichterGateway: React.FC<RichterGatewayProps> = ({
-  onNavigateToNiceMove,
-  onNavigateToImobFlow,
   onNavigateToPortfolio,
 }) => {
   const { t } = useTranslation();
-  const handleNavigateProduct = onNavigateToNiceMove || onNavigateToImobFlow || (() => {});
 
   useEffect(() => {
     document.title = 'Richter | Software, AI & Product Engineering';
@@ -82,12 +77,6 @@ export const RichterGateway: React.FC<RichterGatewayProps> = ({
           {/* Gateway 1: NiceMove (Product / SaaS) */}
           <a
             href="https://nicemove.com.br"
-            onClick={(e) => {
-              if (onNavigateToNiceMove || onNavigateToImobFlow) {
-                e.preventDefault();
-                handleNavigateProduct();
-              }
-            }}
             target="_blank"
             rel="noopener noreferrer"
             className="group block text-left outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-2xl"

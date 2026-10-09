@@ -40,12 +40,20 @@ describe('Main App Integration & Routing', () => {
     expect(screen.getByText(/Portfólio de Engenharia & Projetos/i)).toBeInTheDocument();
   });
 
-  it('renders NiceMove landing page directly when accessed via /nicemove or /imobflow', () => {
-    window.history.pushState({}, '', '/nicemove');
+  it('redirects to external nicemove.com.br domain when /nicemove or /imobflow is accessed', () => {
+    const replaceMock = vi.fn();
+    Object.defineProperty(window, 'location', {
+      writable: true,
+      value: {
+        ...window.location,
+        pathname: '/nicemove',
+        hash: '',
+        replace: replaceMock,
+      },
+    });
+
     render(<App />);
 
-    expect(
-      screen.getByRole('heading', { level: 1, name: /Seu próximo atendimento começa antes do corretor/i })
-    ).toBeInTheDocument();
+    expect(replaceMock).toHaveBeenCalledWith('https://nicemove.com.br');
   });
 });
