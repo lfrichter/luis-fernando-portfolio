@@ -189,7 +189,7 @@ export const RichterGateway: React.FC<RichterGatewayProps> = ({
       <footer className="w-full py-6 px-6 text-center text-xs text-muted-foreground border-t border-border/40">
         <div className="container max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
           <span>© {new Date().getFullYear()} {t('gateway.footer.rights', 'Richter Tecnologia e Desenvolvimento')}</span>
-          <span className="text-[11px] font-mono">{t('gateway.footer.location', 'Sorocaba, SP • Brasil')}</span>
+          <span className="text-[11px] font-mono">{t('gateway.footer.location', 'SP • Brasil')}</span>
         </div>
       </footer>
     </div>
