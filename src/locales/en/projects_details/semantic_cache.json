@@ -13,6 +13,7 @@
     "Vector Search"
   ],
   "featured": false,
+  "githubUrl": "https://github.com/lfrichter/semantic-cache",
   "detailKey": "semantic_cache",
   "overview": "Proof of Concept (PoC) demonstrating a high-performance local vector semantic cache designed to intercept user prompts, search FAISS index for semantically equivalent cached responses, and eliminate expensive redundant LLM API calls.",
   "roleDescription": "AI Engineer & Technical Architect.",

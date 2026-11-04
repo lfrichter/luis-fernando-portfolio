@@ -14,6 +14,7 @@
     "Docker"
   ],
   "featured": false,
+  "githubUrl": "https://github.com/lfrichter/favorite-products-api",
   "detailKey": "favorite_products",
   "overview": "Decoupled microservice built with Node.js and TypeScript adhering to Clean Architecture and SOLID principles to provide a resilient API for managing favorite products.",
   "roleDescription": "Backend Software Engineer.",

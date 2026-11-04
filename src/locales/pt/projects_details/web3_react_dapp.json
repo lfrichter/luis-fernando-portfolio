@@ -1,0 +1,45 @@
+{
+  "id": "web3-react-dapp",
+  "title": "Web3 React dApp Prototype",
+  "subtitle": "Boilerplate Descentralizado com Wagmi, Viem & Rede Sepolia",
+  "category": "PoC & Open Source",
+  "tier": 3,
+  "year": 2025,
+  "summary": "Boilerplate moderno para dApps descentralizados em React 19, TypeScript e Vite. Conexão de carteira MetaMask, leitura e escrita on-chain de Smart Contracts na rede de testes Sepolia via Wagmi e Viem.",
+  "techStack": [
+    "React 19",
+    "Vite",
+    "TypeScript",
+    "Wagmi",
+    "Viem",
+    "React Query",
+    "MetaMask",
+    "Sepolia"
+  ],
+  "featured": false,
+  "githubUrl": "https://github.com/lfrichter/web3-greeter-dapp",
+  "detailKey": "web3_react_dapp",
+  "overview": "O objetivo deste projeto foi criar uma arquitetura base limpa e moderna para aplicações descentralizadas (dApps). O boilerplate resolve a complexidade inicial de configuração da Web3, demonstrando conexão com carteira MetaMask, leitura de dados on-chain e interação transacional com smart contracts na rede Ethereum Sepolia.",
+  "roleDescription": "Desenvolvedor Front-End Web3 e Integrador de Blockchain.",
+  "responsibilities": [
+    "Estruturação da interface reativa em React 19 com TypeScript, garantindo tipagem estática e prevenção de erros em tempo de execução.",
+    "Configuração e integração dos clientes Wagmi e Viem para estabelecer comunicação de baixa latência com a blockchain Sepolia.",
+    "Implementação de tratamento elegante de estados assíncronos de transações (assinatura, envio e mineração de blocos)."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Gerenciamento do estado assíncrono de transações na blockchain sem congelar a interface ou deixar o usuário sem feedback durante a mineração.",
+      "solution": "Orquestração de fluxo reativo com hooks useContractWrite e useWaitForTransactionReceipt, monitorando o recibo da transação e disparando re-leitura automática (useContractRead) ao minerar o bloco."
+    }
+  ],
+  "futureEvolution": [
+    "Integração com WalletConnect para suporte amplo a carteiras mobile.",
+    "Abstração de rede multichain para alternância fluida entre Sepolia, Mainnet, Arbitrum e Optimism."
+  ],
+  "architectureDiagramMermaid": "graph TD\n    User((\"👤 Usuário\")) --> UI_Connect[\"🔘 Connect Wallet\"]\n    subgraph Frontend[\"💻 Front-end React + Vite\"]\n        UI_Connect --> Hook_Connect[\"useConnect()\"]\n        Hook_Connect --> Wallet[\"🦊 MetaMask Provider\"]\n        Wallet --> Hook_Read[\"useContractRead()\"]\n        Hook_Read --> Contract[/\"📜 Greeter Contract (Sepolia)\"/]\n        Contract -.-> UI_Display[\"📜 Exibição da Saudação\"]\n        UI_Form[\"📝 Change Greeting\"] --> Hook_Write[\"useContractWrite()\"]\n        Hook_Write --> Wallet\n        Wallet --> Hook_Wait[\"useWaitForTransactionReceipt()\"]\n        Hook_Wait --> Contract\n    end",
+  "metrics": [
+    "Boilerplate reativo e modular com Vite, Wagmi e Viem eliminando dependências pesadas legadas",
+    "Monitoramento de ciclo de vida completo de transações blockchain em tempo real",
+    "100% tipado com TypeScript e integração direta com ABI de contratos inteligentes"
+  ]
+}

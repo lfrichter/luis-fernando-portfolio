@@ -35,6 +35,8 @@ const detailModules: Record<string, Record<string, () => Promise<{ default: unkn
     fanoty: () => import('@/locales/pt/projects_details/fanoty.json'),
     grappl: () => import('@/locales/pt/projects_details/grappl.json'),
     huktup: () => import('@/locales/pt/projects_details/huktup.json'),
+    air_combat_3d: () => import('@/locales/pt/projects_details/air_combat_3d.json'),
+    web3_react_dapp: () => import('@/locales/pt/projects_details/web3_react_dapp.json'),
   },
   en: {
     ask_richter: () => import('@/locales/en/projects_details/ask_richter.json'),
@@ -67,6 +69,8 @@ const detailModules: Record<string, Record<string, () => Promise<{ default: unkn
     fanoty: () => import('@/locales/en/projects_details/fanoty.json'),
     grappl: () => import('@/locales/en/projects_details/grappl.json'),
     huktup: () => import('@/locales/en/projects_details/huktup.json'),
+    air_combat_3d: () => import('@/locales/en/projects_details/air_combat_3d.json'),
+    web3_react_dapp: () => import('@/locales/en/projects_details/web3_react_dapp.json'),
   },
 };
 

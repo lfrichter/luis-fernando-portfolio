@@ -1,6 +1,6 @@
 {
   "id": "ecommerce-k6",
-  "title": "E-Commerce Performance Benchmark",
+  "title": "Performance & Observability Suite (E-Commerce)",
   "subtitle": "Testes de Carga & Estresse de Alta Escala (k6 / JMeter)",
   "category": "PoC & Open Source",
   "tier": 3,

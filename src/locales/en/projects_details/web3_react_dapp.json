@@ -1,0 +1,45 @@
+{
+  "id": "web3-react-dapp",
+  "title": "Web3 React dApp Prototype",
+  "subtitle": "Decentralized Boilerplate with Wagmi, Viem & Sepolia Testnet",
+  "category": "PoC & Open Source",
+  "tier": 3,
+  "year": 2025,
+  "summary": "Modern dApp starter kit built with React 19, TypeScript, and Vite. Features MetaMask wallet connection, on-chain state reading, and transactional smart contract execution on the Sepolia Ethereum testnet via Wagmi and Viem.",
+  "techStack": [
+    "React 19",
+    "Vite",
+    "TypeScript",
+    "Wagmi",
+    "Viem",
+    "React Query",
+    "MetaMask",
+    "Sepolia"
+  ],
+  "featured": false,
+  "githubUrl": "https://github.com/lfrichter/web3-greeter-dapp",
+  "detailKey": "web3_react_dapp",
+  "overview": "Engineered as a clean, production-ready foundation for decentralized applications (dApps). Solves initial Web3 onboarding hurdles by demonstrating streamlined wallet integration, on-chain state queries, and transaction lifecycle monitoring on Ethereum Sepolia.",
+  "roleDescription": "Web3 Front-End Developer & Blockchain Integrator.",
+  "responsibilities": [
+    "Built reactive React 19 + TypeScript architecture ensuring strict static typing against smart contract ABIs.",
+    "Integrated Wagmi and Viem clients for lightweight, high-performance communication with Sepolia nodes.",
+    "Engineered robust asynchronous state handlers for wallet signatures, mempool broadcasting, and block confirmation."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Handling non-instantaneous blockchain transaction confirmations without freezing client UI or leaving users in indeterminate states.",
+      "solution": "Orchestrated useContractWrite with useWaitForTransactionReceipt to monitor transaction mining status, automatically triggering useContractRead upon block confirmation."
+    }
+  ],
+  "futureEvolution": [
+    "WalletConnect integration for mobile wallet support.",
+    "Multichain provider abstraction enabling one-click switching between Sepolia, Mainnet, Arbitrum, and Optimism."
+  ],
+  "architectureDiagramMermaid": "graph TD\n    User((\"👤 User\")) --> UI_Connect[\"🔘 Connect Wallet\"]\n    subgraph Frontend[\"💻 React + Vite Frontend\"]\n        UI_Connect --> Hook_Connect[\"useConnect()\"]\n        Hook_Connect --> Wallet[\"🦊 MetaMask Provider\"]\n        Wallet --> Hook_Read[\"useContractRead()\"]\n        Hook_Read --> Contract[/\"📜 Greeter Contract (Sepolia)\"/]\n        Contract -.-> UI_Display[\"📜 Greeting Display\"]\n        UI_Form[\"📝 Change Greeting\"] --> Hook_Write[\"useContractWrite()\"]\n        Hook_Write --> Wallet\n        Wallet --> Hook_Wait[\"useWaitForTransactionReceipt()\"]\n        Hook_Wait --> Contract\n    end",
+  "metrics": [
+    "Ultra-lightweight dApp starter replacing legacy Web3 libraries with modern Viem and Wagmi hooks",
+    "Zero-friction transactional feedback with automated optimistic updates and receipt polling",
+    "Strict end-to-end TypeScript coverage and smart contract ABI integration"
+  ]
+}

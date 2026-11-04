@@ -12,6 +12,7 @@
     "State Management"
   ],
   "featured": false,
+  "githubUrl": "https://github.com/lfrichter/twin-quest",
   "detailKey": "twin_quest",
   "overview": "Experimental project exploring advanced reactive state management patterns and strict TypeScript typing using Pinia in an interactive game engine interface.",
   "roleDescription": "Frontend Developer.",

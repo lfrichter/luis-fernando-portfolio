@@ -1,6 +1,6 @@
 {
   "id": "ecommerce-k6",
-  "title": "E-Commerce Performance Benchmark",
+  "title": "Performance & Observability Suite (E-Commerce)",
   "subtitle": "High-Scale Load & Stress Testing (k6 / JMeter)",
   "category": "PoC & Open Source",
   "tier": 3,
@@ -12,6 +12,7 @@
     "Load Testing"
   ],
   "featured": false,
+  "githubUrl": "https://github.com/lfrichter/demo-shop-performace-test",
   "detailKey": "ecommerce_k6",
   "overview": "Performance benchmark designed to detect throughput limits, database query latency, and concurrency bottlenecks across e-commerce RESTful microservices.",
   "roleDescription": "Performance Engineer.",

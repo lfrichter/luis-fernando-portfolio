@@ -191,6 +191,7 @@
       "Docker"
     ],
     "featured": false,
+    "githubUrl": "https://github.com/lfrichter/favorite-products-api",
     "detailKey": "favorite_products"
   },
   {
@@ -249,6 +250,7 @@
       "Vector Search"
     ],
     "featured": false,
+    "githubUrl": "https://github.com/lfrichter/semantic-cache",
     "detailKey": "semantic_cache"
   },
   {
@@ -288,7 +290,7 @@
   },
   {
     "id": "ecommerce-k6",
-    "title": "E-Commerce Performance Benchmark",
+    "title": "Performance & Observability Suite (E-Commerce)",
     "subtitle": "Testes de Carga & Estresse de Alta Escala (k6 / JMeter)",
     "category": "PoC & Open Source",
     "tier": 3,
@@ -300,6 +302,7 @@
       "Load Testing"
     ],
     "featured": false,
+    "githubUrl": "https://github.com/lfrichter/demo-shop-performace-test",
     "detailKey": "ecommerce_k6"
   },
   {
@@ -316,6 +319,7 @@
       "State Management"
     ],
     "featured": false,
+    "githubUrl": "https://github.com/lfrichter/twin-quest",
     "detailKey": "twin_quest"
   },
   {
@@ -610,5 +614,49 @@
     ],
     "featured": false,
     "detailKey": "huktup"
+  },
+  {
+    "id": "air-combat-3d",
+    "title": "Air Combat 3D — Estudo de Caso de Produtividade com IAs",
+    "subtitle": "Jogo 3D Multiplayer com Three.js, WebSockets, Docker & Aceleração por IAs Generativas",
+    "category": "Full Stack",
+    "tier": 2,
+    "year": 2025,
+    "summary": "Estudo de caso prático sobre o impacto de IA generativa na produtividade. Jogo 3D multiplayer com Three.js, backend Node.js com WebSockets em tempo real, Docker e deploy no Render.com (-40% tempo de dev).",
+    "techStack": [
+      "JavaScript",
+      "Three.js",
+      "Node.js",
+      "Express",
+      "WebSockets",
+      "Docker",
+      "Render.com",
+      "Cursor / Trae"
+    ],
+    "featured": false,
+    "liveUrl": "https://air-combat-3d-game.onrender.com",
+    "detailKey": "air_combat_3d"
+  },
+  {
+    "id": "web3-react-dapp",
+    "title": "Web3 React dApp Prototype",
+    "subtitle": "Boilerplate Descentralizado com Wagmi, Viem & Rede Sepolia",
+    "category": "PoC & Open Source",
+    "tier": 3,
+    "year": 2025,
+    "summary": "Boilerplate moderno para dApps descentralizados em React 19, TypeScript e Vite. Conexão de carteira MetaMask, leitura e escrita on-chain de Smart Contracts na rede de testes Sepolia via Wagmi e Viem.",
+    "techStack": [
+      "React 19",
+      "Vite",
+      "TypeScript",
+      "Wagmi",
+      "Viem",
+      "React Query",
+      "MetaMask",
+      "Sepolia"
+    ],
+    "featured": false,
+    "githubUrl": "https://github.com/lfrichter/web3-greeter-dapp",
+    "detailKey": "web3_react_dapp"
   }
 ]

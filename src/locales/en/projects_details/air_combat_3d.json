@@ -1,0 +1,49 @@
+{
+  "id": "air-combat-3d",
+  "title": "Air Combat 3D — AI Productivity Case Study",
+  "subtitle": "3D Multiplayer Combat Game with Three.js, WebSockets, Docker & Generative AI Acceleration",
+  "category": "Full Stack",
+  "tier": 2,
+  "year": 2025,
+  "summary": "Empirical study measuring generative AI productivity gains in full-stack engineering. 3D multiplayer flight combat game built with Three.js, Node.js WebSockets, Docker, and Render.com (-40% dev time).",
+  "techStack": [
+    "JavaScript",
+    "Three.js",
+    "Node.js",
+    "Express",
+    "WebSockets",
+    "Docker",
+    "Render.com",
+    "Cursor / Trae"
+  ],
+  "featured": false,
+  "liveUrl": "https://air-combat-3d-game.onrender.com",
+  "detailKey": "air_combat_3d",
+  "overview": "Conducted as an empirical study to measure the impact of generative AI tools on full-stack developer productivity. Built a full 3D multiplayer aerial combat browser game from scratch using Three.js and WebSockets, establishing a quantitative benchmark for modern AI-assisted software delivery.",
+  "roleDescription": "Solutions Architect, Full-Stack Developer & DevOps Engineer.",
+  "responsibilities": [
+    "Full-Stack Architecture: Built interactive Three.js 3D flight canvas and Node.js backend handling matchmaking and real-time state synchronization via WebSockets.",
+    "DevOps Engineering: Containerized the entire application stack with Docker and automated continuous cloud deployment on Render.com.",
+    "Workflow Research: Formulated benchmarking methodology integrating AI-native IDEs (Cursor, Trae) to measure cycle time reductions against baseline development."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Maintaining multi-client real-time positional synchronization with low latency across web clients.",
+      "solution": "Built an optimized server-side authoritative game loop in Node.js broadcasting delta states over persistent WebSocket connections."
+    },
+    {
+      "challenge": "Empirically validating developer velocity improvements from generative AI assistants.",
+      "solution": "Tracked milestone delivery hours across 3D math, networking, containerization, and cloud deployment, demonstrating a ~40% reduction in end-to-end delivery time."
+    }
+  ],
+  "futureEvolution": [
+    "Persistent player leaderboards and score history using PostgreSQL or Redis.",
+    "Private game rooms and additional multiplayer modes (such as Team Deathmatch)."
+  ],
+  "architectureDiagramMermaid": "flowchart LR\n    subgraph Render[\"🌐 Render.com Cloud Platform\"]\n        subgraph Docker[\"🐳 Docker Container\"]\n            B[\"🚀 Node.js / Express Server\"]\n        end\n    end\n    subgraph Client[\"💻 Client Browser\"]\n        A[\"🎮 Three.js 3D Game Canvas\"]\n    end\n    P1[\"👨‍✈️ Pilot 1\"] --> A\n    P2[\"👨‍✈️ Pilot 2\"] --> A\n    A <-->|\"Real-Time WebSockets\"| B",
+  "metrics": [
+    "Quantified ~40% reduction in end-to-end engineering time using generative AI IDEs",
+    "Fluid multiplayer browser rendering via Three.js and WebSocket channels",
+    "Fully containerized deployment running in production on Render.com"
+  ]
+}

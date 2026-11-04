@@ -191,6 +191,7 @@
       "Docker"
     ],
     "featured": false,
+    "githubUrl": "https://github.com/lfrichter/favorite-products-api",
     "detailKey": "favorite_products"
   },
   {
@@ -249,6 +250,7 @@
       "Vector Search"
     ],
     "featured": false,
+    "githubUrl": "https://github.com/lfrichter/semantic-cache",
     "detailKey": "semantic_cache"
   },
   {
@@ -288,7 +290,7 @@
   },
   {
     "id": "ecommerce-k6",
-    "title": "E-Commerce Performance Benchmark",
+    "title": "Performance & Observability Suite (E-Commerce)",
     "subtitle": "High-Scale Load & Stress Testing (k6 / JMeter)",
     "category": "PoC & Open Source",
     "tier": 3,
@@ -300,6 +302,7 @@
       "Load Testing"
     ],
     "featured": false,
+    "githubUrl": "https://github.com/lfrichter/demo-shop-performace-test",
     "detailKey": "ecommerce_k6"
   },
   {
@@ -316,6 +319,7 @@
       "State Management"
     ],
     "featured": false,
+    "githubUrl": "https://github.com/lfrichter/twin-quest",
     "detailKey": "twin_quest"
   },
   {
@@ -610,5 +614,49 @@
     ],
     "featured": false,
     "detailKey": "huktup"
+  },
+  {
+    "id": "air-combat-3d",
+    "title": "Air Combat 3D — AI Productivity Case Study",
+    "subtitle": "3D Multiplayer Combat Game with Three.js, WebSockets, Docker & Generative AI Acceleration",
+    "category": "Full Stack",
+    "tier": 2,
+    "year": 2025,
+    "summary": "Empirical study measuring generative AI productivity gains in full-stack engineering. 3D multiplayer flight combat game built with Three.js, Node.js WebSockets, Docker, and Render.com (-40% dev time).",
+    "techStack": [
+      "JavaScript",
+      "Three.js",
+      "Node.js",
+      "Express",
+      "WebSockets",
+      "Docker",
+      "Render.com",
+      "Cursor / Trae"
+    ],
+    "featured": false,
+    "liveUrl": "https://air-combat-3d-game.onrender.com",
+    "detailKey": "air_combat_3d"
+  },
+  {
+    "id": "web3-react-dapp",
+    "title": "Web3 React dApp Prototype",
+    "subtitle": "Decentralized Boilerplate with Wagmi, Viem & Sepolia Testnet",
+    "category": "PoC & Open Source",
+    "tier": 3,
+    "year": 2025,
+    "summary": "Modern dApp starter kit built with React 19, TypeScript, and Vite. Features MetaMask wallet connection, on-chain state reading, and transactional smart contract execution on the Sepolia Ethereum testnet via Wagmi and Viem.",
+    "techStack": [
+      "React 19",
+      "Vite",
+      "TypeScript",
+      "Wagmi",
+      "Viem",
+      "React Query",
+      "MetaMask",
+      "Sepolia"
+    ],
+    "featured": false,
+    "githubUrl": "https://github.com/lfrichter/web3-greeter-dapp",
+    "detailKey": "web3_react_dapp"
   }
 ]

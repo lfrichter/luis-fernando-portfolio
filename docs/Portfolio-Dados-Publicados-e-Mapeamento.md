@@ -33,8 +33,10 @@ A aplicação organiza 30 projetos através de uma navegação por Horizontes/Er
 | `favorite-products-api` | **Favorite Products API** | Microsserviço RESTful de alta performance projetado com Clean Architecture e princípios SOLID (Node.js, TypeScript, Jest, Docker) | `B-Areas/Particular/Curriculo/SideProjects/Project - Favourite Products.md` |
 | `learning-intelligence` | **Learning Intelligence Platform 2.0** | Orquestrador local CLI para transcrição Whisper, análise de keyframes FFmpeg/OCR e síntese Ollama deepseek-r1 (Python, SQLite FTS5, pgvector) | `B-Areas/Particular/Curriculo/SideProjects/Project - Learning Intelligence.md` |
 | `my-bookmarks` | **My Bookmarks** | Pipeline de dados de favoritos, Modelo Canônico, classificação por IA local Ollama e motor RAG (TypeScript, Node.js, Zod, Cheerio, Vitest) | `B-Areas/Particular/Curriculo/SideProjects/Project - My Bookmarks.md` |
-| `twin-quest` | **Twin Quest Engine** | Experimento de arquitetura de estado reativo e regras de jogo (TypeScript, Vue.js, Pinia) | `B-Areas/Particular/Curriculo/SideProjects/Project - Twin Quest.md` |
-| `ecommerce-k6` | **E-Commerce Performance Benchmark** | Suíte de testes de estresse, profiling de gargalos e simulação de alto tráfego (k6, JMeter, Performance Profiling) | `B-Areas/Particular/Curriculo/SideProjects/Project - E-Commerce Performance Engineering End-to-End Observability.md` |
+| `twin-quest` | **Twin Quest Engine** | Experimento de arquitetura de estado reativo e regras de jogo (TypeScript, Vue.js, Pinia) | `B-Areas/Particular/Curriculo/Projects/2025-2026/Side Project - Twin Quest.md` |
+| `ecommerce-k6` | **Performance & Observability Suite (E-Commerce)** | Suíte de testes de estresse, profiling de gargalos e simulação de alto tráfego (k6, JMeter, Playwright, Performance Profiling) | `B-Areas/Particular/Curriculo/Projects/2025-2026/Side Project - Performance & Observability Suite (E-Commerce).md` |
+| `air-combat-3d` | **Air Combat 3D** | Jogo 3D multiplayer com Three.js, WebSockets, Docker & estudo de produtividade com IA (-40% tempo) | `B-Areas/Particular/Curriculo/Projects/2025-2026/Side Project - Air Combat 3D.md` |
+| `web3-react-dapp` | **Web3 React dApp Prototype** | Boilerplate descentralizado em React 19, Vite, Wagmi e Viem integrado à rede de testes Sepolia | `B-Areas/Particular/Curriculo/Projects/2025-2026/Side Project - Web3 React dApp Prototype.md` |
 
 ---
 
