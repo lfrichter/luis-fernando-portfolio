@@ -17,6 +17,7 @@
     "CI/CD"
   ],
   "featured": false,
+  "liveUrl": "https://perguntasdaespecialidade.pt/",
   "detailKey": "simulados_medicos",
   "overview": "O projeto consistiu no desenvolvimento de ponta a ponta do Produto Mínimo Viável (MVP) de uma plataforma de tecnologia educacional (EdTech) focada na preparação de médicos para exames de especialidades e títulos em Portugal. O sistema precisava permitir a criação flexível de bancos de questões, orquestração de simulados com limite de tempo e cálculo imediato de notas com feedback pedagógico, além de monetização imediata através de cobrança por assinatura e pacotes de provas. A arquitetura foi concebida como uma aplicação web robusta em Laravel, integrando o gateway de pagamentos português EuPago.pt e uma esteira automatizada de infraestrutura e deploy com contêineres Docker.",
   "roleDescription": "Desenvolvedor Full-Stack Líder (Lead Developer).",

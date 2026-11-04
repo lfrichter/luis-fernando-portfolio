@@ -17,6 +17,7 @@
     "CI/CD"
   ],
   "featured": false,
+  "liveUrl": "https://perguntasdaespecialidade.pt/",
   "detailKey": "simulados_medicos",
   "overview": "The project involved end-to-end development of the Minimum Viable Product (MVP) for an educational technology (EdTech) platform focused on preparing doctors for medical specialty and certification exams in Portugal. The system required dynamic question banks, timed test execution with instant scoring and pedagogical feedback, and immediate monetization via subscription packages. Architected in Laravel and integrated with the Portuguese EuPago.pt payment gateway, the platform ran on a containerized Docker deployment pipeline enabling rapid market validation from day one.",
   "roleDescription": "Lead Full-Stack Developer.",
