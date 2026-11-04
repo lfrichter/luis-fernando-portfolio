@@ -1,5 +1,17 @@
 [
   {
+    "id": "ask-richter-sanity-agent",
+    "date": "2026-10-03",
+    "title": "Ask Richter: Construindo um AI Career Agent Conectado ao Structured Content Lake do Sanity",
+    "summary": "Transformando meu currículo estático em um AI Career Agent conectado com busca híbrida (GROQ determinístico + busca semântica vetorial) no Sanity Content Lake.",
+    "tags": ["AI", "Sanity", "RAG", "Next.js", "GROQ"],
+    "platforms": {
+      "devto": "https://dev.to/lfrichter/ask-richter-building-a-grounded-ai-career-agent-on-sanitys-structured-content-lake-2hd",
+      "linkedin": "https://lnkd.in/p/dkvtUTYd",
+      "github": "https://github.com/lfrichter/ask-richter"
+    }
+  },
+  {
     "id": "cat-guardian",
     "date": "2026-08-16",
     "title": "Project Cat Guardian: Monitor de IA para Pets",
