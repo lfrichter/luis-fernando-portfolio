@@ -58,4 +58,40 @@ describe('ProjectModal Component', () => {
       ).toBeInTheDocument();
     });
   });
+
+  it('displays year badge in modal for projects >= 2020', async () => {
+    render(
+      <ProjectModal
+        detailKey="web3_react_dapp"
+        isOpen={true}
+        onClose={vi.fn()}
+      />
+    );
+
+    await waitFor(
+      () => {
+        expect(screen.getByText('2025')).toBeInTheDocument();
+      },
+      { timeout: 3000 }
+    );
+  });
+
+  it('hides year badge in modal for projects < 2020', async () => {
+    render(
+      <ProjectModal
+        detailKey="aso_saude"
+        isOpen={true}
+        onClose={vi.fn()}
+      />
+    );
+
+    await waitFor(
+      () => {
+        expect(screen.getByRole('heading', { level: 2, name: /ASO/i })).toBeInTheDocument();
+      },
+      { timeout: 3000 }
+    );
+
+    expect(screen.queryByText('2016')).not.toBeInTheDocument();
+  });
 });

@@ -84,4 +84,22 @@ describe('Projects Component', () => {
     expect(screen.queryByText(/Índicos/i)).not.toBeInTheDocument();
     expect(screen.queryByText('Ask Richter')).not.toBeInTheDocument();
   });
+
+  it('hides the year badge for projects before 2020 and displays it for projects from 2020 onwards', () => {
+    render(<Projects />);
+
+    // Projects from 2020 onwards must display their year badge
+    expect(screen.getByText('2021')).toBeInTheDocument(); // Shosales Website Revamp & Testing
+    expect(screen.getAllByText('2025').length).toBeGreaterThan(0); // Favorite Products API / Air Combat 3D / Web3 React
+    expect(screen.getByText('2020')).toBeInTheDocument(); // Huktup
+
+    // Projects before 2020 must NOT display their year
+    expect(screen.queryByText('2006')).not.toBeInTheDocument(); // FTD Gestão de Acessos
+    expect(screen.queryByText('2008')).not.toBeInTheDocument(); // FTD Iconográfico
+    expect(screen.queryByText('2010')).not.toBeInTheDocument(); // FTD Produção
+    expect(screen.queryByText('2016')).not.toBeInTheDocument(); // ASO Saúde
+    expect(screen.queryByText('2017')).not.toBeInTheDocument(); // Spider Hub / Índicos / Startup Center / OnePush
+    expect(screen.queryByText('2018')).not.toBeInTheDocument(); // Sisporta / Simulados Médicos
+    expect(screen.queryByText('2019')).not.toBeInTheDocument(); // Toot / Fanoty / Grappl
+  });
 });

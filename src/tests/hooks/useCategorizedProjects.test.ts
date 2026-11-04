@@ -1,6 +1,6 @@
 import { renderHook, act } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import { useCategorizedProjects } from '@/hooks/useCategorizedProjects';
+import { useCategorizedProjects, shouldDisplayProjectYear } from '@/hooks/useCategorizedProjects';
 
 describe('useCategorizedProjects Custom Hook', () => {
   it('correctly partitions projects into Tier 1, Tier 2, and Tier 3', () => {
@@ -158,5 +158,23 @@ describe('useCategorizedProjects Custom Hook', () => {
     });
     expect(result.current.selectedEra).toBe('all');
     expect(result.current.legacyProjects.length).toBe(3);
+  });
+
+  it('determines whether to display project year badge based on year >= 2020 rule', () => {
+    // Years before 2020 must be hidden (false)
+    expect(shouldDisplayProjectYear(undefined)).toBe(false);
+    expect(shouldDisplayProjectYear(2006)).toBe(false);
+    expect(shouldDisplayProjectYear(2008)).toBe(false);
+    expect(shouldDisplayProjectYear(2010)).toBe(false);
+    expect(shouldDisplayProjectYear(2016)).toBe(false);
+    expect(shouldDisplayProjectYear(2017)).toBe(false);
+    expect(shouldDisplayProjectYear(2018)).toBe(false);
+    expect(shouldDisplayProjectYear(2019)).toBe(false);
+
+    // Years from 2020 onwards must be displayed (true)
+    expect(shouldDisplayProjectYear(2020)).toBe(true);
+    expect(shouldDisplayProjectYear(2021)).toBe(true);
+    expect(shouldDisplayProjectYear(2025)).toBe(true);
+    expect(shouldDisplayProjectYear(2026)).toBe(true);
   });
 });

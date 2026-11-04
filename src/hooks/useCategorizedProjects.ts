@@ -15,6 +15,9 @@ export const is2016To2020 = (p: IProjectSummary) =>
 export const is2021Plus = (p: IProjectSummary) =>
   !p.year || p.year >= 2021;
 
+export const shouldDisplayProjectYear = (year?: number): boolean =>
+  typeof year === 'number' && year >= 2020;
+
 export function useCategorizedProjects() {
   const { i18n } = useTranslation();
   const lang = (i18n.language || 'en').startsWith('pt') ? 'pt' : 'en';

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useCategorizedProjects } from '@/hooks/useCategorizedProjects';
+import { useCategorizedProjects, shouldDisplayProjectYear } from '@/hooks/useCategorizedProjects';
 import { ProjectModal } from '@/components/ProjectModal';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -205,7 +205,7 @@ export const Projects: React.FC = () => {
                       <Badge variant="default" className="text-[11px] font-bold px-2.5 py-0.5 bg-primary">
                         {project.category}
                       </Badge>
-                      {project.year && (
+                      {shouldDisplayProjectYear(project.year) && (
                         <Badge variant="outline" className="text-[10px] font-mono bg-primary/5">
                           {project.year}
                         </Badge>
@@ -293,7 +293,7 @@ export const Projects: React.FC = () => {
                       <Badge variant="secondary" className="text-[11px]">
                         {project.category}
                       </Badge>
-                      {project.year && (
+                      {shouldDisplayProjectYear(project.year) && (
                         <Badge variant="outline" className="text-[10px] font-mono">
                           {project.year}
                         </Badge>
@@ -392,6 +392,11 @@ export const Projects: React.FC = () => {
                       <Badge variant="outline" className="text-[10px]">
                         {project.category}
                       </Badge>
+                      {shouldDisplayProjectYear(project.year) && (
+                        <Badge variant="outline" className="text-[10px] font-mono">
+                          {project.year}
+                        </Badge>
+                      )}
                     </div>
                     <p className="text-xs text-muted-foreground max-w-2xl">
                       {project.summary}
@@ -455,16 +460,20 @@ export const Projects: React.FC = () => {
                   className="flex flex-col justify-between border border-border/80 hover:border-amber-500/50 transition-all duration-200 bg-card shadow-sm hover:shadow-md"
                 >
                   <CardHeader className="pb-2.5">
-                    <div className="flex items-center justify-between gap-1.5 mb-1.5">
-                      <Badge variant="outline" className="text-[10px] font-mono font-semibold bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/30">
-                        {project.year}
-                      </Badge>
-                      {project.company && (
-                        <span className="text-[10px] font-medium text-muted-foreground">
-                          {project.company}
-                        </span>
-                      )}
-                    </div>
+                    {(project.company || shouldDisplayProjectYear(project.year)) && (
+                      <div className="flex items-center justify-between gap-1.5 mb-1.5">
+                        {shouldDisplayProjectYear(project.year) && (
+                          <Badge variant="outline" className="text-[10px] font-mono font-semibold bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/30">
+                            {project.year}
+                          </Badge>
+                        )}
+                        {project.company && (
+                          <span className={`text-[10px] font-medium text-muted-foreground ${!shouldDisplayProjectYear(project.year) ? 'ml-auto' : ''}`}>
+                            {project.company}
+                          </span>
+                        )}
+                      </div>
+                    )}
                     <CardTitle className="text-base font-bold text-foreground leading-snug">
                       {project.title}
                     </CardTitle>

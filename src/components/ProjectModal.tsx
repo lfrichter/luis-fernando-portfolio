@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { MermaidViewer } from '@/components/MermaidViewer';
 import { useProjectDetail } from '@/hooks/useProjectDetail';
+import { shouldDisplayProjectYear } from '@/hooks/useCategorizedProjects';
 import { AlertTriangle, BarChart3, CheckCircle2, Cpu, ExternalLink, Loader2, Network, ShieldAlert, ShieldCheck, Wrench, X } from 'lucide-react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -89,6 +90,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                 <Badge variant="secondary" className="text-xs px-3 py-1 font-semibold bg-slate-100 dark:bg-zinc-800 text-slate-800 dark:text-zinc-200">
                   {detail.category}
                 </Badge>
+                {shouldDisplayProjectYear(detail.year) && (
+                  <Badge variant="outline" className="text-xs px-2.5 py-0.5 font-mono">
+                    {detail.year}
+                  </Badge>
+                )}
                 <span className="text-sm text-primary font-bold">
                   {detail.subtitle}
                 </span>
