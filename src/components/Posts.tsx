@@ -4,7 +4,7 @@ import { usePosts, type PlatformKey, type PostItem } from '@/hooks/usePosts';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
-import { DevToIcon, CodeLegionIcon, LinkedinIcon, GithubIcon } from '@/components/icons/SocialIcons';
+import { DevToIcon, CodeLegionIcon, LinkedinIcon, GithubIcon, YoutubeIcon, GlobeIcon } from '@/components/icons/SocialIcons';
 import { ExternalLink, Search, Newspaper, Calendar, Tag, BookOpen } from 'lucide-react';
 
 export const PLATFORM_CONFIG: Record<
@@ -34,6 +34,18 @@ export const PLATFORM_CONFIG: Record<
     icon: GithubIcon,
     badgeStyle: 'bg-purple-500/10 dark:bg-purple-500/15 text-purple-600 dark:text-purple-400 border-purple-500/30 hover:bg-purple-500/20',
     primaryBtnStyle: 'bg-purple-600 hover:bg-purple-700 text-white shadow-xs',
+  },
+  youtube: {
+    label: 'YouTube',
+    icon: YoutubeIcon,
+    badgeStyle: 'bg-red-500/10 dark:bg-red-500/15 text-red-600 dark:text-red-400 border-red-500/30 hover:bg-red-500/20',
+    primaryBtnStyle: 'bg-red-600 hover:bg-red-700 text-white shadow-xs',
+  },
+  published: {
+    label: 'Demo / Live',
+    icon: GlobeIcon,
+    badgeStyle: 'bg-emerald-500/10 dark:bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/20',
+    primaryBtnStyle: 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-xs',
   },
 };
 

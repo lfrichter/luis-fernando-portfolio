@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import ptPosts from '@/locales/pt/posts.json';
 import enPosts from '@/locales/en/posts.json';
 
-export type PlatformKey = 'devto' | 'codelegion' | 'linkedin' | 'github';
+export type PlatformKey = 'devto' | 'codelegion' | 'linkedin' | 'github' | 'youtube' | 'published';
 
 export interface PostRawData {
   id: string;
@@ -18,7 +18,7 @@ export interface PostItem extends PostRawData {
   primaryUrl: string;
 }
 
-const PLATFORM_PRIORITY: PlatformKey[] = ['devto', 'codelegion', 'linkedin', 'github'];
+const PLATFORM_PRIORITY: PlatformKey[] = ['devto', 'codelegion', 'linkedin', 'github', 'youtube', 'published'];
 
 export function getPrimaryPlatformInfo(platforms: Partial<Record<PlatformKey, string>>): {
   primaryPlatform: PlatformKey;
