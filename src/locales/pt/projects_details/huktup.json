@@ -1,8 +1,8 @@
 {
   "id": "huktup",
   "title": "Huktup — Plataforma de Agendamento & Gestão de Provedores de Serviço",
-  "subtitle": "API RESTful Laravel, Dashboard Reativo em Vue.js + Chart.js & Twilio SMS",
-  "category": "Full Stack",
+  "subtitle": "Plataforma SaaS de Agendamentos & Gestão de Provedores de Serviço",
+  "category": "SaaS",
   "tier": 2,
   "year": 2020,
   "company": "Huktup",

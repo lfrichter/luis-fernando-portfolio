@@ -1,8 +1,8 @@
 {
   "id": "huktup",
   "title": "Huktup — Service Provider Operations & Scheduling Platform",
-  "subtitle": "RESTful Laravel API, Reactive Vue.js + Chart.js Dashboard & Twilio SMS Automation",
-  "category": "Full Stack",
+  "subtitle": "Service Provider Operations & Scheduling SaaS Platform",
+  "category": "SaaS",
   "tier": 2,
   "year": 2020,
   "company": "Huktup",

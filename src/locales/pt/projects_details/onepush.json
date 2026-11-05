@@ -1,8 +1,8 @@
 {
   "id": "onepush",
   "title": "OnePush Notification Platform",
-  "subtitle": "Plataforma Orientada a Eventos para Web Push Notifications",
-  "category": "Full Stack",
+  "subtitle": "Plataforma SaaS Orientada a Eventos para Web Push Notifications",
+  "category": "SaaS",
   "tier": 2,
   "summary": "Plataforma modular em Laravel orientada a eventos para registro de websites, envio automatizado de notificações Web Push e integração com OneSignal e Pagar.me.",
   "techStack": [

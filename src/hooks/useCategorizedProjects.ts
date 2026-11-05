@@ -50,13 +50,18 @@ export function useCategorizedProjects() {
 
       // Category Filter
       const matchesCategory =
-        selectedCategory === 'All' || project.category === selectedCategory;
+        selectedCategory === 'All' ||
+        project.category === selectedCategory ||
+        (project.secondaryCategories && project.secondaryCategories.includes(selectedCategory));
 
       // Search Query
       const query = searchQuery.toLowerCase().trim();
       const matchesQuery =
         !query ||
         project.title.toLowerCase().includes(query) ||
+        (project.subtitle && project.subtitle.toLowerCase().includes(query)) ||
+        (project.category && project.category.toLowerCase().includes(query)) ||
+        (project.secondaryCategories && project.secondaryCategories.some((c) => c.toLowerCase().includes(query))) ||
         project.summary.toLowerCase().includes(query) ||
         project.techStack.some((tech) => tech.toLowerCase().includes(query));
 

@@ -43,6 +43,30 @@ describe('useCategorizedProjects Custom Hook', () => {
     expect(result.current.tier2Projects.every((p) => p.category === 'AI/LLM')).toBe(true);
   });
 
+  it('filters all 8 SaaS projects (including OnePush, Huktup, EuPizza, and K-Pro) by SaaS category and query', () => {
+    const { result } = renderHook(() => useCategorizedProjects());
+
+    act(() => {
+      result.current.setSelectedCategory('SaaS');
+    });
+
+    const saasIds = result.current.allProjects.map((p) => p.id);
+    const expectedSaas = [
+      'smart-shorts',
+      'indicos-saas',
+      'startup-center',
+      'simulados-medicos',
+      'onepush',
+      'huktup',
+      'eupizza',
+      'k-pro',
+    ];
+
+    for (const expectedId of expectedSaas) {
+      expect(saasIds).toContain(expectedId);
+    }
+  });
+
   it('correctly isolates pre-2015 legacy projects into legacyProjects without polluting modern tiers', () => {
     const { result } = renderHook(() => useCategorizedProjects());
 

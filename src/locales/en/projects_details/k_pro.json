@@ -1,0 +1,58 @@
+{
+  "id": "k-pro",
+  "title": "K-Pro After Sales — Post-Sales Process Optimization API",
+  "subtitle": "SaaS Platform & RESTful Lumen API, MySQL Query Tuning (-30% latency) & PHPUnit Testing",
+  "category": "SaaS",
+  "tier": 2,
+  "year": 2021,
+  "company": "K-Pro",
+  "summary": "Decoupled Laravel Lumen RESTful API as core for post-sales operations, checklists, and equipment lifecycle, achieving 30% performance gain and 80% test coverage.",
+  "techStack": [
+    "Laravel Lumen",
+    "PHP",
+    "MySQL",
+    "PHPUnit",
+    "Swagger",
+    "Vue.js",
+    "RESTful API",
+    "Query Tuning"
+  ],
+  "featured": false,
+  "detailKey": "k_pro",
+  "overview": "Development of a high-performance RESTful API in Laravel Lumen functioning as the central digital core (decoupled backend for Vue.js frontend) for K-Pro's post-sales SaaS operations. The platform orchestrates rentals, sales, and shared equipment purchases, handling checklists, documents, status, and history with low latency and high reliability.",
+  "roleDescription": "Back-End Developer (working in close collaboration with the Solutions Architect).",
+  "responsibilities": [
+    "API Development: Implement RESTful endpoints, business domain rules, and third-party integrations using Laravel Lumen framework.",
+    "Performance Optimization: Conduct MySQL query tuning and implement intelligent caching layers to reduce latency.",
+    "Quality Assurance: Build a comprehensive test suite with PHPUnit achieving ~80% code coverage to prevent regressions.",
+    "Documentation & Team Integration: Author interactive Swagger/OpenAPI documentation to ensure autonomous frontend integration with Vue.js."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Ensure low-latency responses under concurrent load across heavy equipment checklist and lifecycle operations.",
+      "solution": "Rigorous SQL query tuning, compound indexing, and smart caching layers, achieving a 30% reduction in endpoint response times."
+    },
+    {
+      "challenge": "Cover complex multi-stage post-sales workflows and prevent regressions during continuous feature delivery.",
+      "solution": "Built an automated test suite with PHPUnit reaching ~80% code coverage, safeguarding core business operations."
+    }
+  ],
+  "architectureDiagramMermaid": "flowchart LR\n    subgraph FE[\"👩‍💻 Frontend Team\"]\n        B[\"Vue.js Interface\"]\n    end\n    subgraph KPRO[\"🚀 K-Pro Core Backend\"]\n        C[\"RESTful API\\nLaravel Lumen\"]\n        D[(\"🗄️ MySQL Database\")]\n        E[\"🧪 Automated Tests\\nPHPUnit (80% Coverage)\"]\n        F[\"📑 API Documentation\\nSwagger / OpenAPI\"]\n    end\n    B -->|REST HTTP Requests| C\n    C <-->|Query Tuning & Cache| D\n    C --- E\n    C --- F\n    F -.->|Integration Contract| B",
+  "metrics": [
+    "30% improvement in critical post-sales endpoint response times",
+    "80% code coverage in automated testing with PHPUnit",
+    "100% interactive Swagger/OpenAPI documentation eliminating backend-frontend communication friction"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Strict parameterized queries and ORM query tuning via Eloquent/PDO in Lumen, mitigating SQL Injection risks."
+    },
+    {
+      "code": "A08:2021",
+      "title": "Software and Data Integrity Failures",
+      "description": "Continuous integrity enforcement through an 80% automated PHPUnit test coverage suite preventing business rule regressions."
+    }
+  ]
+}

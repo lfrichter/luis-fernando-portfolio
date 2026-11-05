@@ -4,6 +4,9 @@
     "title": "EuPizza / Voice AI Support Agent",
     "subtitle": "Multi-Tenant Voice AI Customer Service SaaS Platform",
     "category": "AI/LLM",
+    "secondaryCategories": [
+      "SaaS"
+    ],
     "tier": 1,
     "summary": "Intelligent voice agent for restaurants. Real-time WebRTC/SIP communication via LiveKit, Deepgram STT, GPT-4o-mini LLM, ElevenLabs TTS, and menu OCR with Pytesseract.",
     "techStack": [
@@ -175,6 +178,27 @@
     "detailKey": "shosales"
   },
   {
+    "id": "k-pro",
+    "title": "K-Pro After Sales — Post-Sales Process Optimization API",
+    "subtitle": "SaaS Platform & RESTful Lumen API, MySQL Query Tuning (-30% latency) & PHPUnit Testing",
+    "category": "SaaS",
+    "tier": 2,
+    "year": 2021,
+    "company": "K-Pro",
+    "summary": "Decoupled Laravel Lumen RESTful API as core for post-sales operations, checklists, and equipment lifecycle, achieving 30% performance gain and 80% test coverage.",
+    "techStack": [
+      "Laravel Lumen",
+      "PHP",
+      "MySQL",
+      "PHPUnit",
+      "Swagger",
+      "Vue.js",
+      "RESTful API"
+    ],
+    "featured": false,
+    "detailKey": "k_pro"
+  },
+  {
     "id": "favorite-products-api",
     "title": "Favorite Products API",
     "subtitle": "RESTful Microservice with Clean Architecture & SOLID",
@@ -197,12 +221,12 @@
   {
     "id": "onepush",
     "title": "OnePush Notification Platform",
-    "subtitle": "Event-Driven Web Push Notification Platform",
-    "category": "Full Stack",
+    "subtitle": "Event-Driven Web Push Notification SaaS Platform",
+    "category": "SaaS",
     "tier": 2,
     "year": 2017,
     "company": "Pilha Digital",
-    "summary": "Modular event-driven Laravel platform for website registration, automated Web Push notification delivery, integrated with OneSignal and Pagar.me.",
+    "summary": "Modular event-driven Laravel SaaS platform for website registration, automated Web Push notification delivery, integrated with OneSignal and Pagar.me.",
     "techStack": [
       "Laravel",
       "Event-Driven",
@@ -598,12 +622,12 @@
   {
     "id": "huktup",
     "title": "Huktup — Service Provider Operations & Scheduling Platform",
-    "subtitle": "RESTful Laravel API, Reactive Vue.js + Chart.js Dashboard & Twilio SMS Automation",
-    "category": "Full Stack",
+    "subtitle": "Service Provider Operations & Scheduling SaaS Platform",
+    "category": "SaaS",
     "tier": 2,
     "year": 2020,
     "company": "Huktup",
-    "summary": "Centralized scheduling and business operations platform for service providers with a Laravel RESTful API, reactive Vue.js/Chart.js analytics, Firebase SSO, and Twilio SMS client automation.",
+    "summary": "Centralized SaaS scheduling and business operations platform for service providers with a Laravel RESTful API, reactive Vue.js/Chart.js analytics, Firebase SSO, and Twilio SMS client automation.",
     "techStack": [
       "Laravel",
       "Vue.js",

@@ -89,7 +89,7 @@ describe('Projects Component', () => {
     render(<Projects />);
 
     // Projects from 2020 onwards must display their year badge
-    expect(screen.getByText('2021')).toBeInTheDocument(); // Shosales Website Revamp & Testing
+    expect(screen.getAllByText('2021').length).toBeGreaterThan(0); // Shosales Website Revamp & K-Pro
     expect(screen.getAllByText('2025').length).toBeGreaterThan(0); // Favorite Products API / Air Combat 3D / Web3 React
     expect(screen.getByText('2020')).toBeInTheDocument(); // Huktup
 

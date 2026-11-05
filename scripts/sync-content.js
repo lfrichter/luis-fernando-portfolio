@@ -84,6 +84,7 @@ const PROJECT_MAPPINGS = [
   { id: 'spider-hub', detailKey: 'spider_hub', match: 'Project - Spider - Integration Engineer.md' },
   { id: 'toot', detailKey: 'toot', match: 'Project - Toot Desafio de Viagens longas.md' },
   { id: 'shosales', detailKey: 'shosales', match: 'Project - Shosales Review - Otimização de Performance 10x e Testes E2E.md' },
+  { id: 'k-pro', detailKey: 'k_pro', match: 'Project - K-Pro After Sales.md' },
   { id: 'favorite-products-api', detailKey: 'favorite_products', match: 'Side Project - Favourite Products.md' },
   { id: 'onepush', detailKey: 'onepush', match: 'Project - OnePush.md' },
   { id: 'video-factory-automated', detailKey: 'video_factory', match: 'Project - Video Factory Automated.md' },
