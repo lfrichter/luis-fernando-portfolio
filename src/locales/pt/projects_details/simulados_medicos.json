@@ -3,7 +3,7 @@
   "title": "Simulados Médicos — Plataforma EdTech de Exames de Especialidade",
   "subtitle": "MVP EdTech em Portugal, Motor de Provas Resiliente & Pagamentos EuPago.pt",
   "category": "SaaS",
-  "tier": 1,
+  "tier": 2,
   "year": 2018,
   "company": "Medical EdTech Portugal",
   "summary": "Plataforma EdTech para preparação de médicos em Portugal com motor de exames cronometrado tolerante a desconexões, banco de questões categorizado, pagamentos automatizados via EuPago.pt e Docker.",

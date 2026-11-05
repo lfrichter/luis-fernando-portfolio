@@ -3,7 +3,7 @@
   "title": "Índicos — Plataforma SaaS Multi-tenant de Marketing de Indicação",
   "subtitle": "Primeira Plataforma SaaS Multi-tenant, Subdomínios Dinâmicos & Visualização de Redes",
   "category": "SaaS",
-  "tier": 1,
+  "tier": 2,
   "year": 2017,
   "company": "Índicos SaaS",
   "summary": "Plataforma SaaS multi-tenant em Laravel com isolamento rigoroso por subdomínio dinâmico, roteamento por middlewares customizados, comissionamento multinível e diagramas dinâmicos de hierarquia.",

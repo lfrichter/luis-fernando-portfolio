@@ -88,7 +88,7 @@
       "Cypress"
     ],
     "featured": true,
-    "liveUrl": "http://www.canaoaves.com.br",
+    "liveUrl": "https://canaoaves.com.br",
     "detailKey": "canaoaves"
   },
   {
@@ -179,7 +179,7 @@
     "title": "Favorite Products API",
     "subtitle": "Microsserviço RESTful com Clean Architecture & SOLID",
     "category": "Full Stack",
-    "tier": 2,
+    "tier": 3,
     "year": 2025,
     "summary": "API RESTful de alta performance projetada com Clean Architecture, princípios SOLID e testes automatizados para gerenciamento de listas de produtos favoritos.",
     "techStack": [
@@ -362,7 +362,8 @@
       "Pytest"
     ],
     "featured": false,
-    "detailKey": "learning_intelligence"
+    "detailKey": "learning_intelligence",
+    "githubUrl": "https://github.com/lfrichter/learning-intelligence"
   },
   {
     "id": "my-bookmarks",
@@ -382,7 +383,8 @@
       "SHA-256"
     ],
     "featured": false,
-    "detailKey": "my_bookmarks"
+    "detailKey": "my_bookmarks",
+    "githubUrl": "https://github.com/lfrichter/my-bookmarks"
   },
   {
     "id": "ftd-gestao-acessos",
@@ -472,7 +474,7 @@
     "title": "Índicos — Plataforma SaaS Multi-tenant de Marketing de Indicação",
     "subtitle": "Primeira Plataforma SaaS Multi-tenant, Subdomínios Dinâmicos & Visualização de Redes",
     "category": "SaaS",
-    "tier": 1,
+    "tier": 2,
     "year": 2017,
     "company": "Índicos SaaS",
     "summary": "Plataforma SaaS multi-tenant em Laravel com isolamento rigoroso por subdomínio dinâmico, roteamento por middlewares customizados, comissionamento multinível e diagramas dinâmicos de hierarquia.",
@@ -493,7 +495,7 @@
     "title": "Startup Center — Ecossistema de Ferramentas Para Apoio a Startups",
     "subtitle": "Salas Virtuais WebRTC, Mensageria em Tempo Real, Economia Gamificada & Multi-Cloud",
     "category": "SaaS",
-    "tier": 1,
+    "tier": 2,
     "year": 2017,
     "company": "Startup Center",
     "summary": "Ecossistema all-in-one para startups com videoconferência TokBox WebRTC, mensageria em tempo real via Pusher, economia gamificada (StarCoins), pagamentos PayPal e infraestrutura multi-cloud.",
@@ -535,7 +537,7 @@
     "title": "Simulados Médicos — Plataforma EdTech de Exames de Especialidade",
     "subtitle": "MVP EdTech em Portugal, Motor de Provas Resiliente & Pagamentos EuPago.pt",
     "category": "SaaS",
-    "tier": 1,
+    "tier": 2,
     "year": 2018,
     "company": "Medical EdTech Portugal",
     "summary": "Plataforma EdTech para preparação de médicos em Portugal com motor de exames cronometrado tolerante a desconexões, banco de questões categorizado, pagamentos automatizados via EuPago.pt e Docker.",
@@ -620,7 +622,7 @@
     "title": "Air Combat 3D — Estudo de Caso de Produtividade com IAs",
     "subtitle": "Jogo 3D Multiplayer com Three.js, WebSockets, Docker & Aceleração por IAs Generativas",
     "category": "Full Stack",
-    "tier": 2,
+    "tier": 3,
     "year": 2025,
     "summary": "Estudo de caso prático sobre o impacto de IA generativa na produtividade. Jogo 3D multiplayer com Three.js, backend Node.js com WebSockets em tempo real, Docker e deploy no Render.com (-40% tempo de dev).",
     "techStack": [

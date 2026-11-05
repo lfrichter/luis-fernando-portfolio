@@ -3,7 +3,7 @@
   "title": "Air Combat 3D — AI Productivity Case Study",
   "subtitle": "3D Multiplayer Combat Game with Three.js, WebSockets, Docker & Generative AI Acceleration",
   "category": "Full Stack",
-  "tier": 2,
+  "tier": 3,
   "year": 2025,
   "summary": "Empirical study measuring generative AI productivity gains in full-stack engineering. 3D multiplayer flight combat game built with Three.js, Node.js WebSockets, Docker, and Render.com (-40% dev time).",
   "techStack": [

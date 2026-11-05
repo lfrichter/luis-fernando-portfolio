@@ -3,7 +3,7 @@
   "title": "Air Combat 3D — Estudo de Caso de Produtividade com IAs",
   "subtitle": "Jogo 3D Multiplayer com Three.js, WebSockets, Docker & Aceleração por IAs Generativas",
   "category": "Full Stack",
-  "tier": 2,
+  "tier": 3,
   "year": 2025,
   "summary": "Estudo de caso prático sobre o impacto de IA generativa na produtividade. Jogo 3D multiplayer com Three.js, backend Node.js com WebSockets em tempo real, Docker e deploy no Render.com (-40% tempo de dev).",
   "techStack": [

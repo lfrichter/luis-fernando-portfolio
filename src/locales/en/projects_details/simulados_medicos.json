@@ -3,7 +3,7 @@
   "title": "Simulados Médicos — Medical Specialty Examination EdTech Platform",
   "subtitle": "Portuguese EdTech MVP, Resilient Exam Engine & Automated EuPago.pt Payments",
   "category": "SaaS",
-  "tier": 1,
+  "tier": 2,
   "year": 2018,
   "company": "Medical EdTech Portugal",
   "summary": "EdTech platform preparing physicians for medical specialty boards in Portugal, featuring a disconnect-tolerant timed exam engine, question taxonomy, EuPago.pt payment processing, and Docker.",

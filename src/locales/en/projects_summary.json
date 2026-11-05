@@ -88,7 +88,7 @@
       "Cypress"
     ],
     "featured": true,
-    "liveUrl": "http://www.canaoaves.com.br",
+    "liveUrl": "https://canaoaves.com.br",
     "detailKey": "canaoaves"
   },
   {
@@ -179,7 +179,7 @@
     "title": "Favorite Products API",
     "subtitle": "RESTful Microservice with Clean Architecture & SOLID",
     "category": "Full Stack",
-    "tier": 2,
+    "tier": 3,
     "year": 2025,
     "summary": "High-performance RESTful API designed with Clean Architecture, SOLID principles, and automated testing for managing favorite product lists.",
     "techStack": [
@@ -362,7 +362,8 @@
       "Pytest"
     ],
     "featured": false,
-    "detailKey": "learning_intelligence"
+    "detailKey": "learning_intelligence",
+    "githubUrl": "https://github.com/lfrichter/learning-intelligence"
   },
   {
     "id": "my-bookmarks",
@@ -382,7 +383,8 @@
       "SHA-256"
     ],
     "featured": false,
-    "detailKey": "my_bookmarks"
+    "detailKey": "my_bookmarks",
+    "githubUrl": "https://github.com/lfrichter/my-bookmarks"
   },
   {
     "id": "ftd-gestao-acessos",
@@ -472,7 +474,7 @@
     "title": "Índicos — Multi-Tenant Referral Marketing SaaS Platform",
     "subtitle": "First Multi-Tenant SaaS Architecture, Dynamic Subdomains & Referral Graph Visualization",
     "category": "SaaS",
-    "tier": 1,
+    "tier": 2,
     "year": 2017,
     "company": "Índicos SaaS",
     "summary": "Full multi-tenant referral marketing SaaS in Laravel featuring dynamic subdomain isolation, custom middleware routing, multi-level commission logic, and dynamic hierarchy network graphs.",
@@ -493,7 +495,7 @@
     "title": "Startup Center — All-in-One Startup Incubation Ecosystem",
     "subtitle": "WebRTC Video Conferencing, Real-Time Messaging, Gamification & Multi-Cloud Architecture",
     "category": "SaaS",
-    "tier": 1,
+    "tier": 2,
     "year": 2017,
     "company": "Startup Center",
     "summary": "All-in-one ecosystem for early-stage founders featuring TokBox WebRTC video rooms, Pusher real-time chat, gamified StarCoin economy, PayPal billing, and IBM Bluemix-to-AWS multi-cloud migration.",
@@ -535,7 +537,7 @@
     "title": "Simulados Médicos — Medical Specialty Examination EdTech Platform",
     "subtitle": "Portuguese EdTech MVP, Resilient Exam Engine & Automated EuPago.pt Payments",
     "category": "SaaS",
-    "tier": 1,
+    "tier": 2,
     "year": 2018,
     "company": "Medical EdTech Portugal",
     "summary": "EdTech platform preparing physicians for medical specialty boards in Portugal, featuring a disconnect-tolerant timed exam engine, question taxonomy, EuPago.pt payment processing, and Docker.",
@@ -620,7 +622,7 @@
     "title": "Air Combat 3D — AI Productivity Case Study",
     "subtitle": "3D Multiplayer Combat Game with Three.js, WebSockets, Docker & Generative AI Acceleration",
     "category": "Full Stack",
-    "tier": 2,
+    "tier": 3,
     "year": 2025,
     "summary": "Empirical study measuring generative AI productivity gains in full-stack engineering. 3D multiplayer flight combat game built with Three.js, Node.js WebSockets, Docker, and Render.com (-40% dev time).",
     "techStack": [

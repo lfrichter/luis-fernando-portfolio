@@ -3,7 +3,7 @@
   "title": "Favorite Products API",
   "subtitle": "RESTful Microservice with Clean Architecture & SOLID",
   "category": "Full Stack",
-  "tier": 2,
+  "tier": 3,
   "summary": "High-performance RESTful API designed with Clean Architecture, SOLID principles, and automated testing for managing favorite product lists.",
   "techStack": [
     "TypeScript",

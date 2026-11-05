@@ -3,7 +3,7 @@
   "title": "Índicos — Multi-Tenant Referral Marketing SaaS Platform",
   "subtitle": "First Multi-Tenant SaaS Architecture, Dynamic Subdomains & Referral Graph Visualization",
   "category": "SaaS",
-  "tier": 1,
+  "tier": 2,
   "year": 2017,
   "company": "Índicos SaaS",
   "summary": "Full multi-tenant referral marketing SaaS in Laravel featuring dynamic subdomain isolation, custom middleware routing, multi-level commission logic, and dynamic hierarchy network graphs.",
