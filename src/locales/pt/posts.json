@@ -21,7 +21,8 @@
     "platforms": {
       "devto": "https://dev.to/lfrichter/i-built-cat-guardian-for-my-seven-cats-287",
       "codelegion": "https://coderlegion.com/24788/cat-guardian-protect-identify-find",
-      "linkedin": "https://www.linkedin.com/posts/lfrichter_react-supabase-ai-share-7495131080833007616-66KL"
+      "linkedin": "https://www.linkedin.com/posts/lfrichter_react-supabase-ai-share-7495131080833007616-66KL",
+      "github": "https://github.com/lfrichter/cat-guardian"
     }
   },
   {
@@ -33,7 +34,8 @@
     "platforms": {
       "devto": "https://dev.to/lfrichter/building-a-robust-api-with-laravel-clean-architecture-and-solid-principles-3jb5",
       "codelegion": "https://coderlegion.com/6596/building-a-robust-api-with-laravel-clean-architecture-and-solid-principles",
-      "linkedin": "https://www.linkedin.com/posts/lfrichter_laravel-php-backend-activity-7384978126931492864-pMSI"
+      "linkedin": "https://www.linkedin.com/posts/lfrichter_laravel-php-backend-activity-7384978126931492864-pMSI",
+      "github": "https://github.com/lfrichter/favorite-products-api"
     }
   },
   {
@@ -44,7 +46,8 @@
     "tags": ["Bun", "Hono", "TypeScript", "Performance"],
     "platforms": {
       "devto": "https://dev.to/lfrichter/lightning-speed-development-with-bun-and-hono-ace",
-      "linkedin": "https://www.linkedin.com/posts/lfrichter_bunjs-honojs-typescript-activity-7358481982697173016-wQ_M"
+      "linkedin": "https://www.linkedin.com/posts/lfrichter_bunjs-honojs-typescript-activity-7358481982697173016-wQ_M",
+      "github": "https://github.com/lfrichter/hono-task-manager"
     }
   },
   {
@@ -54,7 +57,8 @@
     "summary": "Estrutura base pronta para produção de dApps descentralizados integrados com React e Web3.",
     "tags": ["Web3", "React", "dApp", "Blockchain"],
     "platforms": {
-      "linkedin": "https://www.linkedin.com/posts/lfrichter_web3-reactjs-dapp-activity-7362083157719891968-9aoU"
+      "linkedin": "https://www.linkedin.com/posts/lfrichter_web3-reactjs-dapp-activity-7362083157719891968-9aoU",
+      "github": "https://github.com/lfrichter/web3-greeter-dapp"
     }
   },
   {
@@ -100,7 +104,8 @@
     "platforms": {
       "devto": "https://dev.to/lfrichter/i-built-an-tool-to-ai-agent-testing-3co8",
       "codelegion": "https://coderlegion.com/4262/i-built-an-tool-to-ai-agent-testing",
-      "linkedin": "https://www.linkedin.com/posts/lfrichter_artificialintelligence-ai-softwaretest-activity-7354297262371409920-6lkm"
+      "linkedin": "https://www.linkedin.com/posts/lfrichter_artificialintelligence-ai-softwaretest-activity-7354297262371409920-6lkm",
+      "github": "https://github.com/lfrichter/ai-agent-test"
     }
   },
   {
@@ -111,7 +116,8 @@
     "tags": ["Postmark", "Email", "Task Manager", "Node.js"],
     "platforms": {
       "devto": "https://dev.to/lfrichter/my-submission-for-the-postmark-challenge-i-turned-my-inbox-into-a-powerful-task-manager-2odd",
-      "linkedin": "https://www.linkedin.com/posts/lfrichter_postmarkchallenge-comment-priority-activity-7337821715458134017-uoaR"
+      "linkedin": "https://www.linkedin.com/posts/lfrichter_postmarkchallenge-comment-priority-activity-7337821715458134017-uoaR",
+      "github": "https://github.com/lfrichter/Interactive-email-management"
     }
   },
   {
@@ -141,7 +147,8 @@
     "summary": "Estratégias de caching semântico, otimização de prompts e redução de custos com modelos de linguagem.",
     "tags": ["LLM", "FinOps", "Cost Reduction"],
     "platforms": {
-      "linkedin": "https://www.linkedin.com/posts/lfrichter_llm-costreduction-finops-activity-7340561830571925504-naDx"
+      "linkedin": "https://www.linkedin.com/posts/lfrichter_llm-costreduction-finops-activity-7340561830571925504-naDx",
+      "github": "https://github.com/lfrichter/semantic-cache"
     }
   },
   {
