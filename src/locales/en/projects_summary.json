@@ -386,8 +386,7 @@
       "Pytest"
     ],
     "featured": false,
-    "detailKey": "learning_intelligence",
-    "githubUrl": "https://github.com/lfrichter/learning-intelligence"
+    "detailKey": "learning_intelligence"
   },
   {
     "id": "my-bookmarks",
@@ -407,8 +406,7 @@
       "SHA-256"
     ],
     "featured": false,
-    "detailKey": "my_bookmarks",
-    "githubUrl": "https://github.com/lfrichter/my-bookmarks"
+    "detailKey": "my_bookmarks"
   },
   {
     "id": "ftd-gestao-acessos",
@@ -684,5 +682,128 @@
     "featured": false,
     "githubUrl": "https://github.com/lfrichter/web3-greeter-dapp",
     "detailKey": "web3_react_dapp"
+  },
+  {
+    "id": "ai-agent-tester",
+    "title": "AI Agent Tester",
+    "subtitle": "Automated Testing Oracle & LLM Evaluation Engine",
+    "category": "AI/LLM",
+    "secondaryCategories": [
+      "Backend API"
+    ],
+    "tier": 3,
+    "year": 2026,
+    "summary": "Automated Python testing oracle for deterministic batch evaluation of LLM outputs using keyword matching, structured JSON logging, and Zero Trust secret management.",
+    "techStack": [
+      "Python",
+      "OpenAI API",
+      "unittest",
+      "CSV Batching",
+      "Structured Logging"
+    ],
+    "featured": false,
+    "detailKey": "ai_agent_tester"
+  },
+  {
+    "id": "forroja",
+    "title": "Forró Já",
+    "subtitle": "Regional Cultural Hub & Mobile-First PWA with AI-Powered Ingestion",
+    "category": "Full Stack",
+    "secondaryCategories": [
+      "AI/LLM",
+      "SaaS"
+    ],
+    "tier": 3,
+    "year": 2026,
+    "summary": "Cultural hub and mobile-first PWA for regional events with atomic RPC counters, observability, and a hybrid AI ingestion pipeline for flyers via Ollama and Gemini.",
+    "techStack": [
+      "React 19",
+      "Vite 8",
+      "Tailwind CSS v4",
+      "Supabase",
+      "PostgreSQL",
+      "Ollama",
+      "Gemini API",
+      "FastAPI",
+      "Netlify PWA"
+    ],
+    "featured": false,
+    "liveUrl": "https://forroja.com.br/",
+    "detailKey": "forroja"
+  },
+  {
+    "id": "hono-task-manager",
+    "title": "Hono & Bun Starter Kit",
+    "subtitle": "High-Performance RESTful Todo API & Reactive Monolith",
+    "category": "Backend API",
+    "secondaryCategories": [
+      "Full Stack",
+      "PoC & Open Source"
+    ],
+    "tier": 3,
+    "year": 2025,
+    "summary": "Full-stack starter kit unifying Bun runtime, Hono.js, and native SQLite (bun:sqlite) with 100% automated test coverage and millisecond latency.",
+    "techStack": [
+      "Bun",
+      "Hono.js",
+      "SQLite",
+      "bun:sqlite",
+      "bun:test",
+      "Tailwind CSS",
+      "Vanilla JS"
+    ],
+    "featured": false,
+    "githubUrl": "https://github.com/lfrichter/hono-task-manager",
+    "detailKey": "hono_task_manager"
+  },
+  {
+    "id": "omnishell",
+    "title": "OmniShell",
+    "subtitle": "Declarative Terminal Orchestration, Runtimes & Local AI Hub",
+    "category": "DevOps & Cloud",
+    "secondaryCategories": [
+      "AI/LLM"
+    ],
+    "tier": 3,
+    "year": 2026,
+    "summary": "Declarative modern terminal ecosystem unifying GNU Stow, Docker/DevContainers, and local AI agents (DeepSeek, Qwen, and Phonon TTS) with Zero-Leak security policies.",
+    "techStack": [
+      "Zsh",
+      "GNU Stow",
+      "Warp Terminal",
+      "Ollama",
+      "DeepSeek-R1",
+      "Qwen2.5",
+      "Docker",
+      "DevContainers",
+      "1Password CLI"
+    ],
+    "featured": false,
+    "detailKey": "omnishell"
+  },
+  {
+    "id": "supabase-backups",
+    "title": "Supabase Multi-Project Automated Backup",
+    "subtitle": "Resilient Logical Backup Automation with Smart Retry & Auto-Cleanup",
+    "category": "DevOps & Cloud",
+    "secondaryCategories": [
+      "PoC & Open Source",
+      "Backend API"
+    ],
+    "tier": 3,
+    "year": 2026,
+    "summary": "Modular Bash and pg_dump backup system featuring Smart Retry architecture, TCP pre-flight checks with Netcat, daily deduplication, and automated retention.",
+    "techStack": [
+      "Bash",
+      "pg_dump",
+      "PostgreSQL",
+      "Supabase",
+      "Netcat (nc)",
+      "macOS Cron",
+      "AppleScript"
+    ],
+    "featured": false,
+    "githubUrl": "https://github.com/lfrichter/supabase-backup",
+    "detailKey": "supabase_backups"
   }
 ]

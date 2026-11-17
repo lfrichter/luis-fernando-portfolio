@@ -38,6 +38,11 @@ const detailModules: Record<string, Record<string, () => Promise<{ default: unkn
     huktup: () => import('@/locales/pt/projects_details/huktup.json'),
     air_combat_3d: () => import('@/locales/pt/projects_details/air_combat_3d.json'),
     web3_react_dapp: () => import('@/locales/pt/projects_details/web3_react_dapp.json'),
+    ai_agent_tester: () => import('@/locales/pt/projects_details/ai_agent_tester.json'),
+    forroja: () => import('@/locales/pt/projects_details/forroja.json'),
+    hono_task_manager: () => import('@/locales/pt/projects_details/hono_task_manager.json'),
+    omnishell: () => import('@/locales/pt/projects_details/omnishell.json'),
+    supabase_backups: () => import('@/locales/pt/projects_details/supabase_backups.json'),
   },
   en: {
     ask_richter: () => import('@/locales/en/projects_details/ask_richter.json'),
@@ -73,6 +78,11 @@ const detailModules: Record<string, Record<string, () => Promise<{ default: unkn
     huktup: () => import('@/locales/en/projects_details/huktup.json'),
     air_combat_3d: () => import('@/locales/en/projects_details/air_combat_3d.json'),
     web3_react_dapp: () => import('@/locales/en/projects_details/web3_react_dapp.json'),
+    ai_agent_tester: () => import('@/locales/en/projects_details/ai_agent_tester.json'),
+    forroja: () => import('@/locales/en/projects_details/forroja.json'),
+    hono_task_manager: () => import('@/locales/en/projects_details/hono_task_manager.json'),
+    omnishell: () => import('@/locales/en/projects_details/omnishell.json'),
+    supabase_backups: () => import('@/locales/en/projects_details/supabase_backups.json'),
   },
 };
 

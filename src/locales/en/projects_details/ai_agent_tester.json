@@ -1,0 +1,52 @@
+{
+  "id": "ai-agent-tester",
+  "title": "AI Agent Tester",
+  "subtitle": "Automated Testing Oracle & LLM Evaluation Engine",
+  "category": "AI/LLM",
+  "secondaryCategories": [
+    "Backend API"
+  ],
+  "tier": 3,
+  "year": 2026,
+  "summary": "Automated Python testing oracle for deterministic batch evaluation of LLM outputs using keyword matching, structured JSON logging, and Zero Trust secret management.",
+  "techStack": [
+    "Python",
+    "OpenAI API",
+    "unittest",
+    "CSV Batching",
+    "Structured Logging"
+  ],
+  "featured": false,
+  "detailKey": "ai_agent_tester",
+  "overview": "Validating AI agent behaviors at scale can quickly become a logistical nightmare. AI Agent Tester addresses this challenge by functioning as an automated oracle focused on stressing, verifying, and validating LLM agent outputs deterministically and auditably.",
+  "roleDescription": "Solution Architect & QA Automation Engineer.",
+  "responsibilities": [
+    "Designed data flow architecture and automated batch test orchestration via the OpenAI API.",
+    "Built deterministic lexical matching test suites and CSV-driven parameterization.",
+    "Implemented the core Python 3.10 test runner with response sanitization and unittest integration."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Achieving predictable and repeatable validations over non-deterministic, probabilistic generative language models.",
+      "solution": "Engineered a rapid lexical inference engine validating mandatory target keywords, transforming open-ended semantic parsing into a fast, binary deterministic test."
+    }
+  ],
+  "architectureDiagramMermaid": "flowchart TD\n    classDef input fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;\n    classDef engine fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#92400e;\n    classDef ai fill:#f3e8ff,stroke:#9333ea,stroke-width:2px,color:#6b21a8;\n    classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#166534;\n    subgraph InputLayer [\"Input Layer\"]\n        CSV[\"prompts.csv (Test Cases)\"]:::input\n    end\n    subgraph CoreEngine [\"Python 3.10 Engine\"]\n        Runner[\"Test Runner (main.py)\"]:::engine\n        Matcher[\"Keyword Matcher\"]\n    end\n    subgraph AILayer [\"OpenAI API\"]\n        GPT[\"GPT Models\"]\n    end\n    subgraph OutputLayer [\"Telemetry\"]\n        Log[\"report.log (Auditable JSON)\"]:::output\n    end\n    CSV --> Runner\n    Runner --> GPT\n    GPT --> Matcher\n    Matcher --> Log",
+  "metrics": [
+    "100% automation in smoke test validations eliminating manual response inspection",
+    "Standardized auditable JSON output for seamless CI/CD pipeline integration",
+    "Native unittest suite ensuring regression-free runner execution"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A02:2021",
+      "title": "Cryptographic Failures / Secrets Management",
+      "description": "Zero Trust isolation of sensitive credentials (OPENAI_API_KEY) via environment variables and restricted .env configuration."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Strict payload sanitization preventing prompt injections from corrupting structured JSON logs."
+    }
+  ]
+}

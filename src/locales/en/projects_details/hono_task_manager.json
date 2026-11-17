@@ -1,0 +1,61 @@
+{
+  "id": "hono-task-manager",
+  "title": "Hono & Bun Starter Kit",
+  "subtitle": "High-Performance RESTful Todo API & Reactive Monolith",
+  "category": "Backend API",
+  "secondaryCategories": [
+    "Full Stack",
+    "PoC & Open Source"
+  ],
+  "tier": 3,
+  "year": 2025,
+  "summary": "Full-stack starter kit unifying Bun runtime, Hono.js, and native SQLite (bun:sqlite) with 100% automated test coverage and millisecond latency.",
+  "techStack": [
+    "Bun",
+    "Hono.js",
+    "SQLite",
+    "bun:sqlite",
+    "bun:test",
+    "Tailwind CSS",
+    "Vanilla JS"
+  ],
+  "featured": false,
+  "detailKey": "hono_task_manager",
+  "githubUrl": "https://github.com/lfrichter/hono-task-manager",
+  "overview": "The Hono & Bun Starter Kit was designed to eliminate stack bloat and setup friction by providing a cohesive, blisteringly fast, and scale-ready full-stack application. Bun serves as both high-velocity JavaScript runtime and native SQLite database engine (bun:sqlite), while Hono.js orchestrates HTTP endpoints with near-zero latency.",
+  "roleDescription": "Full-Stack Engineer & Software Architect.",
+  "responsibilities": [
+    "Designed the request lifecycle unifying static file delivery and REST endpoints within a single Bun process.",
+    "Integrated lightweight relational persistence with native C-level bun:sqlite without bulky ORM dependencies.",
+    "Built a 100% automated, isolated test suite using bun:test covering all happy and edge-case CRUD flows.",
+    "Implemented a reactive, build-step-free frontend UI using Vanilla JS and Tailwind CSS."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Achieving a modern, reactive user experience without the build overhead of heavy frontend frameworks.",
+      "solution": "Leveraged asynchronous Vanilla JS to update the DOM directly based on Hono.js JSON responses."
+    },
+    {
+      "challenge": "Preventing state leakage and data contamination between automated test executions.",
+      "solution": "Implemented test lifecycle hooks in bun:test to rebuild and clean the SQLite schema in isolation before each test cycle."
+    }
+  ],
+  "architectureDiagramMermaid": "flowchart LR\n    classDef client fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;\n    classDef server fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#92400e;\n    classDef db fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#166534;\n    subgraph Client [\"Reactive Frontend\"]\n        UI[\"HTML5 + Vanilla JS + Tailwind\"]:::client\n    end\n    subgraph Backend [\"Bun Runtime + Hono\"]\n        Router[\"Hono.js Router\"]:::server\n        Controller[\"Task Controller\"]\n    end\n    subgraph DB [\"Native Persistence\"]\n        SQLite[\"bun:sqlite (todos.db)\"]:::db\n    end\n    UI --> Router --> Controller --> SQLite",
+  "metrics": [
+    "Sub-millisecond to low-millisecond API response times across endpoints",
+    "100% automated test coverage with native bun:test",
+    "Zero external database drivers or ORM overhead"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "SQL Injection protection via strictly parameterized queries compiled by the embedded C bun:sqlite engine."
+    },
+    {
+      "code": "A05:2021",
+      "title": "Security Misconfiguration",
+      "description": "Clean exception handling returning sanitized 400/404 HTTP codes without leaking internal stack traces."
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "id": "omnishell",
+  "title": "OmniShell",
+  "subtitle": "Orquestração Declarativa de Terminal, Runtimes e Hub de IA Local",
+  "category": "DevOps & Cloud",
+  "secondaryCategories": [
+    "AI/LLM"
+  ],
+  "tier": 3,
+  "year": 2026,
+  "summary": "Ecossistema declarativo para terminal moderno unificando GNU Stow, Docker/DevContainers e agentes de IA local (DeepSeek, Qwen e TTS Phonon) com políticas Zero-Leak.",
+  "techStack": [
+    "Zsh",
+    "GNU Stow",
+    "Warp Terminal",
+    "Ollama",
+    "DeepSeek-R1",
+    "Qwen2.5",
+    "Docker",
+    "DevContainers",
+    "1Password CLI"
+  ],
+  "featured": false,
+  "detailKey": "omnishell",
+  "overview": "O OmniShell é um ecossistema agnóstico e declarativo para terminais modernos (Zsh e Warp Terminal). Atua como uma camada de orquestração local que unifica o desenvolvimento backend (PHP/Laravel, Python, Java), a gestão de infraestrutura (Docker/DevContainers) e capacidades avançadas de IA local (RAG com DeepSeek-R1, assistência de código com Qwen2.5 e síntese de voz TTS via Phonon) com gestão atômica de pacotes via GNU Stow.",
+  "roleDescription": "Arquiteto de Sistemas, DevOps & Engenheiro de IA Local.",
+  "responsibilities": [
+    "Desenho da arquitetura declarativa idempotente com GNU Stow e scripts automatizados de bootstrap.",
+    "Orquestração de modelos LLM locais (Qwen2.5 e DeepSeek-R1) via Ollama e integração de módulo TTS Phonon para síntese de voz.",
+    "Desenvolvimento das ferramentas CLI omni e omni-rag para RAG contextual de comandos e workflows YAML.",
+    "Implementação de políticas de segurança Zero-Leak com 1Password CLI lazy-loading e isolamento por DevContainers."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Equilibrar extrema personalização do terminal com portabilidade e velocidade sem depender de dotfiles managers pesados.",
+      "solution": "Uso cirúrgico do GNU Stow para gerenciamento modular de symlinks atômicos e limpos vinculados ao $HOME."
+    },
+    {
+      "challenge": "Invocação de LLMs em linha de comando frequentemente sofria com latência e alucinação de comandos genéricos.",
+      "solution": "Criação do motor omni ask com injeção de contexto dos workflows locais, garantindo sugestões de comandos 100% compatíveis com o ambiente."
+    }
+  ],
+  "architectureDiagramMermaid": "graph TD\n    classDef term fill:#1e1e2e,stroke:#cba6f7,stroke-width:2px,color:#cdd6f4;\n    classDef stow fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;\n    classDef ai fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#166534;\n    subgraph Terminal [\"Terminal Moderno\"]\n        T[\"Warp / Zsh\"]:::term\n    end\n    subgraph Stow [\"GNU Stow\"]\n        S[\"Pacotes Modulares Dotfiles\"]:::stow\n    end\n    subgraph IA [\"IA Local\"]\n        O[\"Ollama (DeepSeek / Qwen / TTS)\"]:::ai\n    end\n    T --> S\n    T --> O",
+  "metrics": [
+    "Redução do setup de ambiente macOS de horas manuais para execução automatizada em minutos",
+    "Acesso instantâneo a 22 workflows parametrizados nativamente integrados ao Warp Terminal",
+    "Zero context-switching com assistência de raciocínio profundo e geração de código direto na CLI"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A07:2021",
+      "title": "Identification and Authentication Failures / Secrets Management",
+      "description": "Política Zero-Leak: ausência absoluta de segredos no Git, com lazy-loading via 1Password CLI e arquivos restritos (0600)."
+    },
+    {
+      "code": "A06:2021",
+      "title": "Vulnerable and Outdated Components",
+      "description": "Isolamento completo de runtimes de desenvolvimento dentro de silos virtuais seguros via DevContainers."
+    }
+  ]
+}

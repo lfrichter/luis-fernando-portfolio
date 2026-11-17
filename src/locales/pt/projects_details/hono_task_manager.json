@@ -1,0 +1,61 @@
+{
+  "id": "hono-task-manager",
+  "title": "Hono & Bun Starter Kit",
+  "subtitle": "API RESTful Todo de Alta Performance & Monólito Reativo",
+  "category": "Backend API",
+  "secondaryCategories": [
+    "Full Stack",
+    "PoC & Open Source"
+  ],
+  "tier": 3,
+  "year": 2025,
+  "summary": "Starter kit full-stack unificando Bun runtime, Hono.js e SQLite nativo (bun:sqlite) com 100% de cobertura de testes automatizados e latência em milissegundos.",
+  "techStack": [
+    "Bun",
+    "Hono.js",
+    "SQLite",
+    "bun:sqlite",
+    "bun:test",
+    "Tailwind CSS",
+    "Vanilla JS"
+  ],
+  "featured": false,
+  "detailKey": "hono_task_manager",
+  "githubUrl": "https://github.com/lfrichter/hono-task-manager",
+  "overview": "O Hono & Bun Starter Kit foi projetado para contornar o excesso de complexidade e dependências de stacks modernas, entregando uma aplicação full-stack coesa, ultrarrápida e pronta para escalar. O Bun atua como runtime veloz e provedor de banco nativo (bun:sqlite), enquanto o Hono.js orquestra rotas HTTP com latência próxima a zero.",
+  "roleDescription": "Engenheiro Full-Stack & Arquiteto de Software.",
+  "responsibilities": [
+    "Arquitetura do ciclo de requisições HTTP unificando rotas de API e entrega estática em um único processo Bun.",
+    "Modelagem e persistência relacional com o módulo nativo C embutido bun:sqlite sem ORMs pesados.",
+    "Implementação de suíte de testes 100% automatizada e isolada com bun:test cobrindo cenários de sucesso e erro.",
+    "Construção de frontend reativo minimalista com Vanilla JS e Tailwind CSS sem etapa de build pesada."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Construir uma interface reativa e moderna sem o overhead de bibliotecas pesadas como React ou Vue.",
+      "solution": "Uso de Vanilla JS assíncrono manipulando o DOM de forma cirúrgica em sincronia direta com os endpoints da API Hono."
+    },
+    {
+      "challenge": "Garantir isolamento absoluto entre rodadas de testes automatizados sem poluir o banco de dados de desenvolvimento.",
+      "solution": "Automação de ciclo de vida com bun:test recriando a estrutura do banco em ambiente efêmero antes e depois de cada bateria de testes."
+    }
+  ],
+  "architectureDiagramMermaid": "flowchart LR\n    classDef client fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;\n    classDef server fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#92400e;\n    classDef db fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#166534;\n    subgraph Client [\"Frontend Reativo\"]\n        UI[\"HTML5 + Vanilla JS + Tailwind\"]:::client\n    end\n    subgraph Backend [\"Bun Runtime + Hono\"]\n        Router[\"Hono.js Router\"]:::server\n        Controller[\"Task Controller\"]\n    end\n    subgraph DB [\"Persistência Nativa\"]\n        SQLite[\"bun:sqlite (todos.db)\"]:::db\n    end\n    UI --> Router --> Controller --> SQLite",
+  "metrics": [
+    "Latência de resposta em milissegundos (< 5ms) nas operações da API",
+    "100% de cobertura de testes automatizados em todos os endpoints CRUD",
+    "Zero dependências externas de banco de dados eliminando drivers de terceiros"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Proteção contra SQL Injection através de queries parametrizadas executadas pelo motor C embutido do bun:sqlite."
+    },
+    {
+      "code": "A05:2021",
+      "title": "Security Misconfiguration",
+      "description": "Isolamento estrito de estado em testes e tratamento seguro de exceções sem vazamento de stack traces."
+    }
+  ]
+}

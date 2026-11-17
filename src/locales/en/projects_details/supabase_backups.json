@@ -1,0 +1,62 @@
+{
+  "id": "supabase-backups",
+  "title": "Supabase Multi-Project Automated Backup",
+  "subtitle": "Resilient Logical Backup Automation with Smart Retry & Auto-Cleanup",
+  "category": "DevOps & Cloud",
+  "secondaryCategories": [
+    "PoC & Open Source",
+    "Backend API"
+  ],
+  "tier": 3,
+  "year": 2026,
+  "summary": "Modular Bash and pg_dump backup system featuring Smart Retry architecture, TCP pre-flight checks with Netcat, daily deduplication, and automated retention.",
+  "techStack": [
+    "Bash",
+    "pg_dump",
+    "PostgreSQL",
+    "Supabase",
+    "Netcat (nc)",
+    "macOS Cron",
+    "AppleScript"
+  ],
+  "featured": false,
+  "githubUrl": "https://github.com/lfrichter/supabase-backup",
+  "detailKey": "supabase_backups",
+  "overview": "Supabase Automated Backup is a modular, resilient solution crafted in Shell Script (Bash) to ensure continuous and secure retention of PostgreSQL databases hosted on Supabase. Unlike traditional routines that run blindly and produce corrupt artifacts during network drops, this solution features Smart Retry intelligence: pre-validates TCP connectivity via Netcat, skips already completed daily backups to save disk and bandwidth, isolates project credentials in separate .env files, and immediately cleans up partial files if a connection drops mid-stream.",
+  "roleDescription": "Solution Architect, DevOps & Automation Engineer.",
+  "responsibilities": [
+    "Conception of the Smart Retry pattern and architecture for contingency flows and network drop handling.",
+    "Development of modular Bash scripts for directory scanning, TCP validation, and pg_dump invocation.",
+    "macOS Cron orchestration design with flexible execution time windows and native AppleScript desktop notifications.",
+    "Implementation of automated artifact rotation and retention lifecycle policies configurable per project."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Handling unpredictable local environments (machine sleep, Wi-Fi disruptions, and reboots).",
+      "solution": "Combined a wide hourly Crontab execution window (0 8-23 * * *) with atomic daily file existence checks, enabling automatic retry without redundancy."
+    },
+    {
+      "challenge": "Preventing corrupted or incomplete SQL snapshots from persisting when network connections drop mid-dump.",
+      "solution": "Implemented pre-flight Netcat (nc) handshake checks prior to pg_dump and an auto-cleanup trap that deletes broken files immediately upon failure."
+    }
+  ],
+  "architectureDiagramMermaid": "flowchart TD\n    Cron[\"⏰ macOS Crontab (0 8-23 * * *)\"] --> BackupAll[\"🐚 scripts/backup_all.sh\"]\n    BackupAll --> CheckDaily{\"📅 Backup exists today?\"}\n    CheckDaily -- Yes --> Skip[\"⚡ Skip Project (Saves bandwidth)\"]\n    CheckDaily -- No --> CheckTCP{\"🔌 Netcat (nc) TCP OK?\"}\n    CheckTCP -- Failed --> LogError[\"⚠️ Log Error / Next cycle\"]\n    CheckTCP -- OK --> PgDump[\"🐘 Run pg_dump\"]\n    PgDump --> CheckDump{\"💾 Dump Completed?\"}\n    CheckDump -- OK --> SuccessClean[\"✅ Clean > RETENTION_DAYS & Notify\"]\n    CheckDump -- Error --> Rollback[\"🗑️ Auto-Cleanup / Delete partial .sql\"]",
+  "metrics": [
+    "100% reliable automated daily backups without manual intervention across production projects",
+    "Zero residual or corrupted artifacts on disk thanks to immediate rollback and auto-cleanup",
+    "Drastic bandwidth and I/O savings by preventing duplicate daily runs",
+    "Automated 15-day retention lifecycle management removing obsolete backups"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control & Credential Leaks",
+      "description": "Strict isolation of sensitive credentials through per-project dynamic .env files excluded from source control."
+    },
+    {
+      "code": "A05:2021",
+      "title": "Security Misconfiguration & Backup Integrity",
+      "description": "Hardened integrity enforced via pre-flight connectivity verification and atomic post-dump cleanup, guaranteeing reliable restoration."
+    }
+  ]
+}

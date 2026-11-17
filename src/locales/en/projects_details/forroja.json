@@ -1,0 +1,63 @@
+{
+  "id": "forroja",
+  "title": "Forró Já",
+  "subtitle": "Regional Cultural Hub & Mobile-First PWA with AI-Powered Ingestion",
+  "category": "Full Stack",
+  "secondaryCategories": [
+    "AI/LLM",
+    "SaaS"
+  ],
+  "tier": 3,
+  "year": 2026,
+  "summary": "Cultural hub and mobile-first PWA for regional events with atomic RPC counters, observability, and a hybrid AI ingestion pipeline for flyers via Ollama and Gemini.",
+  "techStack": [
+    "React 19",
+    "Vite 8",
+    "Tailwind CSS v4",
+    "Supabase",
+    "PostgreSQL",
+    "Ollama",
+    "Gemini API",
+    "FastAPI",
+    "Netlify PWA"
+  ],
+  "featured": false,
+  "detailKey": "forroja",
+  "liveUrl": "https://forroja.com.br/",
+  "overview": "Forró Já is a high-performance Progressive Web App (PWA) tailored for regional live events and cultural discovery. Built mobile-first for fluid WhatsApp sharing, it integrates a Supabase PostgreSQL backend, atomic RPC counters, and an AI-driven backoffice ingestion engine that extracts event schedules from flyer images using both local Ollama models and cloud Gemini APIs.",
+  "roleDescription": "Lead Software Architect & Full-Stack Engineer.",
+  "responsibilities": [
+    "Designed reactive architecture following the rigorous AI Engineering Framework v2.1.",
+    "Built full-stack React 19, Vite 8, and Supabase integration with database-first type generation.",
+    "Implemented hybrid AI ingestion pipelines using local Ollama (qwen2.5-coder) and Gemini API for unstructured flyer parsing.",
+    "Configured automated Netlify CI/CD with diff logic, incremental TypeScript compilation, and offline PWA capabilities."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Eliminating type drift between frontend TypeScript interfaces and PostgreSQL schema.",
+      "solution": "Enforced a strict database-as-source-of-truth policy by integrating automated type generation (npm run typegen) directly into the CI pipeline."
+    },
+    {
+      "challenge": "Handling high-concurrency race conditions on attendee counter increments during peak traffic.",
+      "solution": "Implemented atomic database increments using PostgreSQL Remote Procedure Calls (RPC increment_attendees)."
+    }
+  ],
+  "architectureDiagramMermaid": "flowchart TD\n    classDef client fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;\n    classDef backend fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#166534;\n    classDef ai fill:#f3e8ff,stroke:#9333ea,stroke-width:2px,color:#6b21a8;\n    subgraph Client [\"Mobile-First PWA\"]\n        FE[\"React 19 + Tailwind v4\"]:::client\n    end\n    subgraph Backend [\"Supabase Backend\"]\n        DB[(\"PostgreSQL 14\")]:::backend\n        RPC[\"Atomic RPC\"]:::backend\n    end\n    subgraph AI [\"AI Ingestion Pipeline\"]\n        Ollama[\"Local Ollama\"]\n        Gemini[\"Cloud Gemini\"]\n    end\n    FE --> DB\n    FE --> RPC --> DB\n    Ollama --> DB\n    Gemini --> DB",
+  "metrics": [
+    "100% concurrency-safe event attendance tracking via atomic RPC operations",
+    "Frictionless viral sharing optimized for messaging apps using Web Share API",
+    "Automated AI flyer data extraction eliminating manual event entry"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Secured administrative and ingestion endpoints using strict authorization tokens in URL query and headers."
+    },
+    {
+      "code": "A09:2021",
+      "title": "Security Logging and Monitoring Failures",
+      "description": "Structured client error telemetry persisted to dedicated Supabase tables without leaking stack traces."
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "forroja",
+  "title": "Forró Já",
+  "subtitle": "Hub Cultural Regional & PWA Mobile-First com Ingestão por IA",
+  "category": "Full Stack",
+  "secondaryCategories": [
+    "AI/LLM",
+    "SaaS"
+  ],
+  "tier": 3,
+  "year": 2026,
+  "summary": "Hub cultural e PWA mobile-first para forró em Sorocaba com contador atômico via RPCs, observabilidade e pipeline híbrido de ingestão inteligente de flyers via Ollama e Gemini.",
+  "techStack": [
+    "React 19",
+    "Vite 8",
+    "Tailwind CSS v4",
+    "Supabase",
+    "PostgreSQL",
+    "Ollama",
+    "Gemini API",
+    "FastAPI",
+    "Netlify PWA"
+  ],
+  "featured": false,
+  "detailKey": "forroja",
+  "liveUrl": "https://forroja.com.br/",
+  "overview": "O Forró Já é um hub cultural dinâmico estruturado como um Progressive Web App (PWA) de alta performance, projetado sob medida para máxima conversão e legibilidade mobile (WhatsApp). O ecossistema integra backend Supabase, RPCs atômicas e um motor inteligente de ingestão de flyers via IA local (Ollama) e em nuvem (Gemini), governado pelo AI Engineering Framework v2.1.",
+  "roleDescription": "Arquiteto de Software e Engenheiro Full-Stack.",
+  "responsibilities": [
+    "Concepção da arquitetura reativa sob as diretrizes do AI Engineering Framework v2.1.",
+    "Desenvolvimento full-stack em React 19, Vite 8 e Supabase com tipagem unificada gerada automaticamente do schema.",
+    "Construção de pipelines híbridos de IA com Ollama local (qwen2.5-coder) e Gemini API para decodificação de flyers.",
+    "Orquestração de deploy contínuo no Netlify com diff logic, compilação TypeScript incremental e PWA offline."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Sincronização estrita de tipagem entre TypeScript no frontend e schema relacional no PostgreSQL.",
+      "solution": "Adoção do princípio de que o banco é a única fonte da verdade, automatizando a geração de tipos no CI com npm run typegen."
+    },
+    {
+      "challenge": "Alta concorrência no incremento do contador de participantes ('Eu Vou!') em horários de pico.",
+      "solution": "Implementação de operações atômicas no PostgreSQL através de Remote Procedure Calls (RPC increment_attendees)."
+    }
+  ],
+  "architectureDiagramMermaid": "flowchart TD\n    classDef client fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;\n    classDef backend fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#166534;\n    classDef ai fill:#f3e8ff,stroke:#9333ea,stroke-width:2px,color:#6b21a8;\n    subgraph Client [\"PWA Mobile-First\"]\n        FE[\"React 19 + Tailwind v4\"]:::client\n    end\n    subgraph Backend [\"Supabase Backend\"]\n        DB[(\"PostgreSQL 14\")]:::backend\n        RPC[\"RPC Atômica\"]:::backend\n    end\n    subgraph AI [\"Pipeline Ingestão IA\"]\n        Ollama[\"Ollama Local\"]\n        Gemini[\"Gemini Cloud\"]\n    end\n    FE --> DB\n    FE --> RPC --> DB\n    Ollama --> DB\n    Gemini --> DB",
+  "metrics": [
+    "Contador de presença 100% à prova de concorrência via RPCs atômicas",
+    "Zero fricção no compartilhamento social via Web Share API",
+    "Automação completa da ingestão de eventos com IA eliminando cadastro manual"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control",
+      "description": "Proteção de endpoints administrativos e de ingestão por token de autorização estrito na URL e headers."
+    },
+    {
+      "code": "A09:2021",
+      "title": "Security Logging and Monitoring Failures",
+      "description": "Captura e persistência estruturada de erros do cliente na tabela client_errors sem expor stack traces aos usuários."
+    }
+  ]
+}

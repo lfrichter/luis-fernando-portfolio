@@ -109,6 +109,11 @@ const PROJECT_MAPPINGS = [
   { id: 'huktup', detailKey: 'huktup', match: 'Project - Huktup.md' },
   { id: 'air-combat-3d', detailKey: 'air_combat_3d', match: 'Side Project - Air Combat 3D.md' },
   { id: 'web3-react-dapp', detailKey: 'web3_react_dapp', match: 'Side Project - Web3 React dApp Prototype.md' },
+  { id: 'ai-agent-tester', detailKey: 'ai_agent_tester', match: 'Side Project - Ai Tester Agent.md' },
+  { id: 'forroja', detailKey: 'forroja', match: 'Side Project - Forró Já.md' },
+  { id: 'hono-task-manager', detailKey: 'hono_task_manager', match: 'Side Project - Hono & Bun Starter Kit.md' },
+  { id: 'omnishell', detailKey: 'omnishell', match: 'Side Project - OmniShell.md' },
+  { id: 'supabase-backups', detailKey: 'supabase_backups', match: 'Side Project - Supabase Backups.md' },
 ];
 
 // 1. Coleta e filtragem por site_publish: true
@@ -201,8 +206,8 @@ function syncProjectsMetadata() {
       }
     }
 
-    // Sincronização de url_website -> liveUrl
-    const targetLiveUrl = fm.url_website || fm.liveUrl;
+    // Sincronização de url_website / website -> liveUrl
+    const targetLiveUrl = fm.url_website || fm.liveUrl || fm.website;
     if (targetLiveUrl) {
       const formattedLiveUrl = targetLiveUrl.startsWith('http') ? targetLiveUrl : `https://${targetLiveUrl}`;
       if (ptItem && ptItem.liveUrl !== formattedLiveUrl) {
@@ -216,17 +221,37 @@ function syncProjectsMetadata() {
       }
     }
 
-    // Sincronização de github -> githubUrl
-    const targetGithub = fm.github || fm.githubUrl;
-    if (targetGithub) {
-      if (ptItem && ptItem.githubUrl !== targetGithub) {
-        console.log(`[SYNC:GITHUB] ${mapping.id}: ${ptItem.githubUrl} -> ${targetGithub}`);
-        ptItem.githubUrl = targetGithub;
+    // Sincronização de github -> githubUrl (apenas se não for privado)
+    if (fm.access === 'private') {
+      if (ptItem && ptItem.githubUrl) {
+        delete ptItem.githubUrl;
         summaryChanged = true;
       }
-      if (enItem && enItem.githubUrl !== targetGithub) {
-        enItem.githubUrl = targetGithub;
+      if (enItem && enItem.githubUrl) {
+        delete enItem.githubUrl;
         summaryChanged = true;
+      }
+      for (const item of [ptItem, enItem]) {
+        if (item && Array.isArray(item.secondaryCategories)) {
+          const prevLen = item.secondaryCategories.length;
+          item.secondaryCategories = item.secondaryCategories.filter(cat => cat !== 'PoC & Open Source');
+          if (item.secondaryCategories.length !== prevLen) {
+            summaryChanged = true;
+          }
+        }
+      }
+    } else {
+      const targetGithub = fm.github || fm.githubUrl;
+      if (targetGithub) {
+        if (ptItem && ptItem.githubUrl !== targetGithub) {
+          console.log(`[SYNC:GITHUB] ${mapping.id}: ${ptItem.githubUrl} -> ${targetGithub}`);
+          ptItem.githubUrl = targetGithub;
+          summaryChanged = true;
+        }
+        if (enItem && enItem.githubUrl !== targetGithub) {
+          enItem.githubUrl = targetGithub;
+          summaryChanged = true;
+        }
       }
     }
   }

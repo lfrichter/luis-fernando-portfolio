@@ -1,0 +1,52 @@
+{
+  "id": "ai-agent-tester",
+  "title": "AI Agent Tester",
+  "subtitle": "Oráculo Automatizado de Testes e Homologação de LLMs",
+  "category": "AI/LLM",
+  "secondaryCategories": [
+    "Backend API"
+  ],
+  "tier": 3,
+  "year": 2026,
+  "summary": "Oráculo automatizado em Python para validação determinística de respostas de LLMs em lote com keyword matching, telemetria em JSON e isolamento Zero Trust de segredos.",
+  "techStack": [
+    "Python",
+    "OpenAI API",
+    "unittest",
+    "CSV Batching",
+    "Structured Logging"
+  ],
+  "featured": false,
+  "detailKey": "ai_agent_tester",
+  "overview": "Validar o comportamento de agentes de Inteligência Artificial em larga escala pode se transformar rapidamente em um pesadelo logístico. O AI Agent Tester nasce exatamente dessa dor: é um oráculo automatizado focado em estressar, verificar e homologar as respostas de agentes de IA de forma determinística e auditável.",
+  "roleDescription": "Arquiteto de Solução e Engenheiro de QA.",
+  "responsibilities": [
+    "Desenho da arquitetura de fluxo de dados e orquestração de testes em lote via OpenAI API.",
+    "Criação das suítes de validação léxica determinística e parametrização do modelo via CSV.",
+    "Implementação do runner central em Python 3.10 com sanitização de respostas e integração com unittest."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Validar com previsibilidade respostas geradas por modelos de linguagem que possuem natureza probabilística e não-determinística.",
+      "solution": "Implementação de um motor ágil de inferência léxica com checagem de palavras-chave alvo obrigatórias, transformando verificação semântica complexa em avaliação binária determinística."
+    }
+  ],
+  "architectureDiagramMermaid": "flowchart TD\n    classDef input fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0369a1;\n    classDef engine fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#92400e;\n    classDef ai fill:#f3e8ff,stroke:#9333ea,stroke-width:2px,color:#6b21a8;\n    classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#166534;\n    subgraph InputLayer [\"Camada de Entrada\"]\n        CSV[\"prompts.csv (Casos de Teste)\"]:::input\n    end\n    subgraph CoreEngine [\"Engine Python 3.10\"]\n        Runner[\"Test Runner (main.py)\"]:::engine\n        Matcher[\"Keyword Matcher\"]\n    end\n    subgraph AILayer [\"OpenAI API\"]\n        GPT[\"GPT Models\"]\n    end\n    subgraph OutputLayer [\"Telemetria\"]\n        Log[\"report.log (JSON Auditável)\"]:::output\n    end\n    CSV --> Runner\n    Runner --> GPT\n    GPT --> Matcher\n    Matcher --> Log",
+  "metrics": [
+    "100% de automação nas validações de base sem necessidade de inspeção manual",
+    "Padronização de relatórios auditáveis em JSON para integração em pipelines de CI/CD",
+    "Suíte de testes unitários nativa garantindo cobertura contra regressões internas"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A02:2021",
+      "title": "Cryptographic Failures / Secrets Management",
+      "description": "Isolamento absoluto de chaves de API (OPENAI_API_KEY) via variáveis de ambiente e arquivo .env restrito fora do repositório."
+    },
+    {
+      "code": "A03:2021",
+      "title": "Injection",
+      "description": "Tratamento seguro e sanitização rigorosa de entradas e respostas para prevenir corrupção estrutural nos relatórios JSON."
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "supabase-backups",
+  "title": "Supabase Backup Automático Multi-Projetos",
+  "subtitle": "Automação Resiliente de Backup Lógico com Smart Retry & Auto-Limpeza",
+  "category": "DevOps & Cloud",
+  "secondaryCategories": [
+    "PoC & Open Source",
+    "Backend API"
+  ],
+  "tier": 3,
+  "year": 2026,
+  "summary": "Sistema de backup modular em Bash e pg_dump com arquitetura Smart Retry, pre-flight check TCP com Netcat, verificação diária de duplicidade e retenção automatizada.",
+  "techStack": [
+    "Bash",
+    "pg_dump",
+    "PostgreSQL",
+    "Supabase",
+    "Netcat (nc)",
+    "macOS Cron",
+    "AppleScript"
+  ],
+  "featured": false,
+  "githubUrl": "https://github.com/lfrichter/supabase-backup",
+  "detailKey": "supabase_backups",
+  "overview": "O Supabase Backup Automático é uma solução modular e resiliente desenvolvida em Shell Script (Bash) para garantir a retenção contínua e segura de bancos de dados PostgreSQL hospedados no Supabase. Diferente de rotinas convencionais que executam cegamente e geram artefatos corrompidos em caso de oscilações de rede, a solução conta com inteligência Smart Retry: valida previamente a conectividade TCP via Netcat, checa duplicidade diária para economizar disco e banda, gerencia arquivos .env isolados por projeto e realiza auto-limpeza imediata em caso de falhas durante o streaming do dump.",
+  "roleDescription": "Arquiteto de Solução, DevOps & Engenheiro de Automação.",
+  "responsibilities": [
+    "Idealização do padrão Smart Retry e desenho do fluxo de contingência e mitigação de falhas de rede.",
+    "Desenvolvimento de scripts modulares em Bash para varredura de diretórios, validação TCP e execução de pg_dump.",
+    "Configuração de orquestração via Cron no macOS com janelas horárias flexíveis e integração com notificações visuais.",
+    "Implementação de políticas de rotação e retenção automatizada de artefatos com ciclo de vida customizável por projeto."
+  ],
+  "challengesAndSolutions": [
+    {
+      "challenge": "Lidar com a imprevisibilidade de ambientes de execução locais (suspensão do notebook, oscilações de Wi-Fi e reinicializações).",
+      "solution": "Combinação de janela horária contínua no Crontab (0 8-23 * * *) com checagem atômica de existência do backup do dia, garantindo tentativas automáticas sem duplicidade."
+    },
+    {
+      "challenge": "Prevenir a gravação e acúmulo de arquivos SQL corrompidos ou parciais durante quedas repentinas de conexão com o banco.",
+      "solution": "Implementação de pre-flight check com Netcat (nc) antes do dump e rotina de auto-limpeza que deleta imediatamente o snapshot corrompido em caso de erro no processo."
+    }
+  ],
+  "architectureDiagramMermaid": "flowchart TD\n    Cron[\"⏰ Crontab macOS (0 8-23 * * *)\"] --> BackupAll[\"🐚 scripts/backup_all.sh\"]\n    BackupAll --> CheckDaily{\"📅 Existe backup hoje?\"}\n    CheckDaily -- Sim --> Skip[\"⚡ Pula Projeto (Economiza banda)\"]\n    CheckDaily -- Não --> CheckTCP{\"🔌 Netcat (nc) TCP OK?\"}\n    CheckTCP -- Falha --> LogError[\"⚠️ Log de Erro / Próximo ciclo\"]\n    CheckTCP -- OK --> PgDump[\"🐘 Executa pg_dump\"]\n    PgDump --> CheckDump{\"💾 Dump Concluído?\"}\n    CheckDump -- OK --> SuccessClean[\"✅ Limpa > RETENTION_DAYS e Notifica\"]\n    CheckDump -- Erro --> Rollback[\"🗑️ Auto-Limpeza / Deleta .sql parcial\"]",
+  "metrics": [
+    "100% de automação diária sem intervenção manual para múltiplos projetos produtivos",
+    "Zero lixo ou arquivos corrompidos no file system graças à auto-limpeza imediata",
+    "Economia drástica de banda e I/O com checagem antecipada de duplicidade",
+    "Gestão atômica de retenção de 15 dias com descarte automático de dumps obsoletos"
+  ],
+  "owaspMitigations": [
+    {
+      "code": "A01:2021",
+      "title": "Broken Access Control & Credential Leaks",
+      "description": "Isolamento estrito de credenciais através de arquivos .env dinâmicos por projeto, devidamente ignorados pelo controle de versão."
+    },
+    {
+      "code": "A05:2021",
+      "title": "Security Misconfiguration & Backup Integrity",
+      "description": "Blindagem de integridade garantida por testes prévios de rede e validação atômica pós-dump, assegurando restauração confiável."
+    }
+  ]
+}
